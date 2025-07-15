@@ -69,7 +69,7 @@ body {
     color: #000;
     text-align: center;
     position: relative;
-    border-bottom: 1px solid #000;
+    /* border-bottom: 1px solid #000; */
 }
 
 .cover h1 {
@@ -134,7 +134,91 @@ body {
 }
 
 /* Story Sections */
-.story-section {
+
+/*
+--------------------
+--------------------
+    STICKY
+--------------------
+--------------------*/
+
+.sticky-bg {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+  }
+
+  .captions {
+    /* position: absolute;
+    top: 50vh;
+    width: 100%;
+    height: 300vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20vh 0;
+    z-index: 1000; */
+    width: 45%;
+    padding: 6rem;
+  }
+
+  .caption {
+    /* width: 400px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem; */
+    min-height: 100vh; /* Each section takes up full viewport height */
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    line-height: 1.5;
+
+  }
+
+  /* Right fixed graphic */
+.graphic {
+    width: 55%;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 1rem;
+  }
+
+#intro .story-section {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#intro .section-content {
+    display: flex;
+    position: relative;
+    width:100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+  /*
+--------------------
+--------------------
+   STORY SECTION
+--------------------
+--------------------*/
+/* .story-section {
     min-height: 100vh;
     padding: 6rem 2rem 2rem;
     max-width: 1200px;
@@ -145,13 +229,13 @@ body {
 
 .section-content {
     width: 100%;
-}
+} */
 
 .section-header {
     font-size: 1.5rem;
     color: #000;
     margin-bottom: 2rem;
-    border-bottom: 1px solid #000;
+    /* border-bottom: 1px solid #000; */
     padding-bottom: 1rem;
     font-weight: normal;
 }
@@ -161,6 +245,20 @@ body {
     line-height: 1.8;
     margin-bottom: 2rem;
 }
+
+/*
+--------------------
+--------------------
+    INTR0
+--------------------
+--------------------*/
+
+.intro {
+    height: 400vh;
+}
+
+
+
 
 /* Supply Chain Visualization */
 .supply-chain {
@@ -463,3 +561,5 @@ body {
 .tooltip.visible {
     opacity: 1;
 }
+
+

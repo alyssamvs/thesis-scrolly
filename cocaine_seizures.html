@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocaine Seizure Data</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #000;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .explanation {
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-left: 3px solid #000;
+        }
+
+        .explanation p {
+            margin-bottom: 0.5rem;
+        }
+
+        .controls {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .control-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .control-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .control-label {
+            font-size: 0.8rem;
+            font-weight: bold;
+            min-width: 120px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .button-group {
+            display: flex;
+            border: 1px solid #000;
+        }
+
+        .btn {
+            padding: 0.3rem 0.8rem;
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            border-right: 1px solid #000;
+            transition: background 0.2s;
+        }
+
+        .btn:last-child {
+            border-right: none;
+        }
+
+        .btn:hover {
+            background: #f0f0f0;
+        }
+
+        .btn.active {
+            background: #000;
+            color: #fff;
+        }
+
+        .time-slider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        input[type="range"] {
+            width: 300px;
+        }
+
+        .time-display {
+            font-size: 0.75rem;
+            color: #666;
+            min-width: 80px;
+        }
+
+        select {
+            padding: 0.3rem;
+            border: 1px solid #000;
+            background: #fff;
+            font-size: 0.75rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        #country-select {
+            width: 200px;
+            height: 80px;
+        }
+
+        .chart-container {
+            border: 1px solid #000;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .status {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: #fff;
+            border: 1px solid #000;
+            padding: 0.5rem;
+            font-size: 0.7rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            z-index: 1000;
+        }
+
+        .axis-label {
+            font-size: 0.7rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .line {
+            fill: none;
+            stroke: #000;
+            stroke-width: 1.5;
+        }
+
+        .line:hover {
+            stroke-width: 2;
+        }
+
+        .isolated-dot {
+            fill: #000;
+            stroke: #fff;
+            stroke-width: 0.5;
+        }
+
+        .isolated-dot:hover {
+            r: 4;
+        }
+
+        .legend {
+            font-size: 0.7rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .legend-item {
+            cursor: pointer;
+        }
+
+        .legend-item:hover text {
+            font-weight: bold;
+        }
+
+        .legend-item rect {
+            fill: #000;
+        }
+
+        .axis {
+            font-size: 0.7rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .grid line {
+            stroke: #ddd;
+            stroke-width: 0.5;
+        }
+
+        .grid path {
+            stroke-width: 0;
+        }
+
+        .data-note {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .control-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .control-label {
+                min-width: auto;
+            }
+            
+            #country-select {
+                width: 100%;
+            }
+            
+            input[type="range"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Cocaine Seizure Data</h1>
+    <p class="subtitle">Monthly and yearly seizure patterns across selected countries, 2018-2024</p>
+    
+    <div class="explanation">
+        <p>This visualization shows cocaine seizure data with attention to data continuity. Solid lines indicate consecutive reporting periods, while isolated dots represent sporadic data points with gaps between them.</p>
+        <p>Colombia's seizures are typically orders of magnitude larger than other countries, reflecting its role as a major producer. When included, it uses a separate scale to maintain visibility of other countries' patterns.</p>
+    </div>
+
+    <div class="controls">
+        <div class="control-row">
+            <span class="control-label">Time view</span>
+            <div class="button-group">
+                <button class="btn active" id="monthly-btn">Monthly</button>
+                <button class="btn" id="yearly-btn">Yearly</button>
+            </div>
+        </div>
+
+        <div class="control-row">
+            <span class="control-label">Colombia</span>
+            <label>
+                <input type="checkbox" id="colombia-checkbox" checked>
+                Include (separate scale)
+            </label>
+        </div>
+
+        <div class="control-row">
+            <span class="control-label">Time range</span>
+            <input type="range" id="start-year" min="2018" max="2024" value="2018">
+            <span class="time-display" id="time-display">2018 - 2024</span>
+            <input type="range" id="end-year" min="2018" max="2024" value="2024">
+        </div>
+
+        <div class="control-row">
+            <span class="control-label">Countries</span>
+            <select id="country-select" multiple>
+                <!-- Populated by JavaScript -->
+            </select>
+        </div>
+    </div>
+
+    <div class="status" id="status">Loading data...</div>
+
+    <div class="chart-container">
+        <div id="chart"></div>
+    </div>
+
+    <p class="data-note">
+        Data represents aggregated monthly seizures by country. Gaps in lines indicate periods with no recorded seizures.
+    </p>
+
+    <script>
+        class SeizureChart {
+            constructor(containerId) {
+                this.containerId = containerId;
+                this.data = [];
+                this.currentView = 'monthly';
+                this.includeColombia = true;
+                this.timeRange = [2018, 2024];
+                this.selectedCountries = [];
+                
+                this.margin = { top: 20, right: 120, bottom: 40, left: 60 };
+                this.width = 800 - this.margin.left - this.margin.right;
+                this.height = 400 - this.margin.top - this.margin.bottom;
+                
+                this.init();
+            }
+
+            init() {
+                this.setupChart();
+                this.setupControls();
+                this.loadData();
+            }
+
+            setupChart() {
+                const container = d3.select(this.containerId);
+                
+                this.svg = container.append('svg')
+                    .attr('width', this.width + this.margin.left + this.margin.right)
+                    .attr('height', this.height + this.margin.top + this.margin.bottom);
+
+                this.g = this.svg.append('g')
+                    .attr('transform', `translate(${this.margin.left},${this.margin.top})`);
+
+                this.xScale = d3.scaleTime().range([0, this.width]);
+                this.yScale = d3.scaleLinear().range([this.height, 0]);
+
+                this.xAxis = this.g.append('g')
+                    .attr('class', 'axis x-axis')
+                    .attr('transform', `translate(0,${this.height})`);
+
+                this.yAxis = this.g.append('g')
+                    .attr('class', 'axis y-axis');
+
+                // Add grid
+                this.xGrid = this.g.append('g')
+                    .attr('class', 'grid')
+                    .attr('transform', `translate(0,${this.height})`);
+
+                this.yGrid = this.g.append('g')
+                    .attr('class', 'grid');
+
+                this.g.append('text')
+                    .attr('class', 'axis-label')
+                    .attr('transform', 'rotate(-90)')
+                    .attr('y', 0 - this.margin.left)
+                    .attr('x', 0 - (this.height / 2))
+                    .attr('dy', '1em')
+                    .style('text-anchor', 'middle')
+                    .text('Cocaine seized (kg)');
+
+                this.g.append('text')
+                    .attr('class', 'axis-label')
+                    .attr('transform', `translate(${this.width / 2}, ${this.height + 35})`)
+                    .style('text-anchor', 'middle')
+                    .text('Date');
+
+                this.tooltip = d3.select('body').append('div')
+                    .attr('class', 'tooltip');
+
+                this.legend = this.svg.append('g')
+                    .attr('class', 'legend')
+                    .attr('transform', `translate(${this.width + this.margin.left + 10}, ${this.margin.top})`);
+            }
+
+            setupControls() {
+                d3.select('#monthly-btn').on('click', () => this.switchView('monthly'));
+                d3.select('#yearly-btn').on('click', () => this.switchView('yearly'));
+
+                d3.select('#colombia-checkbox').on('change', (event) => {
+                    this.includeColombia = event.target.checked;
+                    this.updateChart();
+                });
+
+                d3.select('#start-year').on('input', (event) => {
+                    this.timeRange[0] = +event.target.value;
+                    this.updateTimeDisplay();
+                    this.updateChart();
+                });
+
+                d3.select('#end-year').on('input', (event) => {
+                    this.timeRange[1] = +event.target.value;
+                    this.updateTimeDisplay();
+                    this.updateChart();
+                });
+
+                d3.select('#country-select').on('change', (event) => {
+                    this.selectedCountries = Array.from(event.target.selectedOptions, option => option.value);
+                    this.updateChart();
+                });
+            }
+
+            async loadData() {
+                try {
+                    const csvData = await d3.csv('./data/seizures_cocaine_filtered.csv');
+                    this.data = csvData.map(d => {
+                        const date = d3.timeParse('%Y-%m-%d')(d['Seizure Date']);
+                        if (!date) return null;
+                        
+                        return {
+                            date: date,
+                            country: d['Country/Territory of Seizure'],
+                            substance: d['Drug/Substance'],
+                            quantity: this.convertToKg(+d['Quantity Seized'], d['Measurement Unit'])
+                        };
+                    }).filter(d => d && d.quantity > 0);
+
+                    this.populateCountrySelect();
+                    this.updateChart();
+                    this.updateStatus(`Loaded ${this.data.length} seizure records`);
+                } catch (error) {
+                    console.error('Error loading data:', error);
+                    this.updateStatus('Error loading data. Please check the file path.');
+                }
+            }
+
+            convertToKg(quantity, unit) {
+                const unitLower = unit.toLowerCase();
+                if (unitLower.includes('kg')) return quantity;
+                if (unitLower.includes('g') && !unitLower.includes('kg')) return quantity / 1000;
+                if (unitLower.includes('ton')) return quantity * 1000;
+                return quantity;
+            }
+
+            populateCountrySelect() {
+                const countries = [...new Set(this.data.map(d => d.country))].sort();
+                const select = d3.select('#country-select');
+                
+                select.selectAll('option').remove();
+                select.selectAll('option')
+                    .data(countries)
+                    .enter()
+                    .append('option')
+                    .attr('value', d => d)
+                    .text(d => d);
+            }
+
+            switchView(view) {
+                this.currentView = view;
+                d3.select('#monthly-btn').classed('active', view === 'monthly');
+                d3.select('#yearly-btn').classed('active', view === 'yearly');
+                this.updateChart();
+            }
+
+            updateTimeDisplay() {
+                d3.select('#time-display').text(`${this.timeRange[0]} - ${this.timeRange[1]}`);
+            }
+
+            aggregateData() {
+                let timeFormat, timeParser;
+                
+                if (this.currentView === 'monthly') {
+                    timeFormat = d3.timeFormat('%Y-%m');
+                    timeParser = d3.timeParse('%Y-%m');
+                } else {
+                    timeFormat = d3.timeFormat('%Y');
+                    timeParser = d3.timeParse('%Y');
+                }
+
+                let filteredData = this.data.filter(d => {
+                    const year = d.date.getFullYear();
+                    const inTimeRange = year >= this.timeRange[0] && year <= this.timeRange[1];
+                    const inCountryFilter = this.selectedCountries.length === 0 || this.selectedCountries.includes(d.country);
+                    const colombiaFilter = this.includeColombia || !d.country.toLowerCase().includes('colombia');
+                    
+                    return inTimeRange && inCountryFilter && colombiaFilter;
+                });
+
+                const nested = d3.group(filteredData, d => d.country, d => timeFormat(d.date));
+                
+                const aggregated = [];
+                for (const [country, timeGroups] of nested) {
+                    for (const [timeStr, records] of timeGroups) {
+                        aggregated.push({
+                            country,
+                            date: timeParser(timeStr),
+                            quantity: d3.sum(records, d => d.quantity),
+                            count: records.length
+                        });
+                    }
+                }
+
+                return aggregated;
+            }
+
+            findContinuousSegments(data) {
+                if (data.length === 0) return [];
+
+                data.sort((a, b) => a.date - b.date);
+                const segments = [];
+                let currentSegment = [data[0]];
+
+                for (let i = 1; i < data.length; i++) {
+                    const current = data[i];
+                    const previous = data[i - 1];
+                    
+                    let isConsecutive = false;
+                    if (this.currentView === 'monthly') {
+                        const diffMonths = (current.date.getFullYear() - previous.date.getFullYear()) * 12 + 
+                                         (current.date.getMonth() - previous.date.getMonth());
+                        isConsecutive = diffMonths === 1;
+                    } else {
+                        isConsecutive = current.date.getFullYear() - previous.date.getFullYear() === 1;
+                    }
+
+                    if (isConsecutive) {
+                        currentSegment.push(current);
+                    } else {
+                        segments.push(currentSegment);
+                        currentSegment = [current];
+                    }
+                }
+                
+                segments.push(currentSegment);
+                return segments;
+            }
+
+            updateChart() {
+                const aggregatedData = this.aggregateData();
+                const countriesData = d3.group(aggregatedData, d => d.country);
+                
+                // Separate Colombia for scaling
+                const colombiaData = Array.from(countriesData.entries()).filter(([country]) => 
+                    country.toLowerCase().includes('colombia'));
+                const otherData = Array.from(countriesData.entries()).filter(([country]) => 
+                    !country.toLowerCase().includes('colombia'));
+
+                const xExtent = d3.extent(aggregatedData, d => d.date);
+                let yExtent;
+                
+                if (colombiaData.length > 0 && otherData.length > 0) {
+                    const otherQuantities = otherData.flatMap(([, data]) => data.map(d => d.quantity));
+                    yExtent = [0, d3.max(otherQuantities)];
+                } else {
+                    yExtent = [0, d3.max(aggregatedData, d => d.quantity)];
+                }
+                
+                this.xScale.domain(xExtent || [new Date(2018, 0, 1), new Date(2024, 11, 31)]);
+                this.yScale.domain(yExtent || [0, 100]);
+
+                this.xAxis.call(d3.axisBottom(this.xScale)
+                    .tickFormat(this.currentView === 'monthly' ? 
+                               d3.timeFormat('%Y-%m') : d3.timeFormat('%Y')));
+                
+                this.yAxis.call(d3.axisLeft(this.yScale));
+
+                this.xGrid.call(d3.axisBottom(this.xScale)
+                    .tickSize(-this.height)
+                    .tickFormat(''));
+
+                this.yGrid.call(d3.axisLeft(this.yScale)
+                    .tickSize(-this.width)
+                    .tickFormat(''));
+
+                this.g.selectAll('.country-group').remove();
+                this.drawCountryLines(countriesData);
+                this.updateLegend(countriesData);
+                this.updateStatus(`${aggregatedData.length} data points, ${countriesData.size} countries`);
+            }
+
+            drawCountryLines(countriesData) {
+                const countryGroups = this.g.selectAll('.country-group')
+                    .data(countriesData)
+                    .enter()
+                    .append('g')
+                    .attr('class', 'country-group');
+
+                countryGroups.each((countryData, i, nodes) => {
+                    const group = d3.select(nodes[i]);
+                    const [country, data] = countryData;
+                    const isColombia = country.toLowerCase().includes('colombia');
+                    
+                    const segments = this.findContinuousSegments(data);
+                    
+                    segments.forEach(segment => {
+                        if (segment.length > 1) {
+                            const line = d3.line()
+                                .x(d => this.xScale(d.date))
+                                .y(d => this.yScale(d.quantity))
+                                .curve(d3.curveMonotoneX);
+
+                            group.append('path')
+                                .datum(segment)
+                                .attr('class', 'line')
+                                .attr('d', line);
+                        }
+                    });
+
+                    const isolatedPoints = segments.filter(segment => segment.length === 1).flat();
+                    
+                    group.selectAll('.isolated-dot')
+                        .data(isolatedPoints)
+                        .enter()
+                        .append('circle')
+                        .attr('class', 'isolated-dot')
+                        .attr('cx', d => this.xScale(d.date))
+                        .attr('cy', d => this.yScale(d.quantity))
+                        .attr('r', 2);
+
+                    group.selectAll('.interaction-circle')
+                        .data(data)
+                        .enter()
+                        .append('circle')
+                        .attr('class', 'interaction-circle')
+                        .attr('cx', d => this.xScale(d.date))
+                        .attr('cy', d => this.yScale(d.quantity))
+                        .attr('r', 6)
+                        .attr('fill', 'transparent')
+                        .on('mouseover', (event, d) => {
+                            this.tooltip
+                                .style('opacity', 1)
+                                .html(`
+                                    <strong>${d.country}</strong><br/>
+                                    ${this.currentView === 'monthly' ? 
+                                      d3.timeFormat('%Y-%m')(d.date) : 
+                                      d3.timeFormat('%Y')(d.date)}<br/>
+                                    ${d.quantity.toFixed(1)} kg<br/>
+                                    ${d.count} seizures
+                                `)
+                                .style('left', (event.pageX + 10) + 'px')
+                                .style('top', (event.pageY - 10) + 'px');
+                        })
+                        .on('mouseout', () => {
+                            this.tooltip.style('opacity', 0);
+                        });
+                });
+            }
+
+            updateLegend(countriesData) {
+                const legendItems = this.legend.selectAll('.legend-item')
+                    .data(countriesData);
+
+                legendItems.exit().remove();
+
+                const legendEnter = legendItems.enter()
+                    .append('g')
+                    .attr('class', 'legend-item')
+                    .attr('transform', (d, i) => `translate(0, ${i * 16})`);
+
+                legendEnter.append('rect')
+                    .attr('width', 10)
+                    .attr('height', 10);
+
+                legendEnter.append('text')
+                    .attr('x', 15)
+                    .attr('y', 8)
+                    .text(d => d[0]);
+            }
+
+            updateStatus(message) {
+                d3.select('#status').text(message);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const chart = new SeizureChart('#chart');
+            window.seizureChart = chart;
+        });
+    </script>
+</body>
+</html>

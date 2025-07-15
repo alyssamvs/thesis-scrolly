@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Carrot or the Stick: Mapping Drug Policy Strictness</title>
+    <title>Visualising Drug Policy Strictness</title>
     <link rel="stylesheet" href="./css/main.css" />
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script defer src="./javascript/main.js"></script>
@@ -11,10 +11,14 @@
         
 </head>
 <body>
-    <!-- Header Navigation -->
+<!-------------------------
+---------------------------
+    Header Navigation (this should disappear in the hero)
+---------------------------
+---------------------------->
     <header class="header">
         <div class="nav-container">
-            <div class="logo">Drug Policy Index</div>
+            <div class="logo">:</div>
             <div class="nav-buttons">
                 <button class="nav-btn" onclick="goToSection('story')">Story Mode</button>
                 <button class="nav-btn" onclick="goToSection('dashboard')">Dashboard</button>
@@ -22,15 +26,24 @@
         </div>
     </header>
 
-    <!-- Progress Bar -->
+<!-------------------------
+---------------------------
+    PROGRESS BAR 
+---------------------------
+---------------------------->
     <div class="progress-bar" id="progressBar"></div>
 
-    <!-- Cover Section -->
+<!------------------------
+    ----------------------
+    HERO TITLE (full-page) 
+--------------------------
+---------------------------->
+
     <section class="cover" id="cover">
-        <h1>The Carrot or the Stick</h1>
-        <div class="subtitle">Mapping the strictness of law enforcement policies across Europe and the Americas</div>
+        <h1>(title)</h1>
+        <div class="subtitle">Visualising the impact of repressive drug-related policies on the global cocaine trade.</div>
         <div class="description">
-            An interactive exploration of drug policy effectiveness through data visualization, examining the correlation between policy strictness and enforcement outcomes in cocaine trafficking control.
+            (description?)
         </div>
         <div class="mode-buttons">
             <button class="mode-btn" onclick="startStoryMode()">Story Mode</button>
@@ -41,7 +54,39 @@
         </div>
     </section>
 
-    <!-- Story Sections -->
+<!-- ---------------------
+    ----------------------
+    SCROLLY SECTION 
+--------------------------
+---------------------------->
+
+    <!-- SECTION 1 - INTRO -->
+
+    <section class="story-section intro" id="intro">
+        <div class="section-content">
+             <div class="captions">
+                <div class="caption">
+                  <p>In January, 1912, the first treaty to establish drug prohibitions at the international level was approved in the Hague.</p>
+                </div>
+                
+                <div class="caption">
+                  <p>  Made under the auspices of the League of Nations, countries agreed to 'perform their best efforts to control the manufacture, import, sale, distribution and export of morphine, cocaine, and their derivatives'. </p>
+                </div>
+                
+                <div class="caption">
+                  <p>In most cases, though, those 'best efforts' were few and far between, and even by its signatories, the treaty was largely ignored. </p>
+                </div>
+              </div>
+    <!-- Right pinned graphic area -->
+            <div class="graphic" id="graphic-container">
+                <!-- D3.js chart or image will go here -->
+                <p>Graph will go here</p>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- SECTION 1 - SUPPLY CHAIN -->
     <section class="story-section supply-chain" id="supply-chain">
         <div class="section-content">
             <h2 class="section-header">1. Meet X: The Supply Chain Journey</h2>
@@ -200,6 +245,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!-- Dashboard Section -->
     <section class="dashboard" id="dashboard">
