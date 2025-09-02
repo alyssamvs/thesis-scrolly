@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>law in books</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #000;
+            padding-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .header p {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .controls-section {
+            border: 1px solid #000;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .controls-section h3 {
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.5rem;
+        }
+
+        .component-controls {
+            margin-bottom: 2rem;
+        }
+
+        .component-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #000;
+            cursor: pointer;
+            background: #f9f9f9;
+        }
+
+        .component-header.expanded {
+            background: #f0f0f0;
+        }
+
+        .component-weight {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .slider {
+            width: 150px;
+            height: 20px;
+    
+            background: #fff;
+            border: 1px solid #000;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #000;
+            cursor: pointer;
+        }
+
+        .variable-controls {
+            display: none;
+            padding: 1rem;
+            border-left: 2px solid #000;
+            margin-left: 1rem;
+            background: #fafafa;
+        }
+
+        .variable-controls.visible {
+            display: block;
+        }
+
+        .variable-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .variable-weight {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .variable-slider {
+            width: 100px;
+            height: 15px;
+        }
+
+        .expand-indicator {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .component-header.expanded .expand-indicator {
+            transform: rotate(180deg);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .ranking-section, .analysis-section {
+            border: 1px solid #000;
+            padding: 1.5rem;
+        }
+
+        .ranking-section h3, .analysis-section h3 {
+            margin-bottom: 1rem;
+            font-weight: normal;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.5rem;
+        }
+
+        .country-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .country-item:hover {
+            background: #f9f9f9;
+        }
+
+        .country-item.selected {
+            background: #f0f0f0;
+            border-color: #000;
+        }
+
+        .country-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .rank-number {
+            font-weight: bold;
+            min-width: 20px;
+        }
+
+        .component-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ddd;
+        }
+
+        .component-bar {
+            width: 100px;
+            height: 15px;
+            border: 1px solid #000;
+            background: #fff;
+            position: relative;
+        }
+
+        .component-fill {
+            height: 100%;
+            background: #000;
+            transition: width 0.3s ease;
+        }
+
+        .reset-button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .reset-button:hover {
+            background: #333;
+        }
+
+        .methodology {
+            border: 1px solid #000;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .methodology h3 {
+            margin-bottom: 1rem;
+            font-weight: normal;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.5rem;
+        }
+
+        .methodology p {
+            margin-bottom: 1rem;
+        }
+
+        .formula-box {
+            background: #f9f9f9;
+            border: 1px solid #000;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: monospace;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>law in books</h1>
+            <p>measuring the extent to which cocaine is criminalised, and the harshness of the criminal sentences that apply to it.</p>
+        </div>
+
+        <div class="controls-section">
+            <h3>Component Weights</h3>
+            
+            <div class="component-controls">
+                <div class="component-header" onclick="toggleComponent('criminalization')">
+                    <span>Criminalization Scope</span>
+                    <div class="component-weight">
+                        <input type="range" id="weight-criminalization" class="slider" min="0" max="100" value="40">
+                        <span id="weight-criminalization-display">40%</span>
+                        <span class="expand-indicator">▼</span>
+                    </div>
+                </div>
+                <div class="variable-controls" id="variables-criminalization">
+                    <div class="variable-item">
+                        <span>Use Criminalization</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="use-criminal">
+                            <span>33.3%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Possession Criminalization</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="possession-criminal">
+                            <span>33.3%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>No Personal Use Exemption</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="no-personal-exemption">
+                            <span>33.3%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-controls">
+                <div class="component-header" onclick="toggleComponent('penalty')">
+                    <span>Penalty Severity</span>
+                    <div class="component-weight">
+                        <input type="range" id="weight-penalty" class="slider" min="0" max="100" value="60">
+                        <span id="weight-penalty-display">60%</span>
+                        <span class="expand-indicator">▼</span>
+                    </div>
+                </div>
+                <div class="variable-controls" id="variables-penalty">
+                    <div class="variable-item">
+                        <span>Maximum Possession Sentence</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="max-possession">
+                            <span>33.3%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Maximum Supply Sentence</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="max-supply">
+                            <span>33.3%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Mandatory Minimum Sentences</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="mandatory-minimums">
+                            <span>33.3%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="reset-button" onclick="resetWeights()">Reset to Default (40/60)</button>
+        </div>
+
+        <div class="main-content">
+            <div class="ranking-section">
+                <h3>Country Rankings</h3>
+                <div id="ranking-container">
+                    <!-- Rankings populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="analysis-section">
+                <h3>Component Analysis</h3>
+                <div style="margin-bottom: 1rem;">
+                    <strong id="selected-country-name">Greece</strong> - Rank #<span id="selected-rank">1</span>
+                </div>
+                <div id="component-breakdown">
+                    <!-- Component breakdown populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="methodology">
+            <h3>formula</h3>
+            <div class="formula-box">
+Legal Punitiveness = w₁ × Criminalization_Scope + w₂ × Penalty_Severity
+<br>
+
+Where (default weights):
+w₁ = 0.4, w₂ = 0.6
+<br><br>
+
+Criminalization_Scope = (Use_Criminal + Possession_Criminal + (1 - Personal_Exemption)) / 3
+<br><br>
+
+Penalty_Severity = (Normalized_Max_Possession + Normalized_Max_Supply + Mandatory_Minimums) / 3
+            </div>
+            <p><strong>Variables:</strong> Use criminalization, Possession criminalization, Personal use exemption (reverse-coded), Maximum possession sentence (normalized), Maximum supply sentence (normalized), Mandatory minimum sentencing.</p>
+            <p><strong>Normalization:</strong> Numeric variables scaled 0-1 using min-max normalization across all countries.</p>
+            <p><strong>Missing Data:</strong> None.</p>
+            <p><strong>Limitations:</strong>  Doesn't take into account the actual average sentences served (some countries with severe penalties rarely apply them), or the quantity thresholds that trigger a crime of supply vs possession. 
+
+        </div>
+    </div>
+
+    <script>
+        // Raw data from your dataset
+        const rawData = {
+            'France': {use: 'Yes', possession: 'Yes', maxPoss: 1, personalExempt: 'No', maxSupply: 5, mandatory: 'No'},
+            'Greece': {use: 'Yes', possession: 'Yes', maxPoss: 0.4, personalExempt: 'No', maxSupply: 40, mandatory: 'Yes'},
+            'Netherlands': {use: 'No', possession: 'Yes', maxPoss: 1, personalExempt: 'Yes', maxSupply: 12, mandatory: 'No'},
+            'Portugal': {use: 'No', possession: 'No', maxPoss: 0, personalExempt: 'No', maxSupply: 20, mandatory: 'Yes'},
+            'Spain': {use: 'No', possession: 'No', maxPoss: 0, personalExempt: 'Yes', maxSupply: 12, mandatory: 'Yes'},
+            'Sweden': {use: 'Yes', possession: 'Yes', maxPoss: 3, personalExempt: 'No', maxSupply: 10, mandatory: 'No'},
+            'Peru': {use: 'No', possession: 'No', maxPoss: 2, personalExempt: 'No', maxSupply: 40, mandatory: 'Yes'},
+            'Colombia': {use: 'No', possession: 'No', maxPoss: 30, personalExempt: 'No', maxSupply: 30, mandatory: 'Yes'},
+            'USA': {use: 'No', possession: 'Yes', maxPoss: 1, personalExempt: 'No', maxSupply: 40, mandatory: 'Yes'},
+            'Bolivia': {use: 'No', possession: 'Yes', maxPoss: 25, personalExempt: 'No', maxSupply: 25, mandatory: 'Yes'},
+            'Brazil': {use: 'No', possession: 'Yes', maxPoss: 15, personalExempt: 'No', maxSupply: 15, mandatory: 'Yes'},
+            'Belgium': {use: 'No', possession: 'Yes', maxPoss: 5, personalExempt: 'No', maxSupply: 20, mandatory: 'No'}
+        };
+
+        let selectedCountry = 'Greece';
+        let processedData = {};
+
+        function binaryToScore(value) {
+            return value.toLowerCase() === 'yes' ? 1 : 0;
+        }
+
+        function normalizeValues(values) {
+            const min = Math.min(...values);
+            const max = Math.max(...values);
+            if (max === min) return values.map(() => 0.5);
+            return values.map(val => (val - min) / (max - min));
+        }
+
+        function calculateIndex() {
+            const countries = Object.keys(rawData);
+            const allMaxPoss = countries.map(country => rawData[country].maxPoss);
+            const allMaxSupply = countries.map(country => rawData[country].maxSupply);
+
+            const normalizedMaxPoss = normalizeValues(allMaxPoss);
+            const normalizedMaxSupply = normalizeValues(allMaxSupply);
+
+            // Get current weights
+            const crimWeight = parseInt(document.getElementById('weight-criminalization').value) / 100;
+            const penaltyWeight = parseInt(document.getElementById('weight-penalty').value) / 100;
+            const totalWeight = crimWeight + penaltyWeight;
+
+            // Normalize weights to sum to 1
+            const normCrimWeight = totalWeight > 0 ? crimWeight / totalWeight : 0.4;
+            const normPenaltyWeight = totalWeight > 0 ? penaltyWeight / totalWeight : 0.6;
+
+            countries.forEach((country, index) => {
+                const raw = rawData[country];
+                
+                const useCriminal = binaryToScore(raw.use);
+                const possessionCriminal = binaryToScore(raw.possession);
+                const personalExempt = binaryToScore(raw.personalExempt);
+                const mandatoryMinimums = binaryToScore(raw.mandatory);
+                
+                const normMaxPoss = normalizedMaxPoss[index];
+                const normMaxSupply = normalizedMaxSupply[index];
+                
+                const criminalizationScope = (useCriminal + possessionCriminal + (1 - personalExempt)) / 3;
+                const penaltySeverity = (normMaxPoss + normMaxSupply + mandatoryMinimums) / 3;
+                
+                const legalPunitiveness = normCrimWeight * criminalizationScope + normPenaltyWeight * penaltySeverity;
+                
+                processedData[country] = {
+                    criminalizationScope: Math.round(criminalizationScope * 1000) / 10,
+                    penaltySeverity: Math.round(penaltySeverity * 1000) / 10,
+                    legalPunitiveness: Math.round(legalPunitiveness * 1000) / 10,
+                    raw: raw
+                };
+            });
+
+            updateRanking();
+            updateComponentAnalysis();
+        }
+
+        function updateRanking() {
+            const ranking = Object.entries(processedData)
+                .sort(([,a], [,b]) => b.legalPunitiveness - a.legalPunitiveness)
+                .map(([country, data], index) => ({
+                    rank: index + 1,
+                    country,
+                    score: data.legalPunitiveness
+                }));
+
+            const container = document.getElementById('ranking-container');
+            container.innerHTML = '';
+
+            ranking.forEach(item => {
+                const div = document.createElement('div');
+                div.className = `country-item ${selectedCountry === item.country ? 'selected' : ''}`;
+                div.onclick = () => selectCountry(item.country);
+                
+                div.innerHTML = `
+                    <div class="country-info">
+                        <div class="rank-number">${item.rank}.</div>
+                        <div class="country-name">${item.country}</div>
+                    </div>
+                    <div class="country-score">${item.score}</div>
+                `;
+                
+                container.appendChild(div);
+            });
+        }
+
+        function selectCountry(country) {
+            selectedCountry = country;
+            updateRanking();
+            updateComponentAnalysis();
+        }
+
+        function updateComponentAnalysis() {
+            const data = processedData[selectedCountry];
+            if (!data) return;
+
+            const ranking = Object.entries(processedData)
+                .sort(([,a], [,b]) => b.legalPunitiveness - a.legalPunitiveness);
+            const rank = ranking.findIndex(([country,]) => country === selectedCountry) + 1;
+
+            document.getElementById('selected-country-name').textContent = selectedCountry;
+            document.getElementById('selected-rank').textContent = rank;
+
+            const breakdown = document.getElementById('component-breakdown');
+            breakdown.innerHTML = `
+                <div class="component-item">
+                    <span>Overall Score</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div class="component-bar">
+                            <div class="component-fill" style="width: ${data.legalPunitiveness}%"></div>
+                        </div>
+                        <span style="font-weight: bold;">${data.legalPunitiveness}/100</span>
+                    </div>
+                </div>
+                <div class="component-item">
+                    <span>Criminalization Scope</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div class="component-bar">
+                            <div class="component-fill" style="width: ${data.criminalizationScope}%"></div>
+                        </div>
+                        <span style="font-weight: bold;">${data.criminalizationScope}/100</span>
+                    </div>
+                </div>
+                <div class="component-item">
+                    <span>Penalty Severity</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div class="component-bar">
+                            <div class="component-fill" style="width: ${data.penaltySeverity}%"></div>
+                        </div>
+                        <span style="font-weight: bold;">${data.penaltySeverity}/100</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateWeightDisplays() {
+            const crimWeight = parseInt(document.getElementById('weight-criminalization').value);
+            const penaltyWeight = parseInt(document.getElementById('weight-penalty').value);
+            const total = crimWeight + penaltyWeight;
+
+            document.getElementById('weight-criminalization-display').textContent = 
+                total > 0 ? `${Math.round((crimWeight / total) * 100)}%` : '0%';
+            document.getElementById('weight-penalty-display').textContent = 
+                total > 0 ? `${Math.round((penaltyWeight / total) * 100)}%` : '0%';
+        }
+
+        function toggleComponent(componentId) {
+            const element = document.getElementById(`variables-${componentId}`);
+            const header = element.previousElementSibling;
+            
+            element.classList.toggle('visible');
+            header.classList.toggle('expanded');
+        }
+
+        function resetWeights() {
+            document.getElementById('weight-criminalization').value = 40;
+            document.getElementById('weight-penalty').value = 60;
+            
+            document.querySelectorAll('.variable-slider').forEach(slider => {
+                slider.value = 33.3;
+                slider.nextElementSibling.textContent = '33.3%';
+            });
+            
+            updateWeightDisplays();
+            calculateIndex();
+        }
+
+        // Event listeners
+        document.getElementById('weight-criminalization').addEventListener('input', () => {
+            updateWeightDisplays();
+            calculateIndex();
+        });
+
+        document.getElementById('weight-penalty').addEventListener('input', () => {
+            updateWeightDisplays();
+            calculateIndex();
+        });
+
+        document.querySelectorAll('.variable-slider').forEach(slider => {
+            slider.addEventListener('input', function() {
+                this.nextElementSibling.textContent = this.value + '%';
+                // Variable-level weighting would be implemented here
+            });
+        });
+
+        // Initialize
+        updateWeightDisplays();
+        calculateIndex();
+    </script>
+</body>
+</html>
