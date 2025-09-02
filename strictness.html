@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocaine Policy Strictness Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #000;
+            padding-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .header p {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .controls-section {
+            border: 1px solid #000;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .controls-section h3 {
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.5rem;
+        }
+
+        .dimension-controls {
+            margin-bottom: 2rem;
+        }
+
+        .dimension-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #000;
+            cursor: pointer;
+            background: #f9f9f9;
+        }
+
+        .dimension-header.expanded {
+            background: #f0f0f0;
+        }
+
+        .dimension-weight {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .slider {
+            width: 150px;
+            height: 20px;
+            /* -webkit-appearance: none; */
+            background: #fff;
+            border: 1px solid #000;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #000;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #000;
+            cursor: pointer;
+            border: none;
+        }
+
+        .variable-controls {
+            display: none;
+            padding: 1rem;
+            border-left: 2px solid #000;
+            margin-left: 1rem;
+            background: #fafafa;
+        }
+
+        .variable-controls.visible {
+            display: block;
+        }
+
+        .variable-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .variable-weight {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .variable-slider {
+            width: 100px;
+            height: 15px;
+        }
+
+        .reset-button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .reset-button:hover {
+            background: #333;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .ranking-section {
+            border: 1px solid #000;
+            padding: 1.5rem;
+        }
+
+        .ranking-section h3 {
+            margin-bottom: 1rem;
+            font-weight: normal;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.5rem;
+        }
+
+        .country-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .country-item:hover {
+            background: #f9f9f9;
+        }
+
+        .country-item.selected {
+            background: #f0f0f0;
+            border-color: #000;
+        }
+
+        .country-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .rank-number {
+            font-weight: bold;
+            min-width: 20px;
+        }
+
+        .analysis-section {
+            border: 1px solid #000;
+            padding: 1.5rem;
+        }
+
+        .analysis-section h3 {
+            margin-bottom: 1rem;
+            font-weight: normal;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.5rem;
+        }
+
+        .analysis-controls {
+            margin-bottom: 1.5rem;
+        }
+
+        .analysis-controls label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .analysis-controls select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #000;
+            background: #fff;
+        }
+
+        .dimension-breakdown {
+            margin-top: 1rem;
+        }
+
+        .dimension-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ddd;
+        }
+
+        .dimension-bar {
+            width: 100px;
+            height: 15px;
+            border: 1px solid #000;
+            background: #fff;
+            position: relative;
+        }
+
+        .dimension-fill {
+            height: 100%;
+            background: #000;
+            transition: width 0.3s ease;
+        }
+
+        .methodology {
+            border: 1px solid #000;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .methodology h3 {
+            margin-bottom: 1rem;
+            font-weight: normal;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.5rem;
+        }
+
+        .methodology p {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .dimension-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Cocaine Policy Strictness Index</h1>
+            <p>Measuring the strictness of cocaine-related policies across 12 countries using four key dimensions: Law in Books, Enforcement, Supply, and Harm Reduction.</p>
+        </div>
+
+        <div class="controls-section">
+            <h3>Adjust Weights</h3>
+            
+            <div class="dimension-controls">
+                <div class="dimension-header" onclick="toggleDimension('law-in-books')">
+                    <span>Law in Books</span>
+                    <div class="dimension-weight">
+                        <input type="range" id="weight-law-in-books" class="slider" min="0" max="100" value="25">
+                        <span id="weight-law-in-books-display">25%</span>
+                    </div>
+                </div>
+                <div class="variable-controls" id="variables-law-in-books">
+                    <div class="variable-item">
+                        <span>Use Criminal Offence</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="use-criminal">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Possession Criminal Offence</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="possession-criminal">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Prison for Possession</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="prison-possession">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Maximum Sentence Possession</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="max-sentence-possession">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Personal Use Exemption</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="personal-use-exemption">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Minimum Sentence Supply</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="min-sentence-supply">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Maximum Sentence Supply</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="max-sentence-supply">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Mandatory Minimum Sentencing</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="mandatory-minimum">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dimension-controls">
+                <div class="dimension-header" onclick="toggleDimension('enforcement')">
+                    <span>Enforcement</span>
+                    <div class="dimension-weight">
+                        <input type="range" id="weight-enforcement" class="slider" min="0" max="100" value="25">
+                        <span id="weight-enforcement-display">25%</span>
+                    </div>
+                </div>
+                <div class="variable-controls" id="variables-enforcement">
+                    <div class="variable-item">
+                        <span>Drug-related Incarceration Rate</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="incarceration-rate">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Expected Sentence 100g</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="sentence-100g">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Expected Sentence 1kg</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="sentence-1kg">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dimension-controls">
+                <div class="dimension-header" onclick="toggleDimension('supply')">
+                    <span>Supply</span>
+                    <div class="dimension-weight">
+                        <input type="range" id="weight-supply" class="slider" min="0" max="100" value="25">
+                        <span id="weight-supply-display">25%</span>
+                    </div>
+                </div>
+                <div class="variable-controls" id="variables-supply">
+                    <div class="variable-item">
+                        <span>Coca Leaf Status</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="coca-leaf-status">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dimension-controls">
+                <div class="dimension-header" onclick="toggleDimension('harm-reduction')">
+                    <span>Harm Reduction</span>
+                    <div class="dimension-weight">
+                        <input type="range" id="weight-harm-reduction" class="slider" min="0" max="100" value="25">
+                        <span id="weight-harm-reduction-display">25%</span>
+                    </div>
+                </div>
+                <div class="variable-controls" id="variables-harm-reduction">
+                    <div class="variable-item">
+                        <span>Needle and Syringe Programs</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="needle-programs">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Treatment as Alternative to Prison</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="treatment-alternative">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Addiction as Attenuating Factor</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="addiction-attenuating">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Supportive to Harm Reduction</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="harm-reduction-support">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Drug Consumption Rooms</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="consumption-rooms">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                    <div class="variable-item">
+                        <span>Budget Allocation vs Supply Reduction</span>
+                        <div class="variable-weight">
+                            <input type="range" class="variable-slider" min="0" max="100" value="100" data-variable="budget-allocation">
+                            <span>100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="reset-button" onclick="resetAllWeights()">Reset to Equal Weights</button>
+        </div>
+
+        <div class="main-content">
+            <div class="ranking-section">
+                <h3>Country Rankings</h3>
+                <div id="ranking-container">
+                    <!-- Rankings populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="analysis-section">
+                <h3>Analysis</h3>
+                <div class="analysis-controls">
+                    <label for="analysis-type">Analysis Type:</label>
+                    <select id="analysis-type" onchange="updateAnalysis()">
+                        <option value="country">Country Breakdown</option>
+                        <option value="dimension">Dimension Comparison</option>
+                        <option value="variable">Variable Analysis</option>
+                    </select>
+                </div>
+                
+                <div class="analysis-controls" id="country-selector">
+                    <label for="selected-country">Select Country:</label>
+                    <select id="selected-country" onchange="updateCountryAnalysis()">
+                        <!-- Populated by JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="dimension-breakdown" id="analysis-content">
+                    <!-- Analysis content populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="methodology">
+            <h3>Methodology</h3>
+            <p><strong>Data Sources:</strong> National legal codes, enforcement statistics, supply chain disruption measures, and harm reduction policies across 12 countries. Data files located in data/raw/ directory.</p>
+            <p><strong>Scoring:</strong> Each dimension scored 0-100 where higher scores indicate stricter policies. Variables promoting harm reduction are reverse-coded. Missing data excluded from calculations.</p>
+            <p><strong>Dimensions:</strong> Law in Books (criminal penalties, sentencing), Enforcement (incarceration rates, sentences), Supply (eradication, control measures), Harm Reduction (treatment programs, safe consumption sites).</p>
+            <p><strong>Countries:</strong> Belgium, Bolivia, Brazil, Colombia, France, Greece, Netherlands, Peru, Portugal, Spain, Sweden, USA.</p>
+        </div>
+    </div>
+
+    <script>
+        // Data from calculation - this would normally be loaded from your data/raw/ files
+        const countryData = {
+            'Brazil': {'Law in Books': 57.1, 'Enforcement': 60.2, 'Supply': 100, 'Harm Reduction': 60.0},
+            'USA': {'Law in Books': 68.0, 'Enforcement': 85.7, 'Supply': 100, 'Harm Reduction': 13.6},
+            'Colombia': {'Law in Books': 65.5, 'Enforcement': 87.4, 'Supply': 100, 'Harm Reduction': 0},
+            'Peru': {'Law in Books': 66.1, 'Enforcement': 75.1, 'Supply': 0, 'Harm Reduction': 100},
+            'Greece': {'Law in Books': 60.1, 'Enforcement': 80.3, 'Supply': 100, 'Harm Reduction': 0},
+            'Sweden': {'Law in Books': 34.7, 'Enforcement': 49.6, 'Supply': 100, 'Harm Reduction': 24.2},
+            'France': {'Law in Books': 45.2, 'Enforcement': 25.1, 'Supply': 100, 'Harm Reduction': 31.8},
+            'Belgium': {'Law in Books': 42.3, 'Enforcement': 13.6, 'Supply': 100, 'Harm Reduction': 29.7},
+            'Spain': {'Law in Books': 44.9, 'Enforcement': 22.5, 'Supply': 100, 'Harm Reduction': 16.7},
+            'Portugal': {'Law in Books': 39.7, 'Enforcement': 25.4, 'Supply': 100, 'Harm Reduction': 14.5},
+            'Netherlands': {'Law in Books': 29.1, 'Enforcement': 3.9, 'Supply': 100, 'Harm Reduction': 20.0},
+            'Bolivia': {'Law in Books': 41.1, 'Enforcement': 0, 'Supply': 0, 'Harm Reduction': 100}
+        };
+
+        let selectedCountry = 'Brazil';
+
+        function toggleDimension(dimensionId) {
+            const element = document.getElementById(`variables-${dimensionId}`);
+            const header = element.previousElementSibling;
+            
+            element.classList.toggle('visible');
+            header.classList.toggle('expanded');
+        }
+
+        function calculateWeightedScore(country, weights) {
+            const data = countryData[country];
+            const weightSum = Object.values(weights).reduce((a, b) => a + b, 0);
+            
+            if (weightSum === 0) return 0;
+            
+            const normalizedWeights = {};
+            Object.keys(weights).forEach(key => {
+                normalizedWeights[key] = weights[key] / weightSum;
+            });
+            
+            return (
+                data['Law in Books'] * normalizedWeights['Law in Books'] +
+                data['Enforcement'] * normalizedWeights['Enforcement'] +
+                data['Supply'] * normalizedWeights['Supply'] +
+                data['Harm Reduction'] * normalizedWeights['Harm Reduction']
+            );
+        }
+
+        function getCurrentWeights() {
+            return {
+                'Law in Books': parseInt(document.getElementById('weight-law-in-books').value),
+                'Enforcement': parseInt(document.getElementById('weight-enforcement').value),
+                'Supply': parseInt(document.getElementById('weight-supply').value),
+                'Harm Reduction': parseInt(document.getElementById('weight-harm-reduction').value)
+            };
+        }
+
+        function updateRanking() {
+            const weights = getCurrentWeights();
+            const countries = Object.keys(countryData);
+            
+            const ranking = countries.map(country => ({
+                country: country,
+                score: calculateWeightedScore(country, weights)
+            })).sort((a, b) => b.score - a.score);
+
+            const container = document.getElementById('ranking-container');
+            container.innerHTML = '';
+
+            ranking.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = `country-item ${selectedCountry === item.country ? 'selected' : ''}`;
+                div.onclick = () => selectCountry(item.country);
+                
+                div.innerHTML = `
+                    <div class="country-info">
+                        <div class="rank-number">${index + 1}.</div>
+                        <div class="country-name">${item.country}</div>
+                    </div>
+                    <div class="country-score">${item.score.toFixed(1)}</div>
+                `;
+                
+                container.appendChild(div);
+            });
+        }
+
+        function selectCountry(country) {
+            selectedCountry = country;
+            updateRanking();
+            updateAnalysis();
+        }
+
+        function updateWeightDisplays() {
+            const weights = getCurrentWeights();
+            const total = Object.values(weights).reduce((a, b) => a + b, 0);
+            
+            document.getElementById('weight-law-in-books-display').textContent = 
+                total > 0 ? `${Math.round((weights['Law in Books'] / total) * 100)}%` : '0%';
+            document.getElementById('weight-enforcement-display').textContent = 
+                total > 0 ? `${Math.round((weights['Enforcement'] / total) * 100)}%` : '0%';
+            document.getElementById('weight-supply-display').textContent = 
+                total > 0 ? `${Math.round((weights['Supply'] / total) * 100)}%` : '0%';
+            document.getElementById('weight-harm-reduction-display').textContent = 
+                total > 0 ? `${Math.round((weights['Harm Reduction'] / total) * 100)}%` : '0%';
+        }
+
+        function updateAnalysis() {
+            const analysisType = document.getElementById('analysis-type').value;
+            const content = document.getElementById('analysis-content');
+            
+            if (analysisType === 'country') {
+                updateCountryAnalysis();
+            } else if (analysisType === 'dimension') {
+                updateDimensionAnalysis();
+            } else if (analysisType === 'variable') {
+                updateVariableAnalysis();
+            }
+        }
+
+        function updateCountryAnalysis() {
+            const content = document.getElementById('analysis-content');
+            const data = countryData[selectedCountry];
+            
+            content.innerHTML = '';
+            Object.entries(data).forEach(([dimension, score]) => {
+                const div = document.createElement('div');
+                div.className = 'dimension-item';
+                
+                div.innerHTML = `
+                    <span>${dimension}</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div class="dimension-bar">
+                            <div class="dimension-fill" style="width: ${score}%"></div>
+                        </div>
+                        <span style="font-weight: bold; min-width: 40px;">${score.toFixed(1)}</span>
+                    </div>
+                `;
+                
+                content.appendChild(div);
+            });
+        }
+
+        function updateDimensionAnalysis() {
+            const content = document.getElementById('analysis-content');
+            const dimensions = ['Law in Books', 'Enforcement', 'Supply', 'Harm Reduction'];
+            
+            content.innerHTML = '';
+            dimensions.forEach(dimension => {
+                const values = Object.keys(countryData).map(country => countryData[country][dimension]);
+                const avg = values.reduce((a, b) => a + b, 0) / values.length;
+                const max = Math.max(...values);
+                const min = Math.min(...values);
+                
+                const div = document.createElement('div');
+                div.className = 'dimension-item';
+                
+                div.innerHTML = `
+                    <span>${dimension}</span>
+                    <span>Avg: ${avg.toFixed(1)} | Range: ${min.toFixed(1)}-${max.toFixed(1)}</span>
+                `;
+                
+                content.appendChild(div);
+            });
+        }
+
+        function updateVariableAnalysis() {
+            const content = document.getElementById('analysis-content');
+            content.innerHTML = '<p>Variable-level analysis would show individual indicators within each dimension, their weights, and contribution to overall scores.</p>';
+        }
+
+        function resetAllWeights() {
+            document.getElementById('weight-law-in-books').value = 25;
+            document.getElementById('weight-enforcement').value = 25;
+            document.getElementById('weight-supply').value = 25;
+            document.getElementById('weight-harm-reduction').value = 25;
+            
+            // Reset all variable weights
+            document.querySelectorAll('.variable-slider').forEach(slider => {
+                slider.value = 100;
+                slider.nextElementSibling.textContent = '100%';
+            });
+            
+            updateWeightDisplays();
+            updateRanking();
+        }
+
+        function initializeCountrySelector() {
+            const selector = document.getElementById('selected-country');
+            Object.keys(countryData).forEach(country => {
+                const option = document.createElement('option');
+                option.value = country;
+                option.textContent = country;
+                if (country === selectedCountry) option.selected = true;
+                selector.appendChild(option);
+            });
+        }
+
+        // Event listeners
+        document.getElementById('weight-law-in-books').addEventListener('input', () => {
+            updateWeightDisplays();
+            updateRanking();
+        });
+        
+        document.getElementById('weight-enforcement').addEventListener('input', () => {
+            updateWeightDisplays();
+            updateRanking();
+        });
+        
+        document.getElementById('weight-supply').addEventListener('input', () => {
+            updateWeightDisplays();
+            updateRanking();
+        });
+        
+        document.getElementById('weight-harm-reduction').addEventListener('input', () => {
+            updateWeightDisplays();
+            updateRanking();
+        });
+
+        // Variable weight listeners
+        document.querySelectorAll('.variable-slider').forEach(slider => {
+            slider.addEventListener('input', function() {
+                this.nextElementSibling.textContent = this.value + '%';
+                updateRanking(); // Would recalculate with variable weights
+            });
+        });
+
+        // Initialize
+        initializeCountrySelector();
+        updateWeightDisplays();
+        updateRanking();
+        updateAnalysis();
+    </script>
+</body>
+</html>
