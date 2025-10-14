@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treaty Network Timeline</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Helvetica", Arial, sans-serif;
+            background: #f7f7f7;
+            overflow: hidden;
+        }
+        
+        #container {
+            width: 55vw;
+            height: 100vh;
+            position: relative;
+            margin-left: 45vw;
+        }
+        
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .year-line {
+            stroke: #e0e0e0;
+            stroke-width: 1;
+            stroke-dasharray: 2,2;
+        }
+        
+        .year-label {
+            font-size: 11px;
+            fill: #666;
+            font-weight: bold;
+        }
+        
+        .link {
+            fill: none;
+            stroke-opacity: 0.4;
+            transition: all 0.3s ease;
+        }
+        
+        .node circle {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .node.selected circle {
+            stroke-width: 3 !important;
+            stroke: #000 !important;
+        }
+        
+        .info-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.95);
+            padding: 12px;
+            border: 1px solid #000;
+            font-size: 10px;
+            max-width: 220px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 3px 0;
+            font-size: 9px;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border: 1.5px solid #000;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+        
+        .tooltip {
+            position: absolute;
+            padding: 10px;
+            background: #000;
+            color: #fff;
+            pointer-events: none;
+            opacity: 0;
+            font-size: 11px;
+            max-width: 350px;
+            z-index: 1000;
+            transition: opacity 0.2s;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <svg id="main-svg"></svg>
+        
+        <div class="info-panel">
+            <strong>International Drug Control Treaties</strong>
+            <div id="status" style="margin: 8px 0; color: #666;">Initializing...</div>
+            
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #ccc;">
+                <strong style="font-size: 9px;">Organizations:</strong>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #08415C;"></div>
+                    League of Nations
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #CC2936;"></div>
+                    United Nations
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #1B998B;"></div>
+                    Comunidad Andina
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #FFBE0B;"></div>
+                    OAS
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #A7BBEC;"></div>
+                    European Union
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        <div class="tooltip" id="tooltip"></div>
+    </div>
+    
+    <script>
+        console.log('Script starting...');
+        console.log('D3 version:', d3.version);
+        
+        const csvPath = './data/drug_regulations_full.csv';
+        let selectedNode = null;
+        
+        function extractYear(name) {
+            const match = name.match(/\b(19\d{2}|18\d{2}|20\d{2})\b/);
+            return match ? parseInt(match[1]) : null;
+        }
+        
+        function getOrganizationColor(entity) {
+            if (!entity) return '#95A5A6';
+            
+            const e = entity.toLowerCase().trim();
+            
+            // Using custom color palette
+            if (e === 'league of nations') return '#08415C';
+            
+            if (e === 'un' || e === 'united nations' || 
+                e.includes('united nations') && !e.includes('organization of american states')) {
+                return '#CC2936';
+            }
+            
+            if (e.includes('comunidad andina') || e === 'can' || 
+                e.startsWith('can ') || e.endsWith(' can')) {
+                return '#1B998B';
+            }
+            
+            if (e.includes('organization of american states') || 
+                e === 'oas' || e.includes('(oas)')) {
+                return '#FFBE0B';
+            }
+            
+            if (e.includes('european council') || e.includes('european union') || 
+                e === 'eu' || e.includes('emcdda')) {
+                return '#A7BBEC';
+            }
+            
+            return '#95A5A6';
+        }
+        
+        function updateStatus(msg) {
+            document.getElementById('status').textContent = msg;
+            console.log('Status:', msg);
+        }
+        
+        d3.csv(csvPath).then(data => {
+            console.log('CSV loaded:', data.length, 'rows');
+            updateStatus(`Loaded ${data.length} relationships`);
+            
+            // Debug: Check unique entities
+            const uniqueEntities = [...new Set(data.map(d => d.entity))];
+            console.log('Unique entities found:', uniqueEntities);
+            uniqueEntities.forEach(e => {
+                console.log(`  "${e}" -> color: ${getOrganizationColor(e)}`);
+            });
+            
+            const nodeMap = new Map();
+            
+            data.forEach(edge => {
+                [edge.source, edge.target].forEach(nodeName => {
+                    if (!nodeMap.has(nodeName)) {
+                        const year = extractYear(nodeName);
+                        nodeMap.set(nodeName, {
+                            id: nodeName,
+                            name: nodeName,
+                            year: year,
+                            entity: edge.entity,
+                            type: edge.type,
+                            outgoing: [],
+                            incoming: []
+                        });
+                    }
+                });
+            });
+            
+            data.forEach(edge => {
+                const sourceNode = nodeMap.get(edge.source);
+                const targetNode = nodeMap.get(edge.target);
+                if (sourceNode) {
+                    sourceNode.outgoing.push({ 
+                        to: edge.target, 
+                        rel: edge.relationship 
+                    });
+                }
+                if (targetNode) {
+                    targetNode.incoming.push({ 
+                        from: edge.source, 
+                        rel: edge.relationship 
+                    });
+                }
+            });
+            
+            const nodes = Array.from(nodeMap.values());
+            
+            nodes.forEach(node => {
+                if (!node.year) {
+                    node.importance = 1;
+                } else if (node.year === 1912 || node.year === 1961 || 
+                           node.year === 1971 || node.year === 1988) {
+                    node.importance = 4;
+                } else if (node.year === 1931 || node.year === 1925) {
+                    node.importance = 3;
+                } else {
+                    node.importance = 2;
+                }
+            });
+            
+            console.log('Processed:', nodes.length, 'nodes');
+            
+            renderNetwork(nodes, data);
+            
+        }).catch(error => {
+            updateStatus(`Error: ${error.message}`);
+            console.error('CSV Error:', error);
+        });
+        
+        function renderNetwork(nodes, edges) {
+            updateStatus('Rendering network...');
+            
+            const svg = d3.select('#main-svg');
+            const width = window.innerWidth * 0.55; // Right half of screen
+            const height = window.innerHeight;
+            const margin = { top: 80, right: 80, bottom: 80, left: 80 };
+            
+            const g = svg.append('g').attr('class', 'main-group');
+            
+            // Define arrow marker for lines
+            const defs = svg.append('defs');
+            
+            // Grey arrow for default state
+            defs.append('marker')
+                .attr('id', 'arrow-grey')
+                .attr('viewBox', '0 0 10 10')
+                .attr('refX', 8)
+                .attr('refY', 5)
+                .attr('markerWidth', 6)
+                .attr('markerHeight', 6)
+                .attr('orient', 'auto')
+                .append('path')
+                .attr('d', 'M 0 2 L 5 5 L 0 8')
+                .attr('stroke', '#CCCCCC')
+                .attr('stroke-width', 1.5)
+                .attr('fill', 'none');
+            
+            // Colored arrows for each organization
+            const colors = [
+                { id: 'arrow-08415C', color: '#08415C' },
+                { id: 'arrow-CC2936', color: '#CC2936' },
+                { id: 'arrow-1B998B', color: '#1B998B' },
+                { id: 'arrow-FFBE0B', color: '#FFBE0B' },
+                { id: 'arrow-A7BBEC', color: '#A7BBEC' },
+                { id: 'arrow-95A5A6', color: '#95A5A6' }
+            ];
+            
+            colors.forEach(c => {
+                defs.append('marker')
+                    .attr('id', c.id)
+                    .attr('viewBox', '0 0 10 10')
+                    .attr('refX', 8)
+                    .attr('refY', 5)
+                    .attr('markerWidth', 6)
+                    .attr('markerHeight', 6)
+                    .attr('orient', 'auto')
+                    .append('path')
+                    .attr('d', 'M 0 2 L 5 5 L 0 8')
+                    .attr('stroke', c.color)
+                    .attr('stroke-width', 1.5)
+                    .attr('fill', 'none');
+            });
+            
+            const zoom = d3.zoom()
+                .scaleExtent([0.2, 4])
+                .on('zoom', (event) => {
+                    g.attr('transform', event.transform);
+                });
+            
+            svg.call(zoom);
+            
+            const nodesWithYears = nodes.filter(n => n.year);
+            const years = nodesWithYears.map(n => n.year);
+            const minYear = Math.min(...years);
+            const maxYear = Math.max(...years);
+            
+            console.log('Year range:', minYear, '-', maxYear);
+            
+            const yScale = d3.scaleLinear()
+                .domain([minYear, maxYear])
+                .range([margin.top, height - margin.bottom]);
+            
+            // Initial positioning
+            const nodesByYear = d3.group(nodesWithYears, n => n.year);
+            
+            nodes.forEach(node => {
+                if (node.year) {
+                    node.targetY = yScale(node.year);
+                    
+                    const sameYearNodes = nodesByYear.get(node.year);
+                    const indexInYear = sameYearNodes.indexOf(node);
+                    const totalInYear = sameYearNodes.length;
+                    
+                    const xSpread = width - margin.left - margin.right;
+                    // Tighter horizontal spread for narrower layout
+                    const baseX = margin.left + (xSpread / (totalInYear + 1)) * (indexInYear + 1);
+                    node.x = baseX + (Math.random() - 0.5) * 40;
+                    node.y = node.targetY + (Math.random() - 0.5) * 20;
+                } else {
+                    node.targetY = height - 50;
+                    node.x = margin.left + Math.random() * (width - margin.left - margin.right);
+                    node.y = node.targetY;
+                }
+            });
+            
+            // Force simulation with tighter constraints for narrow layout
+            const simulation = d3.forceSimulation(nodes)
+                .force('x', d3.forceX(d => d.x).strength(0.08))
+                .force('y', d3.forceY(d => d.targetY).strength(0.4))
+                .force('collide', d3.forceCollide().radius(d => 10 + d.importance * 3.5))
+                .force('charge', d3.forceManyBody().strength(-25))
+                .stop();
+            
+            // Run simulation
+            for (let i = 0; i < 300; i++) {
+                simulation.tick();
+            }
+            
+            console.log('Force simulation complete');
+            
+            // Draw decade lines
+            const yearTicks = d3.range(
+                Math.ceil(minYear / 10) * 10,
+                maxYear + 1,
+                10
+            );
+            
+            g.selectAll('.year-line')
+                .data(yearTicks)
+                .enter()
+                .append('line')
+                .attr('class', 'year-line')
+                .attr('x1', margin.left - 30)
+                .attr('x2', width - margin.right + 30)
+                .attr('y1', d => yScale(d))
+                .attr('y2', d => yScale(d));
+            
+            g.selectAll('.year-label')
+                .data(yearTicks)
+                .enter()
+                .append('text')
+                .attr('class', 'year-label')
+                .attr('x', margin.left - 40)
+                .attr('y', d => yScale(d))
+                .attr('text-anchor', 'end')
+                .attr('dy', 4)
+                .text(d => d);
+            
+            const nodeById = new Map(nodes.map(n => [n.id, n]));
+            
+            // Helper function to create curved path
+            function createCurvedPath(source, target) {
+                const sx = source.x;
+                const sy = source.y;
+                const tx = target.x;
+                const ty = target.y;
+                
+                // Calculate control point for curve
+                const midX = (sx + tx) / 2;
+                const midY = (sy + ty) / 2;
+                
+                // Perpendicular offset for curve
+                const dx = tx - sx;
+                const dy = ty - sy;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                
+                // Curve amount based on distance
+                const curvature = Math.min(dist * 0.15, 50);
+                
+                // Control point perpendicular to line
+                const controlX = midX - dy / dist * curvature;
+                const controlY = midY + dx / dist * curvature;
+                
+                return `M ${sx},${sy} Q ${controlX},${controlY} ${tx},${ty}`;
+            }
+            
+            // Draw links as curved paths (grey by default)
+            const linksGroup = g.append('g').attr('class', 'links');
+            
+            const links = linksGroup.selectAll('.link')
+                .data(edges)
+                .enter()
+                .append('path')
+                .attr('class', 'link')
+                .attr('d', d => {
+                    const source = nodeById.get(d.source);
+                    const target = nodeById.get(d.target);
+                    if (!source || !target) return '';
+                    return createCurvedPath(source, target);
+                })
+                .attr('stroke', '#CCCCCC')
+                .attr('stroke-width', 1.5)
+                .attr('fill', 'none')
+                .attr('marker-end', 'url(#arrow-grey)');
+            
+            // Add relationship labels (hidden by default) - positioned along curves
+            const linkLabelGroups = linksGroup.selectAll('.link-label-group')
+                .data(edges)
+                .enter()
+                .append('g')
+                .attr('class', 'link-label-group')
+                .style('opacity', 0)
+                .attr('transform', d => {
+                    const source = nodeById.get(d.source);
+                    const target = nodeById.get(d.target);
+                    if (!source || !target) return 'translate(0,0)';
+                    
+                    const sx = source.x;
+                    const sy = source.y;
+                    const tx = target.x;
+                    const ty = target.y;
+                    const midX = (sx + tx) / 2;
+                    const midY = (sy + ty) / 2;
+                    const dy = ty - sy;
+                    const dx = tx - sx;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const curvature = Math.min(dist * 0.15, 50);
+                    
+                    const x = midX - dy / dist * curvature;
+                    const y = midY + dx / dist * curvature;
+                    
+                    return `translate(${x},${y})`;
+                });
+            
+            // White background for readability
+            linkLabelGroups.append('rect')
+                .attr('x', d => {
+                    const textLength = (d.relationship || '').length * 5;
+                    return -textLength / 2 - 3;
+                })
+                .attr('y', -14)
+                .attr('width', d => (d.relationship || '').length * 5 + 6)
+                .attr('height', 14)
+                .attr('fill', 'rgba(255,255,255,0.9)')
+                .attr('rx', 2);
+            
+            linkLabelGroups.append('text')
+                .attr('class', 'link-label')
+                .attr('text-anchor', 'middle')
+                .attr('dy', -5)
+                .style('font-size', '9px')
+                .style('font-style', 'italic')
+                .style('fill', '#000')
+                .style('pointer-events', 'none')
+                .text(d => d.relationship || '');
+            
+            const tooltip = d3.select('#tooltip');
+            
+            const nodeGroups = g.append('g').attr('class', 'nodes')
+                .selectAll('.node')
+                .data(nodes)
+                .enter()
+                .append('g')
+                .attr('class', 'node')
+                .attr('transform', d => `translate(${d.x},${d.y})`)
+                .on('mouseenter', (event, d) => {
+                    const shortName = d.name.length > 70 ? d.name.slice(0, 70) + '...' : d.name;
+                    
+                    tooltip
+                        .style('opacity', 1)
+                        .html(`
+                            <strong>${shortName}</strong><br/>
+                            <em style="color: #ddd;">${d.year || 'Year unknown'}</em><br/>
+                            ${d.entity ? `<span style="color: ${getOrganizationColor(d.entity)};">●</span> ${d.entity}` : ''}
+                        `)
+                        .style('left', (event.pageX + 10) + 'px')
+                        .style('top', (event.pageY - 10) + 'px');
+                    
+                    // Show node name label on hover
+                    const currentNode = d3.select(event.currentTarget);
+                    currentNode.select('.node-label').style('opacity', 1);
+                    currentNode.select('.node-label-bg').style('opacity', 1);
+                })
+                .on('mouseleave', (event, d) => {
+                    tooltip.style('opacity', 0);
+                    
+                    // Hide label only if node is not selected
+                    if (!selectedNode || selectedNode.id !== d.id) {
+                        const currentNode = d3.select(event.currentTarget);
+                        currentNode.select('.node-label').style('opacity', 0);
+                        currentNode.select('.node-label-bg').style('opacity', 0);
+                    }
+                })
+                .on('click', (event, d) => {
+                    event.stopPropagation();
+                    
+                    // Deselect previous
+                    if (selectedNode) {
+                        nodeGroups.filter(n => n.id === selectedNode.id)
+                            .classed('selected', false);
+                    }
+                    
+                    if (selectedNode && selectedNode.id === d.id) {
+                        // Deselect if clicking same node
+                        selectedNode = null;
+                        links
+                            .attr('stroke-opacity', 0.4)
+                            .attr('stroke-width', 1.5)
+                            .attr('stroke', '#CCCCCC')
+                            .attr('marker-end', 'url(#arrow-grey)');
+                        linkLabelGroups.style('opacity', 0);
+                        nodeGroups.selectAll('circle').attr('opacity', 1);
+                        
+                        // Hide all node labels
+                        nodeGroups.selectAll('.node-label').style('opacity', 0);
+                        nodeGroups.selectAll('.node-label-bg').style('opacity', 0);
+                    } else {
+                        // Select new node
+                        selectedNode = d;
+                        
+                        nodeGroups.filter(n => n.id === d.id)
+                            .classed('selected', true);
+                        
+                        // Highlight connected nodes and links
+                        const connectedIds = new Set([d.id]);
+                        d.incoming.forEach(c => connectedIds.add(c.from));
+                        d.outgoing.forEach(c => connectedIds.add(c.to));
+                        
+                        links
+                            .attr('stroke-opacity', l => 
+                                (l.source === d.id || l.target === d.id) ? 0.9 : 0.05
+                            )
+                            .attr('stroke-width', l =>
+                                (l.source === d.id || l.target === d.id) ? 3 : 1.5
+                            )
+                            .attr('stroke', l => {
+                                if (l.source === d.id || l.target === d.id) {
+                                    return getOrganizationColor(l.entity);
+                                }
+                                return '#CCCCCC';
+                            })
+                            .attr('marker-end', l => {
+                                if (l.source === d.id || l.target === d.id) {
+                                    const color = getOrganizationColor(l.entity);
+                                    const colorId = color.replace('#', '');
+                                    return `url(#arrow-${colorId})`;
+                                }
+                                return 'url(#arrow-grey)';
+                            });
+                        
+                        // Show labels for connected links
+                        linkLabelGroups
+                            .style('opacity', l => 
+                                (l.source === d.id || l.target === d.id) ? 1 : 0
+                            );
+                        
+                        nodeGroups.selectAll('circle')
+                            .attr('opacity', n => connectedIds.has(n.id) ? 1 : 0.15);
+                        
+                        // Show labels for clicked node and connected nodes
+                        nodeGroups.each(function(n) {
+                            const group = d3.select(this);
+                            const label = group.select('.node-label');
+                            const bg = group.select('.node-label-bg');
+                            if (connectedIds.has(n.id)) {
+                                label.style('opacity', 1);
+                                bg.style('opacity', 1);
+                            } else {
+                                label.style('opacity', 0);
+                                bg.style('opacity', 0);
+                            }
+                        });
+                    }
+                });
+            
+            // Click on background to deselect
+            svg.on('click', () => {
+                if (selectedNode) {
+                    selectedNode = null;
+                    nodeGroups.classed('selected', false);
+                    links
+                        .attr('stroke-opacity', 0.4)
+                        .attr('stroke-width', 1.5)
+                        .attr('stroke', '#CCCCCC')
+                        .attr('marker-end', 'url(#arrow-grey)');
+                    linkLabelGroups.style('opacity', 0);
+                    nodeGroups.selectAll('circle').attr('opacity', 1);
+                    nodeGroups.selectAll('.node-label').style('opacity', 0);
+                    nodeGroups.selectAll('.node-label-bg').style('opacity', 0);
+                }
+            });
+            
+            // Node circles with organization colors (borderless by default)
+            nodeGroups.append('circle')
+                .attr('r', d => 3 + d.importance * 2.5)
+                .attr('fill', d => getOrganizationColor(d.entity))
+                .attr('stroke', 'none')
+                .attr('stroke-width', 0);
+            
+            // Node name labels (hidden by default, shown on hover/click)
+            nodeGroups.each(function(d) {
+                const group = d3.select(this);
+                
+                // Shortened name for display
+                const displayName = d.name.length > 50 ? d.name.slice(0, 50) + '...' : d.name;
+                
+                // Background rect for readability
+                const textWidth = displayName.length * 5;
+                group.append('rect')
+                    .attr('class', 'node-label-bg')
+                    .attr('x', -textWidth / 2)
+                    .attr('y', 10)
+                    .attr('width', textWidth)
+                    .attr('height', 16)
+                    .attr('fill', 'rgba(255, 255, 255, 0.9)')
+                    .attr('rx', 2)
+                    .style('opacity', 0)
+                    .style('pointer-events', 'none');
+                
+                // Text label
+                group.append('text')
+                    .attr('class', 'node-label')
+                    .attr('dy', 22)
+                    .attr('text-anchor', 'middle')
+                    .style('font-size', '9px')
+                    .style('fill', '#000')
+                    .style('opacity', 0)
+                    .style('pointer-events', 'none')
+                    .text(displayName);
+            });
+            
+            // Labels for most important nodes
+            nodeGroups.filter(d => d.importance >= 4)
+                .append('text')
+                .attr('dy', -18)
+                .attr('text-anchor', 'middle')
+                .style('font-size', '10px')
+                .style('font-weight', 'bold')
+                .style('pointer-events', 'none')
+                .text(d => d.year || '');
+            
+            console.log('Nodes drawn:', nodes.length);
+            updateStatus(`${nodes.length} nodes, ${edges.length} connections`);
+            
+            // Initial zoom to fit
+            setTimeout(() => {
+                const bounds = g.node().getBBox();
+                const scale = 0.9 / Math.max(bounds.width / width, bounds.height / height);
+                const translate = [
+                    width / 2 - scale * (bounds.x + bounds.width / 2),
+                    height / 2 - scale * (bounds.y + bounds.height / 2)
+                ];
+                
+                svg.transition().duration(1000)
+                    .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+                
+                updateStatus(`Ready! Click nodes to see relationships`);
+            }, 200);
+        }
+    </script>
+</body>
+</html>
