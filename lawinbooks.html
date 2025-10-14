@@ -84,7 +84,7 @@
         .slider {
             width: 150px;
             height: 20px;
-    
+
             background: #fff;
             border: 1px solid #000;
             outline: none;
@@ -270,8 +270,8 @@
                 <div class="component-header" onclick="toggleComponent('criminalization')">
                     <span>Criminalization Scope</span>
                     <div class="component-weight">
-                        <input type="range" id="weight-criminalization" class="slider" min="0" max="100" value="40">
-                        <span id="weight-criminalization-display">40%</span>
+                        <input type="range" id="weight-criminalization" class="slider" min="0" max="100" value="50">
+                        <span id="weight-criminalization-display">50%</span>
                         <span class="expand-indicator">▼</span>
                     </div>
                 </div>
@@ -279,22 +279,22 @@
                     <div class="variable-item">
                         <span>Use Criminalization</span>
                         <div class="variable-weight">
-                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="use-criminal">
-                            <span>33.3%</span>
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="use-criminal" data-component="criminalization">
+                            <span class="variable-percentage">16.7%</span>
                         </div>
                     </div>
                     <div class="variable-item">
                         <span>Possession Criminalization</span>
                         <div class="variable-weight">
-                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="possession-criminal">
-                            <span>33.3%</span>
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="possession-criminal" data-component="criminalization">
+                            <span class="variable-percentage">16.7%</span>
                         </div>
                     </div>
                     <div class="variable-item">
                         <span>No Personal Use Exemption</span>
                         <div class="variable-weight">
-                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="no-personal-exemption">
-                            <span>33.3%</span>
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="no-personal-exemption" data-component="criminalization">
+                            <span class="variable-percentage">16.7%</span>
                         </div>
                     </div>
                 </div>
@@ -304,8 +304,8 @@
                 <div class="component-header" onclick="toggleComponent('penalty')">
                     <span>Penalty Severity</span>
                     <div class="component-weight">
-                        <input type="range" id="weight-penalty" class="slider" min="0" max="100" value="60">
-                        <span id="weight-penalty-display">60%</span>
+                        <input type="range" id="weight-penalty" class="slider" min="0" max="100" value="50">
+                        <span id="weight-penalty-display">50%</span>
                         <span class="expand-indicator">▼</span>
                     </div>
                 </div>
@@ -313,28 +313,28 @@
                     <div class="variable-item">
                         <span>Maximum Possession Sentence</span>
                         <div class="variable-weight">
-                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="max-possession">
-                            <span>33.3%</span>
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="max-possession" data-component="penalty">
+                            <span class="variable-percentage">16.7%</span>
                         </div>
                     </div>
                     <div class="variable-item">
                         <span>Maximum Supply Sentence</span>
                         <div class="variable-weight">
-                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="max-supply">
-                            <span>33.3%</span>
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="max-supply" data-component="penalty">
+                            <span class="variable-percentage">16.7%</span>
                         </div>
                     </div>
                     <div class="variable-item">
                         <span>Mandatory Minimum Sentences</span>
                         <div class="variable-weight">
-                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="mandatory-minimums">
-                            <span>33.3%</span>
+                            <input type="range" class="variable-slider" min="0" max="100" value="33.3" data-variable="mandatory-minimums" data-component="penalty">
+                            <span class="variable-percentage">16.7%</span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <button class="reset-button" onclick="resetWeights()">Reset to Default (40/60)</button>
+            <button class="reset-button" onclick="resetWeights()">Reset to Default (50/50)</button>
         </div>
 
         <div class="main-content">
@@ -363,7 +363,7 @@ Legal Punitiveness = w₁ × Criminalization_Scope + w₂ × Penalty_Severity
 <br>
 
 Where (default weights):
-w₁ = 0.4, w₂ = 0.6
+w₁ = 0.5, w₂ = 0.5
 <br><br>
 
 Criminalization_Scope = (Use_Criminal + Possession_Criminal + (1 - Personal_Exemption)) / 3
@@ -424,8 +424,8 @@ Penalty_Severity = (Normalized_Max_Possession + Normalized_Max_Supply + Mandator
             const totalWeight = crimWeight + penaltyWeight;
 
             // Normalize weights to sum to 1
-            const normCrimWeight = totalWeight > 0 ? crimWeight / totalWeight : 0.4;
-            const normPenaltyWeight = totalWeight > 0 ? penaltyWeight / totalWeight : 0.6;
+            const normCrimWeight = totalWeight > 0 ? crimWeight / totalWeight : 0.5;
+            const normPenaltyWeight = totalWeight > 0 ? penaltyWeight / totalWeight : 0.5;
 
             countries.forEach((country, index) => {
                 const raw = rawData[country];
@@ -538,10 +538,30 @@ Penalty_Severity = (Normalized_Max_Possession + Normalized_Max_Supply + Mandator
             const penaltyWeight = parseInt(document.getElementById('weight-penalty').value);
             const total = crimWeight + penaltyWeight;
 
+            // Update component displays
             document.getElementById('weight-criminalization-display').textContent = 
                 total > 0 ? `${Math.round((crimWeight / total) * 100)}%` : '0%';
             document.getElementById('weight-penalty-display').textContent = 
                 total > 0 ? `${Math.round((penaltyWeight / total) * 100)}%` : '0%';
+
+            // Update variable displays to show their portion of component weight  
+            updateVariablePercentages('criminalization', Math.round((crimWeight / total) * 100));
+            updateVariablePercentages('penalty', Math.round((penaltyWeight / total) * 100));
+        }
+
+        function updateVariablePercentages(component, componentPercentage) {
+            const variables = document.querySelectorAll(`[data-component="${component}"]`);
+            const variableWeights = Array.from(variables).map(slider => parseInt(slider.value));
+            const totalVarWeight = variableWeights.reduce((a, b) => a + b, 0);
+
+            variables.forEach((slider, index) => {
+                const variableWeight = parseInt(slider.value);
+                const actualPercentage = totalVarWeight > 0 ? 
+                    Math.round((variableWeight / totalVarWeight) * componentPercentage * 10) / 10 : 0;
+                
+                const display = slider.nextElementSibling;
+                display.textContent = `${actualPercentage}%`;
+            });
         }
 
         function toggleComponent(componentId) {
@@ -553,12 +573,11 @@ Penalty_Severity = (Normalized_Max_Possession + Normalized_Max_Supply + Mandator
         }
 
         function resetWeights() {
-            document.getElementById('weight-criminalization').value = 40;
-            document.getElementById('weight-penalty').value = 60;
+            document.getElementById('weight-criminalization').value = 50;
+            document.getElementById('weight-penalty').value = 50;
             
             document.querySelectorAll('.variable-slider').forEach(slider => {
                 slider.value = 33.3;
-                slider.nextElementSibling.textContent = '33.3%';
             });
             
             updateWeightDisplays();
@@ -576,11 +595,12 @@ Penalty_Severity = (Normalized_Max_Possession + Normalized_Max_Supply + Mandator
             calculateIndex();
         });
 
-        document.querySelectorAll('.variable-slider').forEach(slider => {
-            slider.addEventListener('input', function() {
-                this.nextElementSibling.textContent = this.value + '%';
-                // Variable-level weighting would be implemented here
-            });
+        // Variable weight listeners  
+        document.addEventListener('input', (e) => {
+            if (e.target.classList.contains('variable-slider')) {
+                updateWeightDisplays(); // This will recalculate all variable percentages
+                calculateIndex(); // Recalculate scores
+            }
         });
 
         // Initialize
