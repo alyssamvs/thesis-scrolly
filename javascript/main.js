@@ -1,3 +1,16 @@
+// Show/hide header on scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    const coverHeight = document.querySelector('.cover').offsetHeight;
+    
+    if (window.scrollY > coverHeight * 0.8) { // Show when 80% down the hero
+        header.classList.add('visible');
+    } else {
+        header.classList.remove('visible');
+    }
+});
+
+
 
 // Scroll Progress Bar
 window.addEventListener('scroll', () => {
