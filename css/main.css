@@ -261,6 +261,26 @@ body {
          /* Optional: center text */
 }
 
+/* Full-width image in intro section */
+.full-width-image {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.full-width-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 #treaties .story-section {
     width: 100%;
     padding: 0;
