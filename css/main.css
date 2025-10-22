@@ -189,6 +189,13 @@ body {
     z-index: -1;
   }
 
+  /*
+--------------------
+--------------------
+    CAPTIONS
+--------------------
+--------------------*/
+
   .captions {
     /* position: absolute;
     top: 50vh;
@@ -212,7 +219,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1.1rem; */
     padding-top: 6rem;
-    min-height: 100vh; /* Each section takes up full viewport height */
+    /* min-height: 100vh; Each section takes up full viewport height */
     display: flex;
     align-items: center;
     font-size: 1.3rem;
@@ -220,7 +227,36 @@ body {
     flex-direction: column;
 
   }
+/*
+--------------------
+--------------------
+    IMAGES 
+--------------------
+--------------------*/
 
+.caption.full-width-image-caption {
+    min-height: auto; /* Override the 100vh requirement */
+    width: 100vw; /* Full viewport width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full-width-image {
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    max-width: 100%;
+    display: block;
+    object-fit: contain; /* Ensures aspect ratio is preserved */
+}
+
+
+/*
+--------------------
+--------------------
+    Graphic
+--------------------
+--------------------*/
   /* Right fixed graphic */
 .graphic {
     width: 55%;
