@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Drug Trafficking Routes Network</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f1f3f4;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .metric-selector {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .metric-btn {
+            padding: 8px 16px;
+            border: 2px solid #007bff;
+            background: white;
+            color: #007bff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .metric-btn.active {
+            background: #007bff;
+            color: white;
+        }
+        
+        .metric-btn:hover {
+            transform: translateY(-1px);
+        }
+        
+        .stats {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .node {
+            cursor: pointer;
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+        
+        .node:hover {
+            stroke: #333;
+            stroke-width: 3px;
+        }
+        
+        .link {
+            fill: none;
+            stroke-opacity: 0.6;
+        }
+        
+        .node-label {
+            pointer-events: none;
+            text-anchor: middle;
+            font-size: 11px;
+            font-weight: bold;
+            fill: #333;
+        }
+        
+        .tooltip {
+            position: absolute;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 4px;
+            pointer-events: none;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .legend {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .legend h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .legend-item {
+            margin: 5px 0;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .zoom-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .zoom-btn {
+            padding: 5px 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cocaine Trafficking Routes Network (2011-2016)</h1>
+        
+        <div class="controls">
+            <div class="metric-selector">
+                <span><strong>Link Weight:</strong></span>
+                <button class="metric-btn active" onclick="switchMetric('seizure_count')">Number of Seizures</button>
+                <button class="metric-btn" onclick="switchMetric('total_quantity_kg')">Total Quantity (kg)</button>
+            </div>
+            <div class="stats" id="network-stats">
+                Loading data...
+            </div>
+        </div>
+        
+        <div id="chart" style="position: relative;">
+            <div class="zoom-controls">
+                <button class="zoom-btn" onclick="zoomIn()">+</button>
+                <button class="zoom-btn" onclick="zoomOut()">-</button>
+                <button class="zoom-btn" onclick="resetZoom()">⌂</button>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <h4>Force-Directed Network Analysis</h4>
+            <div class="legend-item"><strong>Node Size:</strong> Based on total connections (hub countries are larger)</div>
+            <div class="legend-item"><strong>Link Thickness:</strong> Based on selected metric (seizures or quantity)</div>
+            <div class="legend-item"><strong>Hub Countries:</strong> Larger nodes indicate major trafficking centers</div>
+            <div class="legend-item"><strong>Interaction:</strong> Drag nodes, hover for details, zoom with mouse wheel</div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        // Global variables
+        var globalData = [];
+        var currentMetric = 'seizure_count';
+        var simulation;
+        var svg, g;
+        var zoom;
+
+        // Chart setup
+        var width = 1200;
+        var height = 700;
+
+        function initChart() {
+            svg = d3.select("#chart")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            // Add zoom behavior
+            zoom = d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on("zoom", function(event) {
+                    g.attr("transform", event.transform);
+                });
+
+            svg.call(zoom);
+
+            g = svg.append("g");
+        }
+
+        var tooltip = d3.select("#tooltip");
+
+        // Process data function
+        function processData(data, metric) {
+            console.log("Processing", data.length, "routes for force-directed graph");
+            
+            // Filter out routes with >3 seizures and no circular routes
+            var filteredData = data.filter(function(d) {
+                return d.seizure_count > 3 && d.DEPARTURE_COUNTRY !== d.DESTINATION_COUNTRY;
+            });
+            
+            console.log("After filtering:", filteredData.length, "significant routes");
+            
+            // Create nodes from unique countries
+            var nodeMap = new Map();
+            var nodes = [];
+            
+            filteredData.forEach(function(d) {
+                [d.DEPARTURE_COUNTRY, d.DESTINATION_COUNTRY].forEach(function(country) {
+                    if (!nodeMap.has(country)) {
+                        var node = {
+                            id: country,
+                            name: country,
+                            totalSeizures: 0,
+                            totalQuantity: 0,
+                            connections: 0
+                        };
+                        nodeMap.set(country, node);
+                        nodes.push(node);
+                    }
+                });
+            });
+            
+            // Calculate node sizes based on total activity
+            filteredData.forEach(function(d) {
+                var source = nodeMap.get(d.DEPARTURE_COUNTRY);
+                var target = nodeMap.get(d.DESTINATION_COUNTRY);
+                
+                source.totalSeizures += d.seizure_count;
+                source.totalQuantity += d.total_quantity_kg;
+                source.connections += 1;
+                
+                target.totalSeizures += d.seizure_count;
+                target.totalQuantity += d.total_quantity_kg;
+                target.connections += 1;
+            });
+
+            // Create links
+            var links = filteredData.map(function(d) {
+                return {
+                    source: d.DEPARTURE_COUNTRY,
+                    target: d.DESTINATION_COUNTRY,
+                    value: d[metric],
+                    seizure_count: d.seizure_count,
+                    total_quantity_kg: d.total_quantity_kg,
+                    departure: d.DEPARTURE_COUNTRY,
+                    destination: d.DESTINATION_COUNTRY
+                };
+            });
+
+            return {nodes: nodes, links: links};
+        }
+
+        // Update visualization
+        function updateVisualization() {
+            if (globalData.length === 0) {
+                console.log("No data available");
+                return;
+            }
+
+            // Clear previous
+            g.selectAll("*").remove();
+
+            var processed = processData(globalData, currentMetric);
+            console.log("Creating force graph with", processed.nodes.length, "nodes and", processed.links.length, "links");
+
+            // Create scales
+            var maxValue = d3.max(processed.links, function(d) { return d.value; });
+            var linkScale = d3.scaleLinear()
+                .domain([0, maxValue])
+                .range([1, 10]);
+
+            var maxConnections = d3.max(processed.nodes, function(d) { return d.connections; });
+            var nodeScale = d3.scaleLinear()
+                .domain([0, maxConnections])
+                .range([5, 30]);
+
+            // Color scale for nodes based on region (approximate)
+            var colorScale = d3.scaleOrdinal()
+                .domain(['Spain', 'Colombia', 'Brazil', 'Peru', 'Argentina', 'Venezuela'])
+                .range(['#e74c3c', '#f39c12', '#27ae60', '#3498db', '#9b59b6', '#e67e22'])
+                .unknown('#95a5a6');
+
+            // Create force simulation
+            simulation = d3.forceSimulation(processed.nodes)
+                .force("link", d3.forceLink(processed.links).id(function(d) { return d.id; }).distance(100))
+                .force("charge", d3.forceManyBody().strength(-300))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collision", d3.forceCollide().radius(function(d) { return nodeScale(d.connections) + 5; }));
+
+            // Add links
+            var link = g.append("g")
+                .selectAll(".link")
+                .data(processed.links)
+                .enter().append("line")
+                .attr("class", "link")
+                .attr("stroke", "#999")
+                .attr("stroke-width", function(d) { return linkScale(d.value); })
+                .on("mouseover", function(event, d) {
+                    tooltip
+                        .style("opacity", 1)
+                        .html("<strong>" + d.departure + " → " + d.destination + "</strong><br/>" +
+                              "Seizures: " + d.seizure_count.toLocaleString() + "<br/>" +
+                              "Total Quantity: " + d.total_quantity_kg.toLocaleString() + " kg<br/>" +
+                              "Avg per Seizure: " + (d.total_quantity_kg / d.seizure_count).toFixed(2) + " kg")
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 10) + "px");
+                })
+                .on("mouseout", function() {
+                    tooltip.style("opacity", 0);
+                });
+
+            // Add nodes
+            var node = g.append("g")
+                .selectAll(".node")
+                .data(processed.nodes)
+                .enter().append("circle")
+                .attr("class", "node")
+                .attr("r", function(d) { return nodeScale(d.connections); })
+                .attr("fill", function(d) { return colorScale(d.name); })
+                .on("mouseover", function(event, d) {
+                    tooltip
+                        .style("opacity", 1)
+                        .html("<strong>" + d.name + "</strong><br/>" +
+                              "Total Connections: " + d.connections + "<br/>" +
+                              "Total Seizures: " + d.totalSeizures.toLocaleString() + "<br/>" +
+                              "Total Quantity: " + d.totalQuantity.toLocaleString() + " kg")
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 10) + "px");
+                })
+                .on("mouseout", function() {
+                    tooltip.style("opacity", 0);
+                })
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+
+            // Add labels
+            var labels = g.append("g")
+                .selectAll(".node-label")
+                .data(processed.nodes)
+                .enter().append("text")
+                .attr("class", "node-label")
+                .text(function(d) { return d.name; })
+                .style("font-size", function(d) { 
+                    return Math.min(12, Math.max(8, nodeScale(d.connections) / 2)) + "px"; 
+                });
+
+            // Update positions on tick
+            simulation.on("tick", function() {
+                link
+                    .attr("x1", function(d) { return d.source.x; })
+                    .attr("y1", function(d) { return d.source.y; })
+                    .attr("x2", function(d) { return d.target.x; })
+                    .attr("y2", function(d) { return d.target.y; });
+
+                node
+                    .attr("cx", function(d) { return d.x; })
+                    .attr("cy", function(d) { return d.y; });
+
+                labels
+                    .attr("x", function(d) { return d.x; })
+                    .attr("y", function(d) { return d.y + 4; });
+            });
+        }
+
+        // Drag functions
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Zoom functions
+        function zoomIn() {
+            svg.transition().call(zoom.scaleBy, 1.5);
+        }
+
+        function zoomOut() {
+            svg.transition().call(zoom.scaleBy, 1 / 1.5);
+        }
+
+        function resetZoom() {
+            svg.transition().call(zoom.transform, d3.zoomIdentity);
+        }
+
+        // Switch metric function
+        function switchMetric(metric) {
+            currentMetric = metric;
+            
+            // Update button states
+            document.querySelectorAll('.metric-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update visualization
+            updateVisualization();
+            
+            // Update stats
+            var metricName = metric === 'seizure_count' ? 'Number of Seizures' : 'Total Quantity (kg)';
+            document.getElementById('network-stats').textContent = 
+                globalData.filter(function(d) { return d.seizure_count > 3; }).length + 
+                ' significant routes • Link weight: ' + metricName;
+        }
+
+        // Initialize
+        function init() {
+            initChart();
+            
+            d3.csv('./data/seizures_routing_network_data.csv').then(function(data) {
+                console.log("CSV loaded successfully:", data.length, "routes");
+                
+                // Convert strings to numbers
+                data.forEach(function(d) {
+                    d.seizure_count = +d.seizure_count;
+                    d.total_quantity_kg = +d.total_quantity_kg;
+                });
+                
+                globalData = data;
+                updateVisualization();
+                
+                var significantCount = data.filter(function(d) { return d.seizure_count > 3; }).length;
+                document.getElementById('network-stats').textContent = 
+                    significantCount + ' significant routes • >3 seizures each';
+                
+            }).catch(function(loadError) {
+                console.error("CSV loading failed:", loadError);
+                document.getElementById('network-stats').textContent = "Failed to load data";
+            });
+        }
+
+        // Start
+        init();
+    </script>
+</body>
+</html>

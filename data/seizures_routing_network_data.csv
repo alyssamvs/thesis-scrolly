@@ -1,0 +1,597 @@
+DEPARTURE_COUNTRY,DESTINATION_COUNTRY,seizure_count,total_quantity_kg,avg_quantity_kg,primary_drug,first_year,last_year
+Afghanistan,Afghanistan,1,0.014,0.014,Non-specified cocaine-type,2015.0,2015.0
+Albania,Hungary,1,0.394,0.394,Non-specified cocaine-type,2012.0,2012.0
+Algeria,Spain,1,0.44,0.44,Non-specified cocaine-type,2011.0,2011.0
+Andorra,Spain,2,0.037,0.019,Non-specified cocaine-type,2013.0,2014.0
+Angola,Portugal,1,1.7,1.7,Non-specified cocaine-type,2012.0,2012.0
+Argentina,Argentina,12,270.244,22.52,Non-specified cocaine-type,2012.0,2015.0
+Argentina,Australia,1,0.63,0.63,Non-specified cocaine-type,2016.0,2016.0
+Argentina,Belgium,9,20.207,2.245,Non-specified cocaine-type,2011.0,2015.0
+Argentina,Bulgaria,5,4.353,0.871,Non-specified cocaine-type,2012.0,2015.0
+Argentina,Ethiopia,1,20.63,20.63,Non-specified cocaine-type,2012.0,2012.0
+Argentina,France,2,0.34,0.17,Non-specified cocaine-type,2016.0,2016.0
+Argentina,Gabon,2,1.61,0.805,Non-specified cocaine-type,2013.0,2013.0
+Argentina,Hungary,8,2.183,0.273,Non-specified cocaine-type,2012.0,2013.0
+Argentina,Italy,7,16.391,2.342,Non-specified cocaine-type,2012.0,2013.0
+Argentina,Mongolia,1,65.751,65.751,Non-specified cocaine-type,2012.0,2012.0
+Argentina,Morocco,1,0.78,0.78,Non-specified cocaine-type,2011.0,2011.0
+Argentina,Mozambique,1,6.0,6.0,Non-specified cocaine-type,2011.0,2011.0
+Argentina,Netherlands,10,90.276,9.028,Non-specified cocaine-type,2011.0,2012.0
+Argentina,Nigeria,5,5.895,1.179,Non-specified cocaine-type,2014.0,2016.0
+Argentina,Portugal,17,1304.048,76.709,Non-specified cocaine-type,2011.0,2016.0
+Argentina,Romania,1,1.49,1.49,Non-specified cocaine-type,2012.0,2012.0
+Argentina,Slovakia,1,0.258,0.258,Non-specified cocaine-type,2012.0,2012.0
+Argentina,South Africa,1,1.34,1.34,Non-specified cocaine-type,2013.0,2013.0
+Argentina,Spain,504,1988.926,3.946,Non-specified cocaine-type,2011.0,2016.0
+Argentina,Turkey,2,1.442,0.721,Non-specified cocaine-type,2012.0,2012.0
+Argentina,Uganda,1,0.36,0.36,Non-specified cocaine-type,2015.0,2015.0
+Argentina,United Kingdom (England and Wales),1,0.893,0.893,Non-specified cocaine-type,2012.0,2012.0
+Argentina,Uruguay,2,2.0,1.0,Non-specified cocaine-type,2015.0,2015.0
+Armenia,Turkey,1,4.847,4.847,Non-specified cocaine-type,2015.0,2015.0
+Austria,Austria,2,0.597,0.298,Non-specified cocaine-type,2016.0,2016.0
+Austria,Bulgaria,3,0.88,0.293,Non-specified cocaine-type,2012.0,2015.0
+Austria,Romania,1,0.141,0.141,Non-specified cocaine-type,2015.0,2015.0
+Austria,Serbia,2,0.428,0.214,Non-specified cocaine-type,2016.0,2016.0
+Bangladesh,Spain,1,0.806,0.806,Non-specified cocaine-type,2011.0,2011.0
+Barbados,Portugal,1,167.4,167.4,Non-specified cocaine-type,2014.0,2014.0
+Belgium,Austria,7,16.604,2.372,Non-specified cocaine-type,2012.0,2016.0
+Belgium,Cyprus,1,0.735,0.735,Non-specified cocaine-type,2011.0,2011.0
+Belgium,Hungary,1,0.56,0.56,Non-specified cocaine-type,2012.0,2012.0
+Belgium,Italy,2,0.582,0.291,Non-specified cocaine-type,2013.0,2013.0
+Belgium,Luxembourg,3,1.313,0.438,Non-specified cocaine-type,2015.0,2015.0
+Belgium,Norway,1,0.17,0.17,Non-specified cocaine-type,2012.0,2012.0
+Belgium,Spain,6,26.112,4.352,Non-specified cocaine-type,2011.0,2014.0
+"Bolivia, Plurinational State of",Austria,1,0.201,0.201,Non-specified cocaine-type,2012.0,2012.0
+"Bolivia, Plurinational State of",Belgium,2,3.937,1.969,Non-specified cocaine-type,2013.0,2015.0
+"Bolivia, Plurinational State of",Brazil,1,90.0,90.0,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2012.0
+"Bolivia, Plurinational State of",Chile,2,21.98,10.99,Non-specified cocaine-type,2016.0,2016.0
+"Bolivia, Plurinational State of",Cuba,1,0.86,0.86,Non-specified cocaine-type,2014.0,2014.0
+"Bolivia, Plurinational State of",Germany,1,7.48,7.48,Non-specified cocaine-type,2016.0,2016.0
+"Bolivia, Plurinational State of",Greece,4,4.0,1.0,Non-specified cocaine-type,2012.0,2012.0
+"Bolivia, Plurinational State of",Italy,4,6.275,1.569,Non-specified cocaine-type,2012.0,2016.0
+"Bolivia, Plurinational State of",Netherlands,2,159.11,79.555,Non-specified cocaine-type,2011.0,2015.0
+"Bolivia, Plurinational State of",Nigeria,1,2.1,2.1,Coca leaf,2013.0,2013.0
+"Bolivia, Plurinational State of",Paraguay,15,369.727,24.648,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2013.0
+"Bolivia, Plurinational State of",Portugal,7,341.597,48.8,Non-specified cocaine-type,2011.0,2016.0
+"Bolivia, Plurinational State of",Romania,1,0.4,0.4,Non-specified cocaine-type,2011.0,2011.0
+"Bolivia, Plurinational State of",Russian Federation,4,1.818,0.455,Non-specified cocaine-type,2012.0,2013.0
+"Bolivia, Plurinational State of",Spain,338,1959.545,5.797,Non-specified cocaine-type,2011.0,2016.0
+"Bolivia, Plurinational State of",Switzerland,1,3.2,3.2,Non-specified cocaine-type,2013.0,2013.0
+"Bolivia, Plurinational State of",United Kingdom,2,0.91,0.455,Non-specified cocaine-type,2011.0,2011.0
+"Bolivia, Plurinational State of",Zambia,4,7.4,1.85,Non-specified cocaine-type,2016.0,2016.0
+Bosnia and Herzegovina,Austria,4,2.595,0.649,Non-specified cocaine-type,2016.0,2016.0
+Brazil,Algeria,4,13.448,3.362,Non-specified cocaine-type,2011.0,2015.0
+Brazil,Angola,1,441.7,441.7,Non-specified cocaine-type,2016.0,2016.0
+Brazil,Belgium,110,299.988,2.727,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Benin,8,22.78,2.848,Non-specified cocaine-type,2016.0,2016.0
+Brazil,Brazil,3,1.136,0.379,Non-specified cocaine-type,2014.0,2016.0
+Brazil,Bulgaria,10,30.176,3.018,Non-specified cocaine-type,2011.0,2015.0
+Brazil,Cabo Verde,3,502.343,167.448,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Cameroon,1,4.09,4.09,Non-specified cocaine-type,2016.0,2016.0
+Brazil,Congo,2,4.155,2.078,Non-specified cocaine-type,2016.0,2016.0
+Brazil,Cyprus,1,15.5,15.5,Non-specified cocaine-type,2013.0,2013.0
+Brazil,Czech Republic,2,2.358,1.179,Non-specified cocaine-type,2011.0,2012.0
+Brazil,Côte d'Ivoire,8,40.651,5.081,Non-specified cocaine-type,2013.0,2016.0
+Brazil,Denmark,1,0.678,0.678,Non-specified cocaine-type,2012.0,2012.0
+Brazil,Egypt,3,14.812,4.937,Non-specified cocaine-type,2012.0,2016.0
+Brazil,France,26,127.556,4.906,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Germany,5,8.565,1.713,Non-specified cocaine-type,2015.0,2016.0
+Brazil,Ghana,12,4040.648,336.721,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Greece,5,7.62,1.524,Non-specified cocaine-type,2011.0,2015.0
+Brazil,Guinea,7,230.395,32.914,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Guinea-Bissau,22,49.053,2.23,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Hong Kong,3,1144.786,381.595,Non-specified cocaine-type,2015.0,2016.0
+Brazil,Hungary,13,434.443,33.419,Non-specified cocaine-type,2011.0,2015.0
+Brazil,India,1,188.154,188.154,Non-specified cocaine-type,2014.0,2014.0
+Brazil,Ireland,3,5.755,1.918,Non-specified cocaine-type,2014.0,2016.0
+Brazil,Israel,3,86.82,28.94,Non-specified cocaine-type,2012.0,2012.0
+Brazil,Italy,68,1111.512,16.346,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Luxembourg,4,8.184,2.046,Non-specified cocaine-type,2012.0,2016.0
+Brazil,"Macau, SAR of China",1,3.039,3.039,Non-specified cocaine-type,2016.0,2016.0
+Brazil,Madagascar,1,280.8,280.8,Non-specified cocaine-type,2016.0,2016.0
+Brazil,Mali,4,5.159,1.29,Non-specified cocaine-type,2012.0,2016.0
+Brazil,Mexico,1,21.03,21.03,Non-specified cocaine-type,2013.0,2013.0
+Brazil,Morocco,20,58.516,2.926,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Mozambique,23,49.238,2.141,Non-specified cocaine-type,2011.0,2014.0
+Brazil,Netherlands,38,81.419,2.143,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Nigeria,30,82.966,2.766,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Pakistan,2,2.76,1.38,Non-specified cocaine-type,2014.0,2015.0
+Brazil,Poland,3,4.512,1.504,Non-specified cocaine-type,2011.0,2014.0
+Brazil,Portugal,501,4501.19,8.984,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Romania,3,3.892,1.297,Non-specified cocaine-type,2013.0,2016.0
+Brazil,Russian Federation,1,0.446,0.446,Non-specified cocaine-type,2011.0,2011.0
+Brazil,Sao Tome and Principe,3,5.167,1.722,Non-specified cocaine-type,2012.0,2015.0
+Brazil,Saudi Arabia,1,217.917,217.917,Non-specified cocaine-type,2013.0,2013.0
+Brazil,Senegal,5,7.114,1.423,Non-specified cocaine-type,2012.0,2013.0
+Brazil,Serbia,1,2.696,2.696,Non-specified cocaine-type,2011.0,2011.0
+Brazil,Sierra Leone,2,9.055,4.528,Non-specified cocaine-type,2016.0,2016.0
+Brazil,Singapore,1,1.022,1.022,Non-specified cocaine-type,2013.0,2013.0
+Brazil,Slovenia,2,103.663,51.832,Non-specified cocaine-type,2014.0,2016.0
+Brazil,South Africa,4,9.53,2.383,Non-specified cocaine-type,2013.0,2014.0
+Brazil,Spain,1006,7097.792,7.055,Non-specified cocaine-type,2011.0,2016.0
+Brazil,Switzerland,11,23.728,2.157,Non-specified cocaine-type,2011.0,2016.0
+Brazil,"Tanzania, United Republic of",2,2.214,1.107,Non-specified cocaine-type,2012.0,2012.0
+Brazil,Thailand,1,4.117,4.117,Non-specified cocaine-type,2013.0,2013.0
+Brazil,Togo,3,108.98,36.327,Non-specified cocaine-type,2011.0,2014.0
+Brazil,Ukraine,1,2.36,2.36,Non-specified cocaine-type,2013.0,2013.0
+Brazil,United Kingdom,10,10.754,1.075,Non-specified cocaine-type,2011.0,2015.0
+Brazil,Yemen,2,87.111,43.556,Non-specified cocaine-type,2013.0,2016.0
+Bulgaria,Israel,4,0.72,0.18,Non-specified cocaine-type,2016.0,2016.0
+Bulgaria,Serbia,1,0.002,0.002,Non-specified cocaine-type,2014.0,2014.0
+Bulgaria,Turkey,1,0.84,0.84,Non-specified cocaine-type,2013.0,2013.0
+Cabo Verde,Portugal,7,23.208,3.315,Non-specified cocaine-type,2011.0,2015.0
+Cambodia,Belgium,1,2.48,2.48,Non-specified cocaine-type,2011.0,2011.0
+Cambodia,Latvia,1,1.0,1.0,Non-specified cocaine-type,2011.0,2011.0
+Cambodia,Morocco,1,1.0,1.0,Non-specified cocaine-type,2011.0,2011.0
+Cambodia,Netherlands,2,9.926,4.963,Non-specified cocaine-type,2011.0,2011.0
+Cambodia,Spain,99,104.968,1.06,Non-specified cocaine-type,2011.0,2011.0
+Cameroon,Spain,2,2.983,1.491,Non-specified cocaine-type,2011.0,2014.0
+Canada,Russian Federation,1,0.001,0.001,Non-specified cocaine-type,2013.0,2013.0
+Canada,Trinidad and Tobago,1,0.48,0.48,Non-specified cocaine-type,2015.0,2015.0
+Chile,Belgium,1,6.23,6.23,Non-specified cocaine-type,2011.0,2011.0
+Chile,Bulgaria,2,8.762,4.381,Non-specified cocaine-type,2016.0,2016.0
+Chile,Italy,8,536.02,67.002,Non-specified cocaine-type,2012.0,2013.0
+Chile,Mexico,1,124.2,124.2,Non-specified cocaine-type,2013.0,2013.0
+Chile,Netherlands,1,3.95,3.95,Non-specified cocaine-type,2013.0,2013.0
+Chile,Nigeria,1,101.9,101.9,Non-specified cocaine-type,2014.0,2014.0
+Chile,Portugal,4,145.982,36.496,Non-specified cocaine-type,2012.0,2015.0
+Chile,Saudi Arabia,1,116.355,116.355,Non-specified cocaine-type,2013.0,2013.0
+Chile,Spain,74,3108.21,42.003,Non-specified cocaine-type,2011.0,2016.0
+Chile,Togo,1,1.37,1.37,Non-specified cocaine-type,2013.0,2013.0
+Chile,Turkey,2,174.665,87.333,Non-specified cocaine-type,2012.0,2015.0
+China,Hungary,2,1.023,0.512,Non-specified cocaine-type,2013.0,2013.0
+China,"Macau, SAR of China",1,0.001,0.001,Non-specified cocaine-type,2016.0,2016.0
+Colombia,Australia,9,30.77,3.419,Non-specified cocaine-type,2014.0,2016.0
+Colombia,Austria,3,18.231,6.077,Non-specified cocaine-type,2012.0,2016.0
+Colombia,Belgium,4,12.369,3.092,Non-specified cocaine-type,2013.0,2015.0
+Colombia,Bulgaria,1,1.0,1.0,Non-specified cocaine-type,2012.0,2012.0
+Colombia,Cabo Verde,1,2.6,2.6,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Canada,9,62.54,6.949,Non-specified cocaine-type,2012.0,2014.0
+Colombia,China,4,15.195,3.799,Non-specified cocaine-type,2011.0,2014.0
+Colombia,Colombia,9,91.301,10.145,Non-specified cocaine-type,2012.0,2016.0
+Colombia,Costa Rica,3,8.19,2.73,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Cuba,6,8.576,1.429,Non-specified cocaine-type,2012.0,2013.0
+Colombia,Dominica,3,15.65,5.217,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Ecuador,2,5.96,2.98,Non-specified cocaine-type,2015.0,2015.0
+Colombia,Finland,1,3.39,3.39,Non-specified cocaine-type,2015.0,2015.0
+Colombia,France,11,12.579,1.144,Non-specified cocaine-type,2012.0,2016.0
+Colombia,Germany,3,6.551,2.184,Non-specified cocaine-type,2013.0,2016.0
+Colombia,Greece,1,5.6,5.6,Non-specified cocaine-type,2014.0,2014.0
+Colombia,India,7,11.655,1.665,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Ireland,4,6.21,1.552,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Israel,2,11.58,5.79,Non-specified cocaine-type,2012.0,2015.0
+Colombia,Italy,15,590.787,39.386,Non-specified cocaine-type,2011.0,2016.0
+Colombia,Jamaica,1,0.22,0.22,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Jordan,1,263.0,263.0,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Kazakhstan,1,1.115,1.115,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Liberia,4,4.7,1.175,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Lithuania,1,1.315,1.315,Non-specified cocaine-type,2016.0,2016.0
+Colombia,Malaysia,1,1.83,1.83,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Mexico,2,274.039,137.02,Non-specified cocaine-type,2013.0,2014.0
+Colombia,Morocco,6,30.658,5.11,Non-specified cocaine-type,2011.0,2016.0
+Colombia,Netherlands,23,130.052,5.654,Non-specified cocaine-type,2012.0,2016.0
+Colombia,Nigeria,4,3.244,0.811,Non-specified cocaine-type,2014.0,2016.0
+Colombia,Philippines,1,2.265,2.265,Non-specified cocaine-type,2015.0,2015.0
+Colombia,Portugal,26,287.804,11.069,Non-specified cocaine-type,2011.0,2016.0
+Colombia,Romania,4,31.172,7.793,Coca leaf,2011.0,2016.0
+Colombia,Russian Federation,3,7.542,2.514,Non-specified cocaine-type,2012.0,2014.0
+Colombia,Sierra Leone,1,2.41,2.41,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Slovakia,1,1.5,1.5,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Slovenia,1,2.16,2.16,Non-specified cocaine-type,2011.0,2011.0
+Colombia,South Africa,7,40.006,5.715,Non-specified cocaine-type,2013.0,2014.0
+Colombia,Spain,892,10803.777,12.112,Non-specified cocaine-type,2011.0,2016.0
+Colombia,Sweden,1,2.417,2.417,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Thailand,6,21.5,3.583,Non-specified cocaine-type,2014.0,2014.0
+Colombia,Togo,1,2.084,2.084,Non-specified cocaine-type,2013.0,2013.0
+Colombia,Turkey,2,208.005,104.002,Non-specified cocaine-type,2013.0,2013.0
+Colombia,United Kingdom,16,61.8,3.862,Non-specified cocaine-type,2012.0,2014.0
+Colombia,United States,17,107.665,6.333,Non-specified cocaine-type,2012.0,2014.0
+Colombia,"Venezuela, Bolivarian Republic of",8,29.325,3.666,Non-specified cocaine-type,2014.0,2014.0
+Costa Rica,Angola,1,8.0,8.0,Non-specified cocaine-type,2011.0,2011.0
+Costa Rica,Austria,4,4.837,1.209,Non-specified cocaine-type,2011.0,2013.0
+Costa Rica,Belgium,6,14.741,2.457,Non-specified cocaine-type,2011.0,2014.0
+Costa Rica,Bulgaria,6,0.493,0.082,Non-specified cocaine-type,2012.0,2013.0
+Costa Rica,Cameroon,1,7.049,7.049,Non-specified cocaine-type,2014.0,2014.0
+Costa Rica,Costa Rica,4,1.448,0.362,Non-specified cocaine-type,2012.0,2013.0
+Costa Rica,Cuba,1,0.798,0.798,Non-specified cocaine-type,2012.0,2012.0
+Costa Rica,Czech Republic,1,1.153,1.153,Non-specified cocaine-type,2013.0,2013.0
+Costa Rica,Egypt,1,2.182,2.182,Non-specified cocaine-type,2013.0,2013.0
+Costa Rica,France,2,1.55,0.775,Non-specified cocaine-type,2011.0,2016.0
+Costa Rica,Germany,3,2.004,0.668,Non-specified cocaine-type,2013.0,2015.0
+Costa Rica,Greece,2,0.282,0.141,Non-specified cocaine-type,2012.0,2012.0
+Costa Rica,Guatemala,3,198.0,66.0,Non-specified cocaine-type,2012.0,2014.0
+Costa Rica,Hungary,6,0.886,0.148,Non-specified cocaine-type,2012.0,2012.0
+Costa Rica,India,3,1.26,0.42,Non-specified cocaine-type,2011.0,2013.0
+Costa Rica,Ireland,5,101.605,20.321,Non-specified cocaine-type,2011.0,2014.0
+Costa Rica,Israel,2,4.254,2.127,Non-specified cocaine-type,2011.0,2013.0
+Costa Rica,Italy,25,116.891,4.676,Non-specified cocaine-type,2011.0,2013.0
+Costa Rica,Morocco,1,0.128,0.128,Non-specified cocaine-type,2014.0,2014.0
+Costa Rica,Netherlands,44,12.144,0.276,Non-specified cocaine-type,2011.0,2014.0
+Costa Rica,Niger,2,1.775,0.888,Non-specified cocaine-type,2013.0,2013.0
+Costa Rica,Nigeria,3,1.364,0.455,Non-specified cocaine-type,2011.0,2013.0
+Costa Rica,Philippines,1,0.264,0.264,Non-specified cocaine-type,2011.0,2011.0
+Costa Rica,Portugal,3,4.15,1.383,Non-specified cocaine-type,2012.0,2015.0
+Costa Rica,Romania,3,51.042,17.014,Non-specified cocaine-type,2012.0,2013.0
+Costa Rica,Russian Federation,5,1.542,0.308,Non-specified cocaine-type,2012.0,2014.0
+Costa Rica,Slovakia,1,0.19,0.19,Non-specified cocaine-type,2013.0,2013.0
+Costa Rica,Slovenia,1,0.4,0.4,Non-specified cocaine-type,2014.0,2014.0
+Costa Rica,South Africa,8,13.225,1.653,Non-specified cocaine-type,2011.0,2013.0
+Costa Rica,Spain,226,3937.032,17.42,Non-specified cocaine-type,2011.0,2016.0
+Costa Rica,Switzerland,1,0.55,0.55,Non-specified cocaine-type,2015.0,2015.0
+Costa Rica,Turkey,1,2.907,2.907,Non-specified cocaine-type,2012.0,2012.0
+Costa Rica,United Kingdom,25,13.537,0.541,Non-specified cocaine-type,2011.0,2013.0
+Cuba,Cuba,43,76.464,1.778,Non-specified cocaine-type,2013.0,2016.0
+Cuba,Israel,1,0.782,0.782,Non-specified cocaine-type,2014.0,2014.0
+Cuba,Jamaica,2,51.4,25.7,Non-specified cocaine-type,2015.0,2015.0
+Cuba,Russian Federation,4,6.993,1.748,Non-specified cocaine-type,2012.0,2015.0
+Cyprus,Peru,1,1.2,1.2,Non-specified cocaine-type,2012.0,2012.0
+Czech Republic,Austria,1,1.407,1.407,Non-specified cocaine-type,2013.0,2013.0
+Denmark,Sweden,4,1.319,0.33,Non-specified cocaine-type,2011.0,2012.0
+Dominica,Armenia,1,2.285,2.285,Non-specified cocaine-type,2013.0,2013.0
+Dominica,Russian Federation,2,11.916,5.958,Non-specified cocaine-type,2013.0,2014.0
+Dominica,Spain,4,1.842,0.46,Non-specified cocaine-type,2011.0,2016.0
+Dominican Republic,Armenia,2,2939.0,1469.5,Non-specified cocaine-type,2014.0,2014.0
+Dominican Republic,Austria,3,4.6,1.533,Non-specified cocaine-type,2012.0,2013.0
+Dominican Republic,Belgium,2,6.23,3.115,Non-specified cocaine-type,2011.0,2012.0
+Dominican Republic,Benin,1,0.825,0.825,Non-specified cocaine-type,2011.0,2011.0
+Dominican Republic,Bulgaria,15,2.35,0.157,Non-specified cocaine-type,2012.0,2016.0
+Dominican Republic,Dominican Republic,5,4.392,0.878,Non-specified cocaine-type,2011.0,2015.0
+Dominican Republic,France,1,328.2,328.2,Non-specified cocaine-type,2012.0,2012.0
+Dominican Republic,Germany,3,4.434,1.478,Non-specified cocaine-type,2012.0,2014.0
+Dominican Republic,Greece,1,0.6,0.6,Non-specified cocaine-type,2012.0,2012.0
+Dominican Republic,Italy,39,286.335,7.342,Non-specified cocaine-type,2011.0,2015.0
+Dominican Republic,Luxembourg,1,0.128,0.128,Non-specified cocaine-type,2015.0,2015.0
+Dominican Republic,Morocco,1,2.39,2.39,Non-specified cocaine-type,2012.0,2012.0
+Dominican Republic,Netherlands,3,13.08,4.36,Non-specified cocaine-type,2012.0,2013.0
+Dominican Republic,Portugal,18,157.513,8.751,Non-specified cocaine-type,2011.0,2013.0
+Dominican Republic,Russian Federation,3,2.64,0.88,Non-specified cocaine-type,2014.0,2014.0
+Dominican Republic,South Africa,2,16.665,8.332,Non-specified cocaine-type,2011.0,2012.0
+Dominican Republic,Spain,672,4307.245,6.41,Non-specified cocaine-type,2011.0,2016.0
+Dominican Republic,Switzerland,5,8.74,1.748,Non-specified cocaine-type,2011.0,2014.0
+Dominican Republic,Togo,2,3.94,1.97,Non-specified cocaine-type,2012.0,2012.0
+Dominican Republic,United Kingdom,1,1.0,1.0,Non-specified cocaine-type,2011.0,2011.0
+Dominican Republic,United States,1,4.8,4.8,Non-specified cocaine-type,2016.0,2016.0
+Ecuador,Albania,1,0.735,0.735,Non-specified cocaine-type,2014.0,2014.0
+Ecuador,Australia,1,0.018,0.018,Non-specified cocaine-type,2015.0,2015.0
+Ecuador,Belgium,5,338.2,67.64,Non-specified cocaine-type,2013.0,2016.0
+Ecuador,Bulgaria,2,0.42,0.21,Non-specified cocaine-type,2013.0,2014.0
+Ecuador,Cuba,50,51.229,1.025,Non-specified cocaine-type,2011.0,2014.0
+Ecuador,Czech Republic,1,0.798,0.798,Non-specified cocaine-type,2012.0,2012.0
+Ecuador,Ecuador,3,445.109,148.37,Non-specified cocaine-type,2011.0,2013.0
+Ecuador,France,1,2.93,2.93,Non-specified cocaine-type,2013.0,2013.0
+Ecuador,Gambia,1,2.684,2.684,Non-specified cocaine-type,2012.0,2012.0
+Ecuador,Germany,1,13.34,13.34,Non-specified cocaine-type,2014.0,2014.0
+Ecuador,Guatemala,7,939.729,134.247,Non-specified cocaine-type,2014.0,2014.0
+Ecuador,Hungary,1,0.629,0.629,Non-specified cocaine-type,2012.0,2012.0
+Ecuador,Italy,8,306.143,38.268,Non-specified cocaine-type,2012.0,2013.0
+Ecuador,Kuwait,2,349.9,174.95,Non-specified cocaine-type,2014.0,2014.0
+Ecuador,Libyan Arab Jamahiriya,1,67.815,67.815,Non-specified cocaine-type,2012.0,2012.0
+Ecuador,Netherlands,4,25.498,6.374,Non-specified cocaine-type,2011.0,2014.0
+Ecuador,Other,1,227.59,227.59,Non-specified cocaine-type,2014.0,2014.0
+Ecuador,Pakistan,1,0.32,0.32,Non-specified cocaine-type,2014.0,2014.0
+Ecuador,Portugal,5,362.345,72.469,Non-specified cocaine-type,2012.0,2015.0
+Ecuador,Romania,1,2.0,2.0,Non-specified cocaine-type,2015.0,2015.0
+Ecuador,Russian Federation,3,27.285,9.095,Non-specified cocaine-type,2013.0,2014.0
+Ecuador,Saudi Arabia,3,1264.3,421.433,Non-specified cocaine-type,2013.0,2014.0
+Ecuador,Slovenia,1,0.275,0.275,Non-specified cocaine-type,2012.0,2012.0
+Ecuador,Spain,214,8100.34,37.852,Non-specified cocaine-type,2011.0,2016.0
+Ecuador,Switzerland,2,2.0,1.0,Non-specified cocaine-type,2016.0,2016.0
+Ecuador,Turkey,5,1335.97,267.194,Non-specified cocaine-type,2014.0,2016.0
+Ecuador,Ukraine,2,35.53,17.765,Non-specified cocaine-type,2012.0,2012.0
+Ecuador,United Arab Emirates,1,110.0,110.0,Non-specified cocaine-type,2015.0,2015.0
+Ecuador,United Kingdom,1,0.047,0.047,Non-specified cocaine-type,2014.0,2014.0
+Ecuador,United States,2,1.184,0.592,Non-specified cocaine-type,2014.0,2015.0
+El Salvador,El Salvador,16,15.956,0.997,Non-specified cocaine-type,2012.0,2013.0
+El Salvador,Germany,1,1.0,1.0,Non-specified cocaine-type,2014.0,2014.0
+El Salvador,Italy,1,3.25,3.25,Non-specified cocaine-type,2013.0,2013.0
+El Salvador,Other,2,1.9,0.95,Non-specified cocaine-type,2014.0,2014.0
+El Salvador,Spain,5,340.07,68.014,Non-specified cocaine-type,2011.0,2016.0
+El Salvador,United States,2,136.504,68.252,Non-specified cocaine-type,2012.0,2013.0
+Ethiopia,Spain,2,8.92,4.46,Non-specified cocaine-type,2015.0,2015.0
+France,Finland,2,0.261,0.13,Non-specified cocaine-type,2016.0,2016.0
+France,France,4,0.921,0.23,Non-specified cocaine-type,2012.0,2016.0
+France,Italy,5,13.913,2.783,Non-specified cocaine-type,2012.0,2013.0
+France,Russian Federation,2,3.386,1.693,Non-specified cocaine-type,2011.0,2013.0
+France,Spain,6,4.166,0.694,Non-specified cocaine-type,2012.0,2016.0
+Germany,Austria,2,1.141,0.57,Non-specified cocaine-type,2014.0,2015.0
+Germany,China,2,6.004,3.002,Non-specified cocaine-type,2014.0,2014.0
+Germany,Czech Republic,2,3.0,1.5,Non-specified cocaine-type,2012.0,2012.0
+Germany,Italy,1,0.003,0.003,Non-specified cocaine-type,2013.0,2013.0
+Germany,Morocco,1,3.193,3.193,Non-specified cocaine-type,2016.0,2016.0
+Germany,Norway,1,6.0,6.0,Non-specified cocaine-type,2012.0,2012.0
+Germany,Russian Federation,6,0.006,0.001,Non-specified cocaine-type,2014.0,2014.0
+Germany,Spain,8,7.712,0.964,Non-specified cocaine-type,2011.0,2015.0
+Germany,Sweden,1,1.49,1.49,Non-specified cocaine-type,2012.0,2012.0
+Germany,Turkey,1,0.001,0.001,Non-specified cocaine-type,2014.0,2014.0
+Germany,United Kingdom,2,7.5,3.75,Non-specified cocaine-type,2014.0,2014.0
+Germany,Viet Nam,1,3.0,3.0,Non-specified cocaine-type,2014.0,2014.0
+Ghana,Egypt,1,0.9,0.9,Non-specified cocaine-type,2012.0,2012.0
+Ghana,India,1,0.063,0.063,Non-specified cocaine-type,2012.0,2012.0
+Ghana,Nigeria,6,5.536,0.923,Non-specified cocaine-type,2012.0,2012.0
+Ghana,Spain,3,14736.428,4912.143,Non-specified cocaine-type,2013.0,2016.0
+Greece,Cyprus,2,2.481,1.24,Non-specified cocaine-type,2013.0,2013.0
+Greece,Italy,1,2.118,2.118,Non-specified cocaine-type,2012.0,2012.0
+Greece,Slovakia,2,0.78,0.39,Non-specified cocaine-type,2016.0,2016.0
+Greece,Spain,1,1.342,1.342,Non-specified cocaine-type,2016.0,2016.0
+Guatemala,Austria,1,0.679,0.679,Non-specified cocaine-type,2014.0,2014.0
+Guatemala,El Salvador,1,1.014,1.014,Non-specified cocaine-type,2014.0,2014.0
+Guatemala,France,1,3.05,3.05,Non-specified cocaine-type,2015.0,2015.0
+Guatemala,Guatemala,22,111.201,5.055,Non-specified cocaine-type,2013.0,2014.0
+Guatemala,Italy,1,1.0,1.0,Non-specified cocaine-type,2015.0,2015.0
+Guatemala,Mexico,55,9081.211,165.113,Non-specified cocaine-type,2013.0,2014.0
+Guatemala,Netherlands,1,3.37,3.37,Non-specified cocaine-type,2012.0,2012.0
+Guatemala,Panama,1,3.54,3.54,Non-specified cocaine-type,2015.0,2015.0
+Guatemala,Spain,22,57.138,2.597,Non-specified cocaine-type,2011.0,2015.0
+Guinea,Spain,1,1.0,1.0,Non-specified cocaine-type,2016.0,2016.0
+Guinea-Bissau,Portugal,10,9.482,0.948,Non-specified cocaine-type,2011.0,2015.0
+Guinea-Bissau,Spain,1,0.456,0.456,Non-specified cocaine-type,2014.0,2014.0
+Guinea-Bissau,Switzerland,1,1.04,1.04,Non-specified cocaine-type,2012.0,2012.0
+Guyana,Ghana,1,442.029,442.029,Non-specified cocaine-type,2013.0,2013.0
+Guyana,Portugal,1,178.35,178.35,Non-specified cocaine-type,2012.0,2012.0
+Haiti,Spain,8,3.934,0.492,Non-specified cocaine-type,2016.0,2016.0
+Honduras,El Salvador,5,210.712,42.142,Non-specified cocaine-type,2012.0,2014.0
+Honduras,Spain,2,194.944,97.472,Non-specified cocaine-type,2012.0,2013.0
+Hong Kong,"Macau, SAR of China",1,0.153,0.153,Non-specified cocaine-type,2016.0,2016.0
+Hong Kong,Poland,1,2.05,2.05,Non-specified cocaine-type,2011.0,2011.0
+Hungary,Austria,3,2.17,0.723,Non-specified cocaine-type,2012.0,2016.0
+Hungary,France,1,0.333,0.333,Non-specified cocaine-type,2012.0,2012.0
+Hungary,Germany,1,0.155,0.155,Non-specified cocaine-type,2012.0,2012.0
+Hungary,United States,2,18.917,9.458,Non-specified cocaine-type,2012.0,2012.0
+India,Hungary,2,0.434,0.217,Non-specified cocaine-type,2013.0,2013.0
+India,Italy,2,1.159,0.58,Non-specified cocaine-type,2012.0,2013.0
+India,Spain,3,6.435,2.145,Non-specified cocaine-type,2011.0,2014.0
+Israel,Hungary,1,0.424,0.424,Non-specified cocaine-type,2013.0,2013.0
+Italy,Austria,12,7.887,0.657,Non-specified cocaine-type,2012.0,2016.0
+Italy,Bulgaria,1,0.001,0.001,Non-specified cocaine-type,2014.0,2014.0
+Italy,Italy,2,1.7,0.85,Non-specified cocaine-type,2012.0,2015.0
+Italy,Romania,2,0.329,0.165,Non-specified cocaine-type,2011.0,2014.0
+Italy,Russian Federation,1,0.0,0.0,Non-specified cocaine-type,2011.0,2011.0
+Italy,Spain,5,4.563,0.913,Non-specified cocaine-type,2015.0,2016.0
+Jamaica,Bahamas,5,33.74,6.748,Non-specified cocaine-type,2014.0,2014.0
+Jamaica,Italy,1,0.465,0.465,Non-specified cocaine-type,2012.0,2012.0
+Kenya,Italy,1,0.167,0.167,Non-specified cocaine-type,2012.0,2012.0
+Kenya,Spain,1,0.859,0.859,Non-specified cocaine-type,2011.0,2011.0
+Latvia,Estonia,1,0.821,0.821,Non-specified cocaine-type,2015.0,2015.0
+Latvia,Lithuania,1,1.671,1.671,Non-specified cocaine-type,2014.0,2014.0
+Latvia,Russian Federation,1,1.322,1.322,Non-specified cocaine-type,2014.0,2014.0
+Luxembourg,Luxembourg,2,1.172,0.586,Non-specified cocaine-type,2014.0,2014.0
+Martinique,Italy,1,159.593,159.593,Non-specified cocaine-type,2011.0,2011.0
+Mexico,Austria,1,4.151,4.151,Non-specified cocaine-type,2012.0,2012.0
+Mexico,Belgium,1,3.264,3.264,Non-specified cocaine-type,2011.0,2011.0
+Mexico,Bulgaria,3,0.156,0.052,Non-specified cocaine-type,2014.0,2016.0
+Mexico,Cuba,5,2.723,0.545,Non-specified cocaine-type,2011.0,2014.0
+Mexico,Italy,4,20.047,5.012,Non-specified cocaine-type,2012.0,2013.0
+Mexico,Portugal,2,2.595,1.297,Non-specified cocaine-type,2011.0,2011.0
+Mexico,Spain,80,707.161,8.84,Non-specified cocaine-type,2011.0,2016.0
+Mexico,Turkey,1,99.155,99.155,Non-specified cocaine-type,2012.0,2012.0
+Morocco,Ghana,1,2.7,2.7,Non-specified cocaine-type,2012.0,2012.0
+Morocco,Morocco,3,1.54,0.513,Non-specified cocaine-type,2011.0,2016.0
+Morocco,Netherlands,1,0.248,0.248,Non-specified cocaine-type,2013.0,2013.0
+Morocco,Portugal,1,0.001,0.001,Non-specified cocaine-type,2015.0,2015.0
+Morocco,Spain,19,58.673,3.088,Non-specified cocaine-type,2011.0,2016.0
+Mozambique,Spain,1,0.981,0.981,Non-specified cocaine-type,2013.0,2013.0
+Netherlands,Austria,57,62.849,1.103,Non-specified cocaine-type,2012.0,2016.0
+Netherlands,Bulgaria,9,0.028,0.003,Non-specified cocaine-type,2014.0,2016.0
+Netherlands,France,7,4.177,0.597,Non-specified cocaine-type,2014.0,2015.0
+Netherlands,Hungary,1,0.15,0.15,Non-specified cocaine-type,2012.0,2012.0
+Netherlands,Italy,3,13.976,4.659,Non-specified cocaine-type,2012.0,2013.0
+Netherlands,Latvia,8,0.004,0.0,Non-specified cocaine-type,2015.0,2015.0
+Netherlands,Norway,2,6.14,3.07,Non-specified cocaine-type,2011.0,2012.0
+Netherlands,Philippines,1,69.847,69.847,Non-specified cocaine-type,2014.0,2014.0
+Netherlands,Portugal,1,0.001,0.001,Non-specified cocaine-type,2016.0,2016.0
+Netherlands,Romania,8,2.875,0.359,Non-specified cocaine-type,2011.0,2016.0
+Netherlands,Russian Federation,7,1.159,0.166,Non-specified cocaine-type,2012.0,2014.0
+Netherlands,Spain,6,20.27,3.378,Non-specified cocaine-type,2011.0,2016.0
+Netherlands,Sweden,2,1.19,0.595,Non-specified cocaine-type,2012.0,2012.0
+Netherlands,Turkey,4,47.326,11.831,Non-specified cocaine-type,2016.0,2016.0
+Netherlands Antilles,Portugal,1,1140.5,1140.5,Non-specified cocaine-type,2015.0,2015.0
+Nicaragua,El Salvador,1,6.0,6.0,Non-specified cocaine-type,2013.0,2013.0
+Nicaragua,Guatemala,1,205.553,205.553,Non-specified cocaine-type,2013.0,2013.0
+Nicaragua,Italy,1,1.04,1.04,Non-specified cocaine-type,2012.0,2012.0
+Nicaragua,Mexico,1,1.005,1.005,Non-specified cocaine-type,2012.0,2012.0
+Nicaragua,Spain,3,2.494,0.831,Non-specified cocaine-type,2012.0,2014.0
+Nigeria,Austria,1,0.97,0.97,Non-specified cocaine-type,2012.0,2012.0
+Nigeria,Cameroon,1,1.17,1.17,Non-specified cocaine-type,2012.0,2012.0
+Nigeria,China,1,1.2,1.2,Non-specified cocaine-type,2012.0,2012.0
+Nigeria,Gabon,1,0.5,0.5,Non-specified cocaine-type,2013.0,2013.0
+Nigeria,Hungary,1,0.861,0.861,Non-specified cocaine-type,2013.0,2013.0
+Nigeria,India,3,2.48,0.827,Non-specified cocaine-type,2011.0,2013.0
+Nigeria,Italy,5,6.828,1.366,Non-specified cocaine-type,2012.0,2014.0
+Nigeria,Morocco,1,1.712,1.712,Non-specified cocaine-type,2016.0,2016.0
+Nigeria,Pakistan,2,0.425,0.212,Non-specified cocaine-type,2012.0,2013.0
+Nigeria,Poland,1,2.0,2.0,Non-specified cocaine-type,2012.0,2012.0
+Nigeria,Senegal,1,0.515,0.515,Non-specified cocaine-type,2013.0,2013.0
+Nigeria,South Africa,1,6.1,6.1,Non-specified cocaine-type,2013.0,2013.0
+Nigeria,Spain,6,16.72,2.787,Non-specified cocaine-type,2012.0,2015.0
+Nigeria,Turkey,4,6.16,1.54,Non-specified cocaine-type,2012.0,2013.0
+Nigeria,United Kingdom,12,18.395,1.533,Non-specified cocaine-type,2012.0,2013.0
+Nigeria,United States,1,1.315,1.315,Non-specified cocaine-type,2011.0,2011.0
+Other,Ghana,1,281.604,281.604,Non-specified cocaine-type,2013.0,2013.0
+Other,Other,1,1.0,1.0,Non-specified cocaine-type,2013.0,2013.0
+Pakistan,Australia,1,0.33,0.33,Non-specified cocaine-type,2013.0,2013.0
+Pakistan,Brazil,1,1.05,1.05,Non-specified cocaine-type,2015.0,2015.0
+Pakistan,Malaysia,1,1.125,1.125,Non-specified cocaine-type,2012.0,2012.0
+Pakistan,Mali,1,1.6,1.6,Non-specified cocaine-type,2014.0,2014.0
+Pakistan,Netherlands,1,2.0,2.0,Non-specified cocaine-type,2016.0,2016.0
+Pakistan,Nigeria,2,0.94,0.47,Non-specified cocaine-type,2015.0,2016.0
+Pakistan,Pakistan,5,2.315,0.463,Non-specified cocaine-type,2013.0,2016.0
+Pakistan,Qatar,1,4.62,4.62,Non-specified cocaine-type,2015.0,2015.0
+Pakistan,Saudi Arabia,1,1.85,1.85,Non-specified cocaine-type,2013.0,2013.0
+Pakistan,South Africa,3,1.79,0.597,Non-specified cocaine-type,2014.0,2015.0
+Pakistan,Spain,1,2.03,2.03,Non-specified cocaine-type,2012.0,2012.0
+Pakistan,Thailand,1,0.63,0.63,Non-specified cocaine-type,2013.0,2013.0
+Pakistan,United Arab Emirates,2,1.555,0.778,Non-specified cocaine-type,2015.0,2015.0
+Pakistan,United Kingdom,2,0.27,0.135,Non-specified cocaine-type,2013.0,2013.0
+Panama,Belgium,3,12.25,4.083,Non-specified cocaine-type,2011.0,2014.0
+Panama,China,1,1.125,1.125,Non-specified cocaine-type,2011.0,2011.0
+Panama,Cuba,3,1.151,0.384,Non-specified cocaine-type,2013.0,2013.0
+Panama,Ghana,1,0.335,0.335,Non-specified cocaine-type,2013.0,2013.0
+Panama,Ireland,1,0.155,0.155,Non-specified cocaine-type,2012.0,2012.0
+Panama,Italy,6,271.709,45.285,Non-specified cocaine-type,2012.0,2013.0
+Panama,Nicaragua,1,0.15,0.15,Non-specified cocaine-type,2014.0,2014.0
+Panama,Nigeria,2,10.5,5.25,Non-specified cocaine-type,2013.0,2013.0
+Panama,Portugal,2,216.938,108.469,Non-specified cocaine-type,2011.0,2012.0
+Panama,Russian Federation,1,0.259,0.259,Non-specified cocaine-type,2011.0,2011.0
+Panama,Spain,134,2542.437,18.973,Non-specified cocaine-type,2011.0,2016.0
+Panama,United Kingdom,4,6.523,1.631,Non-specified cocaine-type,2013.0,2016.0
+Papua New Guinea,Spain,1,0.081,0.081,Non-specified cocaine-type,2016.0,2016.0
+Paraguay,Argentina,1,0.9,0.9,"Cocaine hydrochloride (HCl, powder cocaine)",2013.0,2013.0
+Paraguay,Brazil,10,254.349,25.435,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2013.0
+Paraguay,Bulgaria,5,4.362,0.872,Non-specified cocaine-type,2011.0,2012.0
+Paraguay,China,1,1.2,1.2,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2012.0
+Paraguay,Egypt,2,3.935,1.967,"Cocaine hydrochloride (HCl, powder cocaine)",2013.0,2013.0
+Paraguay,Germany,3,3.005,1.002,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2012.0
+Paraguay,Hong Kong,1,1.044,1.044,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2012.0
+Paraguay,Israel,1,1.398,1.398,"Cocaine hydrochloride (HCl, powder cocaine)",2013.0,2013.0
+Paraguay,Italy,8,342.835,42.854,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2013.0
+Paraguay,Libyan Arab Jamahiriya,1,4.23,4.23,"Cocaine hydrochloride (HCl, powder cocaine)",2013.0,2013.0
+Paraguay,Mozambique,2,15.706,7.853,"Cocaine hydrochloride (HCl, powder cocaine)",2013.0,2013.0
+Paraguay,Netherlands,5,6.231,1.246,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2013.0
+Paraguay,Paraguay,113,3642.663,32.236,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2013.0
+Paraguay,Portugal,4,2.384,0.596,Non-specified cocaine-type,2011.0,2013.0
+Paraguay,South Africa,1,0.84,0.84,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2012.0
+Paraguay,Spain,117,980.821,8.383,Non-specified cocaine-type,2011.0,2016.0
+Paraguay,Switzerland,3,9.005,3.002,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2013.0
+Paraguay,Turkey,2,43.526,21.763,"Cocaine hydrochloride (HCl, powder cocaine)",2013.0,2013.0
+Peru,Austria,4,10.127,2.532,Non-specified cocaine-type,2012.0,2015.0
+Peru,Belgium,11,117.983,10.726,Non-specified cocaine-type,2011.0,2013.0
+Peru,Bulgaria,6,4.552,0.759,Non-specified cocaine-type,2012.0,2014.0
+Peru,Chile,3,5.5,1.833,Non-specified cocaine-type,2016.0,2016.0
+Peru,Cuba,1,2.56,2.56,Non-specified cocaine-type,2014.0,2014.0
+Peru,Finland,1,1.0,1.0,Non-specified cocaine-type,2012.0,2012.0
+Peru,France,2,97.55,48.775,Non-specified cocaine-type,2012.0,2013.0
+Peru,Hungary,2,2.265,1.132,Non-specified cocaine-type,2012.0,2013.0
+Peru,Ireland,1,1.834,1.834,Non-specified cocaine-type,2015.0,2015.0
+Peru,Israel,1,0.546,0.546,Non-specified cocaine-type,2011.0,2011.0
+Peru,Italy,30,206.867,6.896,Non-specified cocaine-type,2011.0,2016.0
+Peru,Morocco,4,257.452,64.363,Non-specified cocaine-type,2011.0,2016.0
+Peru,Netherlands,5,20.42,4.084,Non-specified cocaine-type,2012.0,2015.0
+Peru,Peru,5,104.821,20.964,Non-specified cocaine-type,2011.0,2015.0
+Peru,Portugal,25,174.924,6.997,Non-specified cocaine-type,2011.0,2015.0
+Peru,Romania,1,0.215,0.215,Coca leaf,2012.0,2012.0
+Peru,Russian Federation,5,3.841,0.768,Non-specified cocaine-type,2013.0,2014.0
+Peru,Serbia,1,2.5,2.5,Non-specified cocaine-type,2013.0,2013.0
+Peru,Slovenia,1,111.065,111.065,Non-specified cocaine-type,2012.0,2012.0
+Peru,South Africa,1,0.96,0.96,Non-specified cocaine-type,2012.0,2012.0
+Peru,Spain,479,5975.719,12.475,Non-specified cocaine-type,2011.0,2016.0
+Peru,United Kingdom,3,6.266,2.089,Non-specified cocaine-type,2011.0,2014.0
+Philippines,Hong Kong,1,1.08,1.08,Non-specified cocaine-type,2015.0,2015.0
+Philippines,"Macau, SAR of China",2,4.223,2.112,Non-specified cocaine-type,2016.0,2016.0
+Portugal,Angola,1,2.32,2.32,Non-specified cocaine-type,2012.0,2012.0
+Portugal,Austria,3,0.601,0.2,Non-specified cocaine-type,2013.0,2015.0
+Portugal,Denmark,1,0.639,0.639,Non-specified cocaine-type,2011.0,2011.0
+Portugal,France,1,0.164,0.164,Non-specified cocaine-type,2014.0,2014.0
+Portugal,Italy,2,1.413,0.706,Non-specified cocaine-type,2012.0,2012.0
+Portugal,Portugal,3,0.058,0.019,Non-specified cocaine-type,2012.0,2012.0
+Portugal,Spain,15,1301.686,86.779,Non-specified cocaine-type,2011.0,2015.0
+Portugal,Switzerland,3,0.565,0.188,Non-specified cocaine-type,2013.0,2016.0
+Portugal,United Kingdom,1,6.75,6.75,Non-specified cocaine-type,2012.0,2012.0
+Qatar,Spain,2,3.56,1.78,Non-specified cocaine-type,2014.0,2014.0
+Romania,Romania,1,0.255,0.255,Non-specified cocaine-type,2015.0,2015.0
+Romania,Spain,1,1.75,1.75,Non-specified cocaine-type,2012.0,2012.0
+Romania,Turkey,1,25.625,25.625,Non-specified cocaine-type,2014.0,2014.0
+Russian Federation,Russian Federation,54,111.39,2.063,Non-specified cocaine-type,2011.0,2015.0
+Saint Lucia,Bulgaria,1,13.392,13.392,Non-specified cocaine-type,2013.0,2013.0
+Saint Pierre and Miquelon,Bulgaria,3,0.003,0.001,Non-specified cocaine-type,2012.0,2012.0
+Sao Tome and Principe,Spain,2,5.937,2.968,Non-specified cocaine-type,2015.0,2016.0
+Saudi Arabia,Saudi Arabia,1,891.014,891.014,Non-specified cocaine-type,2014.0,2014.0
+Senegal,Spain,1,1.14,1.14,Non-specified cocaine-type,2012.0,2012.0
+Senegal,United Kingdom (England and Wales),1,0.438,0.438,Non-specified cocaine-type,2014.0,2014.0
+Serbia,Austria,2,0.455,0.227,Non-specified cocaine-type,2016.0,2016.0
+Serbia,Romania,2,0.202,0.101,Non-specified cocaine-type,2016.0,2016.0
+Serbia,Slovakia,1,3.0,3.0,Non-specified cocaine-type,2012.0,2012.0
+Slovakia,Austria,2,2.82,1.41,Non-specified cocaine-type,2013.0,2015.0
+Slovenia,Austria,10,4.368,0.437,Non-specified cocaine-type,2011.0,2016.0
+South Africa,Nigeria,5,5.35,1.07,Non-specified cocaine-type,2012.0,2012.0
+South Africa,Pakistan,1,1.22,1.22,Non-specified cocaine-type,2015.0,2015.0
+South Africa,South Africa,1,2.015,2.015,Non-specified cocaine-type,2012.0,2012.0
+South Africa,Spain,1,4.4,4.4,Non-specified cocaine-type,2013.0,2013.0
+Spain,Andorra,1,0.02,0.02,Non-specified cocaine-type,2014.0,2014.0
+Spain,Armenia,1,0.004,0.004,Non-specified cocaine-type,2016.0,2016.0
+Spain,Austria,8,4.457,0.557,Non-specified cocaine-type,2011.0,2016.0
+Spain,Bulgaria,7,52.235,7.462,Non-specified cocaine-type,2012.0,2016.0
+Spain,Croatia,1,0.525,0.525,Non-specified cocaine-type,2014.0,2014.0
+Spain,Cyprus,3,1.566,0.522,Non-specified cocaine-type,2012.0,2016.0
+Spain,Czech Republic,2,0.847,0.423,Non-specified cocaine-type,2011.0,2016.0
+Spain,Denmark,2,1.25,0.625,Non-specified cocaine-type,2012.0,2013.0
+Spain,Finland,5,1.603,0.321,Non-specified cocaine-type,2015.0,2016.0
+Spain,France,47,414.837,8.826,Non-specified cocaine-type,2011.0,2015.0
+Spain,Germany,6,8.507,1.418,Non-specified cocaine-type,2012.0,2016.0
+Spain,Greece,2,1.867,0.934,Non-specified cocaine-type,2014.0,2014.0
+Spain,Hungary,1,0.435,0.435,Non-specified cocaine-type,2013.0,2013.0
+Spain,Ireland,3,1.128,0.376,Non-specified cocaine-type,2012.0,2014.0
+Spain,Italy,48,137.166,2.858,Non-specified cocaine-type,2011.0,2016.0
+Spain,Lithuania,2,0.2,0.1,Non-specified cocaine-type,2014.0,2014.0
+Spain,Malta,3,1.958,0.653,Non-specified cocaine-type,2012.0,2012.0
+Spain,Monaco,1,5.875,5.875,Non-specified cocaine-type,2014.0,2014.0
+Spain,Morocco,1,3.738,3.738,Non-specified cocaine-type,2012.0,2012.0
+Spain,Netherlands,2,0.778,0.389,Non-specified cocaine-type,2011.0,2013.0
+Spain,Norway,2,1.113,0.556,Non-specified cocaine-type,2011.0,2013.0
+Spain,Paraguay,1,47.495,47.495,"Cocaine hydrochloride (HCl, powder cocaine)",2012.0,2012.0
+Spain,Portugal,15,17.43,1.162,Non-specified cocaine-type,2011.0,2016.0
+Spain,Romania,10,5.811,0.581,Non-specified cocaine-type,2011.0,2016.0
+Spain,Russian Federation,4,2.588,0.647,Non-specified cocaine-type,2014.0,2015.0
+Spain,Spain,275,1297.988,4.72,Non-specified cocaine-type,2011.0,2016.0
+Spain,Sweden,4,1.611,0.403,Non-specified cocaine-type,2011.0,2013.0
+Spain,Switzerland,11,18.692,1.699,Non-specified cocaine-type,2011.0,2016.0
+Spain,Turkey,1,0.683,0.683,Non-specified cocaine-type,2013.0,2013.0
+Spain,United Kingdom,8,9.199,1.15,Non-specified cocaine-type,2012.0,2015.0
+Spain,United States,1,0.008,0.008,Non-specified cocaine-type,2015.0,2015.0
+Suriname,Belgium,1,5.14,5.14,Non-specified cocaine-type,2013.0,2013.0
+Suriname,Togo,2,3.815,1.908,Non-specified cocaine-type,2012.0,2013.0
+Sweden,Sweden,3,3.44,1.147,Non-specified cocaine-type,2012.0,2012.0
+Switzerland,Austria,4,0.578,0.144,Non-specified cocaine-type,2016.0,2016.0
+Switzerland,Denmark,1,0.862,0.862,Non-specified cocaine-type,2012.0,2012.0
+Switzerland,Spain,3,0.246,0.082,Non-specified cocaine-type,2014.0,2016.0
+"Tanzania, United Republic of",Ghana,1,1.683,1.683,Non-specified cocaine-type,2013.0,2013.0
+"Tanzania, United Republic of",Italy,1,0.307,0.307,Non-specified cocaine-type,2013.0,2013.0
+"Tanzania, United Republic of",Zambia,3,72.57,24.19,Non-specified cocaine-type,2016.0,2016.0
+Trinidad and Tobago,Barbados,5,8.1,1.62,Non-specified cocaine-type,2015.0,2015.0
+Trinidad and Tobago,Canada,1,0.52,0.52,Non-specified cocaine-type,2015.0,2015.0
+Trinidad and Tobago,Germany,3,7.958,2.653,Non-specified cocaine-type,2015.0,2015.0
+Trinidad and Tobago,Netherlands,1,1.72,1.72,Non-specified cocaine-type,2015.0,2015.0
+Trinidad and Tobago,Nigeria,1,0.98,0.98,Non-specified cocaine-type,2012.0,2012.0
+Trinidad and Tobago,Portugal,1,0.795,0.795,Non-specified cocaine-type,2014.0,2014.0
+Trinidad and Tobago,Spain,2,800.63,400.315,Non-specified cocaine-type,2012.0,2013.0
+Trinidad and Tobago,Switzerland,1,1.92,1.92,Non-specified cocaine-type,2015.0,2015.0
+Trinidad and Tobago,Trinidad and Tobago,9,27.86,3.096,Non-specified cocaine-type,2015.0,2015.0
+Trinidad and Tobago,United Kingdom,5,12.54,2.508,Non-specified cocaine-type,2015.0,2015.0
+Trinidad and Tobago,United States,1,4.04,4.04,Non-specified cocaine-type,2015.0,2015.0
+Turkey,Spain,1,0.46,0.46,Non-specified cocaine-type,2014.0,2014.0
+United Arab Emirates,Austria,8,8.132,1.016,Non-specified cocaine-type,2016.0,2016.0
+United Arab Emirates,Hong Kong,1,5.424,5.424,Non-specified cocaine-type,2016.0,2016.0
+United Arab Emirates,Malaysia,1,3.088,3.088,Non-specified cocaine-type,2016.0,2016.0
+United Arab Emirates,Nigeria,5,10.125,2.025,Non-specified cocaine-type,2013.0,2013.0
+United Arab Emirates,Philippines,1,1.17,1.17,Non-specified cocaine-type,2015.0,2015.0
+United Arab Emirates,Spain,4,7.588,1.897,Non-specified cocaine-type,2015.0,2016.0
+United Kingdom,Germany,1,9.984,9.984,Non-specified cocaine-type,2014.0,2014.0
+United Kingdom,Latvia,2,0.001,0.0,Non-specified cocaine-type,2015.0,2015.0
+United Kingdom,Spain,3,2.007,0.669,Non-specified cocaine-type,2013.0,2016.0
+United Kingdom,Sweden,1,0.5,0.5,Non-specified cocaine-type,2011.0,2011.0
+United States,Cuba,2,0.879,0.44,Non-specified cocaine-type,2011.0,2012.0
+United States,Italy,1,0.72,0.72,Non-specified cocaine-type,2012.0,2012.0
+United States,"Korea, Republic of",2,3.28,1.64,Non-specified cocaine-type,2011.0,2013.0
+United States,Mali,1,219.9,219.9,Non-specified cocaine-type,2013.0,2013.0
+United States,Romania,1,0.689,0.689,Non-specified cocaine-type,2013.0,2013.0
+United States,Russian Federation,2,1.033,0.516,Non-specified cocaine-type,2014.0,2014.0
+United States,Spain,4,81.308,20.327,Non-specified cocaine-type,2011.0,2015.0
+United States,United Arab Emirates,1,104.505,104.505,Non-specified cocaine-type,2013.0,2013.0
+Uruguay,Belgium,2,3.632,1.816,Non-specified cocaine-type,2011.0,2014.0
+Uruguay,Czech Republic,1,2.97,2.97,Non-specified cocaine-type,2011.0,2011.0
+Uruguay,Hungary,1,0.275,0.275,Non-specified cocaine-type,2012.0,2012.0
+Uruguay,Netherlands,1,2.19,2.19,Non-specified cocaine-type,2011.0,2011.0
+Uruguay,Portugal,1,1.698,1.698,Non-specified cocaine-type,2012.0,2012.0
+Uruguay,Russian Federation,1,12.516,12.516,Non-specified cocaine-type,2014.0,2014.0
+Uruguay,Spain,107,341.691,3.193,Non-specified cocaine-type,2011.0,2016.0
+Uruguay,Uruguay,2,0.918,0.459,Non-specified cocaine-type,2012.0,2013.0
+"Venezuela, Bolivarian Republic of",Belgium,9,48.232,5.359,Non-specified cocaine-type,2011.0,2016.0
+"Venezuela, Bolivarian Republic of",Bulgaria,4,2.1,0.525,Non-specified cocaine-type,2012.0,2012.0
+"Venezuela, Bolivarian Republic of",France,2,34.85,17.425,Non-specified cocaine-type,2013.0,2015.0
+"Venezuela, Bolivarian Republic of",Italy,7,14.415,2.059,Non-specified cocaine-type,2012.0,2016.0
+"Venezuela, Bolivarian Republic of",Netherlands,3,17.332,5.777,Non-specified cocaine-type,2011.0,2012.0
+"Venezuela, Bolivarian Republic of",Nigeria,6,1600.118,266.686,Non-specified cocaine-type,2012.0,2012.0
+"Venezuela, Bolivarian Republic of",Portugal,28,574.336,20.512,Non-specified cocaine-type,2011.0,2016.0
+"Venezuela, Bolivarian Republic of",Romania,2,48.804,24.402,Non-specified cocaine-type,2012.0,2014.0
+"Venezuela, Bolivarian Republic of",Spain,230,7371.627,32.051,Non-specified cocaine-type,2011.0,2016.0
+"Venezuela, Bolivarian Republic of",Switzerland,1,1.05,1.05,Non-specified cocaine-type,2015.0,2015.0
+Zambia,South Africa,1,6.0,6.0,Non-specified cocaine-type,2014.0,2014.0

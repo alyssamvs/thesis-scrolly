@@ -10,8 +10,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-
-
 // Scroll Progress Bar
 window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -37,24 +35,6 @@ function goToSection(section) {
     }
 }
 
-// Dashboard Interactions
-function updateVisualization() {
-    const dataLayer = document.getElementById('dataLayer').value;
-    const timeValue = document.getElementById('timeSlider').value;
-    const country1 = document.getElementById('country1').value;
-    const country2 = document.getElementById('country2').value;
-    
-    console.log('Updating visualization:', { dataLayer, timeValue, country1, country2 });
-    
-    // Here you would integrate your D3.js visualizations
-    // Based on your previous network visualization patterns
-}
-
-// Time slider interaction
-document.getElementById('timeSlider').addEventListener('input', function() {
-    document.getElementById('timeDisplay').textContent = this.value;
-});
-
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
@@ -77,19 +57,3 @@ document.querySelectorAll('.story-section').forEach(section => {
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
 });
-
-// Initialize dashboard controls
-window.addEventListener('load', () => {
-    updateVisualization();
-});
-
-// Example D3.js integration point (based on your previous work)
-function initializeNetworkVisualization() {
-    // This would use your D3.js patterns from networkviz.html
-    // const svg = d3.select("#network-container").append("svg")
-    //     .attr("width", width)
-    //     .attr("height", height);
-    
-    // Implementation would follow your force simulation patterns
-    console.log('Network visualization initialized');
-}
