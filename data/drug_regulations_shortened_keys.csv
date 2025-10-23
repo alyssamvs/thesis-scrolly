@@ -1,0 +1,57 @@
+source,target,relationship
+Treaty-Hague-1912,Treaty-Geneva-1925b,amended by
+Treaty-Hague-1912,Body-PCOB,establishes
+Treaty-Hague-1912,Body-OpiumCommittee,expanded by
+Body-PCOB,Treaty-Geneva-1925b,expanded by
+Treaty-Geneva-1925b,Treaty-Geneva-1931,expanded by
+Comm-Shanghai-1909,Treaty-Hague-1912,foundation for
+Treaty-Geneva-1925b,Treaty-Geneva-1936,expanded by
+Treaty-Geneva-1925b,Treaty-Geneva-1925a,expanded by
+Treaty-Geneva-1925b,Treaty-LakeSuccess-1946,consolidated by
+Treaty-Geneva-1936,Treaty-LakeSuccess-1946,consolidated by
+Treaty-Geneva-1925a,Treaty-LakeSuccess-1946,consolidated by
+Treaty-Geneva-1931,Treaty-LakeSuccess-1946,consolidated by
+Treaty-Geneva-1931,Treaty-Paris-1948,amended by
+Treaty-Paris-1948,Treaty-UN-1961,replaced by
+Treaty-UN-1961,Treaty-Vienna-1971,expanded by
+Treaty-Vienna-1971,Treaty-UN-1988,expanded by
+Treaty-UN-1961,Treaty-UN-1988,expanded by
+Treaty-UN-1961,Treaty-UN-1972,amended by
+Treaty-Paris-1948,Body-CND,establishes
+Body-CNB,Body-INCB,replaced by
+Treaty-UN-1961,Body-WHO,gives mandate to
+Treaty-UN-1961,Body-UNODC,gives mandate to
+Treaty-Vienna-1971,Body-INCB,extends scope of
+Treaty-Vienna-1971,Body-WHO,gives mandate to
+Treaty-Vienna-1971,Body-UNODC,gives mandate to
+Body-INCB,Body-WHO,consults with
+Body-WHO,Body-INCB,provides scheduling recommendations to
+Body-INCB,Body-EMCDDA,provides information
+Body-EuropeanCouncil,Body-EMCDDA,establishes
+Body-EuropeanCouncil,Treaty-EU-2004,establishes
+Body-INCB,Body-CAN,provides scheduling recommendations to
+Body-INCB,Body-OAS,provides scheduling recommendations to
+Body-CAN,Treaty-CAN-1985,establishes
+Body-CAN,Framework-CAN,establishes
+Body-OAS,Treaty-OAS-1971,establishes
+Body-OAS,Body-CICAD,establishes
+Treaty-OAS-1971,Treaty-Vienna-1971,based on
+Treaty-OAS-1971,Treaty-UN-1961,based on
+Body-PCOB,Body-CNB,precursor to
+US-Harrison-1914,US-CSA-1970,superseded by
+US-Marihuana-1937,US-CSA-1970,superseded by
+US-Boggs-1951,US-CSA-1970,superseded by
+US-Narcotics-1956,US-CSA-1970,superseded by
+US-CSA-1970,US-AntiDrug-1986,amended by
+US-AntiDrug-1986,US-AntiDrug-1988,amended by
+PE-DL11005-1949,PE-DL22095-1978,superseded by
+PE-DL22095-1978,PE-DL122-1981,amended by
+PE-DL22095-1978,PE-CriminalCode-1991,incorporated into
+PE-DL22095-1978,PE-DL824-1996,strengthened by
+PE-DL22095-1978,PE-DL1126-2012,expanded by
+PE-DL22095-1978,PE-DL1241-2015,strengthened by
+Treaty-UN-1961,PE-Treaty-1964,ratified by
+Treaty-Vienna-1971,PE-Treaty-1980,ratified by
+Treaty-UN-1988,PE-Treaty-1990,ratified by
+PE-Treaty-1964,PE-DL22095-1978,incorporated into
+Treaty-Hague-1912,US-Harrison-1914,incorporated into
