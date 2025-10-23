@@ -51,9 +51,9 @@
         .node-label {
             font-size: 9px;
             fill: #000;
-            pointer-events: none;
+            pointer-events: none;  /* Ensures text doesn't block mouse events */
             font-weight: 400;
-            text-anchor: start;  /* Changed from middle to start for diagonal */
+            text-anchor: start;
         }
         
         .node-label.major {
@@ -64,8 +64,8 @@
         .year-label {
             font-size: 8px;
             fill: #666;
-            pointer-events: none;
-            text-anchor: start;  /* Changed from middle to start */
+            pointer-events: none;  /* Ensures text doesn't block mouse events */
+            text-anchor: start;
         }
         
         /* Connection lines - will use gradient */
@@ -100,19 +100,22 @@
             stroke-dasharray: 2,2;
         }
         
-        /* Tooltip */
+        /* Tooltip - fixed at top-left */
         .tooltip {
-            position: absolute;
-            padding: 10px 12px;
-            background: #000;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.95);
             color: #fff;
             pointer-events: none;
             opacity: 0;
             font-size: 10px;
-            max-width: 300px;
+            max-width: 320px;
             z-index: 1000;
             transition: opacity 0.2s;
             line-height: 1.4;
+            border: 1px solid #333;
         }
         
         .tooltip-title {
@@ -141,7 +144,7 @@
         // Configuration
         const config = {
             margin: { top: 60, right: 80, bottom: 60, left: 80 },
-            yearRange: [1909, 2020],
+            yearRange: [1909, 2010],
             nodeRadius: {
                 treaty: 12,
                 amendment: 12,
@@ -152,7 +155,7 @@
                 ratification: 5,
                 decision: 8
             },
-            highlighted: ['Treaty-Hague-1912', 'US-Harrison-1914', 'Treaty-UN-1961', 'Treaty-UN-1988'],
+            highlighted: ['Treaty-Hague-1912', 'US-Harrison-1914', 'Treaty-UN-1961', 'Treaty-UN-1988', 'PE-DL22095-1978'],
             colors: {
                 'League of Nations': '#08415C',
                 'United Nations': '#CC2936',
@@ -199,7 +202,7 @@
                 nodes.push({
                     id: key,
                     name: data.name,
-                    shortName: shortenName(data.name),
+                    shortName: data.shortened_name || data.name,  // Use shortened_name from JSON
                     year: data.year,
                     type: data.type,
                     entity: data.entity,
@@ -212,18 +215,7 @@
             return nodes;
         }
         
-        function shortenName(name) {
-            if (name.length <= 35) return name;
-            
-            // Try to extract key words
-            const match = name.match(/^([^(]+)/);
-            if (match) {
-                const shortened = match[1].trim();
-                if (shortened.length <= 35) return shortened;
-            }
-            
-            return name.substring(0, 32) + '...';
-        }
+        // No longer need shortenName function - removed
         
         function processLinks(relationships, nodes) {
             const links = [];
@@ -271,7 +263,7 @@
                 .range([0, innerWidth]);
             
             // Draw decade markers (vertical lines)
-            const decades = d3.range(1910, 2030, 10);
+            const decades = d3.range(1910, 2020, 10);
             decades.forEach(decade => {
                 const x = xScale(decade);
                 
@@ -368,22 +360,16 @@
                 .attr('r', d => d.radius)
                 .attr('fill', d => config.colors[d.entity] || '#95A5A6');
             
-            // Name labels (below nodes) - removed year labels completely
             // Name labels (diagonal, upward and to the right)
-            nodeElements.each(function(d) {
-                const node = d3.select(this);
-                
-                // Show labels for all treaties and highlighted nodes
-                if (d.type === 'treaty' || d.type === 'amendment' || d.highlighted) {
-                    node.append('text')
-                        .attr('class', d.highlighted ? 'node-label major' : 'node-label')
-                        .attr('x', d.radius + 3)  // Offset to right of node
-                        .attr('y', -d.radius - 3)  // Offset above node
-                        .attr('text-anchor', 'start')  // Align text to start from anchor point
-                        .attr('transform', `rotate(-35, ${d.radius + 3}, ${-d.radius - 3})`)  // Rotate 45° upward
-                        .text(d.shortName);
-                }
-            });
+            // Create labels for ALL nodes, but only show highlighted by default
+            nodeElements.append('text')
+                .attr('class', d => d.highlighted ? 'node-label major' : 'node-label')
+                .attr('x', d => d.radius + 3)  // Offset to right of node
+                .attr('y', d => -d.radius - 3)  // Offset above node
+                .attr('text-anchor', 'start')  // Align text to start from anchor point
+                .attr('transform', d => `rotate(-25, ${d.radius + 3}, ${-d.radius - 3})`)  // Rotate 45° upward
+                .style('opacity', d => d.highlighted ? 1 : 0)  // Hide non-highlighted labels
+                .text(d => d.shortName);
             
             // Update positions on simulation tick
             simulation.on('tick', () => {
@@ -483,9 +469,8 @@
                         <div class="tooltip-title">${d.name}</div>
                         <div class="tooltip-meta">${d.year} • ${d.type} • ${d.entity}</div>
                         ${shortDesc ? `<div style="margin-top: 5px;">${shortDesc}</div>` : ''}
-                    `)
-                    .style('left', (event.pageX + 15) + 'px')
-                    .style('top', (event.pageY - 10) + 'px');
+                    `);
+                // Position is fixed at top-left via CSS, no need to set here
             }
             
             function hideTooltip() {
@@ -493,21 +478,33 @@
             }
             
             function highlightConnections(node) {
+                // Get IDs of connected nodes
+                const connectedIds = new Set([node.id]);
+                links.forEach(l => {
+                    if (l.source.id === node.id) connectedIds.add(l.target.id);
+                    if (l.target.id === node.id) connectedIds.add(l.source.id);
+                });
+                
+                // Highlight connected links
                 linkElements
                     .classed('active', d => d.source.id === node.id || d.target.id === node.id)
                     .style('opacity', d => 
                         (d.source.id === node.id || d.target.id === node.id) ? 1 : 0.15
                     );
                 
+                // Dim unconnected nodes
                 nodeElements
-                    .style('opacity', d => {
-                        const connected = links.some(l => 
-                            (l.source.id === node.id && l.target.id === d.id) ||
-                            (l.target.id === node.id && l.source.id === d.id) ||
-                            d.id === node.id
-                        );
-                        return connected ? 1 : 0.2;
-                    });
+                    .style('opacity', d => connectedIds.has(d.id) ? 1 : 0.2);
+                
+                // Show labels for selected node and all connected nodes
+                nodeElements.each(function(d) {
+                    const node = d3.select(this);
+                    const label = node.select('text');
+                    
+                    if (!label.empty()) {
+                        label.style('opacity', connectedIds.has(d.id) ? 1 : 0);
+                    }
+                });
             }
             
             function unhighlightConnections() {
@@ -515,6 +512,16 @@
                     .classed('active', false)
                     .style('opacity', 0.6);
                 nodeElements.style('opacity', 1);
+                
+                // Restore labels: only highlighted nodes visible
+                nodeElements.each(function(d) {
+                    const node = d3.select(this);
+                    const label = node.select('text');
+                    
+                    if (!label.empty()) {
+                        label.style('opacity', d.highlighted ? 1 : 0);
+                    }
+                });
             }
             
             console.log('Force-directed visualization complete:', nodes.length, 'nodes,', links.length, 'links');

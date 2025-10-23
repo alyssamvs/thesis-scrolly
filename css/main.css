@@ -258,7 +258,7 @@ body {
 --------------------
 --------------------*/
   /* Right fixed graphic */
-.graphic {
+.graphic-righside {
     width: 55%;
     position: sticky;
     top: 0;
@@ -285,16 +285,16 @@ body {
 }
 
 #intro .captions {
-    width: 100%;              /* Take full width instead of 45% */
-    max-width: 800px;         /* Constrain for readability */
-    margin: 0 auto;           /* Center it */
-    padding: 6rem 2rem;       /* Adjust padding */
-    align-items: center;      /* Center text within */
+    width: 100%;              
+    max-width: 800px;         
+    margin: 0 auto;           
+    padding: 6rem 2rem;       
+    align-items: center;      
 }
 
 #intro .caption {
-    align-items: center;      /* Center each caption */
-         /* Optional: center text */
+    align-items: center;      
+       
 }
 
 #treaties .story-section {
