@@ -106,253 +106,92 @@
 
     <section class="story-section treaties" id="treaties">
         <div class="section-content">
-                <div class="captions">
+            <!-- Sticky graphic container -->
+            <div class="sticky-bg" id="graphic-container">
+                <!-- D3.js treaty network visualization will be rendered here -->
+            </div>
+            
+            <!-- Overlay captions -->
+            <div class="captions">
                 <div class="caption" data-index="0">
-                    <p>There is no exact date that marks the start of the War on Drugs. The Harrison Act of 1914, which regulated and taxed opiates and coca in the United States, is sometimes considered to be one of its first measures. The term itself, however, was not in use until the early 1970s, and when it comes to global prohibition, it’s most important milestone is the signing, in 1961, of the United Nations Single Convention on Narcotic Drugs.</p>
+                    <p>There is no exact date that marks the start of the War on Drugs. The Harrison Act of 1914, which regulated and taxed opiates and coca in the United States, is sometimes considered to be one of its first measures. The term itself, however, was not in use until the early 1970s, and when it comes to global prohibition, it's most important milestone is the signing, in 1961, of the United Nations Single Convention on Narcotic Drugs.</p>
                 </div>
                 
                 <div class="caption" data-index="1">
-                    <p> There are now dozens of drug-control related international treaties, at the UN level as well as by regional state organisations (OAS, CAN, EU, among others). Although some countries consider international agreements to be automatically incorporated into law, most of these treaties have additionally required new legislation to be passed at the national and local level by its signatories once the treaty is ratified. </p>
+                    <p>There are now dozens of drug-control related international treaties, at the UN level as well as by regional state organisations (OAS, CAN, EU, among others). Although some countries consider international agreements to be automatically incorporated into law, most of these treaties have additionally required new legislation to be passed at the national and local level by its signatories once the treaty is ratified.</p>
                 </div>
                 
                 <div class="caption" data-index="2">
-                    <p>The result of this is a multitude of similar, but never quite the same, pieces of legislation, that each country may modify or update independently. </p>
+                    <p>The result of this is a multitude of similar, but never quite the same, pieces of legislation, that each country may modify or update independently.</p>
                 </div>
-
+    
                 <div class="caption" data-index="3">
                     <p>And though drug control is an issue of demand as well as supply, the overwhelming amount of the existing legislation addresses only the supply side.</p>
                 </div>
-                </div>
-                
-    <!-- Right pinned graphic area -->
-            <div class="sticky-bg" id="graphic-container">
-                <!-- D3.js chart or image will go here -->
-                
             </div>
+            
+                  
         </div>
-        
     </section>
+    
+    <!-- Add the treaty network script -->
+    <script src="./javascript/treaty-network.js"></script>
+    <script>
+        // Initialize the treaty network visualization when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Initializing treaty network...');
+            
+            // Check if container exists
+            const container = document.querySelector('#graphic-container');
+            if (container) {
+                window.treatyViz = new TreatyNetworkViz('#graphic-container');
+                window.treatyViz.init();
+            } else {
+                console.error('Treaty network container not found');
+            }
+        });
+    </script>
 
-    <!-- SECTION 1 - SUPPLY CHAIN -->
+    <!-- SECTION 3 - SUPPLY CHAIN -->
+
     <section class="story-section supply-chain" id="supply-chain">
         <div class="section-content">
-            <h2 class="section-header">1. Meet X: The Supply Chain Journey</h2>
-            <div class="section-text">
-                From the coca farms of Colombia to the streets of European cities, we follow the complex journey of cocaine trafficking and the enforcement challenges at each stage.
-            </div>
+            <h2 class="section-header">The Cocaine Supply Chain</h2>
             
-            <div class="chain-container">
-                <div class="chain-step">
-                    <div class="step-icon">1</div>
-                    <h3>Cultivation</h3>
-                    <p>Coca leaf farming in South America. Legal status varies by country, creating the first enforcement challenge.</p>
-                </div>
-                <div class="chain-step">
-                    <div class="step-icon">2</div>
-                    <h3>Production</h3>
-                    <p>Transformation from leaf to paste to powder. Chemical precursor controls become critical.</p>
-                </div>
-                <div class="chain-step">
-                    <div class="step-icon">3</div>
-                    <h3>Transit</h3>
-                    <p>By land, air, or sea - international cooperation and border enforcement strategies.</p>
-                </div>
-                <div class="chain-step">
-                    <div class="step-icon">4</div>
-                    <h3>Distribution</h3>
-                    <p>Street-level enforcement, quantity thresholds, and criminal justice responses.</p>
-                </div>
-            </div>
         </div>
     </section>
-
+<!-- SECTION 1 - SUPPLY CHAIN -->
     <section class="story-section" id="background">
         <div class="section-content">
-            <h2 class="section-header">2. Historical Background</h2>
-            <div class="section-text">
-                The evolution of drug prohibition from local policies to international frameworks reveals a complex web of enforcement strategies and their varying effectiveness.
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-container">
-                    <div class="timeline-line"></div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date">1800s</div>
-                            <h3>Waves of Prohibition</h3>
-                            <p>Early local and national attempts to control psychoactive substances.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date">1900s</div>
-                            <h3>Opium Wars & International Framework</h3>
-                            <p>The beginning of coordinated international prohibition efforts.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date">1960s</div>
-                            <h3>UN Conventions</h3>
-                            <p>The Beat Generation and the establishment of modern drug control treaties.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-date">1970s</div>
-                            <h3>War on Drugs</h3>
-                            <p>The escalation of punitive approaches to drug control.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </section>
-
+<!-- SECTION 1 - SUPPLY CHAIN -->
     <section class="story-section" id="legal-framework">
         <div class="section-content">
-            <h2 class="section-header">3. International Legal Framework</h2>
-            <div class="section-text">
-                Three UN conventions form the backbone of international drug control, but implementation varies dramatically across countries.
-            </div>
             
-            <div class="viz-container">
-                <div class="map-placeholder">
-                    <h3>Network Visualization: Treaty Implementation</h3>
-                    <p>Interactive network showing connections between UN conventions (1961, 1971, 1988) and national implementations</p>
-                    <p><em>Placeholder for D3.js network visualization based on your previous work</em></p>
-                </div>
-            </div>
-            
-            <div class="section-text">
-                The gap between "laws on paper" and enforcement reality reveals the complexity of measuring true policy effectiveness.
-            </div>
         </div>
     </section>
-
+<!-- SECTION 1 - SUPPLY CHAIN -->
     <section class="story-section" id="strictness-index">
         <div class="section-content">
-            <h2 class="section-header">4. The Strictness Index</h2>
-            <div class="section-text">
-                Our Cocaine Policy Effectiveness Index (CPEI) measures not just what laws say, but how they're actually implemented across the supply chain.
-            </div>
             
-            <div class="country-grid">
-                <div class="country-card">
-                    <div class="country-flag"></div>
-                    <h3>Sweden</h3>
-                    <p>High penalty approach with strict enforcement</p>
-                    <div class="strictness-meter">
-                        <div class="strictness-fill" style="width: 85%"></div>
-                    </div>
-                    <p><strong>Strictness Score: 8.5/10</strong></p>
-                </div>
-                
-                <div class="country-card">
-                    <div class="country-flag"></div>
-                    <h3>Portugal</h3>
-                    <p>Decriminalization with health-focused approach</p>
-                    <div class="strictness-meter">
-                        <div class="strictness-fill" style="width: 25%"></div>
-                    </div>
-                    <p><strong>Strictness Score: 2.5/10</strong></p>
-                </div>
-                
-                <div class="country-card">
-                    <div class="country-flag"></div>
-                    <h3>Colombia</h3>
-                    <p>Producer country with complex enforcement</p>
-                    <div class="strictness-meter">
-                        <div class="strictness-fill" style="width: 60%"></div>
-                    </div>
-                    <p><strong>Strictness Score: 6.0/10</strong></p>
-                </div>
-            </div>
         </div>
     </section>
-
+<!-- SECTION 1 - SUPPLY CHAIN -->
     <section class="story-section" id="case-studies">
         <div class="section-content">
-            <h2 class="section-header">5. Case Studies</h2>
-            <div class="section-text">
-                Detailed analysis of producer countries (Colombia, Peru), receiving countries with strict approaches (Sweden, USA), and alternative models (Portugal).
-            </div>
             
-            <div class="viz-container">
-                <div class="map-placeholder">
-                    <h3>Interactive Case Study Comparison</h3>
-                    <p>Radar charts showing 5-dimension policy profiles</p>
-                    <p>Supply chain flow maps from cultivation to consumption</p>
-                    <p><em>Implementation gap analysis (laws vs. reality scatter plots)</em></p>
-                </div>
-            </div>
         </div>
     </section>
 
     
-
+<!-- SECTION 1 - DASHBOARD -->
     <!-- Dashboard Section -->
     <section class="dashboard" id="dashboard">
         <div class="section-content">
             <h2 class="section-header">6. Interactive Dashboard</h2>
             
-            <div class="dashboard-grid">
-                <div class="control-panel">
-                    <h3>Data Layers</h3>
-                    
-                    <div class="control-group">
-                        <label class="control-label">Select Data Layer:</label>
-                        <select class="control-input" id="dataLayer">
-                            <option value="prevalence">Drug Prevalence/Use/Seizures</option>
-                            <option value="flow">Flow Map</option>
-                            <option value="strictness">Strictness Index</option>
-                            <option value="crime">Drug-related Crime</option>
-                        </select>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label class="control-label">Time Period:</label>
-                        <input type="range" class="control-input" id="timeSlider" min="2010" max="2024" value="2024">
-                        <span id="timeDisplay">2024</span>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label class="control-label">Compare Countries:</label>
-                        <select class="control-input" id="country1">
-                            <option value="sweden">Sweden</option>
-                            <option value="portugal">Portugal</option>
-                            <option value="colombia">Colombia</option>
-                            <option value="usa">USA</option>
-                        </select>
-                        <select class="control-input" id="country2" style="margin-top: 0.5rem;">
-                            <option value="portugal">Portugal</option>
-                            <option value="sweden">Sweden</option>
-                            <option value="colombia">Colombia</option>
-                            <option value="usa">USA</option>
-                        </select>
-                    </div>
-                    
-                    <button class="nav-btn" style="width: 100%; margin-top: 1rem;" onclick="updateVisualization()">
-                        Update Visualization
-                    </button>
-                </div>
-                
-                <div class="dashboard-viz">
-                    <div class="viz-container" style="height: 600px; background: #fff;">
-                        <div class="map-placeholder" style="color: #000;">
-                            <h3>Main Visualization Area</h3>
-                            <p>Interactive map with data overlays</p>
-                            <p>Correlation matrices between policy dimensions and outcomes</p>
-                            <p>Real-time policy comparison interface</p>
-                            <p><em>Based on your D3.js network visualization experience</em></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
