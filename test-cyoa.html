@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer's Journey - CYOA Test</title>
+    <link rel="stylesheet" href="./css/cyoa-styles.css">
+</head>
+<body>
+    <!-- Loading screen -->
+    <div id="loading" class="cyoa-loading">
+        Loading Game...
+    </div>
+
+    <!-- Game container -->
+    <div id="game-container" style="display: none;"></div>
+
+    <!-- Load scripts -->
+    <script src="./javascript/cyoa-engine.js"></script>
+    <script src="./javascript/cyoa-ui.js"></script>
+    
+    <script>
+        // Initialize the game when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            const loadingEl = document.getElementById('loading');
+            const containerEl = document.getElementById('game-container');
+
+            try {
+                // Create game engine
+                const engine = new CYOAEngine();
+
+                // Load data files
+                const dataLoaded = await engine.loadData(
+                    'farmer_story_nodes.csv',
+                    'farmer_story_choices.csv',
+                    'farmer_story_endings.json'
+                );
+
+                if (!dataLoaded) {
+                    throw new Error('Failed to load game data');
+                }
+
+                // Hide loading, show game
+                loadingEl.style.display = 'none';
+                containerEl.style.display = 'block';
+
+                // Create UI manager
+                const ui = new CYOAUIManager(engine, 'game-container');
+
+                // Start the game
+                ui.startGame();
+
+                console.log('Game initialized successfully');
+
+            } catch (error) {
+                console.error('Error initializing game:', error);
+                loadingEl.textContent = 'Error loading game. Please check console.';
+                loadingEl.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
