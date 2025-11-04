@@ -125,7 +125,7 @@ function createVisualization(nodes, links) {
     const container = d3.select(containerSelector);
     
     // Clear any existing content
-    container.selectAll('*').remove();
+    container.selectAll('svg').remove();
     
     const svg = container.append('svg')
         .attr('id', 'treaty-svg')
@@ -572,27 +572,39 @@ function setupScrollObserver() {
     
     captions.forEach(caption => captionObserver.observe(caption));
     
-    // Observer for last caption (to show explore button)
-    const lastCaption = captions[captions.length - 1];
-    const lastCaptionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.8) {
-                // Last caption is visible, show explore button
-                if (exploreBtn) {
-                    exploreBtn.classList.add('visible');
-                }
-            } else {
-                // Hide button when scrolling back up
-                if (exploreBtn && !treatyViz.zoomEnabled) {
-                    exploreBtn.classList.remove('visible');
-                }
+
+
+
+// Observer for last caption (to show explore button)
+const lastCaption = captions[captions.length-1];
+let exploreButtonShown = false; // Track if button has been shown
+
+const lastCaptionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        // Show button when last caption becomes visible
+        if (entry.isIntersecting && entry.intersectionRatio > 0.8 && !exploreButtonShown) {
+            console.log('Showing explore button');
+            if (exploreBtn) {
+                exploreBtn.classList.add('visible');
+                exploreButtonShown = true;
             }
-        });
-    }, {
-        threshold: [0, 0.8, 1]
+        }
+        
+        // Only hide button if user scrolls completely away from treaties section
+        // AND explore mode is not active
+        if (!entry.isIntersecting && entry.intersectionRatio === 0 && !treatyViz.zoomEnabled) {
+            console.log('User scrolled away, hiding button');
+            if (exploreBtn) {
+                exploreBtn.classList.remove('visible');
+                exploreButtonShown = false;
+            }
+        }
     });
-    
-    lastCaptionObserver.observe(lastCaption);
+}, {
+    threshold: [0, 0.8, 1]
+});
+
+lastCaptionObserver.observe(lastCaption);
     
     // Explore button click handler
     if (exploreBtn) {
@@ -608,23 +620,41 @@ function enableExploreMode() {
     const exploreBtn = document.getElementById('explore-btn');
     const captionsContainer = document.querySelector('#treaties .captions');
     
-    // Enable zoom
-    enableZoom();
-    
-    // Update button state
-    if (exploreBtn) {
-        exploreBtn.classList.add('active');
-        exploreBtn.textContent = 'Exploring...';
-        exploreBtn.style.pointerEvents = 'none';
+    if (treatyViz.zoomEnabled) {
+        // Already in explore mode - EXIT it
+        disableZoom();
+        resetZoom(1000);
+        
+        // Update button
+        if (exploreBtn) {
+            exploreBtn.classList.remove('active');
+            exploreBtn.textContent = 'Explore the Network';
+        }
+        
+        // Show captions again
+        if (captionsContainer) {
+            captionsContainer.style.opacity = '1';
+        }
+        
+        console.log('Explore mode deactivated');
+    } else {
+        // Enter explore mode
+        enableZoom();
+        
+        // Update button
+        if (exploreBtn) {
+            exploreBtn.classList.add('active');
+            exploreBtn.textContent = '← Exit Explore Mode';
+        }
+        
+        // Fade out captions
+        if (captionsContainer) {
+            captionsContainer.style.transition = 'opacity 0.5s ease';
+            captionsContainer.style.opacity = '0.2';
+        }
+        
+        console.log('Explore mode activated');
     }
-    
-    // Fade out captions
-    if (captionsContainer) {
-        captionsContainer.style.transition = 'opacity 0.5s ease';
-        captionsContainer.style.opacity = '0.2';
-    }
-    
-    console.log('Explore mode activated');
 }
 
 function handleCaptionChange(index) {

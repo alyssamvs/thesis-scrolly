@@ -109,6 +109,10 @@
             <!-- Sticky graphic container -->
             <div class="sticky-bg" id="graphic-container">
                 <!-- D3.js treaty network visualization will be rendered here -->
+
+                <button id="explore-btn" class="explore-button">
+                    Click to Zoom/Pan
+                </button>
             </div>
             
             <!-- Overlay captions -->
@@ -128,33 +132,11 @@
                 <div class="caption" data-index="3">
                     <p>And though drug control is an issue of demand as well as supply, the overwhelming amount of the existing legislation addresses only the supply side.</p>
                 </div>
-            </div>
-        
-            <button id="explore-btn" class="explore-button" style="display: none;">
-                Click to Zoom/Pan
-            </button>
-                  
+
+            </div>                 
         </div>
     </section>
     
-    <!-- Add the treaty network script -->
-    <script src="./javascript/treaty-network.js"></script>
-    <script>
-        // Initialize the treaty network visualization when DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Initializing treaty network...');
-            
-            // Check if container exists
-            const container = document.querySelector('#graphic-container');
-            if (container) {
-                window.treatyViz = new TreatyNetworkViz('#graphic-container');
-                window.treatyViz.init();
-            } else {
-                console.error('Treaty network container not found');
-            }
-        });
-    </script>
-
     <!-- SECTION 3 - SUPPLY CHAIN -->
 
     <section class="story-section supply-chain" id="supply-chain">
