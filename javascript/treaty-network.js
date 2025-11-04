@@ -171,14 +171,18 @@ function createVisualization(nodes, links) {
     
     // zoom behavior to SVG
     const zoom = d3.zoom()
-        .scaleExtent([0.5, 8])
-        .on('zoom', (event) => {
-            g.attr('transform', event.transform);
-        });
-    
-    svg.call(zoom);
+    .scaleExtent([0.5, 8])
+    .on('zoom', (event) => {
+        g.attr('transform', event.transform);
+    });
+
+    // Store zoom behavior but DON'T apply it yet
     treatyViz.zoom = zoom;
     treatyViz.svg = svg;
+    treatyViz.zoomEnabled = false;  // Track zoom state
+
+    // Disable zoom initially (story mode)
+    svg.on('.zoom', null);  // Remove zoom listeners
     
     const g = svg.append('g')
         .attr('transform', `translate(${config.margin.left},${config.margin.top})`);
@@ -542,16 +546,19 @@ function resetZoom(duration = 1000) {
         );
 }
 
-// NEW: Setup scroll observer
+// Setup scroll observer
+
 function setupScrollObserver() {
     const captions = document.querySelectorAll('#treaties .caption');
+    const exploreBtn = document.getElementById('explore-btn');
     
     if (captions.length === 0) {
         console.warn('No captions found for scroll observer');
         return;
     }
     
-    const observer = new IntersectionObserver((entries) => {
+    // Observer for caption changes
+    const captionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const index = parseInt(entry.target.dataset.index);
@@ -563,9 +570,61 @@ function setupScrollObserver() {
         rootMargin: '-20% 0px -20% 0px'
     });
     
-    captions.forEach(caption => observer.observe(caption));
+    captions.forEach(caption => captionObserver.observe(caption));
+    
+    // Observer for last caption (to show explore button)
+    const lastCaption = captions[captions.length - 1];
+    const lastCaptionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.8) {
+                // Last caption is visible, show explore button
+                if (exploreBtn) {
+                    exploreBtn.classList.add('visible');
+                }
+            } else {
+                // Hide button when scrolling back up
+                if (exploreBtn && !treatyViz.zoomEnabled) {
+                    exploreBtn.classList.remove('visible');
+                }
+            }
+        });
+    }, {
+        threshold: [0, 0.8, 1]
+    });
+    
+    lastCaptionObserver.observe(lastCaption);
+    
+    // Explore button click handler
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', function() {
+            enableExploreMode();
+        });
+    }
     
     console.log('Scroll observer setup for', captions.length, 'captions');
+}
+
+function enableExploreMode() {
+    const exploreBtn = document.getElementById('explore-btn');
+    const captionsContainer = document.querySelector('#treaties .captions');
+    
+    // Enable zoom
+    enableZoom();
+    
+    // Update button state
+    if (exploreBtn) {
+        exploreBtn.classList.add('active');
+        exploreBtn.textContent = 'Exploring...';
+        exploreBtn.style.pointerEvents = 'none';
+    }
+    
+    // Fade out captions
+    if (captionsContainer) {
+        captionsContainer.style.transition = 'opacity 0.5s ease';
+        captionsContainer.style.opacity = '0.2';
+    }
+    
+    console.log('Explore mode activated');
 }
 
 function handleCaptionChange(index) {
@@ -593,8 +652,29 @@ function handleCaptionChange(index) {
     }
 }
 
+// Enable/disable zoom functions
+function enableZoom() {
+    if (treatyViz.zoomEnabled) return;
+    
+    treatyViz.svg.call(treatyViz.zoom);
+    treatyViz.zoomEnabled = true;
+    console.log('Zoom enabled');
+}
+
+function disableZoom() {
+    if (!treatyViz.zoomEnabled) return;
+    
+    treatyViz.svg.on('.zoom', null);
+    treatyViz.zoomEnabled = false;
+    console.log('Zoom disabled');
+}
+
+
+
 // Expose for debugging
 window.treatyViz = treatyViz;
 window.zoomToNode = zoomToNode;
 window.zoomToYearRange = zoomToYearRange;
 window.resetZoom = resetZoom;
+window.enableZoom = enableZoom;   
+window.disableZoom = disableZoom;
