@@ -1,5 +1,5 @@
 // Treaty Network Visualization with Zoom
-// This wraps your EXACT original code and only adds zoom capabilities
+
 
 let treatyViz = {
     svg: null,
@@ -13,10 +13,11 @@ let treatyViz = {
     nodes: [],
     links: [],
     nodeElements: null,
-    linkElements: null
+    linkElements: null,
+    labelElements: null
 };
 
-// Configuration (UNCHANGED from your original)
+// Configuration 
 const config = {
     margin: { top: 60, right: 80, bottom: 60, left: 80 },
     yearRange: [1909, 2010],
@@ -50,7 +51,7 @@ const config = {
 
 treatyViz.config = config;
 
-// Load data (UNCHANGED from your original)
+// Load data 
 Promise.all([
     d3.json('./data/tooltip_data_template.json'),
     d3.csv('./data/drug_regulations_shortened_keys.csv')
@@ -62,7 +63,7 @@ Promise.all([
     treatyViz.nodes = nodes;
     treatyViz.links = links;
     createVisualization(nodes, links);
-    setupScrollObserver(); // NEW: Add scroll observer
+    setupScrollObserver(); 
 }).catch(error => {
     console.error('Error loading data:', error);
     console.log('Make sure data files are in ./data/ folder:');
@@ -70,7 +71,7 @@ Promise.all([
     console.log('- ./data/drug_regulations_shortened_keys.csv');
 });
 
-// Process nodes (UNCHANGED from your original)
+// Process nodes 
 function processNodes(tooltipData) {
     const nodes = [];
     
@@ -96,7 +97,7 @@ function processNodes(tooltipData) {
     return nodes;
 }
 
-// Process links (UNCHANGED from your original)
+// Process links 
 function processLinks(relationships, nodes) {
     const links = [];
     const nodeMap = new Map(nodes.map(n => [n.id, n]));
@@ -118,9 +119,9 @@ function processLinks(relationships, nodes) {
     return links;
 }
 
-// Create visualization (YOUR ORIGINAL CODE with zoom added to SVG)
+// Create visualization 
 function createVisualization(nodes, links) {
-    const containerSelector = '#graphic-container'; // Changed from '#main-svg'
+    const containerSelector = '#graphic-container'; 
     const container = d3.select(containerSelector);
     
     // Clear any existing content
@@ -168,7 +169,7 @@ function createVisualization(nodes, links) {
     // Create defs for gradients
     const defs = svg.append('defs');
     
-    // NEW: Add zoom behavior to SVG
+    // zoom behavior to SVG
     const zoom = d3.zoom()
         .scaleExtent([0.5, 8])
         .on('zoom', (event) => {
@@ -189,7 +190,7 @@ function createVisualization(nodes, links) {
         .domain(config.yearRange)
         .range([0, innerWidth]);
     
-    // Draw decade markers (vertical lines)
+    // decade markers (vertical lines)
     const decades = d3.range(1910, 2020, 10);
     decades.forEach(decade => {
         const x = xScale(decade);
@@ -278,126 +279,145 @@ function createVisualization(nodes, links) {
     treatyViz.linkElements = linkElements;
     
     // Draw nodes
-    const nodeGroup = g.append('g').attr('class', 'nodes');
-    
-    const nodeElements = nodeGroup.selectAll('.node')
-        .data(nodes)
-        .enter()
-        .append('g')
-        .attr('class', d => `node ${d.highlighted ? 'highlighted' : ''}`)
-        .call(d3.drag()
-            .on('start', dragstarted)
-            .on('drag', dragged)
-            .on('end', dragended))
-        .on('mouseenter', function(event, d) {
-            showTooltip(event, d);
-            highlightConnections(d);
-        })
-        .on('mouseleave', function() {
-            hideTooltip();
-            unhighlightConnections();
-        });
-    
-    treatyViz.nodeElements = nodeElements;
-    
-    // Node circles
-    nodeElements.append('circle')
-        .attr('r', d => d.radius)
-        .attr('fill', d => config.colors[d.entity] || '#95A5A6')
-        .style('cursor', 'pointer')
-        .style('stroke', 'white')
-        .style('stroke-width', 2);
-    
-    nodeElements.selectAll('circle')
-        .on('mouseenter', function() {
-            d3.select(this).style('stroke', '#000').style('stroke-width', 3);
-        })
-        .on('mouseleave', function(event, d) {
-            const node = d3.select(this.parentNode);
-            if (!node.classed('highlighted')) {
-                d3.select(this).style('stroke', 'white').style('stroke-width', 2);
-            }
-        });
-    
-    nodeElements.filter(d => d.highlighted).selectAll('circle')
-        .style('stroke', '#000')
-        .style('stroke-width', 3);
-    
-    // Name labels
-    nodeElements.append('text')
-        .attr('class', d => d.highlighted ? 'node-label major' : 'node-label')
-        .attr('x', d => d.radius + 3)
-        .attr('y', d => -d.radius - 3)
-        .attr('text-anchor', 'start')
-        .attr('transform', d => `rotate(-25, ${d.radius + 3}, ${-d.radius - 3})`)
-        .style('opacity', d => d.highlighted ? 1 : 0)
-        .style('font-size', d => d.highlighted ? '11px' : '9px')
-        .style('font-weight', d => d.highlighted ? 600 : 400)
-        .style('fill', '#000')
-        .style('pointer-events', 'none')
-        .text(d => d.shortName);
+
+    // Draw node CIRCLES first
+const nodeGroup = g.append('g').attr('class', 'nodes');
+
+const nodeElements = nodeGroup.selectAll('.node')
+    .data(nodes)
+    .enter()
+    .append('g')
+    .attr('class', d => `node ${d.highlighted ? 'highlighted' : ''}`)
+    .call(d3.drag()
+        .on('start', dragstarted)
+        .on('drag', dragged)
+        .on('end', dragended))
+    .on('mouseenter', function(event, d) {
+        showTooltip(event, d);
+        highlightConnections(d);
+    })
+    .on('mouseleave', function() {
+        hideTooltip();
+        unhighlightConnections();
+    });
+
+treatyViz.nodeElements = nodeElements;
+
+// Node circles
+nodeElements.append('circle')
+    .attr('r', d => d.radius)
+    .attr('fill', d => config.colors[d.entity] || '#95A5A6')
+    .style('cursor', 'pointer')
+    .style('stroke', 'white')
+    .style('stroke-width', 2);
+
+nodeElements.selectAll('circle')
+    .on('mouseenter', function() {
+        d3.select(this).style('stroke', '#000').style('stroke-width', 3);
+    })
+    .on('mouseleave', function(event, d) {
+        const node = d3.select(this.parentNode);
+        if (!node.classed('highlighted')) {
+            d3.select(this).style('stroke', 'white').style('stroke-width', 2);
+        }
+    });
+
+nodeElements.filter(d => d.highlighted).selectAll('circle')
+    .style('stroke', '#000')
+    .style('stroke-width', 3);
+
+// Draw LABELS separately (on top of all circles)
+const labelGroup = g.append('g').attr('class', 'labels');
+
+const labelElements = labelGroup.selectAll('.node-label-group')
+    .data(nodes)
+    .enter()
+    .append('g')
+    .attr('class', 'node-label-group');
+
+labelElements.append('text')
+    .attr('class', d => d.highlighted ? 'node-label major' : 'node-label')
+    .attr('x', d => d.radius + 3)
+    .attr('y', d => -d.radius - 3)
+    .attr('text-anchor', 'start')
+    .attr('transform', d => `rotate(-25, ${d.radius + 3}, ${-d.radius - 3})`)
+    .style('opacity', d => d.highlighted ? 1 : 0)
+    .style('font-size', d => d.highlighted ? '11px' : '9px')
+    .style('font-weight', d => d.highlighted ? 600 : 400)
+    .style('fill', '#000')
+    .style('pointer-events', 'none')
+    .text(d => d.shortName);
+
+treatyViz.labelElements = labelElements;
     
     // Update positions on simulation tick
-    simulation.on('tick', () => {
-        // Update link positions and gradients
-        linkElements.each(function(d, i) {
-            const link = d3.select(this);
-            
-            // Update line position
-            link
-                .attr('x1', d.source.x)
-                .attr('y1', d.source.y)
-                .attr('x2', d.target.x)
-                .attr('y2', d.target.y);
-            
-            // Create/update gradient for this link
-            const gradientId = `gradient-${i}`;
-            let gradient = defs.select(`#${gradientId}`);
-            
-            if (gradient.empty()) {
-                gradient = defs.append('linearGradient')
-                    .attr('id', gradientId);
-                
-                gradient.append('stop')
-                    .attr('offset', '0%')
-                    .attr('class', 'start');
-                
-                gradient.append('stop')
-                    .attr('offset', '50%')
-                    .attr('class', 'middle');
-                
-                gradient.append('stop')
-                    .attr('offset', '100%')
-                    .attr('class', 'end');
-            }
-            
-            // Update gradient direction
-            gradient
-                .attr('x1', `${d.source.x}px`)
-                .attr('y1', `${d.source.y}px`)
-                .attr('x2', `${d.target.x}px`)
-                .attr('y2', `${d.target.y}px`)
-                .attr('gradientUnits', 'userSpaceOnUse');
-            
-            const baseColor = config.colors[d.entity] || '#666';
-            const middleColor = d3.color(baseColor).brighter(1.5);
-            
-            gradient.select('.start')
-                .attr('stop-color', baseColor)
-                .attr('stop-opacity', 0.8);
-            
-            gradient.select('.middle')
-                .attr('stop-color', middleColor)
-                .attr('stop-opacity', 0.2);
-            
-            gradient.select('.end')
-                .attr('stop-color', baseColor)
-                .attr('stop-opacity', 0.8);
-        });
+
+    // Update positions on simulation tick
+simulation.on('tick', () => {
+    // Update link positions and gradients
+    linkElements.each(function(d, i) {
+        const link = d3.select(this);
         
-        nodeElements
-            .attr('transform', d => `translate(${d.x},${d.y})`);
+        // Update line position
+        link
+            .attr('x1', d.source.x)
+            .attr('y1', d.source.y)
+            .attr('x2', d.target.x)
+            .attr('y2', d.target.y);
+        
+        // Create/update gradient for this link
+        const gradientId = `gradient-${i}`;
+        let gradient = defs.select(`#${gradientId}`);
+        
+        if (gradient.empty()) {
+            gradient = defs.append('linearGradient')
+                .attr('id', gradientId);
+            
+            gradient.append('stop')
+                .attr('offset', '0%')
+                .attr('class', 'start');
+            
+            gradient.append('stop')
+                .attr('offset', '50%')
+                .attr('class', 'middle');
+            
+            gradient.append('stop')
+                .attr('offset', '100%')
+                .attr('class', 'end');
+        }
+        
+        // Update gradient direction
+        gradient
+            .attr('x1', `${d.source.x}px`)
+            .attr('y1', `${d.source.y}px`)
+            .attr('x2', `${d.target.x}px`)
+            .attr('y2', `${d.target.y}px`)
+            .attr('gradientUnits', 'userSpaceOnUse');
+        
+        const baseColor = config.colors[d.entity] || '#666';
+        const middleColor = d3.color(baseColor).brighter(1.5);
+        
+        gradient.select('.start')
+            .attr('stop-color', baseColor)
+            .attr('stop-opacity', 0.8);
+        
+        gradient.select('.middle')
+            .attr('stop-color', middleColor)
+            .attr('stop-opacity', 0.2);
+        
+        gradient.select('.end')
+            .attr('stop-color', baseColor)
+            .attr('stop-opacity', 0.8);
     });
+    
+    // Update node circles
+    nodeElements
+        .attr('transform', d => `translate(${d.x},${d.y})`);
+    
+    // Update labels to match node positions
+    labelElements
+        .attr('transform', d => `translate(${d.x},${d.y})`);
+});
     
     // Drag functions
     function dragstarted(event, d) {
@@ -451,30 +471,22 @@ function createVisualization(nodes, links) {
         nodeElements
             .style('opacity', d => connectedIds.has(d.id) ? 1 : 0.2);
         
-        nodeElements.each(function(d) {
-            const node = d3.select(this);
-            const label = node.select('text');
-            
-            if (!label.empty()) {
-                label.style('opacity', connectedIds.has(d.id) ? 1 : 0);
-            }
-        });
+        // Update labels visibility
+        labelElements.select('text')
+            .style('opacity', d => connectedIds.has(d.id) ? 1 : 0);
     }
     
     function unhighlightConnections() {
         linkElements
             .classed('active', false)
             .style('opacity', 0.6);
-        nodeElements.style('opacity', 1);
         
-        nodeElements.each(function(d) {
-            const node = d3.select(this);
-            const label = node.select('text');
-            
-            if (!label.empty()) {
-                label.style('opacity', d.highlighted ? 1 : 0);
-            }
-        });
+        nodeElements
+            .style('opacity', 1);
+        
+        // Reset labels to default visibility (highlighted nodes show, others hide)
+        labelElements.select('text')
+            .style('opacity', d => d.highlighted ? 1 : 0);
     }
     
     console.log('Force-directed visualization complete:', nodes.length, 'nodes,', links.length, 'links');

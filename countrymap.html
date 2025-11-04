@@ -13,7 +13,8 @@
         }
         
         .container {
-            max-width: 1600px;
+            max-width: 100vw;
+            max-height: 100vh;
             margin: 0 auto;
             background: white;
             padding: 20px;
@@ -38,23 +39,97 @@
             align-items: center;
         }
         
-        .metric-btn {
+        .year-filter {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 300px;
+        }
+        
+        .year-slider-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+        
+        .slider-track {
+            position: relative;
+            height: 6px;
+            background: #ddd;
+            border-radius: 3px;
+            flex: 1;
+        }
+        
+        .slider-range {
+            position: absolute;
+            height: 6px;
+            background: #767676;
+            border-radius: 3px;
+        }
+        
+        .year-slider {
+            position: absolute;
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            outline: none;
+            pointer-events: none;
+        }
+        
+        .year-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #767676;
+            cursor: pointer;
+            border-radius: 50%;
+            pointer-events: auto;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .year-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #767676;
+            cursor: pointer;
+            border-radius: 50%;
+            pointer-events: auto;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .year-display {
+            font-weight: bold;
+            color: #767676;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .metric-btn, .reset-year-btn {
             padding: 8px 16px;
-            border: 2px solid #007bff;
+            border: 2px solid #767676;
             background: white;
-            color: #007bff;
+            color: #767676;
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.3s;
+            font-size: 14px;
         }
         
         .metric-btn.active {
-            background: #007bff;
+            background: #767676;
             color: white;
         }
         
-        .metric-btn:hover {
+        .metric-btn:hover, .reset-year-btn:hover {
             transform: translateY(-1px);
+            background: #767676;
+            color: white;
         }
         
         .stats {
@@ -168,14 +243,31 @@
 </head>
 <body>
     <div class="container">
-        <h1>Cocaine Trafficking Routes - Geographic Network (2011-2016)</h1>
-        
+               
         <div class="controls">
             <div class="metric-selector">
-                <span><strong>Link Weight:</strong></span>
+                
                 <button class="metric-btn active" onclick="switchMetric('seizure_count')">Number of Seizures</button>
                 <button class="metric-btn" onclick="switchMetric('total_quantity_kg')">Total Quantity (kg)</button>
             </div>
+            
+            <div class="year-filter">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span><strong>Year Range:</strong></span>
+                    <span class="year-display" id="year-range-display">2011 - 2016</span>
+                    <button class="reset-year-btn" onclick="resetYearFilter()">All Years</button>
+                </div>
+                <div class="year-slider-container">
+                    <span style="font-size: 12px; color: #666;">2011</span>
+                    <div class="slider-track">
+                        <div class="slider-range" id="slider-range"></div>
+                        <input type="range" min="2011" max="2016" value="2011" class="year-slider" id="year-start" oninput="updateYearFilter()">
+                        <input type="range" min="2011" max="2016" value="2016" class="year-slider" id="year-end" oninput="updateYearFilter()">
+                    </div>
+                    <span style="font-size: 12px; color: #666;">2016</span>
+                </div>
+            </div>
+            
             <div class="stats" id="network-stats">
                 Loading data...
             </div>
@@ -190,10 +282,10 @@
         </div>
         
         <div class="legend">
-            <h4>Geographic Network Visualization</h4>
-            <div class="legend-item"><strong>Node Size:</strong> Based on total connections (hub countries are larger)</div>
+                       <div class="legend-item"><strong>Node Size:</strong> Based on total connections (hub countries are larger)</div>
             <div class="legend-item"><strong>Route Thickness:</strong> Based on selected metric (seizures or quantity)</div>
-            <div class="legend-item"><strong>Route Color:</strong> Gradient from departure (orange) to destination (red)</div>
+            <div class="legend-item"><strong>Route Color:</strong> Gradient from red (low volume) to dark red (high volume)</div>
+            <div class="legend-item"><strong>Year Filter:</strong> Shows routes active during any part of the selected year range</div>
             <div class="legend-item"><strong>Interaction:</strong> Hover over routes and nodes for details, zoom with controls or mouse wheel</div>
         </div>
     </div>
@@ -204,13 +296,15 @@
         // Global variables
         var globalData = [];
         var currentMetric = 'seizure_count';
+        var yearStart = 2011;
+        var yearEnd = 2016;
         var svg, g, projection, path;
         var zoom;
         var countryCoordinates;
 
         // Chart setup
-        var width = 1560;
-        var height = 800;
+        var width = 1400;
+        var height = 700;
 
         // Create projection - Mercator centered on Atlantic (good for viewing trafficking routes)
         projection = d3.geoMercator()
@@ -250,19 +344,77 @@
             return d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
         }
 
+        // Year filter functions
+        function updateYearFilter() {
+            var startSlider = document.getElementById('year-start');
+            var endSlider = document.getElementById('year-end');
+            
+            var start = parseInt(startSlider.value);
+            var end = parseInt(endSlider.value);
+            
+            // Ensure start is not greater than end
+            if (start > end) {
+                if (event.target.id === 'year-start') {
+                    startSlider.value = end;
+                    start = end;
+                } else {
+                    endSlider.value = start;
+                    end = start;
+                }
+            }
+            
+            yearStart = start;
+            yearEnd = end;
+            
+            // Update visual range indicator
+            updateSliderRange();
+            
+            document.getElementById('year-range-display').textContent = yearStart + ' - ' + yearEnd;
+            updateVisualization();
+        }
+        
+        function updateSliderRange() {
+            var rangeDiv = document.getElementById('slider-range');
+            var startPercent = ((yearStart - 2011) / (2016 - 2011)) * 100;
+            var endPercent = ((yearEnd - 2011) / (2016 - 2011)) * 100;
+            
+            rangeDiv.style.left = startPercent + '%';
+            rangeDiv.style.width = (endPercent - startPercent) + '%';
+        }
+        
+        function resetYearFilter() {
+            document.getElementById('year-start').value = 2011;
+            document.getElementById('year-end').value = 2016;
+            yearStart = 2011;
+            yearEnd = 2016;
+            updateSliderRange();
+            document.getElementById('year-range-display').textContent = '2011 - 2016';
+            updateVisualization();
+        }
+
+        // Check if a route is active during the selected year range
+        function isRouteInYearRange(route) {
+            var routeStart = parseInt(route.first_year);
+            var routeEnd = parseInt(route.last_year);
+            
+            // Route is active if there's ANY overlap with selected range
+            return routeEnd >= yearStart && routeStart <= yearEnd;
+        }
+
         // Process data function
         function processData(data, metric) {
             console.log("Processing", data.length, "routes for geographic network");
             
-            // Filter out routes with >3 seizures and no circular routes
+            // Filter by seizure count, valid coordinates, and year range
             var filteredData = data.filter(function(d) {
                 return d.seizure_count > 3 && 
                        d.DEPARTURE_COUNTRY !== d.DESTINATION_COUNTRY &&
                        countryCoordinates[d.DEPARTURE_COUNTRY] && 
-                       countryCoordinates[d.DESTINATION_COUNTRY];
+                       countryCoordinates[d.DESTINATION_COUNTRY] &&
+                       isRouteInYearRange(d);
             });
             
-            console.log("After filtering:", filteredData.length, "significant routes with valid coordinates");
+            console.log("After filtering:", filteredData.length, "routes for years", yearStart, "-", yearEnd);
             
             // Create nodes from unique countries
             var nodeMap = new Map();
@@ -318,7 +470,9 @@
                     seizure_count: d.seizure_count,
                     total_quantity_kg: d.total_quantity_kg,
                     departure: d.DEPARTURE_COUNTRY,
-                    destination: d.DESTINATION_COUNTRY
+                    destination: d.DESTINATION_COUNTRY,
+                    first_year: d.first_year,
+                    last_year: d.last_year
                 };
             });
 
@@ -382,6 +536,7 @@
                     tooltip
                         .style("opacity", 1)
                         .html("<strong>" + d.departure + " → " + d.destination + "</strong><br/>" +
+                              "Years Active: " + d.first_year + " - " + d.last_year + "<br/>" +
                               "Seizures: " + d.seizure_count.toLocaleString() + "<br/>" +
                               "Total Quantity: " + d.total_quantity_kg.toLocaleString() + " kg<br/>" +
                               "Avg per Seizure: " + (d.total_quantity_kg / d.seizure_count).toFixed(2) + " kg")
@@ -442,10 +597,14 @@
                 });
 
             // Update stats
+            var yearText = (yearStart === 2011 && yearEnd === 2016) ? 
+                'All years (2011-2016)' : 
+                'Years ' + yearStart + '-' + yearEnd;
+            
             document.getElementById('network-stats').textContent = 
-                processed.routes.length + ' routes shown • ' + 
-                processed.nodes.length + ' countries involved • ' +
-                'Routes with >3 seizures';
+                processed.routes.length + ' routes • ' + 
+                processed.nodes.length + ' countries • ' +
+                yearText;
         }
 
         // Zoom functions
@@ -493,6 +652,8 @@
                 csvData.forEach(function(d) {
                     d.seizure_count = +d.seizure_count;
                     d.total_quantity_kg = +d.total_quantity_kg;
+                    d.first_year = d.first_year;
+                    d.last_year = d.last_year;
                 });
                 
                 globalData = csvData;
@@ -510,6 +671,9 @@
                 
                 // Draw network
                 updateVisualization();
+                
+                // Initialize slider range display
+                updateSliderRange();
                 
             }).catch(function(error) {
                 console.error("Error loading data:", error);
