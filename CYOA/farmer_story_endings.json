@@ -1,0 +1,372 @@
+{
+  "endings": [
+    {
+      "character": "Farmer",
+      "id": "farmer_resist_eradication",
+      "title": "Armed Resistance: From Farmer to Fugitive",
+      "condition": {
+        "risk": ">=10"
+      },
+      "narrative": "You resisted the eradication team. The confrontation turned violent. Police fired tear gas, then live rounds. Your neighbor was shot. You fled into the hills with other farmers. Now you're wanted for assault on public officials, destruction of state property, and terrorism—the Peruvian state treats organized eradication resistance as terrorism when it occurs in former Shining Path areas like the VRAEM. Your family has fled to relatives in Ayacucho. You can never return home. Your children will grow up knowing their father as a fugitive, not a farmer. The coca fields you defended? They were burned two days later. A new family is already planting there—the cycle continues.",
+      "legal_info": {
+        "title": "Legal Consequences of Eradication Resistance",
+        "text": "Peru classifies violent resistance to eradication as terrorism when it occurs in conflict zones (Article 319 Penal Code). Penalties: 20-25 years for terrorism, plus additional charges for assault on public officials (5-10 years), illegal weapons possession (6-15 years). If casualties: murder charges (15-35 years). No distinction between organized resistance and individual acts in sentencing. Fugitive status means no access to amnesty or alternative development programs."
+      },
+      "policy_comparison": {
+        "title": "Eradication Policies: Violence Across the Americas",
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Military-led forced eradication via CORAH. 25,486 hectares destroyed in 2022. Use of force authorized. 47 deaths in eradication confrontations 2010-2020. Resistance prosecuted as terrorism in former conflict zones.",
+            "penalty": "20-25 years for terrorism + additional charges. Eradication continues regardless of resistance."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Forced eradication with military support, though scaled back under peace accords. Substitution programs (PNIS) offered but implementation poor. Eradication still produces violence: 13 deaths 2019-2022.",
+            "penalty": "Resistance charged as assault (5-12 years). Eradication violence decreased post-peace accord but persists."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Forced eradication ELIMINATED in 2008 under Morales government. Law 1008 reformed to prohibit violence in coca control. Community-controlled monitoring of legal 22,000 hectare quota. Voluntary excess reduction negotiated.",
+            "penalty": "No eradication resistance because no forced eradication. Excess cultivation handled through community dialogue, not violence."
+          }
+        ]
+      },
+      "data_visualization_note": "Show map of eradication-related deaths across Peru, Colombia, Bolivia (2010-2023). Highlight Bolivia's zero deaths after 2008 policy change. Include your strictness index overlay showing correlation between strict eradication and violence.",
+      "reflection_questions": [
+        "If Bolivia eliminated forced eradication and reduced violence to zero, why do Peru and Colombia continue policies that produce deaths?",
+        "At what point does defending your livelihood from state destruction become 'terrorism'?",
+        "Does violent resistance to eradication reduce cocaine production, or just create more violence?"
+      ]
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_hide_crop_arrested",
+      "title": "Caught Hiding: GPS Doesn't Lie",
+      "condition": {
+        "risk": ">=6",
+        "risk": "<10"
+      },
+      "narrative": "You tried to hide your coca crop under tarps and tree branches. For three days, it seemed to work—the eradication team passed your sector. Then they came back with GPS coordinates and satellite photos. They knew exactly where your field was. Arrested on the spot. The prosecutor says hiding crops is 'obstruction of justice'—an additional charge. You face 10-15 years in Lurigancho prison. Your wife must now farm alone with your teenage sons. They'll likely drop out of school to work. Your neighbor who planted the coca you bought the seeds from? He was never caught. The middleman who would have bought your harvest? He's still making offers to other farmers. You're the only one in chains.",
+      "legal_info": {
+        "title": "Legal Status of Coca Farmers in Peru",
+        "text": "Peru Penal Code Article 296: Coca cultivation linked to drug trafficking carries 8-15 years minimum. No legal distinction between farmer and trafficker in sentencing—both receive same penalty. Attempting to hide crops from eradication can add 'obstruction of justice' charges (Article 409): additional 2-4 years. Asset forfeiture of land possible even on first offense. Peru's prison system: 135% overcapacity, minimal rehabilitation programs, high violence. Average time served: 85-90% of sentence (vs. 50-60% in other Andean countries)."
+      },
+      "policy_comparison": {
+        "title": "Farmer vs. Trafficker: Sentencing Disparities",
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "No sentencing distinction between farmer and cartel leader. Coca cultivation for production: 8-15 years. Trafficking: 8-15 years. Judges have minimal discretion. Mandatory minimums apply regardless of role in chain.",
+            "penalty": "Farmer selling 100kg coca to middleman: 8-15 years. Cartel leader moving tons: 15-25 years. Minimal differentiation."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Slight differentiation in sentencing. Cultivation: 4-12 years. Trafficking: 8-20 years. Judges have some discretion for first-time farmers. Peace accord offers some substitution alternatives reducing sentences.",
+            "penalty": "Small farmer with <1 hectare: 4-6 years often suspended if entering substitution. Large-scale: 10-15 years."
+          },
+          {
+            "name": "USA",
+            "policy": "Federal sentencing guidelines differentiate by role. 'Minor participant' or 'minimal participant' adjustments reduce sentences 2-4 levels. Safety valve provision for first-time, non-violent offenders.",
+            "penalty": "Low-level courier: 2-5 years with safety valve. Major trafficker: 10 years to life. Significant role differentiation."
+          }
+        ]
+      },
+      "data_visualization_note": "Create chart showing sentencing ranges for different roles in supply chain (farmer, transporter, distributor, trafficker) across your 12 countries. Highlight Peru's lack of differentiation.",
+      "reflection_questions": [
+        "Should a farmer selling coca to survive receive the same sentence as a cartel leader trafficking tons of cocaine?",
+        "Does imprisoning low-level coca farmers for 10-15 years reduce cocaine supply?",
+        "What happens to farmers' families when the primary income earner is imprisoned for over a decade?"
+      ]
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_accept_eradication_poverty",
+      "title": "Legal but Hungry: The Alternative Development Gap",
+      "condition": {
+        "risk": ">=2",
+        "risk": "<6"
+      },
+      "narrative": "You accepted the eradication peacefully. The DEVIDA representative promised $1,200 over two years and technical support for coffee intensification. Six months later, you received the first $400 payment. Your family is hungry. Your children asked why they can't have notebooks like the coca farmer's kids down the valley. You borrowed money for seeds at 60% interest—the program's seeds never arrived. The DEVIDA technician came once, gave advice about composting, and hasn't returned. You're now farming at a loss, in debt again, and the coca middlemen still visit weekly. Last week, you saw your neighbor—who also accepted eradication—planting coca again. How long can you hold out?",
+      "legal_info": {
+        "title": "Alternative Development: Policy vs. Reality",
+        "text": "Peru's DEVIDA alternative development program budget: $50 million annually for ~30,000 farm families ($1,666 per family). Compare: eradication budget $200 million annually (4x more spent on destruction than support). Program benefits: $1,000-2,000 over 2 years, technical assistance, some market linkages. Gaps: (1) No debt relief; (2) Payment delays of 6-12 months common; (3) Income from alternative crops takes 3-5 years to materialize; (4) Market access for coffee/cacao often poor; (5) Long-term success rate: 30% remain in legal crops after 5 years. Bolivia's community coca monitoring + economic integration model shows 60-70% success rate."
+      },
+      "policy_comparison": {
+        "title": "Alternative Development: Investment and Success Rates",
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "DEVIDA: $50 million annually. $1,000-2,000 per family over 2 years. Technical assistance limited. Eradication-focused strategy (4:1 ratio eradication:development spending). Success rate: 30% after 5 years.",
+            "investment": "$1,666 per family. Eradication budget 4x larger than development. Short-term, insufficient support."
+          },
+          {
+            "name": "Colombia",
+            "policy": "PNIS (National Substitution Program): $340 million 2016-2019 budget. $12,000 per family over 2 years. Implementation plagued by violence, bureaucratic delays. Success rate: <40% after 5 years in most regions.",
+            "investment": "$12,000 per family over 2 years. Higher investment but poor implementation. Ongoing violence undermines program."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Integrated approach: legal coca market (22,000 hectares) + economic diversification. Community-controlled monitoring. Government investment in rural infrastructure, market access, fair pricing. Success rate: 60-70% in integrated regions.",
+            "investment": "Integrated with legal coca economy. Infrastructure investment: roads, markets, credit access. Long-term community development focus."
+          }
+        ]
+      },
+      "data_visualization_note": "Show scatter plot: Alternative development investment per farmer (x-axis) vs. success rate of remaining in legal crops after 5 years (y-axis). Compare Peru, Colombia, Bolivia. Include ratio of eradication:development spending.",
+      "reflection_questions": [
+        "If alternative development programs have 30% success rates, why continue investing 4x more in eradication than development?",
+        "What would it take to make legal agriculture economically competitive with coca cultivation?",
+        "Is $1,200 over two years adequate to replace $3,000-5,000 annual coca income? If not, what is adequate?"
+      ]
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_enaco_permits_bureaucracy",
+      "title": "Legal Coca: The ENACO Maze",
+      "condition": {
+        "knowledge": ">=3"
+      },
+      "narrative": "You decided to pursue legal coca cultivation through ENACO permits. Three months of paperwork: land titles, tax records, community authorization, police background check, agricultural surveys. You traveled to Cusco twice (16 hours each way, $50 in bus fares). After six months, your permit was approved—for 0.5 hectares, half your land. ENACO pays $1.80/kg while the black market pays $3.50/kg. You can only sell to ENACO once quarterly, and they've rejected two harvests due to 'quality concerns' you don't understand. Meanwhile, your neighbor's illegal coca sells immediately, cash in hand, no quality concerns. You're legal but poor. How long can you maintain this moral victory while watching your children go hungry?",
+      "legal_info": {
+        "title": "ENACO: Peru's Legal Coca Monopoly",
+        "text": "ENACO (Empresa Nacional de la Coca) established 1949 as state monopoly on legal coca. Constitutional basis: Article 89 protects traditional coca use (chacchar, mate de coca, religious ceremonies). However: (1) Permits difficult to obtain—extensive documentation, can take 6-12 months; (2) Purchase prices below market: ENACO $1.50-2.00/kg vs. black market $3.00-4.00/kg; (3) Quality standards often arbitrary; (4) Geographic restrictions—legal zones limited; (5) Quantity quotas—often <1 hectare per farmer. Peru has 8,000-10,000 legal coca farmers (ENACO suppliers) vs. 100,000+ illegal coca farmers (cocaine chain). System's restrictiveness pushes farmers toward illegal market."
+      },
+      "policy_comparison": {
+        "title": "Legal Coca Models: Peru vs. Bolivia",
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "State monopoly (ENACO). Restrictive permit system. Low purchase prices. Limited legal zones. Bureaucratic complexity. Approximately 8,000 legal farmers. Illegal coca: 62,000 hectares (2022).",
+            "result": "Legal market serves tiny fraction. Restrictiveness drives farmers to illegal production. Traditional use protection mostly symbolic."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Legal coca market: 22,000 hectares total allowed (Law 1008). Community-controlled monitoring via cocalero unions. Multiple legal markets with competitive pricing. Chewing, mate, industrialization all legal. Traditional use integrated into legal economy.",
+            "result": "40,000+ legal coca farmers. Illegal coca: 30,000 hectares (2022). Higher proportion in legal market. Community control more effective than state monopoly."
+          },
+          {
+            "name": "Colombia",
+            "policy": "No legal coca market. All coca cultivation illegal, subject to eradication. Traditional use not constitutionally recognized (unlike Peru/Bolivia). Total prohibition approach.",
+            "result": "230,000 hectares illegal coca (2022). No legal alternative for traditional use. Eradication-focused strategy. Highest coca cultivation globally."
+          }
+        ]
+      },
+      "data_visualization_note": "Create comparison: Peru ENACO permits (8,000 farmers) vs. Bolivia legal market (40,000 farmers) vs. illegal cultivation in both. Show that restrictive legal systems correlate with larger illegal markets.",
+      "reflection_questions": [
+        "If legal ENACO coca pays half the price of illegal coca, why would rational farmers choose the legal option?",
+        "Bolivia's more permissive legal coca market serves 5x more farmers than Peru's ENACO. Does a more accessible legal market reduce illegal cultivation?",
+        "Is Peru's constitutional protection of traditional coca use meaningful if the legal pathway is economically unviable?"
+      ]
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_informant_witness_protection",
+      "title": "The Informant: Relocated and Afraid",
+      "condition": {
+        "moral": ">=5"
+      },
+      "narrative": "You reported the cocaine lab to the police. Your testimony helped arrest three men, though the lab was operational again within two months under new management. The cartel suspects you—word travels in small communities. The prosecutor offered 'witness protection': relocation to a different province, a small stipend for three months, and a new ID. You're now in Pucallpa, 500 kilometers away, living in a rented room with your family. You've lost your land, your community, your identity. The stipend ended. You work construction for daily wages. Your children were torn from their school and friends. Was cooperation worth it? The cocaine production in your valley continues unchanged—you just moved the problem rather than solving it. And every unfamiliar face makes you wonder: did they find you?",
+      "legal_info": {
+        "title": "Witness Protection: Policy vs. Capacity",
+        "text": "Peru's witness protection program (Sistema de Protección de Víctimas y Testigos) has limited capacity: approximately 200 witnesses protected annually, primarily in urban terrorism/corruption cases. Rural drug cases: minimal protection. Program provides: relocation assistance (one-time), new identity documents, 3-month stipend ($300/month), emergency phone line. Does NOT provide: long-term income support, land replacement, educational continuity for children, community reintegration. Article 161 Penal Code: sentence reduction up to 50% for 'substantial assistance' to prosecution. However, cooperation requires implicating others (retaliation risk). Rural witnesses often unprotected: program designed for urban contexts, lacks rural infrastructure, can't replace agricultural livelihood."
+      },
+      "policy_comparison": {
+        "title": "Witness Protection: Capacity and Effectiveness",
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Limited capacity: ~200 witnesses/year protected. Mostly urban cases. Rural protection minimal. 3-month stipend, relocation, new ID. No long-term support. Sentence reduction: up to 50% for cooperation.",
+            "effectiveness": "Inadequate for rural drug cases. Cannot replace agricultural livelihood. Low trust—farmers rarely cooperate."
+          },
+          {
+            "name": "USA",
+            "policy": "Federal Witness Protection (WITSEC): comprehensive protection for high-value witnesses. Complete identity change, relocation, long-term financial support, job placement. Very expensive (~$50,000-300,000 per witness).",
+            "effectiveness": "Highly effective but selective. Since 1971: 19,000+ witnesses protected, zero witnesses killed while in program. Reserved for major cases."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Protection program exists but underfunded. Priority for terrorism/FARC cases. Rural drug witnesses: limited coverage. Estimated 500-800 witnesses/year. Post-peace accord: some guerilla defectors protected but farmer witnesses often excluded.",
+            "effectiveness": "Better than Peru but still inadequate for rural contexts. Cannot protect all who cooperate. Retaliation remains significant risk."
+          }
+        ]
+      },
+      "data_visualization_note": "Show witness protection capacity (witnesses protected per year) vs. need (drug arrests per year) across countries. Massive gap demonstrates why cooperation is rare. Include map showing farmer who cooperated lost everything: land, community, livelihood.",
+      "reflection_questions": [
+        "If cooperating with authorities means losing your land, community, and livelihood for a 3-month stipend, is cooperation rational?",
+        "Does breaking up one cocaine lab matter if production continues under new management within months?",
+        "What would adequate witness protection require in rural drug-producing regions? How much would it cost?"
+      ]
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_coffee_cooperative_struggle",
+      "title": "The Cooperative: Collective Survival",
+      "condition": {
+        "knowledge": ">=2",
+        "risk": "<3"
+      },
+      "narrative": "You and twelve other coffee farmers formed a cooperative. You pooled resources, bought shared equipment, and connected directly with a fair-trade roaster in Lima. It's working—barely. Coffee prices are still low, but collective bargaining means you're not cheated by middlemen. Your children stay in school. You're not wealthy, but you're surviving legally. Other farmers watch your cooperative with interest—some mocking ('you'll never compete with coca'), others curious ('can we join?'). The coca farmers still have trucks and private school tuitions, but you have something else: dignity, community solidarity, and hope that legal agriculture is possible. You wonder how many more farming families must unite before this becomes viable for everyone.",
+      "legal_info": {
+        "title": "Agricultural Cooperatives: Legal Framework and Support",
+        "text": "Peru's cooperative law (Ley General de Cooperativas, Decree 85-81) provides legal framework for agricultural cooperatives. Benefits: tax exemptions, access to government agricultural programs, collective bargaining rights, easier credit access. However, state support minimal: budget for cooperative development ~$5 million annually (vs. $50 million alternative development, $200 million eradication). Successful cooperatives require: strong leadership, initial capital ($5,000-10,000), social cohesion, market access. Estimated 30% of cooperatives remain viable after 5 years. Barriers: lack of capital, market volatility, internal conflicts, competition from subsidized imports. Successful examples: coffee cooperatives in Jaén, Satipo; cacao cooperatives in San Martín."
+      },
+      "policy_comparison": {
+        "title": "Cooperative Support: Investment and Success",
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Legal framework exists but minimal state support. $5 million annual budget for cooperative development. Tax benefits. Credit access theoretically improved but practically limited. Success rate: ~30% after 5 years.",
+            "investment": "Minimal state investment in cooperatives. Farmers largely self-organize. Some NGO support (German, Swiss development agencies)."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Post-peace accord: increased support for rural cooperatives as part of comprehensive rural reform. Cooperative development integral to substitution programs. Government invests in rural infrastructure: roads, markets, credit.",
+            "investment": "Peace accord allocates resources to rural development. Cooperative formation encouraged. Infrastructure investment facilitates market access."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Strong cooperative tradition, especially in coca-growing regions. Cocalero unions function as cooperatives: collective political power, market control, community regulation. State supports cooperative model as part of social economy vision.",
+            "investment": "Cooperative model integrated into governance. Community control of coca monitoring through cooperatives. Political and economic support."
+          }
+        ]
+      },
+      "data_visualization_note": "Show cooperative success rates vs. state investment across countries. Demonstrate that cooperatives with adequate support have higher success rates. Include timeline showing cooperative formation, struggle, potential success.",
+      "reflection_questions": [
+        "If cooperatives improve farmer outcomes but only 30% succeed, what additional support would increase success rates?",
+        "Why does Peru invest $200 million in eradication but only $5 million in cooperative development?",
+        "Can individual farmers compete with global market forces, or is collective organization essential for legal agriculture viability?"
+      ]
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_migrate_urban_poverty",
+      "title": "The Migrant: Landless in Lima",
+      "condition": {
+        "economic": ">=3",
+        "risk": "<3"
+      },
+      "narrative": "You sold your land for $8,000—a fraction of its value—and moved the family to Lima. Your agricultural skills are worthless in the city. You find work in construction: daily wages, no benefits, no job security. Your wife sells snacks on the street. You live in a one-room addition to a relative's house in Villa El Salvador, a sprawling slum. Your children adapted better than you—they're in school, learning city ways, losing their Quechua, forgetting the mountains. You're 45 years old and started over with nothing. Sometimes you dream about your land, your coca-growing neighbor who stayed, the mountains. You escaped poverty for different poverty. Your family survives, but you've lost your identity, your livelihood, your connection to the land your grandfather cleared. Was this progress, or just rearranging your suffering?",
+      "legal_info": {
+        "title": "Rural-Urban Migration: Scale and Consequences",
+        "text": "Peru's rural-urban migration: accelerated by economic crisis in agriculture. Approximately 25% of rural farmers in coca-growing regions migrate to cities (primarily Lima, Ayacucho, Cusco, Pucallpa). Push factors: agricultural unprofitability, debt, lack of services, violence (where present), eradication. Pull factors: perceived urban opportunities (often illusory), children's education, escape from rural poverty. Consequences: (1) Land abandonment—fields revert to coca or bought cheaply by middlemen; (2) Informal urban employment—construction, vending, domestic work; 60-70% of urban migrants work informally; (3) Urban slums—Lima's conos (peripheral slums) grew 40% 1990-2020, primarily rural migrants; (4) Loss of indigenous language/culture; (5) No return path—once land sold, agricultural livelihood nearly impossible to reclaim. Migration addresses symptoms (immediate poverty) but not causes (agricultural policy failure)."
+      },
+      "policy_comparison": {
+        "title": "Rural-Urban Migration and Agricultural Policy Failure",
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "25% of coca-region farmers migrate to cities. No government programs to prevent migration or support urban migrants. Informal urban employment: 70% of migrants. Urban slums expand continuously. Migration treated as individual choice, not policy failure.",
+            "result": "Lima's population: 10 million (33% of Peru) with continuous slum expansion. Rural depopulation ongoing. No policy response."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Massive internal displacement (8 million people) due to conflict, but also economic migration from rural areas. Post-peace accord: land restitution program attempts to reverse migration. Limited success due to persistent violence, lack of economic viability in rural areas.",
+            "result": "Major cities (Bogotá, Medellín, Cali) absorb rural migrants. Peace accord recognizes migration as policy failure, attempts reversal through comprehensive rural reform."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Lower rural-urban migration rates from coca-growing regions due to: (1) Legal coca market providing rural income; (2) Stronger community ties/indigenous organization; (3) Government investment in rural infrastructure. Migration still occurs but at lower rate than Peru/Colombia.",
+            "result": "El Alto (La Paz's twin city) still grows from migration, but at slower rate. Evo Morales government emphasized rural development to prevent migration."
+          }
+        ]
+      },
+      "data_visualization_note": "Show Lima slum growth 1990-2023, correlated with agricultural crisis and coca policy failure. Map showing origin regions of migrants (coca-growing zones disproportionately represented). Compare rural-urban migration rates across Peru, Colombia, Bolivia.",
+      "reflection_questions": [
+        "If 25% of farmers from coca regions migrate to cities, is this a solution or evidence of agricultural policy failure?",
+        "What happens to rural areas when young people migrate and land is abandoned or sold?",
+        "Is urban migration 'choosing' a better life, or being displaced by unviable rural economics?"
+      ]
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_loan_default_landless",
+      "title": "The Landless: When Debt Costs Everything",
+      "condition": {
+        "economic": ">=5"
+      },
+      "narrative": "You defaulted on the loan. The lender came with three men. They took your land title—the notary was his cousin. No court, no legal process. The land your grandfather cleared is now his. You're a landless laborer in the valley where you once owned property. You work other people's fields for daily wages—sometimes $7, sometimes nothing. Your wife works as a maid in the nearest town. Your children stopped going to school at 12 to work. This is what debt does when you have no legal protection. The lender plants coca on your former land now. The irony doesn't escape you: you lost your land trying to avoid coca cultivation, and it's growing coca anyway—just profiting someone else. You're trapped in a cycle that crushes families and enriches predators.",
+      "legal_info": {
+        "title": "Informal Lending and Rural Dispossession",
+        "text": "Peru's informal lending sector is unregulated. Interest rates 40-100% annually common. No legal caps on interest rates for informal lending. Enforcement mechanisms: (1) Social pressure; (2) Threats/intimidation; (3) Land seizure—often through fraudulent 'sales' with notary collusion; (4) Physical violence (documented but not systematically tracked). State response: minimal. Police rarely intervene in debt disputes ('civil matter'). Courts favor documented creditors. Poor farmers lack legal representation to contest fraudulent seizures. Result: debt-driven land concentration. Middlemen and coca traders accumulate land through debt, converting coffee fields to coca. Defensoría del Pueblo (ombudsman) documents land conflicts but has no enforcement power. This creates class of landless laborers in regions where they previously owned land—rural proletarianization driven by predatory lending."
+      },
+      "policy_comparison": {
+        "title": "Rural Credit and Farmer Protection",
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Informal lending unregulated. No interest rate caps. Minimal state protection. No rural credit access programs at scale. Farmers face: predatory lenders, fraudulent land seizures, no legal recourse. Rural poverty drives debt; debt drives land loss; land loss drives coca cultivation by new owners.",
+            "result": "Land concentration in coca regions. Middlemen accumulate property through debt. Farmers become landless laborers. State provides no protection."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Some rural credit programs (FINAGRO) but limited reach. Post-peace accord: land restitution attempts to reverse dispossession. Legal aid programs in conflict zones. Still insufficient—informal lending persists, especially in coca regions.",
+            "result": "Better than Peru but still inadequate. Peace accord recognizes dispossession as driver of conflict. Legal aid helps some farmers contest seizures."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Rural credit cooperatives more developed. Community organizations (sindicatos campesinos) provide some protection against predatory lending through collective action. Microfinance institutions more accessible. Still problems but community structure provides buffer.",
+            "result": "Stronger community protection against individual exploitation. Cooperative structure makes predatory lending more difficult. Not perfect but better protection."
+          }
+        ]
+      },
+      "data_visualization_note": "Show land ownership changes in coca-growing regions 2000-2023: concentration trend. Map showing former farmer-owned land now in hands of traders/middlemen. Demonstrate link between debt, land loss, and coca expansion (new owners plant coca on acquired land).",
+      "reflection_questions": [
+        "If the state doesn't regulate informal lending or protect farmers from land seizure, is it complicit in rural dispossession?",
+        "You lost your land trying to avoid coca, but it's growing coca anyway under new ownership. Does this reveal something about the structure of the coca economy?",
+        "What would adequate rural credit and legal protection cost, compared to the social cost of landless rural populations?"
+      ]
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_altdev_waiting",
+      "title": "Enrolled and Waiting: The Alternative Development Gap",
+      "condition": {
+        "moral": ">=2",
+        "risk": "<5"
+      },
+      "narrative": "You enrolled in the alternative development program eight months ago. You attended the orientation, submitted all documentation, met the DEVIDA technician twice. You're waiting. The first payment ($400) was supposed to arrive after three months—it's been eight. When you call, they say 'processing.' Meanwhile, your loan is still due, your children still need to eat, and the coca middlemen still visit. You've planted the coffee seedlings they recommended, but those take three years to produce. Your neighbor who stayed with coca bought a motorcycle last month. How long can you wait? This is the 'alternative development gap'—the space between promise and reality, where good intentions fail and farmers return to coca. You're trying to do the right thing, but the system makes the wrong thing far easier.",
+      "legal_info": {
+        "title": "Alternative Development Implementation Gaps",
+        "text": "Peru DEVIDA program structure: (1) Enrollment: documentation and verification (2-4 months); (2) First payment: theoretically 3 months post-enrollment, in practice 6-12 months; (3) Technical assistance: sporadic visits, often <3 per year; (4) Market linkages: limited and inconsistent; (5) Total support: $1,000-2,000 over 2 years. Critical gap: temporal mismatch between immediate economic needs and long-term agricultural development. Alternative crops (coffee, cacao) take 3-5 years to full production. Program provides support for 2 years. Families must survive the intervening period. Only 30% remain in legal crops after 5 years. Failures typically occur in first 2 years during 'waiting period.' Program design assumes debt-free starting point (rarely true). Payment delays exacerbate problem. Insufficient support during critical transition period drives families back to coca."
+      },
+      "policy_comparison": {
+        "title": "Alternative Development: Design vs. Implementation",
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "DEVIDA: 2-year support window. $1,000-2,000 total. Payment delays 6-12 months common. Technical assistance limited. Crops take 3-5 years to produce. No bridge support for temporal gap. Success rate: 30% after 5 years.",
+            "result": "Design-implementation gap is fatal. Families cannot survive waiting period. Most return to coca in years 1-2. Program design doesn't match farmer reality."
+          },
+          {
+            "name": "Colombia",
+            "policy": "PNIS: Larger budget ($12,000 over 2 years) but similar implementation problems. Payment delays, violence disrupts technical assistance, market access poor. Success rate: <40% in most regions after 5 years. Better funded but still inadequate.",
+            "result": "More money doesn't solve temporal mismatch problem or implementation gaps. Violence compounds problems. Design still doesn't match transition period needs."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Different model: legal coca provides immediate income while alternative crops develop. Farmers don't face 'either/or' choice—can have legal coca (limited) plus alternatives. Community organizations provide support. Integrated approach rather than substitution.",
+            "result": "Success rate 60-70% in integrated regions. Legal coca market + alternatives = no gap period. Design matches farmer economic reality."
+          }
+        ]
+      },
+      "data_visualization_note": "Create timeline visualization showing 'alternative development gap': Year 0 (enrollment), Years 1-2 (waiting, minimal support, high dropout), Years 3-5 (crop production begins, too late for most who already returned to coca). Show dropout curve: 70% leave program in years 1-2. Compare Peru/Colombia dropout curves vs. Bolivia's integrated model success.",
+      "reflection_questions": [
+        "If 70% of farmers drop out of alternative development in the first 2 years (waiting period), is the program designed to fail?",
+        "How can families survive 3 years waiting for coffee to produce when program provides $1,000 over 2 years?",
+        "Why does Bolivia's integrated approach (legal coca + alternatives) show higher success rates than Peru's substitution approach?"
+      ]
+    }
+  ],
+  
+  "ending_determination_logic": {
+    "instructions": "The game engine calculates total accumulated scores for risk, moral, knowledge, and economic consequence types. The first ending whose condition matches will be shown.",
+    "priority": "Endings are checked in the order listed above. First match wins.",
+    "fallback": "If no ending matches (shouldn't happen with current conditions), show farmer_altdev_waiting as default.",
+    "score_interpretation": {
+      "risk": "Accumulated from choices involving criminal exposure. Higher = more direct involvement with illegal coca trade or eradication confrontation.",
+      "moral": "Accumulated from choices involving cooperation with authorities or community organization. Higher = more prosocial/legal choices.",
+      "knowledge": "Accumulated from choices involving learning about legal options or organizational capacity. Reflects engagement with legal alternatives.",
+      "economic": "Accumulated from choices reflecting economic pressure. Higher = more severe economic desperation driving choices."
+    }
+  }
+}
