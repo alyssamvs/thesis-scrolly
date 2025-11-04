@@ -31,9 +31,9 @@
 
                 // Load data files
                 const dataLoaded = await engine.loadData(
-                    'farmer_story_nodes.csv',
-                    'farmer_story_choices.csv',
-                    'farmer_story_endings.json'
+                    './CYOA/farmer_story_nodes.csv',
+                    './CYOA/farmer_story_choices.csv',
+                    './CYOA/farmer_story_endings.json'
                 );
 
                 if (!dataLoaded) {
