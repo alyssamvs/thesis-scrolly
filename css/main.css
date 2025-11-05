@@ -446,7 +446,7 @@ body {
 #supply-chain .characters {
     display: flex;
     align-items: center;
-    max-width: ;
+    max-width: none;
  
 }
 
