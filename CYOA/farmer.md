@@ -39,3 +39,12 @@ Node 1. A farmer from the Ene river valley. You own 2 hectares of land. For gene
             C. Migrate to the city for work -- END 4
 
 
+You are: (courier) A courier in the city of Lima. You are approached by a stranger at the airport asking you to take an additional carry-on suitcase with you, for which you will be paid generously. The suitcase seems to contain only food and souvenirs. You can accept or refuse. If you refuse, the airport officials still lock you in the little room because you're nervous, and you miss your flight, but nothing happens. When you are queuing up for you flight, you see policemen leading another young woman with a suitcase away. If you accept, you now have the suitcase with you, but the security at the airport is better now, and there are dogs. You get scared. You can either dump the suitcase, report it to the authorities, or attempt to go through with the transport. If you attempt to go through with the transport, dogs will sniff you out, you will be take to the police room, and you will be inspected thoroughly. Once cocaine alkaloids are detected, you will be given a choice to confess or dispute the charges. If you dump the suitcase but keep the money, you will arrive at your destination but receive threats, until you either pay back the money, or confess to the police for protection. You may still get in trouble. If you report to the authorities, a lengthy procedure ensues which causes you to also lose your flight, and you may even get in trouble anyway if they don't believe you. 
+
+You are: (transporter) A truck driver at the port of Callao. You have been offered a bribe to deliver a container with fake paperwork. You haven't checked it but you know what's in there. You could report it to the authorities, accept the bribe and deliver the merchandise, or take the merchandise for yourself. 
+
+You are: A street-level drug dealer in Stockholm. In a police raid, you are caught carrying a small amount of cocaine. 
+
+You are: A wholesale drug runner based in Spain. You need to retrieve a package from a cargo ship at the port. 
+
+You are: A cocaine "cook" at a lab in Colombia. You are in charge of procuring gasoline and the necessary chemicals to produce cocaine. You are scared of getting caught and want to quit, for your health and family. 
