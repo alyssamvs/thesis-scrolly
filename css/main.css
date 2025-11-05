@@ -241,7 +241,7 @@ body {
     width: 100%;
     padding: 0;
     margin: 0;
-}
+    }
 
 #intro .section-content {
     display: flex;
@@ -391,6 +391,64 @@ body {
 --------------------
 --------------------*/
 
+#supply-chain.story-section {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+#supply-chain .section-content {
+    display: flex;
+    flex-direction: row;
+}
+
+#supply-chain .left-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 45vw;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+#supply-chain .section-header {
+    font-size: 3rem;
+    color: #000;
+    margin-top: 6rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+#supply-chain .subtitle {
+    font-size: 1.8rem;
+    color: #000;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    font-weight: normal;
+    text-align: center;
+    max-width: none;
+}
+
+#supply-chain h3 {
+    font-size: 1rem;
+    color: #000;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    padding-bottom: 1rem;
+    font-weight: normal;
+    text-align: center;
+    max-width: 40vw;
+}
+
+#supply-chain .characters {
+    display: flex;
+    align-items: center;
+    max-width: ;
+ 
+}
 
 /*--------------------
 --------------------
