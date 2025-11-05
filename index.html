@@ -16,6 +16,34 @@
  
         
 </head>
+
+
+<script>
+    function selectCharacter(character) {
+        // Map character names to their CYOA pages
+        const characterPages = {
+            'farmer': './farmer-cyoa.html',
+            'courier': './courier-cyoa.html',      // Not built yet
+            'dealer': './dealer-cyoa.html',        // Not built yet
+            'transporter': './transporter-cyoa.html', // Not built yet
+            'producer': './producer-cyoa.html',    // Not built yet
+            'wholesaler': './wholesaler-cyoa.html' // Not built yet
+        };
+
+        const page = characterPages[character];
+        
+        if (page) {
+            // Navigate to the character's CYOA page
+            window.location.href = page;
+        } else {
+            console.error('Character page not found:', character);
+            alert('This character story is not yet available. Please try another character or check back soon!');
+        }
+    }
+</script>
+
+
+
 <body>
 <!-------------------------
 ---------------------------
@@ -85,7 +113,7 @@
                 <div class="caption">
                   <p>
                 
-                Coca plants (<i>Erythroxylum coca</i>) are shrub-like bushes native to western South America.  In the Andes mountains, its leaves had been chewed and ground for energy and pain relief by indigenous people since 8000 B.C.E., typically with the addition of calcite or lime so that the alkaloid it contains may be absorbed. The alkaloid in question: cocaine. 
+                Coca plants (<i>Erythroxylum coca</i>) are shrub-like bushes native to western South America.  In the Andes mountains, their leaves have been chewed and ground for energy and pain relief by indigenous people since 8000 B.C.E., typically with the addition of calcite or lime so that the alkaloid it contains may be absorbed. The alkaloid in question: cocaine. 
                 <br><br>
                 At the time of Vin Mariani's production, no prohibition existed on coca leaves and cocaine. In fact, no prohibition existed for <i>any</i> type of drug, at least not in any way that could be considered comprehensive. So, same as with opium products, cocaine was freely used and beloved:  following its chemical isolation in 1855 it spread across the globe, and began to be added to medicine, drinks, tonics, mood enhancing elixirs, and even foods. Sigmund Freud famously advocated for its use, and it was an ingredient in the original recipe for Coca Cola until 1904.
                 <br><br>
@@ -113,11 +141,18 @@
     <!-- SECTION 2 - SUPPLY CHAIN -->
 
         <section class="story-section supply-chain" id="supply-chain">
-            <h2 class="section-header">2. The Cocaine Supply Chain</h2>
+            
             <div class="section-content">
+                
                 <div class="left-text">
-                    <div class="subtitle">A choose your own adventure introduction</div>
-                    <h3>To help you navigate the many elements involved in the international trafficking of cocaine, pick a character to explore their journey.</h3>
+                    <br><br>
+                    <br><br>
+                    <h2 class="section-header">2. The Cocaine Supply Chain</h2>
+                    <br><br>
+                    <br><br>
+                    <h3>From their start as bushes in remote mountain plantations, coca leaves change hands and are transformed a number of times before reaching their final consumers across the world. <br><br>
+                    
+                    To help you navigate the many elements involved in the international trafficking of cocaine, and what drives people into it, pick a character to explore their journey.</h3>
                 </div>
                 <div class="character-cards">
                     <div class="character-card" onclick="selectCharacter('farmer')">

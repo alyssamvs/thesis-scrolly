@@ -392,47 +392,45 @@ body {
 --------------------
 --------------------*/
 
+
 #supply-chain.story-section {
     height: 100vh;
     padding: 0;
     margin: 0;
     position: relative;
+    overflow: hidden; /* Prevent scroll */
 }
 
 #supply-chain .section-content {
     display: flex;
     flex-direction: row;
     height: 100vh;
-    width: 100vw;
-    align-items: center;
+    align-items: start;
+    max-width: 100%; 
+}
+
+#supply-chain .section-header {
+    margin: 0;
+    padding: 0;
+    text-align: start;
 }
 
 /* LEFT SIDE - Text */
 #supply-chain .left-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    flex: 0 0 45%;
+    flex: 0 0 40%;
     padding-left: 4rem;
     padding-right: 4rem;
 }
 
-#supply-chain .subtitle {
-    font-size: 1.8rem;
-    color: #000;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-    font-weight: normal;
-}
-
 #supply-chain h3 {
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: #000;
     margin-top: 1rem;
     font-weight: normal;
-    
-    
 }
 
 /* RIGHT SIDE - Character Cards */
@@ -442,9 +440,10 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 2rem;
-    padding: 4rem;
+    padding: 2rem 4rem; 
     align-items: center;
     justify-items: center;
+    max-width: 60%; 
 }
 
 .character-card {
@@ -454,7 +453,8 @@ body {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    max-width: 250px;
+    width: 100%; /* Make it flexible */
+    max-width: 300px; /* Reduced from 250px */
 }
 
 .character-card:hover {
@@ -463,30 +463,58 @@ body {
 
 /* Circular Images */
 .character-image {
-    width: 200px;
-    height: 200px;
+    width: 100%; /* Make responsive */
+    max-width: 300px; /* Reduced from 200px */
+    height: auto;
+    aspect-ratio: 1/1; /* Maintain circle */
     border-radius: 50%;
     object-fit: cover;
     border: none;
-    margin-bottom: 0;
-    transition: border-width 0.3s ease;
+    margin-bottom: 0.5rem; /* Add small gap */
+    transition: transform 0.3s ease;
 }
 
 .character-card:hover .character-image {
-    border-width: 4px;
+    transform: scale(1.05);
 }
 
 /* Character Name */
 .character-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Slightly smaller */
     font-weight: bold;
     color: #000;
     margin-bottom: 0.5rem;
     margin-top: 0;
 }
 
+/* BETTER RESPONSIVE BREAKPOINTS */
 
-/* Responsive Design */
+/* Large screens - reduce image size slightly */
+@media (max-width: 1400px) {
+    .character-image {
+        max-width: 160px;
+    }
+    
+    #supply-chain .character-cards {
+        gap: 1.5rem;
+        padding: 2rem 3rem;
+    }
+}
+
+/* Medium screens - switch to 2 columns */
+@media (max-width: 1200px) {
+    #supply-chain .character-cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .character-image {
+        max-width: 180px;
+    }
+}
+
+/* Tablet */
 @media (max-width: 1024px) {
     #supply-chain .section-content {
         flex-direction: column;
@@ -506,13 +534,15 @@ body {
 
     #supply-chain .character-cards {
         width: 100%;
+        max-width: 100%;
         padding: 2rem;
         gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
     }
 
     .character-image {
-        width: 150px;
-        height: 150px;
+        max-width: 150px;
     }
 
     .character-card {
@@ -520,15 +550,34 @@ body {
     }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
     #supply-chain .character-cards {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, auto);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 1.5rem;
     }
 
     .character-image {
-        width: 180px;
-        height: 180px;
+        max-width: 130px;
+    }
+    
+    .character-name {
+        font-size: 1rem;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    #supply-chain .character-cards {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, auto);
+        gap: 1.5rem;
+    }
+
+    .character-image {
+        max-width: 180px;
     }
 }
 

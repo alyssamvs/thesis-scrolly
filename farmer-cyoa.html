@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmer's Journey - CYOA Test</title>
+    <title>Coca Farmer's Journey - Choose Your Own Adventure</title>
     <link rel="stylesheet" href="./css/cyoa-styles.css">
 </head>
 <body>
@@ -29,7 +29,7 @@
                 // Create game engine
                 const engine = new CYOAEngine();
 
-                // Load data files
+                // Load farmer data files
                 const dataLoaded = await engine.loadData(
                     './CYOA/farmer_story_nodes.csv',
                     './CYOA/farmer_story_choices.csv',
@@ -50,7 +50,10 @@
                 // Start the game
                 ui.startGame();
 
-                console.log('Game initialized successfully');
+                // Set up the "Return to Site" button
+                setupReturnButton();
+
+                console.log('Farmer game initialized successfully');
 
             } catch (error) {
                 console.error('Error initializing game:', error);
@@ -58,6 +61,28 @@
                 loadingEl.style.color = 'red';
             }
         });
+
+        // Function to set up return button functionality
+        function setupReturnButton() {
+            // Wait a bit for UI to be created
+            setTimeout(() => {
+                const returnBtn = document.querySelector('.cyoa-return-btn');
+                if (returnBtn) {
+                    returnBtn.addEventListener('click', () => {
+                        // Return to character selection
+                        window.location.href = './index.html#supply-chain';
+                    });
+                }
+
+                // Also set up restart button
+                const restartBtn = document.querySelector('.cyoa-restart-btn');
+                if (restartBtn) {
+                    restartBtn.addEventListener('click', () => {
+                        location.reload();
+                    });
+                }
+            }, 100);
+        }
     </script>
 </body>
 </html>

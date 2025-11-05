@@ -1,6 +1,6 @@
 /**
- * CYOA UI Manager
- * Handles rendering and user interaction
+ * CYOA UI Manager - Simplified Layout
+ * Background image with overlaid content, collapsible sidebar
  */
 
 class CYOAUIManager {
@@ -13,6 +13,7 @@ class CYOAUIManager {
             return;
         }
 
+        this.sidebarCollapsed = false;
         this.setupUI();
     }
 
@@ -22,26 +23,23 @@ class CYOAUIManager {
     setupUI() {
         this.container.innerHTML = `
             <div class="cyoa-game">
-                <!-- Main game area -->
+                <!-- Main game area with background image -->
                 <div class="cyoa-main">
-                    <!-- Illustration placeholder -->
-                    <div class="cyoa-illustration">
-                        <div class="cyoa-illustration-placeholder">
-                            <span class="cyoa-illustration-text">Illustration</span>
-                        </div>
-                        <div class="cyoa-illustration-caption"></div>
-                    </div>
-
-                    <!-- Narrative content -->
                     <div class="cyoa-content">
-                        <div class="cyoa-location"></div>
-                        <div class="cyoa-narrative"></div>
+                        <!-- Node text box -->
+                        <div class="cyoa-node-box">
+                            <div class="cyoa-location"></div>
+                            <div class="cyoa-narrative"></div>
+                        </div>
+
+                        <!-- Choices -->
                         <div class="cyoa-choices"></div>
                     </div>
                 </div>
 
-                <!-- Policy sidebar -->
+                <!-- Collapsible policy sidebar -->
                 <div class="cyoa-sidebar">
+                    <button class="cyoa-sidebar-toggle" title="Toggle sidebar">≪</button>
                     <div class="cyoa-sidebar-content">
                         <h3>Policy Context</h3>
                         <div class="cyoa-policy-note"></div>
@@ -69,11 +67,12 @@ class CYOAUIManager {
 
         // Get references to UI elements
         this.elements = {
-            illustration: this.container.querySelector('.cyoa-illustration-placeholder'),
-            illustrationCaption: this.container.querySelector('.cyoa-illustration-caption'),
+            main: this.container.querySelector('.cyoa-main'),
             location: this.container.querySelector('.cyoa-location'),
             narrative: this.container.querySelector('.cyoa-narrative'),
             choices: this.container.querySelector('.cyoa-choices'),
+            sidebar: this.container.querySelector('.cyoa-sidebar'),
+            sidebarToggle: this.container.querySelector('.cyoa-sidebar-toggle'),
             policyNote: this.container.querySelector('.cyoa-policy-note'),
             policyCountries: this.container.querySelector('.cyoa-policy-countries'),
             sources: this.container.querySelector('.cyoa-sources'),
@@ -82,88 +81,161 @@ class CYOAUIManager {
             endingNarrative: this.container.querySelector('.cyoa-ending-narrative'),
             endingLegal: this.container.querySelector('.cyoa-ending-legal'),
             endingPolicy: this.container.querySelector('.cyoa-ending-policy'),
-            endingReflection: this.container.querySelector('.cyoa-ending-reflection')
+            endingReflection: this.container.querySelector('.cyoa-ending-reflection'),
+            restartBtn: this.container.querySelector('.cyoa-restart-btn'),
+            returnBtn: this.container.querySelector('.cyoa-return-btn')
         };
 
         // Set up event listeners
-        this.container.querySelector('.cyoa-restart-btn').addEventListener('click', () => {
-            this.restartGame();
-        });
-
-        this.container.querySelector('.cyoa-return-btn').addEventListener('click', () => {
-            // For testing, just restart. In production, this would navigate back to main site
-            window.location.href = '/';
-        });
+        this.elements.restartBtn.addEventListener('click', () => this.restartGame());
+        this.elements.sidebarToggle.addEventListener('click', () => this.toggleSidebar());
     }
 
     /**
-     * Render the current game state
+     * Toggle sidebar collapse/expand
+     */
+    toggleSidebar() {
+        this.sidebarCollapsed = !this.sidebarCollapsed;
+        
+        if (this.sidebarCollapsed) {
+            this.elements.sidebar.classList.add('collapsed');
+            this.elements.sidebarToggle.textContent = '≫';
+            this.elements.sidebarToggle.title = 'Expand sidebar';
+        } else {
+            this.elements.sidebar.classList.remove('collapsed');
+            this.elements.sidebarToggle.textContent = '≪';
+            this.elements.sidebarToggle.title = 'Collapse sidebar';
+        }
+    }
+
+    /**
+     * Render current game state
      */
     render(state) {
-        if (state.isEnding && state.ending) {
+        if (!state) {
+            console.error('No state to render');
+            return;
+        }
+
+        // Check if this is an ending
+        if (state.ending) {
             this.renderEnding(state.ending);
             return;
         }
 
-        const { node, choices } = state;
+        // Hide ending overlay if showing
+        this.elements.endingOverlay.style.display = 'none';
 
-        // Update illustration
-        this.elements.illustration.innerHTML = `<span class="cyoa-illustration-text">${node.image_hint || 'Illustration'}</span>`;
-        this.elements.illustrationCaption.textContent = node.path_description || '';
+        // Update background image if available
+        if (state.node.image_hint) {
+            // You can replace this with actual image URLs later
+            this.elements.main.style.backgroundImage = `url('./assets/${state.node.image_hint}.jpg')`;
+        }
 
         // Update location
-        this.elements.location.textContent = node.location || '';
+        if (state.node.location) {
+            this.elements.location.textContent = state.node.location;
+            this.elements.location.style.display = 'block';
+        } else {
+            this.elements.location.style.display = 'none';
+        }
 
         // Update narrative
-        this.elements.narrative.textContent = node.narrative_text || '';
+        this.elements.narrative.textContent = state.node.narrative_text || '';
 
-        // Update choices
-        this.renderChoices(choices);
+        // Render choices
+        this.renderChoices(state.choices);
 
         // Update policy sidebar
-        this.renderPolicySidebar(node);
-
-        // Hide ending overlay
-        this.elements.endingOverlay.style.display = 'none';
+        this.renderPolicySidebar(state.node);
     }
 
     /**
-     * Render choice buttons
+     * Render available choices with dynamic layout
      */
     renderChoices(choices) {
+        if (!choices || choices.length === 0) {
+            this.elements.choices.innerHTML = '<p>No choices available</p>';
+            return;
+        }
+
+        // Clear previous choices
         this.elements.choices.innerHTML = '';
 
-        choices.forEach(choice => {
-            const choiceDiv = document.createElement('div');
-            choiceDiv.className = 'cyoa-choice';
+        // Set layout class based on number of choices
+        if (choices.length === 2) {
+            this.elements.choices.className = 'cyoa-choices two-options';
+        } else {
+            this.elements.choices.className = 'cyoa-choices multiple-options';
+        }
 
-            const button = document.createElement('button');
-            button.className = 'cyoa-choice-btn';
-            button.textContent = choice.choice_text;
+        // Create choice cards
+        choices.forEach((choice, index) => {
+            const choiceCard = document.createElement('div');
+            choiceCard.className = 'cyoa-choice-card';
             
-            // Add tooltip if available
-            if (choice.tooltip_info) {
-                button.title = choice.tooltip_info;
-                button.classList.add('has-tooltip');
+            // Build the choice HTML
+            let choiceHTML = `
+                <div class="cyoa-choice-header">
+                    <div class="cyoa-choice-text">${choice.choice_text}</div>
+            `;
+
+            // Add info button if there's extra info
+            if (choice.choice_explanation || choice.tooltip_info) {
+                choiceHTML += `
+                    <button class="cyoa-info-btn" data-index="${index}" type="button">i</button>
+                `;
             }
 
-            // Add click handler
-            button.addEventListener('click', () => {
-                this.handleChoice(choice);
-            });
+            choiceHTML += `</div>`;
 
-            choiceDiv.appendChild(button);
+            // Add expandable info section (hidden by default)
+            if (choice.choice_explanation || choice.tooltip_info) {
+                choiceHTML += `
+                    <div class="cyoa-choice-info" data-index="${index}">
+                `;
+                
+                if (choice.choice_explanation) {
+                    choiceHTML += `
+                        <div class="cyoa-choice-explanation">${choice.choice_explanation}</div>
+                    `;
+                }
 
-            // Add explanation below button (optional, can be shown on hover)
-            if (choice.choice_explanation) {
-                const explanation = document.createElement('div');
-                explanation.className = 'cyoa-choice-explanation';
-                explanation.textContent = choice.choice_explanation;
-                choiceDiv.appendChild(explanation);
+                if (choice.tooltip_info) {
+                    choiceHTML += `
+                        <div class="cyoa-choice-tooltip">${choice.tooltip_info}</div>
+                    `;
+                }
+
+                choiceHTML += `</div>`;
             }
 
-            this.elements.choices.appendChild(choiceDiv);
+            choiceCard.innerHTML = choiceHTML;
+
+            // Set up info button listener
+            const infoBtn = choiceCard.querySelector('.cyoa-info-btn');
+            if (infoBtn) {
+                infoBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent card click
+                    this.toggleChoiceInfo(index);
+                });
+            }
+
+            // Set up choice selection listener
+            choiceCard.addEventListener('click', () => this.handleChoice(choice));
+
+            this.elements.choices.appendChild(choiceCard);
         });
+    }
+
+    /**
+     * Toggle info section for a choice
+     */
+    toggleChoiceInfo(index) {
+        const infoSection = this.elements.choices.querySelector(`.cyoa-choice-info[data-index="${index}"]`);
+        if (infoSection) {
+            infoSection.classList.toggle('expanded');
+        }
     }
 
     /**
@@ -172,18 +244,19 @@ class CYOAUIManager {
     renderPolicySidebar(node) {
         // Policy note
         if (node.policy_note) {
-            this.elements.policyNote.innerHTML = `<p>${node.policy_note}</p>`;
+            this.elements.policyNote.innerHTML = `
+                <h4>Policy Overview</h4>
+                <p>${node.policy_note}</p>
+            `;
         } else {
             this.elements.policyNote.innerHTML = '';
         }
 
         // Policy countries
         if (node.policy_countries) {
-            const countries = node.policy_countries.split(',').map(c => c.trim());
             this.elements.policyCountries.innerHTML = `
-                <div class="cyoa-policy-countries-list">
-                    <strong>Countries:</strong> ${countries.join(', ')}
-                </div>
+                <h4>Countries</h4>
+                <p>${node.policy_countries}</p>
             `;
         } else {
             this.elements.policyCountries.innerHTML = '';
@@ -192,10 +265,8 @@ class CYOAUIManager {
         // Sources
         if (node.source_notes) {
             this.elements.sources.innerHTML = `
-                <div class="cyoa-sources-list">
-                    <strong>Sources:</strong>
-                    <p class="cyoa-source-text">${node.source_notes}</p>
-                </div>
+                <h4>Sources</h4>
+                <p>${node.source_notes}</p>
             `;
         } else {
             this.elements.sources.innerHTML = '';
@@ -206,7 +277,6 @@ class CYOAUIManager {
      * Handle choice selection
      */
     handleChoice(choice) {
-        // Show choice explanation briefly before transitioning
         const state = this.engine.makeChoice(choice.choice_id);
         
         if (!state) {
