@@ -205,7 +205,7 @@ function createVisualization(nodes, links) {
             .attr('x2', x)
             .attr('y1', 0)
             .attr('y2', innerHeight)
-            .attr('stroke', '#f0f0f0')
+            .attr('stroke', '#A9A9A9')
             .attr('stroke-width', 1)
             .attr('stroke-dasharray', '2,2');
         
@@ -249,8 +249,8 @@ function createVisualization(nodes, links) {
         .force('charge', d3.forceManyBody().strength(config.forceStrength.charge))
         .force('link', d3.forceLink(links).id(d => d.id).strength(config.forceStrength.link))
         .force('collide', d3.forceCollide().radius(d => d.radius * config.forceStrength.collide))
-        .force('x', d3.forceX(d => xScale(d.year)).strength(1))
-        .force('y', d3.forceY(innerHeight / 2).strength(0.1))
+        .force('x', d3.forceX(d => xScale(d.year)).strength(0.5))
+        .force('y', d3.forceY(innerHeight / 2).strength(0.05))
         .force('bounds', forceBounds);
     
     // Custom force to keep nodes within bounds
@@ -341,15 +341,18 @@ const labelElements = labelGroup.selectAll('.node-label-group')
 
 labelElements.append('text')
     .attr('class', d => d.highlighted ? 'node-label major' : 'node-label')
-    .attr('x', d => d.radius + 3)
-    .attr('y', d => -d.radius - 3)
+    .attr('x', d => d.radius + 8)
+    .attr('y', d => -d.radius + 15)
     .attr('text-anchor', 'start')
-    .attr('transform', d => `rotate(-25, ${d.radius + 3}, ${-d.radius - 3})`)
+    // .attr('transform', d => `rotate(-20, ${d.radius + 3}, ${-d.radius - 3})`)
     .style('opacity', d => d.highlighted ? 1 : 0)
     .style('font-size', d => d.highlighted ? '11px' : '9px')
     .style('font-weight', d => d.highlighted ? 600 : 400)
     .style('fill', '#000')
     .style('pointer-events', 'none')
+    .style('stroke', 'white')      
+    .style('stroke-width', '3px')   
+    .style('paint-order', 'stroke') 
     .text(d => d.shortName);
 
 treatyViz.labelElements = labelElements;
@@ -496,8 +499,8 @@ simulation.on('tick', () => {
     console.log('Force-directed visualization complete:', nodes.length, 'nodes,', links.length, 'links');
 }
 
-// NEW: Zoom functions
-function zoomToNode(nodeId, scale = 3, duration = 1000) {
+// oom functions
+function zoomToNode(nodeId, scale = 3, duration = 2000) {
     const node = treatyViz.nodes.find(n => n.id === nodeId);
     if (!node) {
         console.warn('Node not found:', nodeId);
@@ -666,7 +669,7 @@ function handleCaptionChange(index) {
             break;
             
         case 1:
-            zoomToNode('Treaty-UN-1961', 3);
+            zoomToNode('Treaty-UN-1961', 2.5);
             break;
             
         case 2:

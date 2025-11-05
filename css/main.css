@@ -305,8 +305,10 @@ body {
     z-index: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     margin-left: calc(-50vw + 50%);
+    overflow-x: hidden;
+    
 }
 
 #treaties .captions {
@@ -345,6 +347,15 @@ body {
     margin-top: 90vh;
 }
 
+#treaties h3 {
+    font-size: 1.3rem;
+    color: #000;
+    font-weight: normal;
+    width: 45%;
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+}
 /*--------------------
     EXPLORE BUTTON
 --------------------*/
