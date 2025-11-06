@@ -476,10 +476,11 @@ body {
 --------------------
 --------------------*/
 #treaties.story-section {
-    height: 600vh;
+    height: 1200vh;
     padding: 0;
     margin: 0;
     position: relative;
+    overflow: hidden;
 }
 
 #treaties .section-content {
@@ -514,7 +515,7 @@ body {
     max-width: 800px;
     z-index: 10;
     pointer-events: none;
-    height: 500vh;
+    height: 1100vh;
 }
 
 #treaties .caption {
@@ -592,6 +593,31 @@ body {
     color: #fff;       
 }
 
+/*--------------------
+--------------------
+    STRICTNESS INDEX
+--------------------
+--------------------*/
+
+#strictness-index .story-section {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+/*--------------------
+--------------------
+    WAR AS POLICY
+--------------------
+--------------------*/
+
+#war-as-policy .story-section {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
 
 /*--------------------
 --------------------
@@ -599,7 +625,7 @@ body {
 --------------------
 --------------------*/
 
-#dashboard.story-section {
+#dashboard .story-section {
     height: 100vh;
     padding: 0;
     margin: 0;
