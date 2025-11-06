@@ -550,5 +550,17 @@
     "in_force": "18 November 1988",
     "status": "Active (Amended)",
     "replaced_by": ""
+  },
+  "US-Treaty-1980": {
+    "name": "US Ratification of the Convention on Psychotropic Substances of 1971",
+    "shortened_name": "US Ratification of 1971 Vienna Convention",
+    "year": 1980,
+    "type": "instrument",
+    "entity": "United States",
+    "description": "Ratified the UN Vienna Convention on Psychotropic Substances, presenting a reservation for traditional use of Peyote.",
+    "signed_in": "Washington, D.C., USA, 16 April 1980",
+    "in_force": "16 April 1980",
+    "status": "Active",
+    "replaced_by": ""
   }
 }

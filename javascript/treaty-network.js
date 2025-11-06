@@ -663,25 +663,57 @@ function enableExploreMode() {
 function handleCaptionChange(index) {
     console.log('Caption changed to:', index);
     
+    const duration = 1000; // Smooth transition duration
+    const zoomScale = 2.5; // Consistent zoom scale for node focus
+    
     switch(index) {
         case 0:
-            resetZoom();
+            // General view
+            resetZoom(duration);
             break;
             
         case 1:
-            zoomToNode('Treaty-UN-1961', 2.5);
+            // Zoom in on Treaty-UN-1961
+            zoomToNode('Treaty-UN-1961', zoomScale, duration);
             break;
             
         case 2:
-            zoomToYearRange(1970, 1980, 2.5);
+            // Zoom in on PE-Treaty-1964
+            zoomToNode('PE-Treaty-1964', zoomScale, duration);
             break;
             
         case 3:
-            resetZoom();
+            // Zoom out a bit (scale 1.5)
+            zoomToScale(1.5, duration);
+            break;
+            
+        case 4:
+            // Zoom on PE-DL22095-1978
+            zoomToNode('PE-DL22095-1978', zoomScale, duration);
+            break;
+            
+        case 5:
+            // Zoom on Treaty-UN-1971
+            zoomToNode('Treaty-UN-1971', zoomScale, duration);
+            break;
+            
+        case 6:
+            // Zoom in on US-Treaty-1980
+            zoomToNode('US-Treaty-1980', zoomScale, duration);
+            break;
+            
+        case 7:
+            // Zoom in on decade of 2000 (2000-2009)
+            zoomToYearRange(2000, 2009, zoomScale, duration);
+            break;
+            
+        case 8:
+            // General / zoom out
+            resetZoom(duration);
             break;
             
         default:
-            resetZoom();
+            resetZoom(duration);
     }
 }
 
@@ -702,7 +734,21 @@ function disableZoom() {
     console.log('Zoom disabled');
 }
 
-
+// Zoom to specific scale centered on viewport
+function zoomToScale(scale = 1, duration = 1000) {
+    const centerX = treatyViz.innerWidth / 2;
+    const centerY = treatyViz.innerHeight / 2;
+    
+    treatyViz.svg.transition()
+        .duration(duration)
+        .call(
+            treatyViz.zoom.transform,
+            d3.zoomIdentity
+                .translate(config.margin.left, config.margin.top)
+                .scale(scale)
+                .translate(centerX * (1 - scale) / scale, centerY * (1 - scale) / scale)
+        );
+}
 
 // Expose for debugging
 window.treatyViz = treatyViz;
