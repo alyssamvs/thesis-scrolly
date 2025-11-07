@@ -282,193 +282,194 @@ body {
 --------------------
 --------------------*/
 
-    #supply-chain.story-section {
-        height: 100vh;
-        padding: 0;
-        margin: 0;
-        position: relative;
-        overflow: hidden; /* Prevent scroll */
-    }
 
+#supply-chain.story-section {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow: hidden; /* Prevent scroll */
+}
+
+#supply-chain .section-content {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    align-items: start;
+    max-width: 100%; 
+}
+
+#supply-chain .section-header {
+    margin: 0;
+    padding: 0;
+    text-align: start;
+}
+
+/* LEFT SIDE - Text */
+#supply-chain .left-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 0 0 40%;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+#supply-chain h3 {
+    font-size: 1.3rem;
+    color: #000;
+    margin-top: 1rem;
+    font-weight: normal;
+}
+
+/* RIGHT SIDE - Character Cards */
+#supply-chain .character-cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem 4rem; 
+    align-items: center;
+    justify-items: center;
+    max-width: 60%; 
+}
+
+.character-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    width: 100%; /* Make it flexible */
+    max-width: 300px; /* Reduced from 250px */
+}
+
+.character-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Circular Images */
+.character-image {
+    width: 100%; /* Make responsive */
+    max-width: 300px; /* Reduced from 200px */
+    height: auto;
+    aspect-ratio: 1/1; /* Maintain circle */
+    border-radius: 50%;
+    object-fit: cover;
+    border: none;
+    margin-bottom: 0.5rem; /* Add small gap */
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover .character-image {
+    transform: scale(1.05);
+}
+
+/* Character Name */
+.character-name {
+    font-size: 1.1rem; /* Slightly smaller */
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+/* BETTER RESPONSIVE BREAKPOINTS */
+
+/* Large screens - reduce image size slightly */
+@media (max-width: 1400px) {
+    .character-image {
+        max-width: 160px;
+    }
+    
+    #supply-chain .character-cards {
+        gap: 1.5rem;
+        padding: 2rem 3rem;
+    }
+}
+
+/* Medium screens - switch to 2 columns */
+@media (max-width: 1200px) {
+    #supply-chain .character-cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .character-image {
+        max-width: 180px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
     #supply-chain .section-content {
-        display: flex;
-        flex-direction: row;
-        height: 100vh;
-        align-items: start;
-        max-width: 100%; 
-    }
-
-    #supply-chain .section-header {
-        margin: 0;
-        padding: 0;
-        text-align: start;
-    }
-
-    /* LEFT SIDE - Text */
-    #supply-chain .left-text {
-        display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        flex: 0 0 40%;
-        padding-left: 4rem;
-        padding-right: 4rem;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    #supply-chain .left-text {
+        flex: none;
+        width: 100%;
+        padding: 3rem 2rem;
     }
 
     #supply-chain h3 {
-        font-size: 1.3rem;
-        color: #000;
-        margin-top: 1rem;
-        font-weight: normal;
+        max-width: 80vw;
     }
 
-    /* RIGHT SIDE - Character Cards */
     #supply-chain .character-cards {
-        flex: 1;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 2rem;
-        padding: 2rem 4rem; 
-        align-items: center;
-        justify-items: center;
-        max-width: 60%; 
+        width: 100%;
+        max-width: 100%;
+        padding: 2rem;
+        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .character-image {
+        max-width: 150px;
     }
 
     .character-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        cursor: pointer;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        width: 100%; /* Make it flexible */
-        max-width: 300px; /* Reduced from 250px */
+        max-width: 200px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #supply-chain .character-cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 1.5rem;
     }
 
-    .character-card:hover {
-        transform: translateY(-8px);
-    }
-
-    /* Circular Images */
     .character-image {
-        width: 100%; /* Make responsive */
-        max-width: 300px; /* Reduced from 200px */
-        height: auto;
-        aspect-ratio: 1/1; /* Maintain circle */
-        border-radius: 50%;
-        object-fit: cover;
-        border: none;
-        margin-bottom: 0.5rem; /* Add small gap */
-        transition: transform 0.3s ease;
+        max-width: 130px;
     }
-
-    .character-card:hover .character-image {
-        transform: scale(1.05);
-    }
-
-    /* Character Name */
+    
     .character-name {
-        font-size: 1.1rem; /* Slightly smaller */
-        font-weight: bold;
-        color: #000;
-        margin-bottom: 0.5rem;
-        margin-top: 0;
+        font-size: 1rem;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    #supply-chain .character-cards {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, auto);
+        gap: 1.5rem;
     }
 
-    /* BETTER RESPONSIVE BREAKPOINTS */
-
-    /* Large screens - reduce image size slightly */
-    @media (max-width: 1400px) {
-        .character-image {
-            max-width: 160px;
-        }
-        
-        #supply-chain .character-cards {
-            gap: 1.5rem;
-            padding: 2rem 3rem;
-        }
+    .character-image {
+        max-width: 180px;
     }
-
-    /* Medium screens - switch to 2 columns */
-    @media (max-width: 1200px) {
-        #supply-chain .character-cards {
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 2rem;
-        }
-        
-        .character-image {
-            max-width: 180px;
-        }
-    }
-
-    /* Tablet */
-    @media (max-width: 1024px) {
-        #supply-chain .section-content {
-            flex-direction: column;
-            height: auto;
-            min-height: 100vh;
-        }
-
-        #supply-chain .left-text {
-            flex: none;
-            width: 100%;
-            padding: 3rem 2rem;
-        }
-
-        #supply-chain h3 {
-            max-width: 80vw;
-        }
-
-        #supply-chain .character-cards {
-            width: 100%;
-            max-width: 100%;
-            padding: 2rem;
-            gap: 1.5rem;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-        }
-
-        .character-image {
-            max-width: 150px;
-        }
-
-        .character-card {
-            max-width: 200px;
-        }
-    }
-
-    /* Mobile */
-    @media (max-width: 768px) {
-        #supply-chain .character-cards {
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 1rem;
-            padding: 1.5rem;
-        }
-
-        .character-image {
-            max-width: 130px;
-        }
-        
-        .character-name {
-            font-size: 1rem;
-        }
-    }
-
-    /* Small mobile */
-    @media (max-width: 480px) {
-        #supply-chain .character-cards {
-            grid-template-columns: 1fr;
-            grid-template-rows: repeat(6, auto);
-            gap: 1.5rem;
-        }
-
-        .character-image {
-            max-width: 180px;
-        }
-    }
+}
 
 /*--------------------
 --------------------
@@ -476,17 +477,16 @@ body {
 --------------------
 --------------------*/
 #treaties.story-section {
-    height: 1200vh;
+    height: auto;
     padding: 0;
     margin: 0;
     position: relative;
-    overflow: hidden;
 }
 
 #treaties .section-content {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 950vh;
     margin: 0;
     padding: 0;
 }
@@ -512,10 +512,10 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 800px;
+    max-width: 850px;
     z-index: 10;
     pointer-events: none;
-    height: 1100vh;
+    height: 800vh;
 }
 
 #treaties .caption {
@@ -546,10 +546,11 @@ body {
     font-size: 1.3rem;
     color: #000;
     font-weight: normal;
-    width: 45%;
-    padding: 6rem;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin: 1rem auto;  /* Centers the block */
+    text-align: left;
+    padding: 0 2rem;
 }
 /*--------------------
     EXPLORE BUTTON
@@ -593,30 +594,16 @@ body {
     color: #fff;       
 }
 
-/*--------------------
---------------------
-    STRICTNESS INDEX
---------------------
---------------------*/
-
-#strictness-index .story-section {
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    position: relative;
-}
 
 /*--------------------
---------------------
-    WAR AS POLICY
---------------------
+    SECTIONS AFTER TREATIES
 --------------------*/
-
-#war-as-policy .story-section {
-    height: 100vh;
-    padding: 0;
-    margin: 0;
+#war-as-policy,
+#strictness-index,
+#dashboard {
     position: relative;
+    background: white;  /* Covers the sticky element below */
+    min-height: 100vh;
 }
 
 /*--------------------
@@ -625,7 +612,7 @@ body {
 --------------------
 --------------------*/
 
-#dashboard .story-section {
+#dashboard.story-section {
     height: 100vh;
     padding: 0;
     margin: 0;

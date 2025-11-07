@@ -14,7 +14,9 @@ let treatyViz = {
     links: [],
     nodeElements: null,
     linkElements: null,
-    labelElements: null
+    linkLabelElements: null,  // Track link relationship labels
+    labelElements: null,
+    zoomHighlightedNode: null  // Track node highlighted by zoom (story mode only)
 };
 
 // Configuration 
@@ -166,8 +168,28 @@ function createVisualization(nodes, links) {
     
     svg.selectAll('*').remove();
     
-    // Create defs for gradients
+    // Create defs for gradients and arrowheads
     const defs = svg.append('defs');
+    
+    // Create arrowhead markers for each entity color (line-based chevron style)
+    Object.entries(config.colors).forEach(([entity, color]) => {
+        defs.append('marker')
+            .attr('id', `arrow-${entity.replace(/\s+/g, '-')}`)
+            .attr('viewBox', '0 0 10 10')
+            .attr('refX', 9)  // Position at end of line
+            .attr('refY', 5)
+            .attr('markerWidth', 6)  // Small size
+            .attr('markerHeight', 6)
+            .attr('orient', 'auto')
+            .append('path')
+            .attr('d', 'M 2 2 L 8 5 L 2 8')  // Chevron/angle shape: >
+            .attr('fill', 'none')
+            .attr('stroke', color)
+            .attr('stroke-width', 1.5)
+            .attr('stroke-linecap', 'round')
+            .attr('stroke-linejoin', 'round')
+            .attr('opacity', 0.8);
+    });
     
     // zoom behavior to SVG
     const zoom = d3.zoom()
@@ -270,17 +292,54 @@ function createVisualization(nodes, links) {
         .append('line')
         .attr('class', 'link')
         .attr('stroke', (d, i) => `url(#gradient-${i})`)
+        // No marker-end by default - arrows only show on interaction
         .style('fill', 'none')
         .style('stroke-width', 1.5)
         .style('opacity', 0.6)
-        .on('mouseenter', function() {
-            d3.select(this).classed('active', true).style('stroke-width', 2.5).style('opacity', 1);
+        .on('mouseenter', function(event, d) {
+            const linkIndex = links.indexOf(d);
+            d3.select(this)
+                .classed('active', true)
+                .style('stroke-width', 2.5)
+                .style('opacity', 1)
+                .attr('marker-end', `url(#arrow-${d.entity.replace(/\s+/g, '-')})`);  // Show arrow on hover
+            
+            // Show relationship label for this link
+            linkLabelElements.filter((l, i) => i === linkIndex)
+                .style('opacity', 1);
         })
         .on('mouseleave', function() {
-            d3.select(this).classed('active', false).style('stroke-width', 1.5).style('opacity', 0.6);
+            d3.select(this)
+                .classed('active', false)
+                .style('stroke-width', 1.5)
+                .style('opacity', 0.6)
+                .attr('marker-end', null);  // Hide arrow when not hovering
+            
+            // Hide relationship label
+            linkLabelElements.style('opacity', 0);
         });
     
     treatyViz.linkElements = linkElements;
+    
+    // Add relationship labels for links (initially hidden)
+    const linkLabelElements = linkGroup.selectAll('.link-label')
+        .data(links)
+        .enter()
+        .append('text')
+        .attr('class', 'link-label')
+        .attr('text-anchor', 'middle')
+        .attr('dy', -5)  // Position above the link
+        .style('font-size', '8px')
+        .style('font-weight', 500)
+        .style('fill', '#808080')
+        .style('opacity', 0)  // Hidden by default
+        .style('pointer-events', 'none')
+        .style('stroke', 'white')
+        .style('stroke-width', '2px')
+        .style('paint-order', 'stroke')
+        .text(d => d.relationship);
+    
+    treatyViz.linkLabelElements = linkLabelElements;
     
     // Draw nodes
 
@@ -320,15 +379,9 @@ nodeElements.selectAll('circle')
         d3.select(this).style('stroke', '#000').style('stroke-width', 3);
     })
     .on('mouseleave', function(event, d) {
-        const node = d3.select(this.parentNode);
-        if (!node.classed('highlighted')) {
-            d3.select(this).style('stroke', 'white').style('stroke-width', 2);
-        }
+        // All nodes return to white stroke on mouse leave
+        d3.select(this).style('stroke', 'white').style('stroke-width', 2);
     });
-
-nodeElements.filter(d => d.highlighted).selectAll('circle')
-    .style('stroke', '#000')
-    .style('stroke-width', 3);
 
 // Draw LABELS separately (on top of all circles)
 const labelGroup = g.append('g').attr('class', 'labels');
@@ -345,7 +398,7 @@ labelElements.append('text')
     .attr('y', d => -d.radius + 15)
     .attr('text-anchor', 'start')
     // .attr('transform', d => `rotate(-20, ${d.radius + 3}, ${-d.radius - 3})`)
-    .style('opacity', d => d.highlighted ? 1 : 0)
+    .style('opacity', 0)  // All labels start hidden
     .style('font-size', d => d.highlighted ? '11px' : '9px')
     .style('font-weight', d => d.highlighted ? 600 : 400)
     .style('fill', '#000')
@@ -365,12 +418,24 @@ simulation.on('tick', () => {
     linkElements.each(function(d, i) {
         const link = d3.select(this);
         
+        // Calculate shortened endpoint to prevent arrowhead overlap with target node
+        const dx = d.target.x - d.source.x;
+        const dy = d.target.y - d.source.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        // Shorten line by target node radius + small gap for arrowhead
+        const gap = d.target.radius + 3;
+        const ratio = (distance - gap) / distance;
+        
+        const targetX = d.source.x + dx * ratio;
+        const targetY = d.source.y + dy * ratio;
+        
         // Update line position
         link
             .attr('x1', d.source.x)
             .attr('y1', d.source.y)
-            .attr('x2', d.target.x)
-            .attr('y2', d.target.y);
+            .attr('x2', targetX)
+            .attr('y2', targetY);
         
         // Create/update gradient for this link
         const gradientId = `gradient-${i}`;
@@ -393,7 +458,7 @@ simulation.on('tick', () => {
                 .attr('class', 'end');
         }
         
-        // Update gradient direction
+        // Update gradient direction (use original target position for gradient)
         gradient
             .attr('x1', `${d.source.x}px`)
             .attr('y1', `${d.source.y}px`)
@@ -416,6 +481,11 @@ simulation.on('tick', () => {
             .attr('stop-color', baseColor)
             .attr('stop-opacity', 0.8);
     });
+    
+    // Update link label positions (at midpoint of each link)
+    linkLabelElements
+        .attr('x', d => (d.source.x + d.target.x) / 2)
+        .attr('y', d => (d.source.y + d.target.y) / 2);
     
     // Update node circles
     nodeElements
@@ -473,7 +543,18 @@ simulation.on('tick', () => {
             .classed('active', d => d.source.id === node.id || d.target.id === node.id)
             .style('opacity', d => 
                 (d.source.id === node.id || d.target.id === node.id) ? 1 : 0.15
-            );
+            )
+            .attr('marker-end', d => 
+                (d.source.id === node.id || d.target.id === node.id) 
+                    ? `url(#arrow-${d.entity.replace(/\s+/g, '-')})` 
+                    : null
+            );  // Show arrows only on connected links
+        
+        // Show relationship labels for connected links
+        // linkLabelElements
+        //     .style('opacity', d => 
+        //         (d.source.id === node.id || d.target.id === node.id) ? 1 : 0
+        //     );
         
         nodeElements
             .style('opacity', d => connectedIds.has(d.id) ? 1 : 0.2);
@@ -484,17 +565,96 @@ simulation.on('tick', () => {
     }
     
     function unhighlightConnections() {
-        linkElements
-            .classed('active', false)
-            .style('opacity', 0.6);
+        // If there's an active zoom highlight, restore it instead of default
+        if (treatyViz.zoomHighlightedNode) {
+            highlightNodeOnZoom(treatyViz.zoomHighlightedNode.id);
+        } else {
+            // Normal restore to default state
+            linkElements
+                .classed('active', false)
+                .style('opacity', 0.6)
+                .attr('marker-end', null);  // Remove all arrows
+            
+            // Hide all link relationship labels
+            // linkLabelElements
+            //     .style('opacity', 0);
+            
+            nodeElements
+                .style('opacity', 1);
+            
+            // Hide all labels by default
+            labelElements.select('text')
+                .style('opacity', 0);
+        }
+    }
+    
+    // ZOOM HIGHLIGHTING FUNCTIONS (Story mode only)
+    
+    // Highlight a node and its connections when zooming (story mode)
+    function highlightNodeOnZoom(nodeId) {
+        const node = treatyViz.nodes.find(n => n.id === nodeId);
+        if (!node) return;
         
+        treatyViz.zoomHighlightedNode = node;
+        
+        // Find all connected nodes
+        const connectedIds = new Set([node.id]);
+        treatyViz.links.forEach(l => {
+            if (l.source.id === node.id) connectedIds.add(l.target.id);
+            if (l.target.id === node.id) connectedIds.add(l.source.id);
+        });
+        
+        // Fade links not connected to this node, show arrows on connected links
+        linkElements
+            .style('opacity', d => 
+                (d.source.id === node.id || d.target.id === node.id) ? 1 : 0.15
+            )
+            .attr('marker-end', d => 
+                (d.source.id === node.id || d.target.id === node.id) 
+                    ? `url(#arrow-${d.entity.replace(/\s+/g, '-')})` 
+                    : null
+            );  // Show arrows only on connected links
+        
+        // Show relationship labels for connected links
+        // treatyViz.linkLabelElements
+        //     .style('opacity', d => 
+        //         (d.source.id === node.id || d.target.id === node.id) ? 1 : 0
+        //     );
+        
+        // Fade nodes not connected to this node
+        nodeElements
+            .style('opacity', d => connectedIds.has(d.id) ? 1 : 0.2);
+        
+        // Show labels for connected nodes
+        labelElements.select('text')
+            .style('opacity', d => connectedIds.has(d.id) ? 1 : 0);
+    }
+    
+    // Clear zoom highlighting and restore defaults
+    function clearZoomHighlight() {
+        treatyViz.zoomHighlightedNode = null;
+        
+        // Reset links to default opacity and remove arrows
+        linkElements
+            .style('opacity', 0.6)
+            .attr('marker-end', null);  // Remove all arrows
+        
+        // Hide all link relationship labels
+        treatyViz.linkLabelElements
+            .style('opacity', 0);
+        
+        // Reset nodes to full opacity
         nodeElements
             .style('opacity', 1);
         
-        // Reset labels to default visibility (highlighted nodes show, others hide)
+        // Hide all labels
         labelElements.select('text')
-            .style('opacity', d => d.highlighted ? 1 : 0);
+            .style('opacity', 0);
     }
+    
+    // Store functions in treatyViz for access outside createVisualization
+    treatyViz.highlightNodeOnZoom = highlightNodeOnZoom;
+    treatyViz.clearZoomHighlight = clearZoomHighlight;
     
     console.log('Force-directed visualization complete:', nodes.length, 'nodes,', links.length, 'links');
 }
@@ -515,10 +675,21 @@ function zoomToNode(nodeId, scale = 3, duration = 2000) {
         .call(
             treatyViz.zoom.transform,
             d3.zoomIdentity.translate(x + config.margin.left * scale, y + config.margin.top * scale).scale(scale)
-        );
+        )
+        .on('end', () => {
+            // Highlight node after zoom completes (story mode only)
+            if (!treatyViz.zoomEnabled && treatyViz.highlightNodeOnZoom) {
+                treatyViz.highlightNodeOnZoom(nodeId);
+            }
+        });
 }
 
 function zoomToYearRange(startYear, endYear, scale = 2, duration = 1000) {
+    // Clear any existing zoom highlight
+    if (treatyViz.clearZoomHighlight) {
+        treatyViz.clearZoomHighlight();
+    }
+    
     const nodesInRange = treatyViz.nodes.filter(n => n.year >= startYear && n.year <= endYear);
     
     if (nodesInRange.length === 0) {
@@ -541,6 +712,11 @@ function zoomToYearRange(startYear, endYear, scale = 2, duration = 1000) {
 }
 
 function resetZoom(duration = 1000) {
+    // Clear any existing zoom highlight
+    if (treatyViz.clearZoomHighlight) {
+        treatyViz.clearZoomHighlight();
+    }
+    
     treatyViz.svg.transition()
         .duration(duration)
         .call(
@@ -642,6 +818,12 @@ function enableExploreMode() {
         console.log('Explore mode deactivated');
     } else {
         // Enter explore mode
+        
+        // Clear any zoom highlighting from story mode
+        if (treatyViz.clearZoomHighlight) {
+            treatyViz.clearZoomHighlight();
+        }
+        
         enableZoom();
         
         // Update button
@@ -736,6 +918,11 @@ function disableZoom() {
 
 // Zoom to specific scale centered on viewport
 function zoomToScale(scale = 1, duration = 1000) {
+    // Clear any existing zoom highlight
+    if (treatyViz.clearZoomHighlight) {
+        treatyViz.clearZoomHighlight();
+    }
+    
     const centerX = treatyViz.innerWidth / 2;
     const centerY = treatyViz.innerHeight / 2;
     
