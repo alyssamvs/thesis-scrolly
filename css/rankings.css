@@ -1,0 +1,546 @@
+/* ============================================
+   RANKINGS VISUALIZATION STYLES
+   All styles scoped to .strictness-rankings-container
+   to prevent conflicts with main site styles
+   ============================================ */
+
+   .strictness-rankings-container * {
+    box-sizing: border-box;
+}
+
+#strictness-index .strictness-rankings-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+#strictness-index .section-content {
+    max-width: 100%;
+}
+
+.strictness-rankings-container {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.strictness-rankings-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   COMPONENT WEIGHTS CONTROL SECTION
+   ============================================ */
+
+.strictness-rankings-container .controls-section {
+    border: 1px solid #000;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.strictness-rankings-container .controls-section h3 {
+    margin-bottom: 1rem;
+    font-weight: normal;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.strictness-rankings-container .controls-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.strictness-rankings-container .component-controls {
+    margin-bottom: 0;
+}
+
+.strictness-rankings-container .component-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding: 0.4rem;
+    border: 1px solid #000;
+    cursor: pointer;
+    background: #f9f9f9;
+    font-size: 0.9rem;
+}
+
+.strictness-rankings-container .component-header.expanded {
+    background: #f0f0f0;
+}
+
+.strictness-rankings-container .component-weight {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.strictness-rankings-container .slider {
+    width: 100px;
+    height: 18px;
+    background: #fff;
+    border: 1px solid #000;
+    outline: none;
+}
+
+.strictness-rankings-container .slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #000;
+    cursor: pointer;
+}
+
+.strictness-rankings-container .slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: #000;
+    cursor: pointer;
+    border: none;
+}
+
+.strictness-rankings-container .variable-controls {
+    display: none;
+    padding: 0.5rem;
+    border-left: 2px solid #000;
+    margin-left: 0.5rem;
+    background: #fafafa;
+}
+
+.strictness-rankings-container .variable-controls.visible {
+    display: block;
+}
+
+.strictness-rankings-container .variable-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.strictness-rankings-container .variable-weight {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.strictness-rankings-container .variable-slider {
+    width: 80px;
+    height: 12px;
+}
+
+.strictness-rankings-container .expand-indicator {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.strictness-rankings-container .component-header.expanded .expand-indicator {
+    transform: rotate(180deg);
+}
+
+.strictness-rankings-container .reset-button {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.strictness-rankings-container .reset-button:hover {
+    background: #333;
+}
+
+/* ============================================
+   UNIFIED RANKINGS CONTAINER
+   ============================================ */
+
+.strictness-rankings-container .rankings-container {
+    border: 1px solid #000;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.strictness-rankings-container .rankings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+}
+
+.strictness-rankings-container .ranking-column {
+    position: relative;
+}
+
+/* ============================================
+   COLUMN HEADER WITH CONTROLS
+   ============================================ */
+
+.strictness-rankings-container .column-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #000;
+}
+
+.strictness-rankings-container .column-top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.strictness-rankings-container .column-reorder {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.strictness-rankings-container .reorder-btn {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.strictness-rankings-container .reorder-btn:hover:not(:disabled) {
+    background: #f0f0f0;
+}
+
+.strictness-rankings-container .reorder-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.strictness-rankings-container .metric-selector {
+    flex: 1;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid #000;
+    background: #fff;
+    font-size: 1.05rem;
+    font-weight: normal;
+    cursor: pointer;
+    text-align: center;
+}
+
+.strictness-rankings-container .metric-selector:hover {
+    background: #f9f9f9;
+}
+
+.strictness-rankings-container .column-bottom-controls {
+    display: flex;
+    justify-content: center;
+}
+
+.strictness-rankings-container .sort-all-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.strictness-rankings-container .sort-all-control:hover {
+    background: #f9f9f9;
+}
+
+.strictness-rankings-container .sort-all-control.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.strictness-rankings-container .sort-checkbox {
+    width: 16px;
+    height: 16px;
+    border: 1px solid currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.strictness-rankings-container .sort-checkbox.checked::after {
+    content: '✓';
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* ============================================
+   COUNTRY ROWS
+   ============================================ */
+
+.strictness-rankings-container .country-row {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 0.4rem;
+    margin-bottom: 0.3rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.strictness-rankings-container .country-row:hover {
+    background: #f9f9f9;
+}
+
+.strictness-rankings-container .country-row.highlighted {
+    background: #f0f0f0;
+    border: 1px solid #000;
+    z-index: 10;
+}
+
+.strictness-rankings-container .country-row.faded {
+    opacity: 0.3;
+}
+
+.strictness-rankings-container .rank-number {
+    font-weight: bold;
+    min-width: 25px;
+    margin-right: 0.5rem;
+}
+
+.strictness-rankings-container .country-name {
+    flex: 1;
+    min-width: 0;
+}
+
+.strictness-rankings-container .metric-visualization {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ============================================
+   VISUALIZATION TYPES
+   ============================================ */
+
+/* Law in Books - Score display */
+.strictness-rankings-container .score-display {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Incarceration - Horizontal bar */
+.strictness-rankings-container .bar-container {
+    width: 80px;
+    height: 12px;
+    border: 1px solid #000;
+    background: #fff;
+    position: relative;
+}
+
+.strictness-rankings-container .bar-fill {
+    height: 100%;
+    background: #000;
+    transition: width 0.3s ease;
+}
+
+/* Sparklines (Prevalence & Seizure) */
+.strictness-rankings-container .sparkline-container {
+    width: 80px;
+    height: 25px;
+    position: relative;
+}
+
+.strictness-rankings-container .sparkline {
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================
+   CONNECTION LINES CANVAS
+   ============================================ */
+
+.strictness-rankings-container #connection-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ============================================
+   TOOLTIP
+   ============================================ */
+
+.strictness-rankings-container .tooltip {
+    position: fixed;
+    background: #fff;
+    border: 2px solid #000;
+    padding: 1rem;
+    display: none;
+    z-index: 1000;
+    max-width: 350px;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+}
+
+.strictness-rankings-container .tooltip.visible {
+    display: block;
+}
+
+.strictness-rankings-container .tooltip-header {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #000;
+}
+
+.strictness-rankings-container .tooltip-section {
+    margin-bottom: 0.8rem;
+}
+
+.strictness-rankings-container .tooltip-section-title {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.strictness-rankings-container .tooltip-metric {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 0.2rem 0;
+}
+
+.strictness-rankings-container .tooltip-bar {
+    width: 60px;
+    height: 8px;
+    border: 1px solid #000;
+    background: #fff;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.strictness-rankings-container .tooltip-bar-fill {
+    height: 100%;
+    background: #000;
+}
+
+/* ============================================
+   MOBILE COLUMN SELECTOR
+   ============================================ */
+
+.strictness-rankings-container .mobile-column-selector {
+    display: none;
+    margin-bottom: 1rem;
+    border: 1px solid #000;
+}
+
+.strictness-rankings-container .mobile-tab {
+    flex: 1;
+    padding: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    background: #fff;
+    border-right: 1px solid #000;
+    transition: background 0.2s ease;
+}
+
+.strictness-rankings-container .mobile-tab:last-child {
+    border-right: none;
+}
+
+.strictness-rankings-container .mobile-tab:hover {
+    background: #f9f9f9;
+}
+
+.strictness-rankings-container .mobile-tab.active {
+    background: #000;
+    color: #fff;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .strictness-rankings-container .rankings-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .strictness-rankings-container .ranking-column {
+        display: none;
+    }
+
+    .strictness-rankings-container .ranking-column.active {
+        display: block;
+    }
+
+    .strictness-rankings-container .mobile-column-selector {
+        display: flex;
+    }
+
+    .strictness-rankings-container #connection-canvas {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .strictness-rankings-container .controls-section {
+        padding: 1rem;
+    }
+
+    .strictness-rankings-container .controls-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .strictness-rankings-container .rankings-container {
+        padding: 1rem;
+    }
+
+    .strictness-rankings-container .sparkline-container {
+        width: 60px;
+    }
+
+    .strictness-rankings-container .bar-container {
+        width: 60px;
+    }
+
+    .strictness-rankings-container .column-top-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+}
+
+/* ============================================
+   SCROLL ANIMATION (Optional)
+   ============================================ */
+
+.strictness-rankings-container {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.strictness-rankings-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

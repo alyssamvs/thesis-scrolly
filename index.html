@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualising Drug Policy Strictness</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="./css/main.css" />
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script defer src="./javascript/treaty-network.js"></script>
-    <script defer src="./javascript/main.js"></script>
- 
-        
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/rankings.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+
+  <!-- JS -->
+  <script src="https://d3js.org/d3.v7.min.js" defer></script>
+  <script src="./javascript/treaty-network.js" defer></script>
+  <script src="./javascript/rankings.js" defer></script>
+  <script src="./javascript/main.js" defer></script>
+  
+</head>   
 </head>
 
 
@@ -75,7 +81,7 @@
 
     <section class="cover" id="cover">
         <h1>LAWS OF A FOREVER WAR</h1>
-        <div class="subtitle">Visualising repressive drug-related policies and their impact on the global cocaine trade.</div>
+        <div class="subtitle">Visualising repressive drug-related policies in the context of the global cocaine trade.</div>
         <div class="description">
 
         </div>
@@ -121,7 +127,7 @@
                 <br><br>
                 By the late 1940s, cocaine manufacture and processing plants in Peru and Bolivia had boomed, with both countries prepared to make the most of the plant's potential and a booming, globalised market. 
                 <br><br>
-                Then, in 1949, it all came to an end. 
+                Then, in 1947, it all came to an end. 
                 </p>
                 <br><br>
                 <br><br>
@@ -227,15 +233,15 @@
                 </div>
 
                 <div class="caption" data-index="3">
-                    <p>However, on account of international pressure, this reservation was withdrawn at the moment the treaty was ratified.</p>
+                    <p>This reservation was later on account of international pressure, this reservation was withdrawn at the moment the treaty was ratified.</p>
                 </div>
 
                 <div class="caption" data-index="4">
-                    <p>More than ten years later, Peru would finally adopt the text of the Convention into law.</p>
+                    <p>It took ten years after that for Peru to adopt the text of the Convention into law.</p>
                 </div>
 
                 <div class="caption" data-index="5">
-                    <p>Similarly, upon signing the 1971 Vienna Convention on Psychotropic Substances, the United States made a reservation excluding the prohibition of the cactus Peyote in its traditional use.</p>
+                    <p>Upon signing the 1971 Vienna Convention on Psychotropic Substances, the United States also made a reservation, in their case excluding the prohibition of the cactus Peyote in its traditional use.</p>
                 </div>
 
                 <div class="caption" data-index="6">
@@ -258,7 +264,14 @@
 <!-- SECTION 4 - WAR AS POLICY -->
     <section class="story-section war-as-policy" id="war-as-policy">
         <div class="section-content">
-            <h2 class="section-header">4. War as Policy</h2>
+            <h2 class="section-header">4. War as a Policy</h2>
+            <br><br>
+            <h3>As mentioned, drug regulation in general is a relatively new phenomenom. The first document to declare at an international level the necessity to intervene in the commerce of certain substances dates back to 1909. Following the Second World War, a wave of prohibition instigated mainly by the United States of America lead to widespread pressure for countries to abide by these provisions. 
+                <br><br>
+            It took until 1961, however, for these treaties to have any teeth. <br><br>
+            They haven't been updated much since then. 
+            <br><br>
+            </h3>
            
         </div>
     </section>
@@ -266,6 +279,145 @@
     <section class="story-section strictness-index" id="strictness-index">
         <div class="section-content">
             <h2 class="section-header">5. The Strictness Index</h2>
+
+            <!-- ADD THIS ENTIRE BLOCK: -->
+        <div class="strictness-rankings-container">
+            <!-- Component Weights Controls -->
+            <div class="controls-section">
+                <h3>Adjust Component Weights (Law in Books Only)</h3>
+            
+            <div class="controls-grid">
+                <div class="component-controls">
+                    <div class="component-header" onclick="toggleComponent('criminalization')">
+                        <span>Criminalization Scope</span>
+                        <div class="component-weight">
+                            <input type="range" 
+                                   id="weight-criminalization" 
+                                   class="slider" 
+                                   min="0" 
+                                   max="100" 
+                                   value="50">
+                            <span id="weight-criminalization-display">50%</span>
+                            <span class="expand-indicator">▼</span>
+                        </div>
+                    </div>
+                    <div id="variables-criminalization" class="variable-controls">
+                        <div class="variable-item">
+                            <span>Use Criminalized</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="criminalization"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                        <div class="variable-item">
+                            <span>Possession Criminalized</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="criminalization"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                        <div class="variable-item">
+                            <span>No Personal Use Exemption</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="criminalization"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-controls">
+                    <div class="component-header" onclick="toggleComponent('penalty')">
+                        <span>Penalty Severity</span>
+                        <div class="component-weight">
+                            <input type="range" 
+                                   id="weight-penalty" 
+                                   class="slider" 
+                                   min="0" 
+                                   max="100" 
+                                   value="50">
+                            <span id="weight-penalty-display">50%</span>
+                            <span class="expand-indicator">▼</span>
+                        </div>
+                    </div>
+                    <div id="variables-penalty" class="variable-controls">
+                        <div class="variable-item">
+                            <span>Max Possession Penalty</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="penalty"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                        <div class="variable-item">
+                            <span>Max Supply Penalty</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="penalty"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                        <div class="variable-item">
+                            <span>Mandatory Minimums</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="penalty"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="reset-button" onclick="resetWeights()">Reset to Default Weights</button>
+        </div>
+    </div>
+            <!-- Mobile Column Selector -->
+            <div class="mobile-column-selector" id="mobile-selector">
+                <!-- Will be populated dynamically -->
+            </div>
+
+            <!-- Unified Rankings Container -->
+            <div class="rankings-container">
+                <canvas id="connection-canvas"></canvas>
+                <div class="rankings-grid" id="rankings-grid">
+                    <!-- Columns will be populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Tooltip -->
+            <div class="tooltip" id="tooltip"></div>
+        
+        
+    </div>
+</section>
             
         </div>
     </section>

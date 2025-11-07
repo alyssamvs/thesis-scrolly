@@ -876,7 +876,7 @@ function handleCaptionChange(index) {
             
         case 5:
             // Zoom on Treaty-UN-1971
-            zoomToNode('Treaty-UN-1971', zoomScale, duration);
+            zoomToNode('Treaty-Vienna-1971', zoomScale, duration);
             break;
             
         case 6:

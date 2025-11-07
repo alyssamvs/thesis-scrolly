@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strictness Rankings - Modular Columns</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #000;
+            padding-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .header p {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Component Weights Control Section */
+        .controls-section {
+            border: 1px solid #000;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .controls-section h3 {
+            margin-bottom: 1rem;
+            font-weight: normal;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .component-controls {
+            margin-bottom: 0;
+        }
+
+        .component-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            padding: 0.4rem;
+            border: 1px solid #000;
+            cursor: pointer;
+            background: #f9f9f9;
+            font-size: 0.9rem;
+        }
+
+        .component-header.expanded {
+            background: #f0f0f0;
+        }
+
+        .component-weight {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .slider {
+            width: 100px;
+            height: 18px;
+            background: #fff;
+            border: 1px solid #000;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #000;
+            cursor: pointer;
+        }
+
+        .variable-controls {
+            display: none;
+            padding: 0.5rem;
+            border-left: 2px solid #000;
+            margin-left: 0.5rem;
+            background: #fafafa;
+        }
+
+        .variable-controls.visible {
+            display: block;
+        }
+
+        .variable-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.3rem;
+            font-size: 0.8rem;
+        }
+
+        .variable-weight {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .variable-slider {
+            width: 80px;
+            height: 12px;
+        }
+
+        .expand-indicator {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+
+        .component-header.expanded .expand-indicator {
+            transform: rotate(180deg);
+        }
+
+        .reset-button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .reset-button:hover {
+            background: #333;
+        }
+
+        /* Unified Rankings Container */
+        .rankings-container {
+            border: 1px solid #000;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .rankings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .ranking-column {
+            position: relative;
+        }
+
+        /* Column Header with Controls */
+        .column-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #000;
+        }
+
+        .column-top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .column-reorder {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .reorder-btn {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #000;
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .reorder-btn:hover:not(:disabled) {
+            background: #f0f0f0;
+        }
+
+        .reorder-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .metric-selector {
+            flex: 1;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid #000;
+            background: #fff;
+            font-size: 1.05rem;
+            font-weight: normal;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .metric-selector:hover {
+            background: #f9f9f9;
+        }
+
+        .column-bottom-controls {
+            display: flex;
+            justify-content: center;
+        }
+
+        .sort-all-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.3rem 0.6rem;
+            border: 1px solid #ddd;
+            background: #fff;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .sort-all-control:hover {
+            background: #f9f9f9;
+        }
+
+        .sort-all-control.active {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        .sort-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 1px solid currentColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .sort-checkbox.checked::after {
+            content: '✓';
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Country Rows */
+        .country-row {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 0.4rem;
+            margin-bottom: 0.3rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .country-row:hover {
+            background: #f9f9f9;
+        }
+
+        .country-row.highlighted {
+            background: #f0f0f0;
+            border: 1px solid #000;
+            z-index: 10;
+        }
+
+        .country-row.faded {
+            opacity: 0.3;
+        }
+
+        .rank-number {
+            font-weight: bold;
+            min-width: 25px;
+            margin-right: 0.5rem;
+        }
+
+        .country-name {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .metric-visualization {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Law in Books - Score display */
+        .score-display {
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Incarceration - Horizontal bar */
+        .bar-container {
+            width: 80px;
+            height: 12px;
+            border: 1px solid #000;
+            background: #fff;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: #000;
+            transition: width 0.3s ease;
+        }
+
+        /* Sparklines (Prevalence & Seizure) */
+        .sparkline-container {
+            width: 80px;
+            height: 25px;
+            position: relative;
+        }
+
+        .sparkline {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Connection Lines Canvas */
+        #connection-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: fixed;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 1rem;
+            display: none;
+            z-index: 1000;
+            max-width: 350px;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        }
+
+        .tooltip.visible {
+            display: block;
+        }
+
+        .tooltip-header {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #000;
+        }
+
+        .tooltip-section {
+            margin-bottom: 0.8rem;
+        }
+
+        .tooltip-section-title {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .tooltip-metric {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            padding: 0.2rem 0;
+        }
+
+        .tooltip-bar {
+            width: 60px;
+            height: 8px;
+            border: 1px solid #000;
+            background: #fff;
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .tooltip-bar-fill {
+            height: 100%;
+            background: #000;
+        }
+
+        /* Mobile Column Selector */
+        .mobile-column-selector {
+            display: none;
+            margin-bottom: 1rem;
+            border: 1px solid #000;
+        }
+
+        .mobile-tab {
+            flex: 1;
+            padding: 0.8rem;
+            text-align: center;
+            cursor: pointer;
+            background: #fff;
+            border-right: 1px solid #000;
+            transition: background 0.2s ease;
+        }
+
+        .mobile-tab:last-child {
+            border-right: none;
+        }
+
+        .mobile-tab:hover {
+            background: #f9f9f9;
+        }
+
+        .mobile-tab.active {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .rankings-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .ranking-column {
+                display: none;
+            }
+
+            .ranking-column.active {
+                display: block;
+            }
+
+            .mobile-column-selector {
+                display: flex;
+            }
+
+            #connection-canvas {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .controls-section {
+                padding: 1rem;
+            }
+
+            .controls-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .rankings-container {
+                padding: 1rem;
+            }
+
+            .sparkline-container {
+                width: 60px;
+            }
+
+            .bar-container {
+                width: 60px;
+            }
+
+            .column-top-controls {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Drug Policy Strictness: Multi-Dimensional Analysis</h1>
+            <p>Compare countries across different policy metrics with customizable column views</p>
+        </div>
+
+        <!-- Component Weights Controls (Law in Books only) -->
+        <div class="controls-section">
+            <h3>Adjust Component Weights (Law in Books Only)</h3>
+            
+            <div class="controls-grid">
+                <div class="component-controls">
+                    <div class="component-header" onclick="toggleComponent('criminalization')">
+                        <span>Criminalization Scope</span>
+                        <div class="component-weight">
+                            <input type="range" 
+                                   id="weight-criminalization" 
+                                   class="slider" 
+                                   min="0" 
+                                   max="100" 
+                                   value="50">
+                            <span id="weight-criminalization-display">50%</span>
+                            <span class="expand-indicator">▼</span>
+                        </div>
+                    </div>
+                    <div id="variables-criminalization" class="variable-controls">
+                        <div class="variable-item">
+                            <span>Use Criminalized</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="criminalization"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                        <div class="variable-item">
+                            <span>Possession Criminalized</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="criminalization"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                        <div class="variable-item">
+                            <span>No Personal Use Exemption</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="criminalization"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-controls">
+                    <div class="component-header" onclick="toggleComponent('penalty')">
+                        <span>Penalty Severity</span>
+                        <div class="component-weight">
+                            <input type="range" 
+                                   id="weight-penalty" 
+                                   class="slider" 
+                                   min="0" 
+                                   max="100" 
+                                   value="50">
+                            <span id="weight-penalty-display">50%</span>
+                            <span class="expand-indicator">▼</span>
+                        </div>
+                    </div>
+                    <div id="variables-penalty" class="variable-controls">
+                        <div class="variable-item">
+                            <span>Max Possession Penalty</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="penalty"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                        <div class="variable-item">
+                            <span>Max Supply Penalty</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="penalty"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                        <div class="variable-item">
+                            <span>Mandatory Minimums</span>
+                            <div class="variable-weight">
+                                <input type="range" 
+                                       class="variable-slider" 
+                                       data-component="penalty"
+                                       min="0" 
+                                       max="100" 
+                                       value="33.3">
+                                <span>16.7%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="reset-button" onclick="resetWeights()">Reset to Default Weights</button>
+        </div>
+
+        <!-- Mobile Column Selector -->
+        <div class="mobile-column-selector" id="mobile-selector">
+            <!-- Will be populated dynamically -->
+        </div>
+
+        <!-- Unified Rankings Container -->
+        <div class="rankings-container">
+            <canvas id="connection-canvas"></canvas>
+            <div class="rankings-grid" id="rankings-grid">
+                <!-- Columns will be populated dynamically -->
+            </div>
+        </div>
+
+        <!-- Tooltip -->
+        <div class="tooltip" id="tooltip"></div>
+    </div>
+
+
+</body>
+</html>
