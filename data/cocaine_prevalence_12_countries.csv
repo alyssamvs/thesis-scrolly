@@ -1,0 +1,75 @@
+Region,Sub-region,Country/Territory,Best,Year,Age
+Americas,North America,United States of America,26.37991803,2023,15-64
+Americas,North America,United States of America,26.62193563,2022,15-64
+Americas,North America,United States of America,22.88,2021,15-64
+Americas,North America,United States of America,21.9,2020,15-64
+Americas,North America,United States of America,19.4,2018,15-64
+Americas,North America,United States of America,18.4,2017,15-64
+Americas,North America,United States of America,17.0,2016,15-64
+Americas,North America,United States of America,16.5,2015,15-64
+Americas,North America,United States of America,16.2,2014,15-64
+Americas,North America,United States of America,15.4,2013,15-64
+Americas,North America,United States of America,14.8,2012,15-64
+Americas,North America,United States of America,14.0,2011,15-64
+Americas,North America,United States of America,14.0,2010,15-64
+Americas,South America,Bolivia (Plurinational State of),1.1,2023,12-65
+Americas,South America,Bolivia (Plurinational State of),2.19,2018,15-64
+Americas,South America,Bolivia (Plurinational State of),1.42,2014,12-65
+Americas,South America,Bolivia (Plurinational State of),1.27,2013,12-65
+Americas,South America,Bolivia (Plurinational State of),4.5,2007,12-65
+Americas,South America,Brazil,2.81,2012,15-64
+Americas,South America,Brazil,2.6,2005,12-65
+Americas,South America,Colombia,2.68,2019,12-65
+Americas,South America,Colombia,3.27,2013,12-65
+Americas,South America,Colombia,2.27,2008,12-65
+Americas,South America,Colombia,1.9,2003,18-65 
+Americas,South America,Peru,1.624,2017,15-64
+Americas,South America,Peru,1.0,2010,12-65
+Americas,South America,Peru,0.7,2006,15-64
+Europe,Western and Central Europe,Belgium,7.0,2018,15-64
+Europe,Western and Central Europe,Belgium,4.6,2013,15-64
+Europe,Western and Central Europe,Belgium,5.1,2008,15-64
+Europe,Western and Central Europe,Belgium,5.0,2004,15-64
+Europe,Western and Central Europe,France,10.8,2023,18-64
+Europe,Western and Central Europe,France,10.6,2021,18-64
+Europe,Western and Central Europe,France,11.0,2017,18-64
+Europe,Western and Central Europe,France,11.1,2016,18-64
+Europe,Western and Central Europe,France,11.1,2014,15-64
+Europe,Western and Central Europe,France,8.4,2010,15-64
+Europe,Western and Central Europe,France,8.6,2005,15-64
+Europe,Western and Central Europe,Greece,2.8,2015,18-64
+Europe,Western and Central Europe,Greece,1.7,2004,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),9.9,2023,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),10.2,2022,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),10.4,2021,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),10.1,2020,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),9.3,2019,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),9.6,2018,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),9.2,2017,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),8.4,2016,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),8.7,2015,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),8.0,2014,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),7.0,2009,15-64
+Europe,Western and Central Europe,Netherlands (Kingdom of the),5.4,2005,15-64
+Europe,Western and Central Europe,Portugal,2.8,2022,15-64
+Europe,Western and Central Europe,Portugal,5.1,2017,15-64
+Europe,Western and Central Europe,Portugal,2.7,2012,15-64
+Europe,Western and Central Europe,Portugal,3.6,2007,15-64
+Europe,Western and Central Europe,Spain,10.6,2022,15-64
+Europe,Western and Central Europe,Spain,10.5,2020,15-64
+Europe,Western and Central Europe,Spain,11.0,2017,15-64
+Europe,Western and Central Europe,Spain,9.5,2015,15-64
+Europe,Western and Central Europe,Spain,9.2,2013,15-64
+Europe,Western and Central Europe,Spain,9.6,2011,15-64
+Europe,Western and Central Europe,Spain,10.6,2009,15-64
+Europe,Western and Central Europe,Sweden,3.2,2022,16-64
+Europe,Western and Central Europe,Sweden,4.0,2021,16-64
+Europe,Western and Central Europe,Sweden,3.8,2020,16-64
+Europe,Western and Central Europe,Sweden,3.9,2018,16-64
+Europe,Western and Central Europe,Sweden,3.4,2016,16-64
+Europe,Western and Central Europe,Sweden,3.2,2015,16-64
+Europe,Western and Central Europe,Sweden,2.88,2014,15-64
+Europe,Western and Central Europe,Sweden,3.16,2013,17-64
+Europe,Western and Central Europe,Sweden,3.0,2012,16-64
+Europe,Western and Central Europe,Sweden,2.61,2011,16-64
+Europe,Western and Central Europe,Sweden,2.8,2010,16-64

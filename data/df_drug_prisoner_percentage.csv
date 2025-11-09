@@ -1,0 +1,718 @@
+iso3_code,country,region,subregion,year,unit_of_measurement,value_total,value_drug,drug_prisoner_percentage
+AND,Andorra,Europe,Southern Europe,2010,"Rate per 100,000 population",54.52,4.96,9.09
+ARG,Argentina,Americas,Latin America and the Caribbean,2010,"Rate per 100,000 population",143.45,4.33,3.02
+AUS,Australia,Oceania,Australia and New Zealand,2010,"Rate per 100,000 population",137.7,29.2,21.21
+AUT,Austria,Europe,Western Europe,2010,"Rate per 100,000 population",105.35,12.22,11.6
+AZE,Azerbaijan,Asia,Western Asia,2010,"Rate per 100,000 population",241.57,56.85,23.53
+BGR,Bulgaria,Europe,Eastern Europe,2010,"Rate per 100,000 population",126.1,8.91,7.07
+BHS,Bahamas,Americas,Latin America and the Caribbean,2010,"Rate per 100,000 population",347.78,45.72,13.15
+BRB,Barbados,Americas,Latin America and the Caribbean,2010,"Rate per 100,000 population",330.62,84.29,25.49
+CHE,Switzerland,Europe,Western Europe,2010,"Rate per 100,000 population",73.67,12.69,17.22
+COL,Colombia,Americas,Latin America and the Caribbean,2010,"Rate per 100,000 population",192.12,73.86,38.44
+CZE,Czechia,Europe,Eastern Europe,2010,"Rate per 100,000 population",209.29,38.59,18.44
+DNK,Denmark,Europe,Northern Europe,2010,"Rate per 100,000 population",71.09,9.57,13.46
+EST,Estonia,Europe,Northern Europe,2010,"Rate per 100,000 population",254.84,36.95,14.5
+FIN,Finland,Europe,Northern Europe,2010,"Rate per 100,000 population",62.72,7.91,12.6
+GTM,Guatemala,Americas,Latin America and the Caribbean,2010,"Rate per 100,000 population",76.88,3.06,3.98
+HKG,"China, Hong Kong Special Administrative Region",Asia,Eastern Asia,2010,"Rate per 100,000 population",140.64,79.81,56.75
+IRL,Ireland,Europe,Northern Europe,2010,"Rate per 100,000 population",97.39,36.59,37.57
+ITA,Italy,Europe,Southern Europe,2010,"Rate per 100,000 population",115.12,49.17,42.71
+JPN,Japan,Asia,Eastern Asia,2010,"Rate per 100,000 population",56.93,11.46,20.14
+KEN,Kenya,Africa,Sub-Saharan Africa,2010,"Rate per 100,000 population",115.76,8.48,7.32
+KOR,Republic of Korea,Asia,Eastern Asia,2010,"Rate per 100,000 population",93.67,8.46,9.03
+LIE,Liechtenstein,Europe,Western Europe,2010,"Rate per 100,000 population",211.12,5.56,2.63
+LTU,Lithuania,Europe,Northern Europe,2010,"Rate per 100,000 population",295.02,24.05,8.15
+LVA,Latvia,Europe,Northern Europe,2010,"Rate per 100,000 population",323.19,58.68,18.16
+MCO,Monaco,Europe,Western Europe,2010,"Rate per 100,000 population",36.18,0.0,0.0
+MEX,Mexico,Americas,Latin America and the Caribbean,2010,"Rate per 100,000 population",165.47,4.37,2.64
+MUS,Mauritius,Africa,Sub-Saharan Africa,2010,"Rate per 100,000 population",187.1,50.91,27.21
+NLD,Netherlands (Kingdom of the),Europe,Western Europe,2010,"Rate per 100,000 population",85.67,6.17,7.2
+NOR,Norway,Europe,Northern Europe,2010,"Rate per 100,000 population",72.9,32.81,45.01
+NZL,New Zealand,Oceania,Australia and New Zealand,2010,"Rate per 100,000 population",194.38,16.84,8.66
+PRT,Portugal,Europe,Southern Europe,2010,"Rate per 100,000 population",111.91,36.87,32.94
+PRY,Paraguay,Americas,Latin America and the Caribbean,2010,"Rate per 100,000 population",111.83,5.37,4.8
+PSE,State of Palestine,Asia,Western Asia,2010,"Rate per 100,000 population",311.68,5.0,1.61
+ROU,Romania,Europe,Eastern Europe,2010,"Rate per 100,000 population",138.23,5.16,3.74
+RUS,Russian Federation,Europe,Eastern Europe,2010,"Rate per 100,000 population",569.2,89.63,15.75
+SRB,Serbia,Europe,Southern Europe,2010,"Rate per 100,000 population",151.58,18.75,12.37
+SVN,Slovenia,Europe,Southern Europe,2010,"Rate per 100,000 population",66.08,8.71,13.18
+SWE,Sweden,Europe,Northern Europe,2010,"Rate per 100,000 population",73.0,36.08,49.43
+USA,United States of America,Americas,Northern America,2010,"Rate per 100,000 population",732.68,76.19,10.4
+AND,Andorra,Europe,Southern Europe,2011,"Rate per 100,000 population",63.0,10.29,16.33
+ARG,Argentina,Americas,Latin America and the Caribbean,2011,"Rate per 100,000 population",145.67,5.5,3.78
+AUS,Australia,Oceania,Australia and New Zealand,2011,"Rate per 100,000 population",129.48,29.32,22.65
+AUT,Austria,Europe,Western Europe,2011,"Rate per 100,000 population",106.68,12.66,11.87
+AZE,Azerbaijan,Asia,Western Asia,2011,"Rate per 100,000 population",223.39,62.47,27.96
+BGR,Bulgaria,Europe,Eastern Europe,2011,"Rate per 100,000 population",133.94,8.17,6.1
+BHS,Bahamas,Americas,Latin America and the Caribbean,2011,"Rate per 100,000 population",365.86,47.35,12.94
+BRB,Barbados,Americas,Latin America and the Caribbean,2011,"Rate per 100,000 population",383.86,86.91,22.64
+CHE,Switzerland,Europe,Western Europe,2011,"Rate per 100,000 population",71.09,11.21,15.77
+COL,Colombia,Americas,Latin America and the Caribbean,2011,"Rate per 100,000 population",221.94,89.4,40.28
+CZE,Czechia,Europe,Eastern Europe,2011,"Rate per 100,000 population",220.61,42.61,19.31
+DNK,Denmark,Europe,Northern Europe,2011,"Rate per 100,000 population",70.85,10.64,15.02
+FIN,Finland,Europe,Northern Europe,2011,"Rate per 100,000 population",60.65,8.31,13.71
+HKG,"China, Hong Kong Special Administrative Region",Asia,Eastern Asia,2011,"Rate per 100,000 population",126.94,79.69,62.78
+IRL,Ireland,Europe,Northern Europe,2011,"Rate per 100,000 population",94.18,33.37,35.43
+ITA,Italy,Europe,Southern Europe,2011,"Rate per 100,000 population",113.18,49.89,44.08
+JPN,Japan,Asia,Eastern Asia,2011,"Rate per 100,000 population",54.55,11.67,21.39
+KOR,Republic of Korea,Asia,Eastern Asia,2011,"Rate per 100,000 population",91.68,8.89,9.69
+LIE,Liechtenstein,Europe,Western Europe,2011,"Rate per 100,000 population",195.76,0.0,0.0
+LTU,Lithuania,Europe,Northern Europe,2011,"Rate per 100,000 population",327.54,29.12,8.89
+LVA,Latvia,Europe,Northern Europe,2011,"Rate per 100,000 population",318.5,62.28,19.55
+MCO,Monaco,Europe,Western Europe,2011,"Rate per 100,000 population",94.27,0.0,0.0
+MEX,Mexico,Americas,Latin America and the Caribbean,2011,"Rate per 100,000 population",185.48,16.45,8.87
+MNG,Mongolia,Asia,Eastern Asia,2011,"Rate per 100,000 population",291.82,0.4,0.14
+MUS,Mauritius,Africa,Sub-Saharan Africa,2011,"Rate per 100,000 population",203.3,45.17,22.22
+NLD,Netherlands (Kingdom of the),Europe,Western Europe,2011,"Rate per 100,000 population",82.9,5.21,6.29
+NZL,New Zealand,Oceania,Australia and New Zealand,2011,"Rate per 100,000 population",190.2,17.09,8.99
+POL,Poland,Europe,Eastern Europe,2011,"Rate per 100,000 population",216.79,6.04,2.79
+PRT,Portugal,Europe,Southern Europe,2011,"Rate per 100,000 population",122.71,39.31,32.03
+PRY,Paraguay,Americas,Latin America and the Caribbean,2011,"Rate per 100,000 population",123.15,5.74,4.66
+PSE,State of Palestine,Asia,Western Asia,2011,"Rate per 100,000 population",307.93,4.18,1.36
+ROU,Romania,Europe,Eastern Europe,2011,"Rate per 100,000 population",151.34,5.88,3.88
+RUS,Russian Federation,Europe,Eastern Europe,2011,"Rate per 100,000 population",524.6,90.23,17.2
+SRB,Serbia,Europe,Southern Europe,2011,"Rate per 100,000 population",150.31,22.92,15.25
+SVN,Slovenia,Europe,Southern Europe,2011,"Rate per 100,000 population",62.13,12.01,19.32
+SWE,Sweden,Europe,Northern Europe,2011,"Rate per 100,000 population",70.58,34.65,49.09
+USA,United States of America,Americas,Northern America,2011,"Rate per 100,000 population",717.12,102.48,14.29
+AND,Andorra,Europe,Southern Europe,2012,"Rate per 100,000 population",46.85,7.81,16.67
+ARE,United Arab Emirates,Asia,Western Asia,2012,"Rate per 100,000 population",131.04,58.05,44.3
+ARG,Argentina,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",147.68,4.76,3.22
+AUS,Australia,Oceania,Australia and New Zealand,2012,"Rate per 100,000 population",128.57,29.83,23.2
+AUT,Austria,Europe,Western Europe,2012,"Rate per 100,000 population",104.43,12.47,11.94
+AZE,Azerbaijan,Asia,Western Asia,2012,"Rate per 100,000 population",223.07,60.05,26.92
+BDI,Burundi,Africa,Sub-Saharan Africa,2012,"Rate per 100,000 population",63.24,0.43,0.68
+BGR,Bulgaria,Europe,Eastern Europe,2012,"Rate per 100,000 population",129.74,7.2,5.55
+BHS,Bahamas,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",381.66,59.92,15.7
+BLZ,Belize,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",761.33,142.34,18.7
+BOL,Bolivia (Plurinational State of),Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",135.72,105.54,77.76
+BRA,Brazil,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",289.68,134.15,46.31
+BRB,Barbados,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",377.34,96.77,25.65
+CHE,Switzerland,Europe,Western Europe,2012,"Rate per 100,000 population",76.29,9.43,12.36
+CHL,Chile,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",332.52,48.72,14.65
+COL,Colombia,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",249.11,76.2,30.59
+CZE,Czechia,Europe,Eastern Europe,2012,"Rate per 100,000 population",215.2,31.31,14.55
+DNK,Denmark,Europe,Northern Europe,2012,"Rate per 100,000 population",68.47,9.66,14.1
+DZA,Algeria,Africa,Northern Africa,2012,"Rate per 100,000 population",133.08,38.74,29.11
+ESP,Spain,Europe,Southern Europe,2012,"Rate per 100,000 population",145.89,61.87,42.41
+EST,Estonia,Europe,Northern Europe,2012,"Rate per 100,000 population",248.45,40.9,16.46
+FIN,Finland,Europe,Northern Europe,2012,"Rate per 100,000 population",61.06,8.42,13.79
+GBR_E_W,United Kingdom (England and Wales),Europe,Northern Europe,2012,"Rate per 100,000 population",152.11,37.77,24.83
+GBR_S,United Kingdom (Scotland),Europe,Northern Europe,2012,"Rate per 100,000 population",151.63,24.95,16.46
+GRD,Grenada,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",433.61,352.92,81.39
+GTM,Guatemala,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",99.49,2.68,2.7
+GUY,Guyana,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",272.28,79.59,29.23
+HKG,"China, Hong Kong Special Administrative Region",Asia,Eastern Asia,2012,"Rate per 100,000 population",129.11,79.43,61.53
+IDN,Indonesia,Asia,South-eastern Asia,2012,"Rate per 100,000 population",61.91,18.01,29.09
+IRL,Ireland,Europe,Northern Europe,2012,"Rate per 100,000 population",93.43,30.04,32.15
+ISR,Israel,Asia,Western Asia,2012,"Rate per 100,000 population",266.71,23.19,8.69
+ITA,Italy,Europe,Southern Europe,2012,"Rate per 100,000 population",110.85,49.51,44.66
+JOR,Jordan,Asia,Western Asia,2012,"Rate per 100,000 population",101.67,11.41,11.23
+JPN,Japan,Asia,Eastern Asia,2012,"Rate per 100,000 population",52.38,11.59,22.12
+KOR,Republic of Korea,Asia,Eastern Asia,2012,"Rate per 100,000 population",94.17,8.81,9.35
+LIE,Liechtenstein,Europe,Western Europe,2012,"Rate per 100,000 population",163.95,0.0,0.0
+LTU,Lithuania,Europe,Northern Europe,2012,"Rate per 100,000 population",325.57,32.29,9.92
+LVA,Latvia,Europe,Northern Europe,2012,"Rate per 100,000 population",300.64,69.01,22.95
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2012,"Rate per 100,000 population",189.29,116.78,61.69
+MCO,Monaco,Europe,Western Europe,2012,"Rate per 100,000 population",95.07,0.0,0.0
+MDA,Republic of Moldova,Europe,Eastern Europe,2012,"Rate per 100,000 population",188.79,8.04,4.26
+MEX,Mexico,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",177.44,16.23,9.15
+MNG,Mongolia,Asia,Eastern Asia,2012,"Rate per 100,000 population",291.37,0.32,0.11
+MUS,Mauritius,Africa,Sub-Saharan Africa,2012,"Rate per 100,000 population",208.66,39.87,19.11
+NLD,Netherlands (Kingdom of the),Europe,Western Europe,2012,"Rate per 100,000 population",79.65,4.81,6.03
+NOR,Norway,Europe,Northern Europe,2012,"Rate per 100,000 population",80.74,28.24,34.97
+NZL,New Zealand,Oceania,Australia and New Zealand,2012,"Rate per 100,000 population",190.54,17.66,9.27
+PAN,Panama,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",385.21,90.31,23.44
+POL,Poland,Europe,Eastern Europe,2012,"Rate per 100,000 population",223.43,16.7,7.47
+PRT,Portugal,Europe,Southern Europe,2012,"Rate per 100,000 population",131.98,42.84,32.46
+PRY,Paraguay,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",138.95,5.94,4.27
+PSE,State of Palestine,Asia,Western Asia,2012,"Rate per 100,000 population",351.34,4.06,1.15
+ROU,Romania,Europe,Eastern Europe,2012,"Rate per 100,000 population",157.83,5.85,3.71
+RUS,Russian Federation,Europe,Eastern Europe,2012,"Rate per 100,000 population",486.45,90.21,18.55
+SRB,Serbia,Europe,Southern Europe,2012,"Rate per 100,000 population",139.61,21.41,15.33
+SWE,Sweden,Europe,Northern Europe,2012,"Rate per 100,000 population",66.14,29.69,44.89
+TTO,Trinidad and Tobago,Americas,Latin America and the Caribbean,2012,"Rate per 100,000 population",264.28,109.63,41.48
+USA,United States of America,Americas,Northern America,2012,"Rate per 100,000 population",703.66,132.57,18.84
+VAT,Holy See,Europe,Southern Europe,2012,"Rate per 100,000 population",166.25,0.0,0.0
+ALB,Albania,Europe,Southern Europe,2013,"Rate per 100,000 population",171.9,40.79,23.73
+AND,Andorra,Europe,Southern Europe,2013,"Rate per 100,000 population",57.19,30.59,53.49
+ARE,United Arab Emirates,Asia,Western Asia,2013,"Rate per 100,000 population",127.16,43.0,33.82
+ARG,Argentina,Americas,Latin America and the Caribbean,2013,"Rate per 100,000 population",150.97,5.24,3.47
+AUS,Australia,Oceania,Australia and New Zealand,2013,"Rate per 100,000 population",132.44,31.27,23.61
+AUT,Austria,Europe,Western Europe,2013,"Rate per 100,000 population",104.49,11.34,10.86
+AZE,Azerbaijan,Asia,Western Asia,2013,"Rate per 100,000 population",218.78,53.45,24.43
+BDI,Burundi,Africa,Sub-Saharan Africa,2013,"Rate per 100,000 population",74.56,0.18,0.24
+BGR,Bulgaria,Europe,Eastern Europe,2013,"Rate per 100,000 population",121.6,6.94,5.71
+BLR,Belarus,Europe,Eastern Europe,2013,"Rate per 100,000 population",300.82,24.24,8.06
+BLZ,Belize,Americas,Latin America and the Caribbean,2013,"Rate per 100,000 population",770.43,142.85,18.54
+BRA,Brazil,Americas,Latin America and the Caribbean,2013,"Rate per 100,000 population",305.43,146.91,48.1
+BRB,Barbados,Americas,Latin America and the Caribbean,2013,"Rate per 100,000 population",327.01,86.8,26.54
+CHL,Chile,Americas,Latin America and the Caribbean,2013,"Rate per 100,000 population",299.94,43.79,14.6
+CMR,Cameroon,Africa,Sub-Saharan Africa,2013,"Rate per 100,000 population",118.28,1.3,1.1
+COL,Colombia,Americas,Latin America and the Caribbean,2013,"Rate per 100,000 population",260.08,40.72,15.66
+CZE,Czechia,Europe,Eastern Europe,2013,"Rate per 100,000 population",158.01,37.01,23.42
+DEU,Germany,Europe,Western Europe,2013,"Rate per 100,000 population",81.71,9.33,11.42
+DNK,Denmark,Europe,Northern Europe,2013,"Rate per 100,000 population",72.85,10.42,14.3
+DZA,Algeria,Africa,Northern Africa,2013,"Rate per 100,000 population",156.77,45.88,29.27
+ESP,Spain,Europe,Southern Europe,2013,"Rate per 100,000 population",142.48,58.87,41.32
+EST,Estonia,Europe,Northern Europe,2013,"Rate per 100,000 population",236.13,81.04,34.32
+FIN,Finland,Europe,Northern Europe,2013,"Rate per 100,000 population",60.58,8.95,14.78
+FRA,France,Europe,Western Europe,2013,"Rate per 100,000 population",104.17,12.2,11.71
+GBR_E_W,United Kingdom (England and Wales),Europe,Northern Europe,2013,"Rate per 100,000 population",147.22,35.73,24.27
+GBR_S,United Kingdom (Scotland),Europe,Northern Europe,2013,"Rate per 100,000 population",148.17,25.79,17.41
+GEO,Georgia,Asia,Western Asia,2013,"Rate per 100,000 population",238.72,173.61,72.73
+GRC,Greece,Europe,Southern Europe,2013,"Rate per 100,000 population",115.73,51.68,44.65
+GRD,Grenada,Americas,Latin America and the Caribbean,2013,"Rate per 100,000 population",422.96,401.81,95.0
+HND,Honduras,Americas,Latin America and the Caribbean,2013,"Rate per 100,000 population",148.31,2.74,1.85
+IRL,Ireland,Europe,Northern Europe,2013,"Rate per 100,000 population",88.63,25.47,28.74
+ISR,Israel,Asia,Western Asia,2013,"Rate per 100,000 population",240.15,20.54,8.55
+ITA,Italy,Europe,Southern Europe,2013,"Rate per 100,000 population",105.27,46.67,44.34
+JPN,Japan,Asia,Eastern Asia,2013,"Rate per 100,000 population",49.3,11.03,22.38
+LIE,Liechtenstein,Europe,Western Europe,2013,"Rate per 100,000 population",184.23,2.71,1.47
+LTU,Lithuania,Europe,Northern Europe,2013,"Rate per 100,000 population",313.05,31.37,10.02
+LVA,Latvia,Europe,Northern Europe,2013,"Rate per 100,000 population",255.14,56.78,22.25
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2013,"Rate per 100,000 population",192.74,110.9,57.54
+MDA,Republic of Moldova,Europe,Eastern Europe,2013,"Rate per 100,000 population",200.84,8.86,4.41
+MDG,Madagascar,Africa,Sub-Saharan Africa,2013,"Rate per 100,000 population",82.14,0.8,0.97
+MNG,Mongolia,Asia,Eastern Asia,2013,"Rate per 100,000 population",282.9,0.77,0.27
+NOR,Norway,Europe,Northern Europe,2013,"Rate per 100,000 population",76.16,27.89,36.62
+NZL,New Zealand,Oceania,Australia and New Zealand,2013,"Rate per 100,000 population",183.03,17.83,9.74
+PER,Peru,Americas,Latin America and the Caribbean,2013,"Rate per 100,000 population",226.7,48.88,21.56
+POL,Poland,Europe,Eastern Europe,2013,"Rate per 100,000 population",209.53,11.25,5.37
+PRT,Portugal,Europe,Southern Europe,2013,"Rate per 100,000 population",138.98,43.79,31.51
+ROU,Romania,Europe,Eastern Europe,2013,"Rate per 100,000 population",166.65,6.32,3.79
+RUS,Russian Federation,Europe,Eastern Europe,2013,"Rate per 100,000 population",468.37,88.92,18.99
+SRB,Serbia,Europe,Southern Europe,2013,"Rate per 100,000 population",137.86,21.69,15.73
+SVK,Slovakia,Europe,Eastern Europe,2013,"Rate per 100,000 population",180.26,37.04,20.55
+SWE,Sweden,Europe,Northern Europe,2013,"Rate per 100,000 population",59.61,24.92,41.8
+TTO,Trinidad and Tobago,Americas,Latin America and the Caribbean,2013,"Rate per 100,000 population",255.9,136.91,53.5
+TUR,Türkiye,Asia,Western Asia,2013,"Rate per 100,000 population",188.6,41.36,21.93
+USA,United States of America,Americas,Northern America,2013,"Rate per 100,000 population",694.29,129.92,18.71
+VAT,Holy See,Europe,Southern Europe,2013,"Rate per 100,000 population",0.0,0.0,
+ALB,Albania,Europe,Southern Europe,2014,"Rate per 100,000 population",195.92,35.54,18.14
+AND,Andorra,Europe,Southern Europe,2014,"Rate per 100,000 population",71.88,33.9,47.17
+ARE,United Arab Emirates,Asia,Western Asia,2014,"Rate per 100,000 population",119.29,57.28,48.02
+ARG,Argentina,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",160.51,4.86,3.03
+ARM,Armenia,Asia,Western Asia,2014,"Rate per 100,000 population",132.77,18.89,14.23
+AUS,Australia,Oceania,Australia and New Zealand,2014,"Rate per 100,000 population",147.25,34.2,23.23
+AUT,Austria,Europe,Western Europe,2014,"Rate per 100,000 population",101.69,11.09,10.91
+AZE,Azerbaijan,Asia,Western Asia,2014,"Rate per 100,000 population",235.21,56.87,24.18
+BDI,Burundi,Africa,Sub-Saharan Africa,2014,"Rate per 100,000 population",70.05,0.34,0.49
+BGR,Bulgaria,Europe,Eastern Europe,2014,"Rate per 100,000 population",108.95,6.09,5.59
+BLR,Belarus,Europe,Eastern Europe,2014,"Rate per 100,000 population",314.33,25.54,8.12
+BLZ,Belize,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",746.87,183.42,24.56
+BMU,Bermuda,Americas,Northern America,2014,"Rate per 100,000 population",362.04,136.95,37.83
+BRA,Brazil,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",303.74,64.13,21.11
+BRB,Barbados,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",332.32,84.07,25.3
+BWA,Botswana,Africa,Sub-Saharan Africa,2014,"Rate per 100,000 population",190.19,63.03,33.14
+CHE,Switzerland,Europe,Western Europe,2014,"Rate per 100,000 population",79.59,23.32,29.3
+CHL,Chile,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",275.74,43.6,15.81
+COL,Colombia,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",244.01,71.41,29.27
+CRI,Costa Rica,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",290.62,75.16,25.86
+CZE,Czechia,Europe,Eastern Europe,2014,"Rate per 100,000 population",177.4,43.45,24.49
+DEU,Germany,Europe,Western Europe,2014,"Rate per 100,000 population",77.7,8.78,11.3
+DNK,Denmark,Europe,Northern Europe,2014,"Rate per 100,000 population",63.49,9.59,15.1
+DZA,Algeria,Africa,Northern Africa,2014,"Rate per 100,000 population",155.59,45.91,29.51
+ECU,Ecuador,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",149.9,26.98,18.0
+ESP,Spain,Europe,Southern Europe,2014,"Rate per 100,000 population",139.16,56.01,40.25
+EST,Estonia,Europe,Northern Europe,2014,"Rate per 100,000 population",230.82,91.44,39.62
+FIN,Finland,Europe,Northern Europe,2014,"Rate per 100,000 population",57.64,8.72,15.12
+FRA,France,Europe,Western Europe,2014,"Rate per 100,000 population",102.44,12.25,11.96
+GBR_E_W,United Kingdom (England and Wales),Europe,Northern Europe,2014,"Rate per 100,000 population",148.95,35.9,24.11
+GBR_NI,United Kingdom (Northern Ireland),Europe,Northern Europe,2014,"Rate per 100,000 population",92.86,6.95,7.49
+GEO,Georgia,Asia,Western Asia,2014,"Rate per 100,000 population",273.46,145.14,53.08
+GRD,Grenada,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",453.86,99.88,22.01
+HND,Honduras,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",164.2,35.71,21.74
+HRV,Croatia,Europe,Southern Europe,2014,"Rate per 100,000 population",89.18,11.28,12.65
+ISR,Israel,Asia,Western Asia,2014,"Rate per 100,000 population",263.14,21.3,8.09
+ITA,Italy,Europe,Southern Europe,2014,"Rate per 100,000 population",90.24,37.24,41.27
+JPN,Japan,Asia,Eastern Asia,2014,"Rate per 100,000 population",47.44,10.79,22.73
+LIE,Liechtenstein,Europe,Western Europe,2014,"Rate per 100,000 population",142.62,0.0,0.0
+LTU,Lithuania,Europe,Northern Europe,2014,"Rate per 100,000 population",294.43,32.08,10.9
+LVA,Latvia,Europe,Northern Europe,2014,"Rate per 100,000 population",237.95,50.75,21.33
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2014,"Rate per 100,000 population",197.44,110.11,55.77
+MCO,Monaco,Europe,Western Europe,2014,"Rate per 100,000 population",63.66,24.91,39.13
+MDA,Republic of Moldova,Europe,Eastern Europe,2014,"Rate per 100,000 population",218.77,8.56,3.91
+MDG,Madagascar,Africa,Sub-Saharan Africa,2014,"Rate per 100,000 population",82.19,1.42,1.73
+MEX,Mexico,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",190.36,15.07,7.92
+MLT,Malta,Europe,Southern Europe,2014,"Rate per 100,000 population",133.72,48.1,35.97
+MNE,Montenegro,Europe,Southern Europe,2014,"Rate per 100,000 population",177.87,30.09,16.92
+MNG,Mongolia,Asia,Eastern Asia,2014,"Rate per 100,000 population",263.99,0.76,0.29
+NOR,Norway,Europe,Northern Europe,2014,"Rate per 100,000 population",79.87,26.96,33.76
+NZL,New Zealand,Oceania,Australia and New Zealand,2014,"Rate per 100,000 population",189.23,18.0,9.51
+PER,Peru,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",245.21,53.99,22.02
+PHL,Philippines,Asia,South-eastern Asia,2014,"Rate per 100,000 population",120.03,0.35,0.29
+POL,Poland,Europe,Eastern Europe,2014,"Rate per 100,000 population",207.36,11.2,5.4
+PRT,Portugal,Europe,Southern Europe,2014,"Rate per 100,000 population",136.44,42.61,31.23
+ROU,Romania,Europe,Eastern Europe,2014,"Rate per 100,000 population",151.02,6.26,4.15
+RUS,Russian Federation,Europe,Eastern Europe,2014,"Rate per 100,000 population",463.44,91.55,19.75
+SRB,Serbia,Europe,Southern Europe,2014,"Rate per 100,000 population",142.35,22.94,16.12
+SVK,Slovakia,Europe,Eastern Europe,2014,"Rate per 100,000 population",185.03,36.34,19.64
+SWE,Sweden,Europe,Northern Europe,2014,"Rate per 100,000 population",59.89,23.1,38.57
+THA,Thailand,Asia,South-eastern Asia,2014,"Rate per 100,000 population",452.86,6.76,1.49
+TTO,Trinidad and Tobago,Americas,Latin America and the Caribbean,2014,"Rate per 100,000 population",237.77,108.29,45.55
+TUR,Türkiye,Asia,Western Asia,2014,"Rate per 100,000 population",203.35,47.45,23.33
+UGA,Uganda,Africa,Sub-Saharan Africa,2014,"Rate per 100,000 population",116.32,1.37,1.18
+USA,United States of America,Americas,Northern America,2014,"Rate per 100,000 population",688.64,127.69,18.54
+VAT,Holy See,Europe,Southern Europe,2014,"Rate per 100,000 population",0.0,0.0,
+ALB,Albania,Europe,Southern Europe,2015,"Rate per 100,000 population",206.34,39.12,18.96
+AND,Andorra,Europe,Southern Europe,2015,"Rate per 100,000 population",56.81,20.78,36.59
+ARG,Argentina,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",167.2,5.69,3.41
+ARM,Armenia,Asia,Western Asia,2015,"Rate per 100,000 population",132.58,18.9,14.25
+AUS,Australia,Oceania,Australia and New Zealand,2015,"Rate per 100,000 population",154.6,39.52,25.56
+BGR,Bulgaria,Europe,Eastern Europe,2015,"Rate per 100,000 population",103.21,6.76,6.55
+BIH,Bosnia and Herzegovina,Europe,Southern Europe,2015,"Rate per 100,000 population",77.59,12.48,16.08
+BRB,Barbados,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",341.95,71.69,20.96
+CHE,Switzerland,Europe,Western Europe,2015,"Rate per 100,000 population",78.44,20.47,26.1
+CHL,Chile,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",264.7,42.31,15.98
+COL,Colombia,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",256.43,37.07,14.45
+CRI,Costa Rica,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",290.55,69.95,24.07
+CYP,Cyprus,Asia,Western Asia,2015,"Rate per 100,000 population",44.85,12.14,27.06
+CZE,Czechia,Europe,Eastern Europe,2015,"Rate per 100,000 population",198.26,46.05,23.22
+DEU,Germany,Europe,Western Europe,2015,"Rate per 100,000 population",76.78,8.31,10.82
+DNK,Denmark,Europe,Northern Europe,2015,"Rate per 100,000 population",56.35,8.73,15.49
+DZA,Algeria,Africa,Northern Africa,2015,"Rate per 100,000 population",155.3,45.7,29.43
+ESP,Spain,Europe,Southern Europe,2015,"Rate per 100,000 population",131.98,51.12,38.73
+EST,Estonia,Europe,Northern Europe,2015,"Rate per 100,000 population",214.75,94.17,43.85
+FIN,Finland,Europe,Northern Europe,2015,"Rate per 100,000 population",57.21,8.92,15.6
+FRA,France,Europe,Western Europe,2015,"Rate per 100,000 population",102.71,12.47,12.14
+GBR_E_W,United Kingdom (England and Wales),Europe,Northern Europe,2015,"Rate per 100,000 population",148.9,35.98,24.16
+GBR_NI,United Kingdom (Northern Ireland),Europe,Northern Europe,2015,"Rate per 100,000 population",78.15,8.32,10.64
+GRD,Grenada,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",437.76,94.18,21.51
+GUY,Guyana,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",264.9,45.07,17.01
+HND,Honduras,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",174.92,44.33,25.34
+HRV,Croatia,Europe,Southern Europe,2015,"Rate per 100,000 population",79.86,7.55,9.46
+ITA,Italy,Europe,Southern Europe,2015,"Rate per 100,000 population",88.17,34.33,38.94
+JAM,Jamaica,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",137.52,13.99,10.17
+LIE,Liechtenstein,Europe,Western Europe,2015,"Rate per 100,000 population",141.71,8.02,5.66
+LTU,Lithuania,Europe,Northern Europe,2015,"Rate per 100,000 population",253.12,27.22,10.75
+LVA,Latvia,Europe,Northern Europe,2015,"Rate per 100,000 population",222.92,53.64,24.06
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2015,"Rate per 100,000 population",205.73,110.26,53.59
+MCO,Monaco,Europe,Western Europe,2015,"Rate per 100,000 population",92.5,10.88,11.76
+MDG,Madagascar,Africa,Sub-Saharan Africa,2015,"Rate per 100,000 population",81.0,1.46,1.8
+MEX,Mexico,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",182.9,26.8,14.65
+MLT,Malta,Europe,Southern Europe,2015,"Rate per 100,000 population",127.87,44.5,34.8
+MNE,Montenegro,Europe,Southern Europe,2015,"Rate per 100,000 population",180.05,58.59,32.54
+MNG,Mongolia,Asia,Eastern Asia,2015,"Rate per 100,000 population",183.8,0.4,0.22
+NZL,New Zealand,Oceania,Australia and New Zealand,2015,"Rate per 100,000 population",195.6,18.51,9.46
+PER,Peru,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",259.98,49.28,18.95
+POL,Poland,Europe,Eastern Europe,2015,"Rate per 100,000 population",189.97,5.59,2.94
+PRT,Portugal,Europe,Southern Europe,2015,"Rate per 100,000 population",138.6,22.12,15.96
+ROU,Romania,Europe,Eastern Europe,2015,"Rate per 100,000 population",142.59,6.19,4.34
+RUS,Russian Federation,Europe,Eastern Europe,2015,"Rate per 100,000 population",444.63,96.44,21.69
+SLV,El Salvador,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",537.84,122.19,22.72
+SRB,Serbia,Europe,Southern Europe,2015,"Rate per 100,000 population",140.22,48.21,34.38
+SVK,Slovakia,Europe,Eastern Europe,2015,"Rate per 100,000 population",182.89,35.05,19.17
+SWE,Sweden,Europe,Northern Europe,2015,"Rate per 100,000 population",58.07,23.45,40.38
+THA,Thailand,Asia,South-eastern Asia,2015,"Rate per 100,000 population",458.56,326.67,71.24
+TTO,Trinidad and Tobago,Americas,Latin America and the Caribbean,2015,"Rate per 100,000 population",256.58,107.75,42.0
+TUR,Türkiye,Asia,Western Asia,2015,"Rate per 100,000 population",221.54,49.07,22.15
+VAT,Holy See,Europe,Southern Europe,2015,"Rate per 100,000 population",174.83,0.0,0.0
+ALB,Albania,Europe,Southern Europe,2016,"Rate per 100,000 population",208.12,13.73,6.6
+ARG,Argentina,Americas,Latin America and the Caribbean,2016,"Rate per 100,000 population",176.5,22.6,12.81
+AUS,Australia,Oceania,Australia and New Zealand,2016,"Rate per 100,000 population",163.46,39.53,24.18
+AZE,Azerbaijan,Asia,Western Asia,2016,"Rate per 100,000 population",237.63,104.35,43.91
+BGR,Bulgaria,Europe,Eastern Europe,2016,"Rate per 100,000 population",103.05,7.72,7.49
+BIH,Bosnia and Herzegovina,Europe,Southern Europe,2016,"Rate per 100,000 population",81.54,8.9,10.91
+BLZ,Belize,Americas,Latin America and the Caribbean,2016,"Rate per 100,000 population",520.42,160.13,30.77
+BRB,Barbados,Americas,Latin America and the Caribbean,2016,"Rate per 100,000 population",326.54,102.29,31.33
+CHE,Switzerland,Europe,Western Europe,2016,"Rate per 100,000 population",77.7,19.13,24.62
+COL,Colombia,Americas,Latin America and the Caribbean,2016,"Rate per 100,000 population",249.87,52.59,21.05
+CYP,Cyprus,Asia,Western Asia,2016,"Rate per 100,000 population",47.37,13.26,27.99
+CZE,Czechia,Europe,Eastern Europe,2016,"Rate per 100,000 population",213.46,30.09,14.1
+DMA,Dominica,Americas,Latin America and the Caribbean,2016,"Rate per 100,000 population",293.08,0.0,0.0
+ESP,Spain,Europe,Southern Europe,2016,"Rate per 100,000 population",127.51,46.05,36.12
+FIN,Finland,Europe,Northern Europe,2016,"Rate per 100,000 population",57.43,8.68,15.11
+GBR_E_W,United Kingdom (England and Wales),Europe,Northern Europe,2016,"Rate per 100,000 population",145.82,37.63,25.8
+GBR_NI,United Kingdom (Northern Ireland),Europe,Northern Europe,2016,"Rate per 100,000 population",75.56,103.21,136.6
+GNB,Guinea-Bissau,Africa,Sub-Saharan Africa,2016,"Rate per 100,000 population",47.22,0.93,1.97
+GRC,Greece,Europe,Southern Europe,2016,"Rate per 100,000 population",88.72,16.67,18.79
+HND,Honduras,Americas,Latin America and the Caribbean,2016,"Rate per 100,000 population",185.86,21.72,11.68
+HRV,Croatia,Europe,Southern Europe,2016,"Rate per 100,000 population",75.14,6.09,8.11
+ITA,Italy,Europe,Southern Europe,2016,"Rate per 100,000 population",92.56,31.46,33.99
+JPN,Japan,Asia,Eastern Asia,2016,"Rate per 100,000 population",44.01,10.25,23.3
+KOR,Republic of Korea,Asia,Eastern Asia,2016,"Rate per 100,000 population",112.43,14.13,12.57
+LIE,Liechtenstein,Europe,Western Europe,2016,"Rate per 100,000 population",191.41,2.66,1.39
+LTU,Lithuania,Europe,Northern Europe,2016,"Rate per 100,000 population",237.53,53.88,22.69
+LUX,Luxembourg,Europe,Western Europe,2016,"Rate per 100,000 population",124.08,37.87,30.52
+LVA,Latvia,Europe,Northern Europe,2016,"Rate per 100,000 population",216.49,13.16,6.08
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2016,"Rate per 100,000 population",200.37,113.35,56.57
+MEX,Mexico,Americas,Latin America and the Caribbean,2016,"Rate per 100,000 population",155.56,29.2,18.77
+MNE,Montenegro,Europe,Southern Europe,2016,"Rate per 100,000 population",179.9,26.75,14.87
+MNG,Mongolia,Asia,Eastern Asia,2016,"Rate per 100,000 population",187.19,0.79,0.42
+NOR,Norway,Europe,Northern Europe,2016,"Rate per 100,000 population",80.06,13.54,16.91
+PER,Peru,Americas,Latin America and the Caribbean,2016,"Rate per 100,000 population",272.76,56.43,20.69
+PHL,Philippines,Asia,South-eastern Asia,2016,"Rate per 100,000 population",159.78,10.38,6.5
+POL,Poland,Europe,Eastern Europe,2016,"Rate per 100,000 population",188.72,5.53,2.93
+PRT,Portugal,Europe,Southern Europe,2016,"Rate per 100,000 population",134.51,42.48,31.58
+ROU,Romania,Europe,Eastern Europe,2016,"Rate per 100,000 population",138.82,12.58,9.06
+RUS,Russian Federation,Europe,Eastern Europe,2016,"Rate per 100,000 population",432.27,191.09,44.21
+SRB,Serbia,Europe,Southern Europe,2016,"Rate per 100,000 population",149.76,24.74,16.52
+SVK,Slovakia,Europe,Eastern Europe,2016,"Rate per 100,000 population",184.16,18.52,10.06
+SVN,Slovenia,Europe,Southern Europe,2016,"Rate per 100,000 population",63.45,7.18,11.31
+SWE,Sweden,Europe,Northern Europe,2016,"Rate per 100,000 population",57.02,22.29,39.1
+THA,Thailand,Asia,South-eastern Asia,2016,"Rate per 100,000 population",459.07,77.76,16.94
+TUR,Türkiye,Asia,Western Asia,2016,"Rate per 100,000 population",245.83,91.74,37.32
+UGA,Uganda,Africa,Sub-Saharan Africa,2016,"Rate per 100,000 population",132.36,2.49,1.88
+ALB,Albania,Europe,Southern Europe,2017,"Rate per 100,000 population",195.77,54.86,28.02
+ARG,Argentina,Americas,Latin America and the Caribbean,2017,"Rate per 100,000 population",194.92,26.61,13.65
+AUS,Australia,Oceania,Australia and New Zealand,2017,"Rate per 100,000 population",170.3,49.56,29.1
+AZE,Azerbaijan,Asia,Western Asia,2017,"Rate per 100,000 population",234.75,111.75,47.6
+BGR,Bulgaria,Europe,Eastern Europe,2017,"Rate per 100,000 population",98.76,8.65,8.76
+BIH,Bosnia and Herzegovina,Europe,Southern Europe,2017,"Rate per 100,000 population",82.25,19.83,24.11
+BMU,Bermuda,Americas,Northern America,2017,"Rate per 100,000 population",314.57,64.49,20.5
+BRB,Barbados,Americas,Latin America and the Caribbean,2017,"Rate per 100,000 population",362.28,234.14,64.63
+CHE,Switzerland,Europe,Western Europe,2017,"Rate per 100,000 population",77.65,10.62,13.68
+CHL,Chile,Americas,Latin America and the Caribbean,2017,"Rate per 100,000 population",247.38,51.17,20.68
+COL,Colombia,Americas,Latin America and the Caribbean,2017,"Rate per 100,000 population",238.41,51.15,21.45
+CZE,Czechia,Europe,Eastern Europe,2017,"Rate per 100,000 population",210.21,31.86,15.15
+DEU,Germany,Europe,Western Europe,2017,"Rate per 100,000 population",79.23,3.96,4.99
+DMA,Dominica,Americas,Latin America and the Caribbean,2017,"Rate per 100,000 population",605.87,0.0,0.0
+ESP,Spain,Europe,Southern Europe,2017,"Rate per 100,000 population",125.48,41.04,32.7
+EST,Estonia,Europe,Northern Europe,2017,"Rate per 100,000 population",206.69,88.81,42.97
+FIN,Finland,Europe,Northern Europe,2017,"Rate per 100,000 population",55.95,9.0,16.09
+GBR_E_W,United Kingdom (England and Wales),Europe,Northern Europe,2017,"Rate per 100,000 population",146.16,19.09,13.06
+GBR_NI,United Kingdom (Northern Ireland),Europe,Northern Europe,2017,"Rate per 100,000 population",75.42,54.95,72.86
+GRC,Greece,Europe,Southern Europe,2017,"Rate per 100,000 population",93.09,27.25,29.27
+GRD,Grenada,Americas,Latin America and the Caribbean,2017,"Rate per 100,000 population",382.89,71.9,18.78
+GUY,Guyana,Americas,Latin America and the Caribbean,2017,"Rate per 100,000 population",289.66,77.17,26.64
+HND,Honduras,Americas,Latin America and the Caribbean,2017,"Rate per 100,000 population",201.66,49.78,24.69
+HRV,Croatia,Europe,Southern Europe,2017,"Rate per 100,000 population",78.2,6.18,7.9
+ISL,Iceland,Europe,Northern Europe,2017,"Rate per 100,000 population",39.88,9.02,22.63
+ITA,Italy,Europe,Southern Europe,2017,"Rate per 100,000 population",97.76,32.93,33.69
+LTU,Lithuania,Europe,Northern Europe,2017,"Rate per 100,000 population",233.24,53.72,23.03
+LUX,Luxembourg,Europe,Western Europe,2017,"Rate per 100,000 population",114.67,31.01,27.05
+LVA,Latvia,Europe,Northern Europe,2017,"Rate per 100,000 population",193.81,56.47,29.14
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2017,"Rate per 100,000 population",198.59,111.67,56.23
+MAR,Morocco,Africa,Northern Africa,2017,"Rate per 100,000 population",234.44,59.16,25.23
+MDA,Republic of Moldova,Europe,Eastern Europe,2017,"Rate per 100,000 population",239.08,10.65,4.45
+MEX,Mexico,Americas,Latin America and the Caribbean,2017,"Rate per 100,000 population",163.62,52.31,31.97
+MLT,Malta,Europe,Southern Europe,2017,"Rate per 100,000 population",126.31,32.06,25.38
+MNE,Montenegro,Europe,Southern Europe,2017,"Rate per 100,000 population",180.45,25.32,14.03
+NOR,Norway,Europe,Northern Europe,2017,"Rate per 100,000 population",78.91,13.7,17.36
+PHL,Philippines,Asia,South-eastern Asia,2017,"Rate per 100,000 population",165.24,0.74,0.45
+POL,Poland,Europe,Eastern Europe,2017,"Rate per 100,000 population",194.69,5.63,2.89
+PRT,Portugal,Europe,Southern Europe,2017,"Rate per 100,000 population",131.52,37.56,28.56
+ROU,Romania,Europe,Eastern Europe,2017,"Rate per 100,000 population",119.1,10.85,9.11
+RUS,Russian Federation,Europe,Eastern Europe,2017,"Rate per 100,000 population",411.92,190.37,46.22
+SRB,Serbia,Europe,Southern Europe,2017,"Rate per 100,000 population",152.78,25.36,16.6
+SVK,Slovakia,Europe,Eastern Europe,2017,"Rate per 100,000 population",184.48,37.38,20.26
+SVN,Slovenia,Europe,Southern Europe,2017,"Rate per 100,000 population",63.81,10.52,16.49
+SWE,Sweden,Europe,Northern Europe,2017,"Rate per 100,000 population",56.8,21.67,38.16
+USA,United States of America,Americas,Northern America,2017,"Rate per 100,000 population",648.28,79.08,12.2
+ALB,Albania,Europe,Southern Europe,2018,"Rate per 100,000 population",183.68,58.94,32.09
+ARG,Argentina,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",214.82,46.02,21.42
+AUS,Australia,Oceania,Australia and New Zealand,2018,"Rate per 100,000 population",174.95,26.88,15.37
+AZE,Azerbaijan,Asia,Western Asia,2018,"Rate per 100,000 population",219.1,101.41,46.28
+BGR,Bulgaria,Europe,Eastern Europe,2018,"Rate per 100,000 population",94.68,17.65,18.64
+BIH,Bosnia and Herzegovina,Europe,Southern Europe,2018,"Rate per 100,000 population",129.23,11.22,8.68
+BLZ,Belize,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",517.32,27.09,5.24
+BMU,Bermuda,Americas,Northern America,2018,"Rate per 100,000 population",271.03,45.43,16.76
+BOL,Bolivia (Plurinational State of),Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",159.61,17.37,10.88
+BRB,Barbados,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",335.22,107.94,32.2
+CHE,Switzerland,Europe,Western Europe,2018,"Rate per 100,000 population",77.52,21.09,27.2
+CHL,Chile,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",243.35,48.14,19.78
+DEU,Germany,Europe,Western Europe,2018,"Rate per 100,000 population",78.88,3.86,4.9
+DMA,Dominica,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",721.68,39.6,5.49
+ESP,Spain,Europe,Southern Europe,2018,"Rate per 100,000 population",125.04,18.88,15.1
+FIN,Finland,Europe,Northern Europe,2018,"Rate per 100,000 population",53.59,8.85,16.51
+GBR_E_W,United Kingdom (England and Wales),Europe,Northern Europe,2018,"Rate per 100,000 population",140.02,18.41,13.15
+GBR_NI,United Kingdom (Northern Ireland),Europe,Northern Europe,2018,"Rate per 100,000 population",74.78,7.28,9.74
+GRC,Greece,Europe,Southern Europe,2018,"Rate per 100,000 population",99.28,25.86,26.05
+GUY,Guyana,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",270.86,48.76,18.0
+HKG,"China, Hong Kong Special Administrative Region",Asia,Eastern Asia,2018,"Rate per 100,000 population",110.25,50.82,46.1
+HND,Honduras,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",212.26,23.15,10.91
+ISL,Iceland,Europe,Northern Europe,2018,"Rate per 100,000 population",38.54,12.75,33.09
+ITA,Italy,Europe,Southern Europe,2018,"Rate per 100,000 population",101.42,35.13,34.64
+LTU,Lithuania,Europe,Northern Europe,2018,"Rate per 100,000 population",231.4,57.88,25.01
+LVA,Latvia,Europe,Northern Europe,2018,"Rate per 100,000 population",182.72,61.68,33.76
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2018,"Rate per 100,000 population",221.32,147.24,66.53
+MAR,Morocco,Africa,Northern Africa,2018,"Rate per 100,000 population",233.7,58.61,25.08
+MDA,Republic of Moldova,Europe,Eastern Europe,2018,"Rate per 100,000 population",221.64,19.44,8.77
+MEX,Mexico,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",157.6,51.54,32.7
+MLT,Malta,Europe,Southern Europe,2018,"Rate per 100,000 population",131.05,32.19,24.57
+MNE,Montenegro,Europe,Southern Europe,2018,"Rate per 100,000 population",182.69,18.19,9.96
+MNG,Mongolia,Asia,Eastern Asia,2018,"Rate per 100,000 population",151.66,2.62,1.73
+NIC,Nicaragua,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",326.84,44.39,13.58
+NOR,Norway,Europe,Northern Europe,2018,"Rate per 100,000 population",71.37,12.82,17.96
+PER,Peru,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",291.54,35.26,12.1
+PHL,Philippines,Asia,South-eastern Asia,2018,"Rate per 100,000 population",177.83,96.42,54.22
+POL,Poland,Europe,Eastern Europe,2018,"Rate per 100,000 population",190.42,5.01,2.63
+PRT,Portugal,Europe,Southern Europe,2018,"Rate per 100,000 population",126.11,32.22,25.55
+ROU,Romania,Europe,Eastern Europe,2018,"Rate per 100,000 population",106.09,5.27,4.96
+RUS,Russian Federation,Europe,Eastern Europe,2018,"Rate per 100,000 population",384.6,181.97,47.31
+SLV,El Salvador,Americas,Latin America and the Caribbean,2018,"Rate per 100,000 population",637.35,0.66,0.1
+SRB,Serbia,Europe,Southern Europe,2018,"Rate per 100,000 population",154.86,27.36,17.67
+SVK,Slovakia,Europe,Eastern Europe,2018,"Rate per 100,000 population",189.12,19.33,10.22
+SVN,Slovenia,Europe,Southern Europe,2018,"Rate per 100,000 population",65.04,6.09,9.36
+SWE,Sweden,Europe,Northern Europe,2018,"Rate per 100,000 population",60.09,24.59,40.92
+TUR,Türkiye,Asia,Western Asia,2018,"Rate per 100,000 population",313.73,78.96,25.17
+USA,United States of America,Americas,Northern America,2018,"Rate per 100,000 population",633.65,105.27,16.61
+ALB,Albania,Europe,Southern Europe,2019,"Rate per 100,000 population",174.87,54.77,31.32
+ARG,Argentina,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",225.98,48.36,21.4
+AZE,Azerbaijan,Asia,Western Asia,2019,"Rate per 100,000 population",208.51,101.04,48.46
+BGR,Bulgaria,Europe,Eastern Europe,2019,"Rate per 100,000 population",92.44,19.1,20.66
+BIH,Bosnia and Herzegovina,Europe,Southern Europe,2019,"Rate per 100,000 population",133.97,13.9,10.37
+BLZ,Belize,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",511.89,28.25,5.52
+BMU,Bermuda,Americas,Northern America,2019,"Rate per 100,000 population",272.98,90.47,33.14
+BOL,Bolivia (Plurinational State of),Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",156.01,14.61,9.36
+BRB,Barbados,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",310.8,90.32,29.06
+CHE,Switzerland,Europe,Western Europe,2019,"Rate per 100,000 population",76.57,18.22,23.8
+CHL,Chile,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",240.96,48.82,20.26
+COL,Colombia,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",257.95,103.78,40.23
+DEU,Germany,Europe,Western Europe,2019,"Rate per 100,000 population",75.57,3.9,5.17
+DMA,Dominica,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",763.11,82.5,10.81
+DOM,Dominican Republic,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",249.81,60.56,24.24
+ESP,Spain,Europe,Southern Europe,2019,"Rate per 100,000 population",123.36,34.89,28.29
+FIN,Finland,Europe,Northern Europe,2019,"Rate per 100,000 population",53.33,8.4,15.76
+FRA,France,Europe,Western Europe,2019,"Rate per 100,000 population",107.62,21.0,19.51
+GRC,Greece,Europe,Southern Europe,2019,"Rate per 100,000 population",101.61,33.98,33.44
+GRD,Grenada,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",375.06,56.04,14.94
+GTM,Guatemala,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",158.53,6.6,4.16
+HKG,"China, Hong Kong Special Administrative Region",Asia,Eastern Asia,2019,"Rate per 100,000 population",94.5,43.72,46.27
+HND,Honduras,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",217.48,41.51,19.09
+ITA,Italy,Europe,Southern Europe,2019,"Rate per 100,000 population",103.5,35.45,34.26
+LCA,Saint Lucia,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",289.31,19.7,6.81
+LTU,Lithuania,Europe,Northern Europe,2019,"Rate per 100,000 population",219.6,57.17,26.03
+LVA,Latvia,Europe,Northern Europe,2019,"Rate per 100,000 population",178.35,56.78,31.84
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2019,"Rate per 100,000 population",243.82,155.0,63.57
+MAR,Morocco,Africa,Northern Africa,2019,"Rate per 100,000 population",238.56,131.91,55.29
+MEX,Mexico,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",158.08,19.09,12.07
+MLT,Malta,Europe,Southern Europe,2019,"Rate per 100,000 population",149.6,26.78,17.9
+MNE,Montenegro,Europe,Southern Europe,2019,"Rate per 100,000 population",178.2,27.63,15.5
+NOR,Norway,Europe,Northern Europe,2019,"Rate per 100,000 population",66.59,11.8,17.72
+PER,Peru,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",300.92,50.17,16.67
+PHL,Philippines,Asia,South-eastern Asia,2019,"Rate per 100,000 population",194.04,92.78,47.81
+POL,Poland,Europe,Eastern Europe,2019,"Rate per 100,000 population",195.19,5.08,2.6
+PRT,Portugal,Europe,Southern Europe,2019,"Rate per 100,000 population",125.17,35.88,28.66
+ROU,Romania,Europe,Eastern Europe,2019,"Rate per 100,000 population",105.52,5.26,4.98
+RUS,Russian Federation,Europe,Eastern Europe,2019,"Rate per 100,000 population",357.55,169.14,47.31
+SLV,El Salvador,Americas,Latin America and the Caribbean,2019,"Rate per 100,000 population",642.22,23.35,3.64
+SRB,Serbia,Europe,Southern Europe,2019,"Rate per 100,000 population",159.01,27.58,17.34
+SVK,Slovakia,Europe,Eastern Europe,2019,"Rate per 100,000 population",193.65,41.39,21.37
+SVN,Slovenia,Europe,Southern Europe,2019,"Rate per 100,000 population",67.0,7.25,10.82
+SWE,Sweden,Europe,Northern Europe,2019,"Rate per 100,000 population",65.37,25.45,38.93
+TUR,Türkiye,Asia,Western Asia,2019,"Rate per 100,000 population",341.56,189.11,55.37
+USA,United States of America,Americas,Northern America,2019,"Rate per 100,000 population",613.87,50.71,8.26
+ALB,Albania,Europe,Southern Europe,2020,"Rate per 100,000 population",160.66,45.65,28.41
+ARG,Argentina,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",212.1,43.11,20.33
+ARM,Armenia,Asia,Western Asia,2020,"Rate per 100,000 population",68.04,3.94,5.8
+ATG,Antigua and Barbuda,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",303.77,4.36,1.43
+AUT,Austria,Europe,Western Europe,2020,"Rate per 100,000 population",95.14,43.73,45.96
+AZE,Azerbaijan,Asia,Western Asia,2020,"Rate per 100,000 population",213.59,53.28,24.95
+BGR,Bulgaria,Europe,Eastern Europe,2020,"Rate per 100,000 population",90.15,21.17,23.48
+BHS,Bahamas,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",366.54,1.01,0.28
+BIH,Bosnia and Herzegovina,Europe,Southern Europe,2020,"Rate per 100,000 population",131.3,11.85,9.03
+BLZ,Belize,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",283.51,18.17,6.41
+BOL,Bolivia (Plurinational State of),Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",146.45,15.13,10.33
+BRB,Barbados,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",316.65,79.87,25.22
+CHE,Switzerland,Europe,Western Europe,2020,"Rate per 100,000 population",71.56,7.79,10.88
+CHL,Chile,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",221.56,89.75,40.51
+COL,Colombia,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",199.46,146.73,73.56
+DEU,Germany,Europe,Western Europe,2020,"Rate per 100,000 population",71.25,3.48,4.89
+DMA,Dominica,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",541.64,82.87,15.3
+DOM,Dominican Republic,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",250.65,101.72,40.58
+ESP,Spain,Europe,Southern Europe,2020,"Rate per 100,000 population",115.73,16.4,14.17
+EST,Estonia,Europe,Northern Europe,2020,"Rate per 100,000 population",176.59,69.19,39.18
+FIN,Finland,Europe,Northern Europe,2020,"Rate per 100,000 population",49.75,8.84,17.78
+FRA,France,Europe,Western Europe,2020,"Rate per 100,000 population",94.9,61.77,65.09
+GBR_NI,United Kingdom (Northern Ireland),Europe,Northern Europe,2020,"Rate per 100,000 population",72.49,5.38,7.42
+GRC,Greece,Europe,Southern Europe,2020,"Rate per 100,000 population",106.35,82.14,77.23
+GRD,Grenada,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",305.14,57.59,18.87
+GUY,Guyana,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",231.21,20.43,8.84
+HKG,"China, Hong Kong Special Administrative Region",Asia,Eastern Asia,2020,"Rate per 100,000 population",95.82,41.64,43.46
+HND,Honduras,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",214.51,38.49,17.94
+HUN,Hungary,Europe,Eastern Europe,2020,"Rate per 100,000 population",171.82,15.36,8.94
+ITA,Italy,Europe,Southern Europe,2020,"Rate per 100,000 population",91.14,31.42,34.47
+JPN,Japan,Asia,Eastern Asia,2020,"Rate per 100,000 population",36.83,7.8,21.16
+LCA,Saint Lucia,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",285.55,22.44,7.86
+LTU,Lithuania,Europe,Northern Europe,2020,"Rate per 100,000 population",190.29,55.51,29.17
+LVA,Latvia,Europe,Northern Europe,2020,"Rate per 100,000 population",163.27,57.91,35.47
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2020,"Rate per 100,000 population",226.63,147.86,65.25
+MAR,Morocco,Africa,Northern Africa,2020,"Rate per 100,000 population",232.31,140.01,60.27
+MEX,Mexico,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",166.53,39.42,23.67
+MLT,Malta,Europe,Southern Europe,2020,"Rate per 100,000 population",166.73,21.42,12.85
+MNE,Montenegro,Europe,Southern Europe,2020,"Rate per 100,000 population",133.24,12.99,9.75
+NOR,Norway,Europe,Northern Europe,2020,"Rate per 100,000 population",65.68,11.62,17.69
+NZL,New Zealand,Oceania,Australia and New Zealand,2020,"Rate per 100,000 population",168.48,34.66,20.57
+PER,Peru,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",269.42,44.79,16.63
+POL,Poland,Europe,Eastern Europe,2020,"Rate per 100,000 population",179.07,4.58,2.56
+PRI,Puerto Rico,Americas,Latin America and the Caribbean,2020,"Rate per 100,000 population",222.54,39.41,17.71
+PRT,Portugal,Europe,Southern Europe,2020,"Rate per 100,000 population",110.91,34.09,30.73
+ROU,Romania,Europe,Eastern Europe,2020,"Rate per 100,000 population",112.17,10.07,8.97
+RUS,Russian Federation,Europe,Eastern Europe,2020,"Rate per 100,000 population",329.91,76.73,23.26
+SRB,Serbia,Europe,Southern Europe,2020,"Rate per 100,000 population",152.58,27.51,18.03
+SVK,Slovakia,Europe,Eastern Europe,2020,"Rate per 100,000 population",192.83,22.6,11.72
+SVN,Slovenia,Europe,Southern Europe,2020,"Rate per 100,000 population",68.92,8.23,11.94
+SWE,Sweden,Europe,Northern Europe,2020,"Rate per 100,000 population",70.48,28.01,39.74
+TUR,Türkiye,Asia,Western Asia,2020,"Rate per 100,000 population",311.16,202.48,65.07
+USA,United States of America,Americas,Northern America,2020,"Rate per 100,000 population",493.23,116.69,23.66
+ALB,Albania,Europe,Southern Europe,2021,"Rate per 100,000 population",173.92,49.69,28.57
+ARG,Argentina,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",225.44,42.47,18.84
+ATG,Antigua and Barbuda,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",260.97,2.17,0.83
+AUT,Austria,Europe,Western Europe,2021,"Rate per 100,000 population",94.08,48.12,51.15
+BGR,Bulgaria,Europe,Eastern Europe,2021,"Rate per 100,000 population",85.4,19.86,23.26
+BHS,Bahamas,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",482.37,9.59,1.99
+BIH,Bosnia and Herzegovina,Europe,Southern Europe,2021,"Rate per 100,000 population",126.6,12.33,9.74
+BLZ,Belize,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",261.8,13.91,5.31
+BOL,Bolivia (Plurinational State of),Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",156.68,14.26,9.1
+BRB,Barbados,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",292.76,61.32,20.94
+CHE,Switzerland,Europe,Western Europe,2021,"Rate per 100,000 population",70.21,9.39,13.38
+CHL,Chile,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",213.12,103.58,48.6
+COL,Colombia,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",196.57,106.03,53.94
+CRI,Costa Rica,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",310.16,14.6,4.71
+CZE,Czechia,Europe,Eastern Europe,2021,"Rate per 100,000 population",178.03,32.12,18.04
+DEU,Germany,Europe,Western Europe,2021,"Rate per 100,000 population",68.73,3.15,4.59
+DMA,Dominica,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",590.76,19.34,3.27
+DOM,Dominican Republic,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",249.02,61.8,24.82
+ECU,Ecuador,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",202.04,59.06,29.23
+ESP,Spain,Europe,Southern Europe,2021,"Rate per 100,000 population",115.42,15.73,13.63
+EST,Estonia,Europe,Northern Europe,2021,"Rate per 100,000 population",164.37,62.47,38.01
+FIN,Finland,Europe,Northern Europe,2021,"Rate per 100,000 population",50.73,8.86,17.47
+FRA,France,Europe,Western Europe,2021,"Rate per 100,000 population",105.09,69.46,66.09
+GBR_S,United Kingdom (Scotland),Europe,Northern Europe,2021,"Rate per 100,000 population",136.72,9.49,6.94
+GRC,Greece,Europe,Southern Europe,2021,"Rate per 100,000 population",104.26,52.76,50.61
+GRD,Grenada,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",505.62,29.99,5.93
+GTM,Guatemala,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",147.95,10.01,6.77
+HKG,"China, Hong Kong Special Administrative Region",Asia,Eastern Asia,2021,"Rate per 100,000 population",105.78,42.38,40.07
+HND,Honduras,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",196.21,88.97,45.34
+HRV,Croatia,Europe,Southern Europe,2021,"Rate per 100,000 population",99.5,4.89,4.92
+HUN,Hungary,Europe,Eastern Europe,2021,"Rate per 100,000 population",191.83,26.05,13.58
+ITA,Italy,Europe,Southern Europe,2021,"Rate per 100,000 population",92.67,63.62,68.65
+JPN,Japan,Asia,Eastern Asia,2021,"Rate per 100,000 population",35.44,7.54,21.26
+KNA,Saint Kitts and Nevis,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",436.24,4.28,0.98
+LCA,Saint Lucia,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",273.36,7.28,2.66
+LTU,Lithuania,Europe,Northern Europe,2021,"Rate per 100,000 population",182.0,58.62,32.21
+LVA,Latvia,Europe,Northern Europe,2021,"Rate per 100,000 population",168.81,54.57,32.33
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2021,"Rate per 100,000 population",218.89,137.1,62.63
+MAR,Morocco,Africa,Northern Africa,2021,"Rate per 100,000 population",240.68,129.16,53.66
+MEX,Mexico,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",172.68,35.0,20.27
+MLT,Malta,Europe,Southern Europe,2021,"Rate per 100,000 population",117.09,19.07,16.29
+MNE,Montenegro,Europe,Southern Europe,2021,"Rate per 100,000 population",152.36,23.85,15.65
+NOR,Norway,Europe,Northern Europe,2021,"Rate per 100,000 population",67.51,12.37,18.32
+NZL,New Zealand,Oceania,Australia and New Zealand,2021,"Rate per 100,000 population",152.16,28.17,18.52
+PAN,Panama,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",458.9,78.11,17.02
+PER,Peru,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",268.06,44.62,16.64
+POL,Poland,Europe,Eastern Europe,2021,"Rate per 100,000 population",189.98,5.33,2.8
+PRT,Portugal,Europe,Southern Europe,2021,"Rate per 100,000 population",112.64,33.35,29.61
+ROU,Romania,Europe,Eastern Europe,2021,"Rate per 100,000 population",119.43,4.95,4.14
+SRB,Serbia,Europe,Southern Europe,2021,"Rate per 100,000 population",154.45,28.02,18.14
+SVK,Slovakia,Europe,Eastern Europe,2021,"Rate per 100,000 population",185.64,24.86,13.39
+SVN,Slovenia,Europe,Southern Europe,2021,"Rate per 100,000 population",53.75,5.91,11.0
+SWE,Sweden,Europe,Northern Europe,2021,"Rate per 100,000 population",74.65,31.8,42.59
+THA,Thailand,Asia,South-eastern Asia,2021,"Rate per 100,000 population",411.63,238.36,57.91
+TUR,Türkiye,Asia,Western Asia,2021,"Rate per 100,000 population",343.61,237.9,69.24
+URY,Uruguay,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",425.24,84.79,19.94
+VAT,Holy See,Europe,Southern Europe,2021,"Rate per 100,000 population",0.0,0.0,
+VCT,Saint Vincent and the Grenadines,Americas,Latin America and the Caribbean,2021,"Rate per 100,000 population",530.92,151.69,28.57
+ALB,Albania,Europe,Southern Europe,2022,"Rate per 100,000 population",178.95,50.64,28.3
+ARG,Argentina,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",233.23,45.46,19.49
+ATG,Antigua and Barbuda,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",250.97,0.0,0.0
+AUS,Australia,Oceania,Australia and New Zealand,2022,"Rate per 100,000 population",158.03,39.8,25.19
+AUT,Austria,Europe,Western Europe,2022,"Rate per 100,000 population",99.21,52.93,53.35
+BGR,Bulgaria,Europe,Eastern Europe,2022,"Rate per 100,000 population",81.7,19.66,24.06
+BHS,Bahamas,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",331.79,46.03,13.87
+BIH,Bosnia and Herzegovina,Europe,Southern Europe,2022,"Rate per 100,000 population",127.34,13.54,10.63
+BLZ,Belize,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",297.72,13.16,4.42
+BOL,Bolivia (Plurinational State of),Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",205.55,26.06,12.68
+BRA,Brazil,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",399.26,73.16,18.32
+BRB,Barbados,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",279.47,43.21,15.46
+CHE,Switzerland,Europe,Western Europe,2022,"Rate per 100,000 population",71.11,7.6,10.68
+CHL,Chile,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",230.49,116.71,50.64
+COL,Colombia,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",195.78,69.94,35.72
+CRI,Costa Rica,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",296.81,68.38,23.04
+CYP,Cyprus,Asia,Western Asia,2022,"Rate per 100,000 population",71.96,10.97,15.24
+CZE,Czechia,Europe,Eastern Europe,2022,"Rate per 100,000 population",178.5,33.5,18.76
+DEU,Germany,Europe,Western Europe,2022,"Rate per 100,000 population",68.34,3.03,4.44
+DMA,Dominica,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",565.64,40.4,7.14
+ECU,Ecuador,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",178.48,49.53,27.75
+ESP,Spain,Europe,Southern Europe,2022,"Rate per 100,000 population",116.56,31.28,26.84
+EST,Estonia,Europe,Northern Europe,2022,"Rate per 100,000 population",153.55,61.03,39.75
+FIN,Finland,Europe,Northern Europe,2022,"Rate per 100,000 population",51.37,7.85,15.27
+FRA,France,Europe,Western Europe,2022,"Rate per 100,000 population",108.9,71.14,65.32
+GBR_NI,United Kingdom (Northern Ireland),Europe,Northern Europe,2022,"Rate per 100,000 population",86.73,15.7,18.11
+GBR_S,United Kingdom (Scotland),Europe,Northern Europe,2022,"Rate per 100,000 population",132.96,9.7,7.3
+GRC,Greece,Europe,Southern Europe,2022,"Rate per 100,000 population",101.09,46.62,46.11
+GRD,Grenada,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",366.08,28.23,7.71
+GTM,Guatemala,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",142.56,14.81,10.39
+GUY,Guyana,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",260.94,37.36,14.32
+HKG,"China, Hong Kong Special Administrative Region",Asia,Eastern Asia,2022,"Rate per 100,000 population",104.65,42.33,40.45
+HND,Honduras,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",185.95,43.12,23.19
+HRV,Croatia,Europe,Southern Europe,2022,"Rate per 100,000 population",104.71,5.58,5.33
+HUN,Hungary,Europe,Eastern Europe,2022,"Rate per 100,000 population",199.78,9.69,4.85
+ITA,Italy,Europe,Southern Europe,2022,"Rate per 100,000 population",96.37,65.09,67.55
+JPN,Japan,Asia,Eastern Asia,2022,"Rate per 100,000 population",33.23,6.82,20.52
+KGZ,Kyrgyzstan,Asia,Central Asia,2022,"Rate per 100,000 population",88.07,16.43,18.66
+KNA,Saint Kitts and Nevis,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",537.36,23.55,4.38
+LCA,Saint Lucia,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",298.69,22.93,7.68
+LTU,Lithuania,Europe,Northern Europe,2022,"Rate per 100,000 population",176.54,57.3,32.46
+LVA,Latvia,Europe,Northern Europe,2022,"Rate per 100,000 population",171.66,55.29,32.21
+MAC,"China, Macao Special Administrative Region",Asia,Eastern Asia,2022,"Rate per 100,000 population",187.83,63.75,33.94
+MEX,Mexico,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",175.78,36.55,20.79
+MLT,Malta,Europe,Southern Europe,2022,"Rate per 100,000 population",105.83,10.41,9.84
+MNE,Montenegro,Europe,Southern Europe,2022,"Rate per 100,000 population",166.92,29.12,17.45
+NOR,Norway,Europe,Northern Europe,2022,"Rate per 100,000 population",67.57,12.46,18.44
+NZL,New Zealand,Oceania,Australia and New Zealand,2022,"Rate per 100,000 population",155.19,14.89,9.59
+PAN,Panama,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",508.02,108.94,21.44
+PER,Peru,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",273.82,48.8,17.82
+POL,Poland,Europe,Eastern Europe,2022,"Rate per 100,000 population",186.85,5.45,2.92
+PRT,Portugal,Europe,Southern Europe,2022,"Rate per 100,000 population",120.01,34.93,29.11
+ROU,Romania,Europe,Eastern Europe,2022,"Rate per 100,000 population",120.43,5.47,4.54
+SRB,Serbia,Europe,Southern Europe,2022,"Rate per 100,000 population",158.84,30.75,19.36
+SUR,Suriname,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",167.69,21.02,12.54
+SVK,Slovakia,Europe,Eastern Europe,2022,"Rate per 100,000 population",179.77,27.3,15.18
+SVN,Slovenia,Europe,Southern Europe,2022,"Rate per 100,000 population",65.24,6.57,10.07
+SWE,Sweden,Europe,Northern Europe,2022,"Rate per 100,000 population",80.23,34.29,42.74
+THA,Thailand,Asia,South-eastern Asia,2022,"Rate per 100,000 population",377.53,311.96,82.63
+TUR,Türkiye,Asia,Western Asia,2022,"Rate per 100,000 population",392.03,288.98,73.72
+URY,Uruguay,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",463.09,99.21,21.42
+VAT,Holy See,Europe,Southern Europe,2022,"Rate per 100,000 population",0.0,0.0,
+VCT,Saint Vincent and the Grenadines,Americas,Latin America and the Caribbean,2022,"Rate per 100,000 population",552.69,229.31,41.49
+ALB,Albania,Europe,Southern Europe,2023,"Rate per 100,000 population",178.44,54.7,30.66
+ARG,Argentina,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",274.58,45.73,16.66
+AUS,Australia,Oceania,Australia and New Zealand,2023,"Rate per 100,000 population",161.48,37.55,23.25
+AUT,Austria,Europe,Western Europe,2023,"Rate per 100,000 population",99.55,52.85,53.09
+BGR,Bulgaria,Europe,Eastern Europe,2023,"Rate per 100,000 population",81.31,21.28,26.17
+BIH,Bosnia and Herzegovina,Europe,Southern Europe,2023,"Rate per 100,000 population",109.82,16.2,14.75
+BOL,Bolivia (Plurinational State of),Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",235.52,34.08,14.47
+BRB,Barbados,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",276.62,36.48,13.19
+CHL,Chile,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",269.6,144.16,53.47
+COL,Colombia,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",201.08,72.82,36.22
+CRI,Costa Rica,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",312.66,81.62,26.1
+CZE,Czechia,Europe,Eastern Europe,2023,"Rate per 100,000 population",181.03,34.99,19.33
+DEU,Germany,Europe,Western Europe,2023,"Rate per 100,000 population",69.98,3.24,4.63
+ECU,Ecuador,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",173.4,42.55,24.54
+ESP,Spain,Europe,Southern Europe,2023,"Rate per 100,000 population",118.34,30.77,26.0
+EST,Estonia,Europe,Northern Europe,2023,"Rate per 100,000 population",134.66,56.47,41.93
+FIN,Finland,Europe,Northern Europe,2023,"Rate per 100,000 population",52.88,8.86,16.75
+FRA,France,Europe,Western Europe,2023,"Rate per 100,000 population",114.26,72.67,63.6
+GBR_NI,United Kingdom (Northern Ireland),Europe,Northern Europe,2023,"Rate per 100,000 population",93.89,14.89,15.86
+GRC,Greece,Europe,Southern Europe,2023,"Rate per 100,000 population",99.99,39.81,39.82
+GTM,Guatemala,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",133.55,10.02,7.5
+GUY,Guyana,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",276.27,8.47,3.07
+HKG,"China, Hong Kong Special Administrative Region",Asia,Eastern Asia,2023,"Rate per 100,000 population",122.95,43.96,35.76
+HRV,Croatia,Europe,Southern Europe,2023,"Rate per 100,000 population",114.09,11.32,9.92
+HUN,Hungary,Europe,Eastern Europe,2023,"Rate per 100,000 population",185.2,16.28,8.79
+ITA,Italy,Europe,Southern Europe,2023,"Rate per 100,000 population",103.48,69.5,67.16
+JPN,Japan,Asia,Eastern Asia,2023,"Rate per 100,000 population",32.3,5.85,18.11
+KGZ,Kyrgyzstan,Asia,Central Asia,2023,"Rate per 100,000 population",71.32,12.68,17.78
+LCA,Saint Lucia,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",326.3,18.96,5.81
+LTU,Lithuania,Europe,Northern Europe,2023,"Rate per 100,000 population",159.45,53.99,33.86
+LVA,Latvia,Europe,Northern Europe,2023,"Rate per 100,000 population",173.77,53.92,31.03
+MAR,Morocco,Africa,Northern Africa,2023,"Rate per 100,000 population",272.2,16.56,6.08
+MEX,Mexico,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",179.8,35.72,19.87
+MLT,Malta,Europe,Southern Europe,2023,"Rate per 100,000 population",126.09,53.29,42.26
+MNE,Montenegro,Europe,Southern Europe,2023,"Rate per 100,000 population",165.1,14.21,8.6
+NOR,Norway,Europe,Northern Europe,2023,"Rate per 100,000 population",62.18,10.74,17.28
+PER,Peru,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",285.35,49.79,17.45
+POL,Poland,Europe,Eastern Europe,2023,"Rate per 100,000 population",192.21,5.95,3.09
+PRT,Portugal,Europe,Southern Europe,2023,"Rate per 100,000 population",118.12,35.39,29.96
+ROU,Romania,Europe,Eastern Europe,2023,"Rate per 100,000 population",123.7,6.6,5.33
+SRB,Serbia,Europe,Southern Europe,2023,"Rate per 100,000 population",172.75,31.31,18.13
+SUR,Suriname,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",172.69,23.53,13.63
+SVK,Slovakia,Europe,Eastern Europe,2023,"Rate per 100,000 population",176.22,54.17,30.74
+SVN,Slovenia,Europe,Southern Europe,2023,"Rate per 100,000 population",67.88,4.77,7.02
+SWE,Sweden,Europe,Northern Europe,2023,"Rate per 100,000 population",92.39,40.98,44.36
+THA,Thailand,Asia,South-eastern Asia,2023,"Rate per 100,000 population",408.37,210.89,51.64
+TUR,Türkiye,Asia,Western Asia,2023,"Rate per 100,000 population",334.49,252.28,75.42
+VCT,Saint Vincent and the Grenadines,Americas,Latin America and the Caribbean,2023,"Rate per 100,000 population",483.6,63.16,13.06

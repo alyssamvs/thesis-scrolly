@@ -78,33 +78,55 @@ const metricsConfig = {
         type: 'score',
         getData: () => processedLawData,
         getRank: (country) => {
+            if (!processedLawData[country]) return 99;
             const sorted = Object.keys(processedLawData).sort((a, b) => 
                 processedLawData[b].legalPunitiveness - processedLawData[a].legalPunitiveness
             );
             return sorted.indexOf(country) + 1;
         },
-        getValue: (country) => processedLawData[country].legalPunitiveness
+        getValue: (country) => {
+            if (!processedLawData[country]) return 0;
+            return processedLawData[country].legalPunitiveness;
+        }
     },
     'prevalence': {
         title: 'Drug Prevalence',
         type: 'sparkline',
         getData: () => drugPrevalenceData,
-        getRank: (country) => drugPrevalenceData[country].rank,
-        getValue: (country) => drugPrevalenceData[country].timeseries
+        getRank: (country) => {
+            if (!drugPrevalenceData[country]) return 99;
+            return drugPrevalenceData[country].rank;
+        },
+        getValue: (country) => {
+            if (!drugPrevalenceData[country]) return [0,0,0,0,0,0,0,0,0,0,0];
+            return drugPrevalenceData[country].timeseries;
+        }
     },
     'incarceration': {
         title: 'Incarceration Rates',
         type: 'bar',
         getData: () => incarcerationData,
-        getRank: (country) => incarcerationData[country].rank,
-        getValue: (country) => incarcerationData[country].rate
+        getRank: (country) => {
+            if (!incarcerationData[country]) return 99;
+            return incarcerationData[country].rank;
+        },
+        getValue: (country) => {
+            if (!incarcerationData[country]) return 0;
+            return incarcerationData[country].rate;
+        }
     },
     'seizure': {
         title: 'Seizure Rate',
         type: 'sparkline',
         getData: () => seizureData,
-        getRank: (country) => seizureData[country].rank,
-        getValue: (country) => seizureData[country].timeseries
+        getRank: (country) => {
+            if (!seizureData[country]) return 99;
+            return seizureData[country].rank;
+        },
+        getValue: (country) => {
+            if (!seizureData[country]) return [0,0,0,0,0,0,0,0,0,0,0];
+            return seizureData[country].timeseries;
+        }
     }
 };
 
@@ -140,10 +162,15 @@ function calculateLawInBooksIndex() {
     const crimSlider = document.getElementById('rankings-weight-criminalization');
     const penaltySlider = document.getElementById('rankings-weight-penalty');
     
-    // Check if elements exist
-    if (!crimSlider || !penaltySlider) {
-        console.warn('Weight sliders not found');
-        return;
+    // Use default weights (50/50) if sliders don't exist
+    let crimWeight = 0.5;
+    let penaltyWeight = 0.5;
+    
+    if (crimSlider && penaltySlider) {
+        crimWeight = parseInt(crimSlider.value) / 100;
+        penaltyWeight = parseInt(penaltySlider.value) / 100;
+    } else {
+        console.warn('Weight sliders not found, using default 50/50 weights');
     }
     
     const countries = Object.keys(rawData);
@@ -153,8 +180,6 @@ function calculateLawInBooksIndex() {
     const normalizedMaxPoss = normalizeValues(allMaxPoss);
     const normalizedMaxSupply = normalizeValues(allMaxSupply);
 
-    const crimWeight = parseInt(crimSlider.value) / 100;
-    const penaltyWeight = parseInt(penaltySlider.value) / 100;
     const totalWeight = crimWeight + penaltyWeight;
 
     const normCrimWeight = totalWeight > 0 ? crimWeight / totalWeight : 0.5;
@@ -792,9 +817,16 @@ function initRankings() {
     
     console.log('Initializing rankings visualization...');
     
-    updateWeightDisplays();
+    // ALWAYS calculate law data first (uses default weights if sliders missing)
     calculateLawInBooksIndex();
+    
+    // Then try to update displays (will warn if elements missing but won't break)
+    updateWeightDisplays();
+    
+    // Render columns
     renderAllColumns();
+    
+    // Attach event listeners
     initRankingsEventListeners();
     
     console.log('Rankings visualization initialized successfully.');

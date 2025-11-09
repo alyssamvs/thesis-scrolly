@@ -11,15 +11,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="./css/rankings.css" />
+  
   <link rel="stylesheet" href="./css/main.css" />
-
+  <link rel="stylesheet" href="./css/rankings.css" />
   <!-- JS -->
   <script src="https://d3js.org/d3.v7.min.js" defer></script>
   <script src="./javascript/treaty-network.js" defer></script>
   <script src="./javascript/rankings.js" defer></script>
   <script src="./javascript/main.js" defer></script>
-  
+
 </head>   
 </head>
 
@@ -275,153 +275,153 @@
            
         </div>
     </section>
+
 <!-- SECTION 5 - THE STRICTNESS INDEX-->
-    <section class="story-section strictness-index" id="strictness-index">
-        <div class="section-content">
-            <h2 class="section-header">5. The Strictness Index</h2>
+<section class="story-section strictness-index" id="strictness-index">
+    <div class="section-content">
+        <h2 class="section-header">5. The Strictness Index</h2>
 
-            <!-- ADD THIS ENTIRE BLOCK: -->
-        <div class="strictness-rankings-container">
-            <!-- Component Weights Controls -->
-            <div class="controls-section">
-                <h3>Adjust Component Weights (Law in Books Only)</h3>
+        <!-- Isolation wrapper to prevent CSS conflicts -->
+        <div style="all: initial; display: block;">
+            <div class="strictness-rankings-container">
+                <!-- Component Weights Controls -->
+                <div class="controls-section">
+                    <h3>Adjust Component Weights (Law in Books Only)</h3>
             
-            <div class="controls-grid">
-                <div class="component-controls">
-                    <div class="component-header" onclick="toggleComponent('criminalization')">
-                        <span>Criminalization Scope</span>
-                        <div class="component-weight">
-                            <input type="range" 
-                                   id="weight-criminalization" 
-                                   class="slider" 
-                                   min="0" 
-                                   max="100" 
-                                   value="50">
-                            <span id="weight-criminalization-display">50%</span>
-                            <span class="expand-indicator">▼</span>
+                <div class="controls-grid">
+                    <div class="component-controls">
+                        <div class="component-header" onclick="toggleComponent('criminalization')">
+                            <span>Criminalization Scope</span>
+                            <div class="component-weight">
+                                <input type="range" 
+                                       id="rankings-weight-criminalization" 
+                                       class="slider" 
+                                       min="0" 
+                                       max="100" 
+                                       value="50">
+                                <span id="rankings-weight-criminalization-display">50%</span>
+                                <span class="expand-indicator">▼</span>
+                            </div>
+                        </div>
+                        <div id="rankings-variables-criminalization" class="variable-controls">
+                            <div class="variable-item">
+                                <span>Use Criminalized</span>
+                                <div class="variable-weight">
+                                    <input type="range" 
+                                           class="variable-slider" 
+                                           data-component="criminalization"
+                                           min="0" 
+                                           max="100" 
+                                           value="33.3">
+                                    <span>16.7%</span>
+                                </div>
+                            </div>
+                            <div class="variable-item">
+                                <span>Possession Criminalized</span>
+                                <div class="variable-weight">
+                                    <input type="range" 
+                                           class="variable-slider" 
+                                           data-component="criminalization"
+                                           min="0" 
+                                           max="100" 
+                                           value="33.3">
+                                    <span>16.7%</span>
+                                </div>
+                            </div>
+                            <div class="variable-item">
+                                <span>No Personal Use Exemption</span>
+                                <div class="variable-weight">
+                                    <input type="range" 
+                                           class="variable-slider" 
+                                           data-component="criminalization"
+                                           min="0" 
+                                           max="100" 
+                                           value="33.3">
+                                    <span>16.7%</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div id="variables-criminalization" class="variable-controls">
-                        <div class="variable-item">
-                            <span>Use Criminalized</span>
-                            <div class="variable-weight">
+
+                    <div class="component-controls">
+                        <div class="component-header" onclick="toggleComponent('penalty')">
+                            <span>Penalty Severity</span>
+                            <div class="component-weight">
                                 <input type="range" 
-                                       class="variable-slider" 
-                                       data-component="criminalization"
+                                       id="rankings-weight-penalty" 
+                                       class="slider" 
                                        min="0" 
                                        max="100" 
-                                       value="33.3">
-                                <span>16.7%</span>
+                                       value="50">
+                                <span id="rankings-weight-penalty-display">50%</span>
+                                <span class="expand-indicator">▼</span>
                             </div>
                         </div>
-                        <div class="variable-item">
-                            <span>Possession Criminalized</span>
-                            <div class="variable-weight">
-                                <input type="range" 
-                                       class="variable-slider" 
-                                       data-component="criminalization"
-                                       min="0" 
-                                       max="100" 
-                                       value="33.3">
-                                <span>16.7%</span>
+                        <div id="rankings-variables-penalty" class="variable-controls">
+                            <div class="variable-item">
+                                <span>Max Possession Penalty</span>
+                                <div class="variable-weight">
+                                    <input type="range" 
+                                           class="variable-slider" 
+                                           data-component="penalty"
+                                           min="0" 
+                                           max="100" 
+                                           value="33.3">
+                                    <span>16.7%</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="variable-item">
-                            <span>No Personal Use Exemption</span>
-                            <div class="variable-weight">
-                                <input type="range" 
-                                       class="variable-slider" 
-                                       data-component="criminalization"
-                                       min="0" 
-                                       max="100" 
-                                       value="33.3">
-                                <span>16.7%</span>
+                            <div class="variable-item">
+                                <span>Max Supply Penalty</span>
+                                <div class="variable-weight">
+                                    <input type="range" 
+                                           class="variable-slider" 
+                                           data-component="penalty"
+                                           min="0" 
+                                           max="100" 
+                                           value="33.3">
+                                    <span>16.7%</span>
+                                </div>
+                            </div>
+                            <div class="variable-item">
+                                <span>Mandatory Minimums</span>
+                                <div class="variable-weight">
+                                    <input type="range" 
+                                           class="variable-slider" 
+                                           data-component="penalty"
+                                           min="0" 
+                                           max="100" 
+                                           value="33.3">
+                                    <span>16.7%</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="component-controls">
-                    <div class="component-header" onclick="toggleComponent('penalty')">
-                        <span>Penalty Severity</span>
-                        <div class="component-weight">
-                            <input type="range" 
-                                   id="weight-penalty" 
-                                   class="slider" 
-                                   min="0" 
-                                   max="100" 
-                                   value="50">
-                            <span id="weight-penalty-display">50%</span>
-                            <span class="expand-indicator">▼</span>
-                        </div>
-                    </div>
-                    <div id="variables-penalty" class="variable-controls">
-                        <div class="variable-item">
-                            <span>Max Possession Penalty</span>
-                            <div class="variable-weight">
-                                <input type="range" 
-                                       class="variable-slider" 
-                                       data-component="penalty"
-                                       min="0" 
-                                       max="100" 
-                                       value="33.3">
-                                <span>16.7%</span>
-                            </div>
-                        </div>
-                        <div class="variable-item">
-                            <span>Max Supply Penalty</span>
-                            <div class="variable-weight">
-                                <input type="range" 
-                                       class="variable-slider" 
-                                       data-component="penalty"
-                                       min="0" 
-                                       max="100" 
-                                       value="33.3">
-                                <span>16.7%</span>
-                            </div>
-                        </div>
-                        <div class="variable-item">
-                            <span>Mandatory Minimums</span>
-                            <div class="variable-weight">
-                                <input type="range" 
-                                       class="variable-slider" 
-                                       data-component="penalty"
-                                       min="0" 
-                                       max="100" 
-                                       value="33.3">
-                                <span>16.7%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <button class="reset-button" onclick="resetWeights()">Reset to Default Weights</button>
             </div>
 
-            <button class="reset-button" onclick="resetWeights()">Reset to Default Weights</button>
-        </div>
-    </div>
             <!-- Mobile Column Selector -->
-            <div class="mobile-column-selector" id="mobile-selector">
+            <div class="mobile-column-selector" id="rankings-mobile-selector">
                 <!-- Will be populated dynamically -->
             </div>
 
             <!-- Unified Rankings Container -->
             <div class="rankings-container">
-                <canvas id="connection-canvas"></canvas>
+                <canvas id="rankings-canvas"></canvas>
                 <div class="rankings-grid" id="rankings-grid">
                     <!-- Columns will be populated dynamically -->
                 </div>
             </div>
 
             <!-- Tooltip -->
-            <div class="tooltip" id="tooltip"></div>
-        
+            <div class="tooltip" id="rankings-tooltip"></div>
+        </div>
+        </div> <!-- End isolation wrapper -->
         
     </div>
 </section>
             
-        </div>
-    </section>
-
 <!-- SECTION 6 - DASHBOARD -->
     <!-- Dashboard Section -->
     <section class="dashboard" id="dashboard">
