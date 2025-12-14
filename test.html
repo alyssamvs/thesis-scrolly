@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesis Timeline Gantt Chart</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: white;
+        }
+        #chart {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+    <script>
+        // A5 landscape dimensions in pixels at 300 DPI for print
+        const width = 1748;
+        const height = 1240;
+        const margin = {top: 80, right: 60, bottom: 60, left: 180};
+        const chartWidth = width - margin.left - margin.right;
+        const chartHeight = height - margin.top - margin.bottom;
+
+        // Neutral academic color palette
+        const colors = {
+            precondition: '#8B9DC3',  // muted blue
+            core: '#7A9E7E',          // muted green
+            analysis: '#B8956A',      // muted tan
+            learn: '#E8E8E8',         // very light gray for background
+            deploy: '#D4A574',        // slightly darker tan for deploy instances
+            gridLine: '#E0E0E0',
+            text: '#333333',
+            sectionBg: '#F8F8F8'
+        };
+
+        // Define timeline
+        const startDate = new Date(2025, 0, 1);  // Jan 2025
+        const endDate = new Date(2025, 10, 30);  // Nov 2025
+
+        // Define phases with their timelines
+        const phases = [
+            // Pre-condition
+            { name: 'Learn', section: 'Pre-condition', start: new Date(2025, 0, 1), end: new Date(2025, 10, 30), color: colors.learn, isBackground: true },
+            { name: 'Winnow', section: 'Pre-condition', start: new Date(2025, 0, 1), end: new Date(2025, 2, 31), color: colors.precondition },
+            { name: 'Cast', section: 'Pre-condition', start: new Date(2025, 0, 1), end: new Date(2025, 2, 31), color: colors.precondition },
+            
+            // Core
+            { name: 'Discover', section: 'Core', start: new Date(2025, 1, 1), end: new Date(2025, 7, 31), color: colors.core },
+            { name: 'Design', section: 'Core', start: new Date(2025, 3, 1), end: new Date(2025, 10, 30), color: colors.core },
+            { name: 'Implement', section: 'Core', start: new Date(2025, 4, 1), end: new Date(2025, 10, 30), color: colors.core },
+            { name: 'Deploy', section: 'Core', start: new Date(2025, 2, 1), end: new Date(2025, 2, 15), color: colors.deploy, isDeploy: true },
+            { name: 'Deploy', section: 'Core', start: new Date(2025, 4, 1), end: new Date(2025, 4, 15), color: colors.deploy, isDeploy: true },
+            { name: 'Deploy', section: 'Core', start: new Date(2025, 6, 1), end: new Date(2025, 6, 15), color: colors.deploy, isDeploy: true },
+            { name: 'Deploy', section: 'Core', start: new Date(2025, 8, 1), end: new Date(2025, 8, 15), color: colors.deploy, isDeploy: true },
+            { name: 'Deploy', section: 'Core', start: new Date(2025, 10, 1), end: new Date(2025, 10, 15), color: colors.deploy, isDeploy: true },
+            
+            // Analysis
+            { name: 'Reflect', section: 'Analysis', start: new Date(2025, 9, 1), end: new Date(2025, 10, 30), color: colors.analysis },
+            { name: 'Write', section: 'Analysis', start: new Date(2025, 9, 1), end: new Date(2025, 10, 30), color: colors.analysis }
+        ];
+
+        // Group phases by section for layout
+        const sections = ['Pre-condition', 'Core', 'Analysis'];
+        const phasesGrouped = sections.map(section => ({
+            section: section,
+            phases: phases.filter(p => p.section === section && !p.isBackground)
+        }));
+
+        // Create SVG
+        const svg = d3.select('#chart')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .attr('xmlns', 'http://www.w3.org/2000/svg');
+
+        const g = svg.append('g')
+            .attr('transform', `translate(${margin.left},${margin.top})`);
+
+        // Time scale
+        const xScale = d3.scaleTime()
+            .domain([startDate, endDate])
+            .range([0, chartWidth]);
+
+        // Calculate row positions
+        let currentY = 0;
+        const rowHeight = 32;
+        const sectionGap = 20;
+        const sectionHeaderHeight = 28;
+        
+        const rowPositions = [];
+        phasesGrouped.forEach((section, sectionIdx) => {
+            if (sectionIdx > 0) currentY += sectionGap;
+            
+            const sectionStartY = currentY;
+            currentY += sectionHeaderHeight;
+            
+            section.phases.forEach(phase => {
+                rowPositions.push({
+                    phase: phase,
+                    y: currentY,
+                    section: section.section,
+                    sectionStartY: sectionStartY
+                });
+                currentY += rowHeight;
+            });
+        });
+
+        // Draw section backgrounds
+        const sectionHeights = {};
+        phasesGrouped.forEach((section, idx) => {
+            const sectionRows = rowPositions.filter(r => r.section === section.section);
+            const startY = sectionRows[0].sectionStartY;
+            const endY = sectionRows[sectionRows.length - 1].y + rowHeight;
+            sectionHeights[section.section] = { startY, endY };
+            
+            g.append('rect')
+                .attr('x', -margin.left + 10)
+                .attr('y', startY)
+                .attr('width', chartWidth + margin.left + margin.right - 20)
+                .attr('height', endY - startY)
+                .attr('fill', idx % 2 === 0 ? colors.sectionBg : 'white')
+                .attr('stroke', 'none');
+        });
+
+        // Draw Learn as background bar across entire timeline
+        const learnPhase = phases.find(p => p.isBackground);
+        g.append('rect')
+            .attr('x', xScale(learnPhase.start))
+            .attr('y', 0)
+            .attr('width', xScale(learnPhase.end) - xScale(learnPhase.start))
+            .attr('height', currentY)
+            .attr('fill', learnPhase.color)
+            .attr('opacity', 0.3)
+            .attr('stroke', '#D0D0D0')
+            .attr('stroke-width', 1)
+            .attr('stroke-dasharray', '3,3');
+
+        // Draw section labels
+        phasesGrouped.forEach(section => {
+            const sectionInfo = sectionHeights[section.section];
+            g.append('text')
+                .attr('x', -margin.left + 20)
+                .attr('y', sectionInfo.startY + 18)
+                .attr('font-size', '11px')
+                .attr('font-weight', '600')
+                .attr('fill', colors.text)
+                .attr('text-transform', 'uppercase')
+                .attr('letter-spacing', '0.5px')
+                .text(section.section);
+        });
+
+        // Month axis at top
+        const monthTicks = d3.timeMonths(startDate, d3.timeMonth.offset(endDate, 1));
+        const xAxis = g.append('g')
+            .attr('transform', `translate(0, -30)`);
+
+        xAxis.selectAll('line')
+            .data(monthTicks)
+            .enter()
+            .append('line')
+                .attr('x1', d => xScale(d))
+                .attr('x2', d => xScale(d))
+                .attr('y1', 0)
+                .attr('y2', currentY + 30)
+                .attr('stroke', colors.gridLine)
+                .attr('stroke-width', 1);
+
+        xAxis.selectAll('text')
+            .data(monthTicks)
+            .enter()
+            .append('text')
+                .attr('x', d => xScale(d) + (xScale(d3.timeMonth.offset(d, 1)) - xScale(d)) / 2)
+                .attr('y', 15)
+                .attr('text-anchor', 'middle')
+                .attr('font-size', '10px')
+                .attr('fill', colors.text)
+                .text(d => d3.timeFormat('%b')(d));
+
+        // Draw phase bars
+        rowPositions.forEach(row => {
+            const phase = row.phase;
+            const barHeight = phase.isDeploy ? 8 : 20;
+            const yOffset = phase.isDeploy ? (rowHeight - barHeight) / 2 : (rowHeight - barHeight) / 2;
+
+            g.append('rect')
+                .attr('x', xScale(phase.start))
+                .attr('y', row.y + yOffset)
+                .attr('width', xScale(phase.end) - xScale(phase.start))
+                .attr('height', barHeight)
+                .attr('fill', phase.color)
+                .attr('opacity', phase.isDeploy ? 0.8 : 0.9)
+                .attr('rx', 2);
+        });
+
+        // Draw phase labels
+        rowPositions.forEach(row => {
+            const phase = row.phase;
+            g.append('text')
+                .attr('x', -10)
+                .attr('y', row.y + rowHeight / 2)
+                .attr('text-anchor', 'end')
+                .attr('alignment-baseline', 'middle')
+                .attr('font-size', '10px')
+                .attr('fill', colors.text)
+                .text(phase.name);
+        });
+
+        // Draw Learn label on the left
+        g.append('text')
+            .attr('x', -10)
+            .attr('y', -10)
+            .attr('text-anchor', 'end')
+            .attr('font-size', '10px')
+            .attr('fill', colors.text)
+            .attr('font-style', 'italic')
+            .attr('opacity', 0.7)
+            .text('Learn (continuous)');
+
+        // Title
+        svg.append('text')
+            .attr('x', width / 2)
+            .attr('y', 40)
+            .attr('text-anchor', 'middle')
+            .attr('font-size', '14px')
+            .attr('font-weight', '600')
+            .attr('fill', colors.text)
+            .text('Thesis Project Timeline (Jan–Nov 2025)');
+
+    </script>
+</body>
+</html>
