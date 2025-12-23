@@ -55,7 +55,7 @@ treatyViz.config = config;
 
 // Load data 
 Promise.all([
-    d3.json('./data/tooltip_data_template.json'),
+    d3.json('./data/treaties_tooltip.json'),
     d3.csv('./data/drug_regulations_shortened_keys.csv')
 ]).then(([tooltipData, relationships]) => {
     console.log('Data loaded:', Object.keys(tooltipData).length, 'nodes');
@@ -69,7 +69,7 @@ Promise.all([
 }).catch(error => {
     console.error('Error loading data:', error);
     console.log('Make sure data files are in ./data/ folder:');
-    console.log('- ./data/tooltip_data_template.json');
+    console.log('- ./data/treaties_tooltip.json');
     console.log('- ./data/drug_regulations_shortened_keys.csv');
 });
 

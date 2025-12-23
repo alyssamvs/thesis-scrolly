@@ -38,9 +38,9 @@
 }
 
 .strictness-rankings-container .controls-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -376,22 +376,23 @@
 }
 
 /* ============================================
-   TOOLTIP
+   COMPACT TOOLTIP WITH DATA COMPLETENESS
+   Replace existing tooltip styles in rankings.css
    ============================================ */
 
-.strictness-rankings-container .tooltip {
+   .strictness-rankings-container .tooltip {
     position: fixed;
     background: #fff;
     border: 2px solid #000;
-    padding: 1rem;
+    padding: 0;
     display: none;
     z-index: 1000;
-    max-width: 350px;
+    min-width: 280px;
+    max-width: 320px;
     box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
     font-family: "Readex Pro", "Helvetica", Arial, sans-serif !important;
-    line-height: 1.6 !important;
     color: #000 !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
 }
 
 .strictness-rankings-container .tooltip * {
@@ -403,52 +404,74 @@
     display: block;
 }
 
+/* Compact header with country name and overall completeness */
 .strictness-rankings-container .tooltip-header {
-    font-weight: bold;
-    font-size: 1.1rem !important;
-    margin-bottom: 0.8rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #000;
-    color: #000 !important;
-}
-
-.strictness-rankings-container .tooltip-section {
-    margin-bottom: 0.8rem;
-}
-
-.strictness-rankings-container .tooltip-section-title {
-    font-weight: bold;
-    font-size: 0.9rem !important;
-    margin-bottom: 0.3rem;
-    color: #000 !important;
-}
-
-.strictness-rankings-container .tooltip-metric {
     display: flex;
     justify-content: space-between;
-    font-size: 0.85rem !important;
-    padding: 0.2rem 0;
-    color: #000 !important;
-}
-
-.strictness-rankings-container .tooltip-metric span {
-    color: #000 !important;
-}
-
-.strictness-rankings-container .tooltip-bar {
-    width: 60px;
-    height: 8px;
-    border: 1px solid #000;
-    background: #fff;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.strictness-rankings-container .tooltip-bar-fill {
-    height: 100%;
+    align-items: center;
+    padding: 0.6rem 0.75rem;
     background: #000;
+    color: #fff !important;
+    border-bottom: 2px solid #000;
 }
+
+.strictness-rankings-container .tooltip-header strong {
+    font-size: 0.95rem !important;
+    font-weight: 600;
+    color: #fff !important;
+}
+
+.strictness-rankings-container .completeness-badge {
+    font-size: 0.75rem !important;
+    background: #fff;
+    color: #000 !important;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+/* Compact metric rows - single line with three columns */
+.strictness-rankings-container .tooltip-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #eee;
+    font-size: 0.8rem !important;
+}
+
+.strictness-rankings-container .tooltip-row:last-of-type {
+    border-bottom: none;
+}
+
+.strictness-rankings-container .tooltip-metric-name {
+    font-weight: 500;
+    color: #000 !important;
+}
+
+.strictness-rankings-container .tooltip-rank {
+    font-weight: 600;
+    color: #000 !important;
+    white-space: nowrap;
+}
+
+.strictness-rankings-container .tooltip-completeness {
+    font-size: 0.75rem !important;
+    color: #666 !important;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Detail text (optional additional info) */
+.strictness-rankings-container .tooltip-detail {
+    font-size: 0.75rem !important;
+    color: #666 !important;
+    padding: 0 0.75rem 0.5rem 0.75rem;
+    line-height: 1.3;
+    margin-top: -0.25rem;
+}
+
 
 /* ============================================
    MOBILE COLUMN SELECTOR
@@ -540,6 +563,154 @@
 }
 
 /* ============================================
+   TIME-SERIES CONTROLS
+   ============================================ */
+
+   .timeseries-controls-section {
+    border: 2px solid #000;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background: #f9f9f9;
+}
+
+.timeseries-controls-section h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.controls-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+/* SLIDER STYLES */
+.timeseries-slider-control {
+    margin-bottom: 1.5rem;
+}
+
+.timeseries-slider-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+#timeseries-range-display {
+    color: #000;
+    font-weight: bold;
+}
+
+.timeseries-slider {
+    width: 100%;
+    height: 6px;
+    background: #ddd;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.timeseries-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #000;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.timeseries-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: #000;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.timeseries-slider::-webkit-slider-thumb:hover {
+    background: #333;
+    transform: scale(1.1);
+}
+
+.timeseries-slider::-moz-range-thumb:hover {
+    background: #333;
+    transform: scale(1.1);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* MODE TOGGLE BUTTONS */
+.timeseries-mode-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.timeseries-mode-control label {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.mode-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.mode-btn {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #000;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.mode-btn:hover {
+    background: #f0f0f0;
+}
+
+.mode-btn.active {
+    background: #000;
+    color: #fff;
+}
+
+.mode-btn:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .timeseries-controls-section {
+        padding: 1rem;
+    }
+    
+    .mode-buttons {
+        flex-direction: column;
+    }
+    
+    .mode-btn {
+        width: 100%;
+    }
+}
+
+/* ============================================
    SCROLL ANIMATION (Optional)
    ============================================ */
 
@@ -553,3 +724,784 @@
     opacity: 1;
     transform: translateY(0);
 } */
+
+/* ============================================
+   SIDEBAR LAYOUT - ADDITIONS ONLY
+   Append to END of rankings.css
+   ============================================ */
+
+/* Layout wrapper */
+.strictness-rankings-container .rankings-layout-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Sidebar - fixed width on left */
+.strictness-rankings-container .rankings-sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+}
+
+/* Main area - takes remaining space */
+.strictness-rankings-container .rankings-main-area {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Stack sections in sidebar vertically */
+.strictness-rankings-container .rankings-sidebar > * {
+    margin-bottom: 1.5rem;
+}
+
+.strictness-rankings-container .rankings-sidebar > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive - stack on smaller screens */
+@media (max-width: 1200px) {
+    .strictness-rankings-container .rankings-layout-wrapper {
+        flex-direction: column;
+    }
+    
+    .strictness-rankings-container .rankings-sidebar {
+        width: 100%;
+        position: static;
+    }
+}
+
+
+/* ============================================
+   FIT TO VIEWPORT - NO SCROLLING
+   ============================================ */
+
+/* Make layout wrapper fit viewport minus header */
+.strictness-rankings-container .rankings-layout-wrapper {
+    height: calc(100vh - 120px); /* Adjust 120px to your header height */
+    display: flex;
+    gap: 2rem;
+    align-items: stretch; /* Changed from flex-start */
+}
+
+/* Sidebar - fixed width, no scrolling */
+.strictness-rankings-container .rankings-sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: visible; /* No scrolling */
+}
+
+/* Make controls compact to fit */
+.strictness-rankings-container .rankings-sidebar .timeseries-controls-section,
+.strictness-rankings-container .rankings-sidebar .controls-section {
+    flex-shrink: 1;
+    min-height: 0;
+}
+
+/* Main area - fills remaining space, no scrolling */
+.strictness-rankings-container .rankings-main-area {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: visible; /* No scrolling */
+}
+
+/* Rankings container fills available height */
+.strictness-rankings-container .rankings-container {
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid #000;
+    margin-bottom: 0;
+    position: relative;
+    overflow: visible; /* No scrolling */
+}
+
+/* Rankings grid fills container */
+.strictness-rankings-container .rankings-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+    height: 100%;
+    overflow: visible; /* No scrolling */
+}
+
+/* Ranking columns fill height */
+.strictness-rankings-container .ranking-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid #000;
+    overflow: visible; /* No scrolling */
+}
+
+/* Column header - compact */
+.strictness-rankings-container .column-header {
+    flex-shrink: 0;
+    padding: 0.5rem;
+    border-bottom: 1px solid #000;
+}
+
+/* Column content fills remaining space */
+.strictness-rankings-container .ranking-column > div:last-child {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: visible; /* No scrolling */
+}
+
+/* Country rows - compact to fit all 12 */
+.strictness-rankings-container .country-row {
+    padding: 0.35rem 0.4rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 1;
+}
+
+/* Smaller fonts to fit everything */
+.strictness-rankings-container .country-name {
+    font-size: 0.8rem;
+}
+
+.strictness-rankings-container .rank-number {
+    font-size: 0.8rem;
+    min-width: 20px;
+}
+
+/* Compact sparklines */
+.strictness-rankings-container .sparkline-container {
+    width: 70px;
+    height: 20px;
+}
+
+/* Compact controls in sidebar */
+.strictness-rankings-container .controls-section {
+    padding: 1rem;
+    margin-bottom: 0;
+}
+
+.strictness-rankings-container .timeseries-controls-section {
+    padding: 1rem;
+    margin-bottom: 0;
+}
+
+.strictness-rankings-container .controls-section h3,
+.strictness-rankings-container .timeseries-controls-section h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.strictness-rankings-container .controls-description {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Compact component controls */
+.strictness-rankings-container .component-header {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.strictness-rankings-container .variable-controls {
+    padding: 0.3rem;
+    margin-left: 0.3rem;
+}
+
+.strictness-rankings-container .variable-item {
+    font-size: 0.75rem;
+    margin-bottom: 0.2rem;
+}
+
+/* Compact sliders */
+.strictness-rankings-container .timeseries-slider-control {
+    margin-bottom: 0.75rem;
+}
+
+.strictness-rankings-container .timeseries-slider-control label {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+}
+
+.strictness-rankings-container .slider-labels {
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+}
+
+/* Compact mode dropdown */
+.strictness-rankings-container .timeseries-mode-control {
+    gap: 0.3rem;
+}
+
+.strictness-rankings-container .timeseries-mode-control label {
+    font-size: 0.85rem;
+}
+
+.strictness-rankings-container .timeseries-mode-select {
+    padding: 0.4rem;
+    font-size: 0.85rem;
+}
+
+/* Compact reset button */
+.strictness-rankings-container .reset-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* Responsive - maintain no-scroll behavior */
+@media (max-width: 1200px) {
+    .strictness-rankings-container .rankings-layout-wrapper {
+        flex-direction: column;
+        height: auto; /* Allow natural flow on mobile */
+    }
+    
+    .strictness-rankings-container .rankings-sidebar {
+        width: 100%;
+        height: auto;
+    }
+    
+    .strictness-rankings-container .rankings-main-area {
+        height: auto;
+    }
+    
+    .strictness-rankings-container .rankings-container {
+        height: 600px; /* Fixed height on mobile */
+    }
+}
+
+
+
+
+/* ============================================
+   DUAL SPARKLINES
+   ============================================ */
+
+/* Container for both sparklines */
+.strictness-rankings-container .sparkline-dual-container {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+/* Individual sparkline containers - slightly smaller */
+.strictness-rankings-container .sparkline-dual-container .sparkline-container {
+    width: 60px;  /* Smaller to fit both */
+    height: 20px;
+    position: relative;
+}
+
+/* Add visual separation */
+.strictness-rankings-container .sparkline-dual-container .sparkline-container:first-child::after {
+    content: '|';
+    position: absolute;
+    right: -0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 1rem;
+}
+
+/* Hover states for tooltips */
+.strictness-rankings-container .sparkline-dual-container .sparkline-container:hover {
+    background: #f9f9f9;
+    outline: 1px solid #000;
+}
+
+/* Adjust for compact mode */
+@media (max-width: 1400px) {
+    .strictness-rankings-container .sparkline-dual-container .sparkline-container {
+        width: 50px;  /* Even smaller on smaller screens */
+        height: 18px;
+    }
+}
+
+/* CHANGE 1: ORDER ALL CHECKBOX SECTION */
+.strictness-rankings-container .order-all-section {
+    border: 2px solid #000;
+    padding: 1rem;
+    background: #fff;
+}
+
+.strictness-rankings-container .order-all-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.strictness-rankings-container .order-all-control:hover {
+    background: #f9f9f9;
+}
+
+.strictness-rankings-container .order-all-control.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.strictness-rankings-container .order-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.strictness-rankings-container .order-checkbox.checked::after {
+    content: '✓';
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* CHANGE 2: Remove old mode button styles - DELETED */
+/* The .mode-btn, .mode-buttons, .timeseries-mode-control styles have been removed */
+
+/* Keep only the timeseries controls that we're still using */
+.timeseries-controls-section {
+    border: 2px solid #000;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: #f9f9f9;
+}
+
+.timeseries-controls-section h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.controls-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+/* SLIDER STYLES */
+.timeseries-slider-control {
+    margin-bottom: 0; /* Remove bottom margin since mode buttons are gone */
+}
+
+.timeseries-slider-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+#timeseries-range-display {
+    color: #000;
+    font-weight: bold;
+}
+
+.timeseries-slider {
+    width: 100%;
+    height: 6px;
+    background: #ddd;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.timeseries-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #000;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.timeseries-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: #000;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.timeseries-slider::-webkit-slider-thumb:hover {
+    background: #333;
+    transform: scale(1.1);
+}
+
+.timeseries-slider::-moz-range-thumb:hover {
+    background: #333;
+    transform: scale(1.1);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .strictness-rankings-container .timeseries-controls-section {
+        padding: 1rem;
+    }
+    
+    .strictness-rankings-container .order-all-section {
+        padding: 0.75rem;
+    }
+    
+    .strictness-rankings-container .order-all-control {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Compact mode adjustments */
+.strictness-rankings-container .timeseries-controls-section {
+    padding: 1rem;
+    margin-bottom: 0;
+}
+
+.strictness-rankings-container .timeseries-controls-section h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.strictness-rankings-container .controls-description {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.strictness-rankings-container .timeseries-slider-control {
+    margin-bottom: 0;
+}
+
+.strictness-rankings-container .timeseries-slider-control label {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+}
+
+.strictness-rankings-container .slider-labels {
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+}
+
+.strictness-rankings-container .order-all-section {
+    padding: 0.75rem;
+}
+
+.strictness-rankings-container .order-all-control {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+}
+
+
+
+/* ============================================
+   FIXES FOR RANKINGS LAYOUT ISSUES
+   Append these to the END of rankings.css
+   ============================================ */
+
+/* FIX 1: Make content fit properly within existing row sizes */
+
+/* Keep row sizes as they were, but improve internal alignment */
+.strictness-rankings-container .country-row {
+    padding: 0.5rem 0.4rem; /* Balanced padding */
+    min-height: 40px; /* Consistent height across all columns */
+    display: flex;
+    align-items: center; /* Vertically center all content */
+    gap: 0.5rem; /* Consistent spacing between elements */
+    margin-bottom: 0.2rem;
+}
+
+/* Ensure rank number aligns properly */
+.strictness-rankings-container .rank-number {
+    font-size: 0.9rem;
+    min-width: 24px;
+    font-weight: 600;
+    line-height: 1; /* Prevent extra line height */
+    flex-shrink: 0;
+}
+
+/* Country name should be vertically centered */
+.strictness-rankings-container .country-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.2; /* Controlled line height */
+    flex: 1;
+    display: flex;
+    align-items: center; /* Vertically center text */
+}
+
+/* Score displays (Law in Books) - vertically centered */
+.strictness-rankings-container .score-display {
+    font-weight: bold;
+    font-size: 0.95rem;
+    line-height: 1; /* Remove extra spacing */
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Metric visualization container - ensure vertical centering */
+.strictness-rankings-container .metric-visualization {
+    margin-left: auto;
+    display: flex;
+    align-items: center; /* Vertically center sparklines/bars */
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Sparklines - fit within row height */
+.strictness-rankings-container .sparkline-container {
+    width: 85px;
+    height: 28px; /* Fits within 40px row with padding */
+    display: flex;
+    align-items: center;
+}
+
+/* Bars - fit within row height */
+.strictness-rankings-container .bar-container {
+    width: 85px;
+    height: 14px; /* Fits within row */
+    border: 1px solid #000;
+    background: #fff;
+    position: relative;
+}
+
+/* Column content fills space evenly */
+.strictness-rankings-container .ranking-column > div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Even distribution */
+}
+
+/* Make sure rankings container uses available space */
+.strictness-rankings-container .rankings-container {
+    height: calc(100vh - 140px);
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grid should fill container */
+.strictness-rankings-container .rankings-grid {
+    flex: 1;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+    align-content: stretch; /* Fill vertical space */
+}
+
+
+/* FIX 2: Add left margin to sidebar to match right edge gap */
+
+.strictness-rankings-container .rankings-sidebar {
+    margin-left: 2rem; /* Match the gap: 2rem between sidebar and main area */
+}
+
+/* On smaller screens where sidebar goes full width */
+@media (max-width: 1200px) {
+    .strictness-rankings-container .rankings-sidebar {
+        margin-left: 0; /* Remove left margin when stacked */
+    }
+}
+
+
+/* ============================================
+   ADJUSTMENTS TO COMPACT SETTINGS
+   ============================================ */
+
+/* Make controls slightly larger for readability */
+.strictness-rankings-container .timeseries-controls-section,
+.strictness-rankings-container .controls-section {
+    padding: 1rem;
+}
+
+.strictness-rankings-container .controls-section h3,
+.strictness-rankings-container .timeseries-controls-section h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+}
+
+.strictness-rankings-container .controls-description {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.strictness-rankings-container .component-header {
+    padding: 0.4rem;
+    font-size: 0.85rem;
+}
+
+.strictness-rankings-container .variable-item {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.strictness-rankings-container .column-header {
+    padding: 0.6rem;
+    margin-bottom: 0.8rem;
+}
+
+.strictness-rankings-container .metric-selector {
+    font-size: 1rem;
+    padding: 0.5rem 0.7rem;
+}
+
+
+
+
+
+/* ============================================
+   FLAGS AND INFO BUTTONS
+   Append to rankings.css
+   ============================================ */
+
+/* Country flags */
+.strictness-rankings-container .country-flag {
+    margin-right: 0.6rem;
+    font-size: 1.3em;
+    line-height: 1;
+}
+
+/* Info buttons - column headers */
+.strictness-rankings-container .info-btn {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid #000;
+    background: #fff;
+    border-radius: 50%;
+    cursor: help;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 0.3rem;
+}
+
+.strictness-rankings-container .info-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Info buttons - sidebar headers */
+.strictness-rankings-container .sidebar-info-btn {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #000;
+    background: #fff;
+    border-radius: 50%;
+    cursor: help;
+    font-size: 0.7rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+}
+
+.strictness-rankings-container .sidebar-info-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Info tooltip */
+.info-tooltip {
+    position: fixed;
+    background: #fff;
+    border: 2px solid #000;
+    padding: 0.75rem;
+    display: none;
+    z-index: 2000;
+    max-width: 320px;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+    font-family: "Readex Pro", "Helvetica", Arial, sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #000;
+}
+
+.info-tooltip.visible {
+    display: block;
+}
+
+.info-tooltip strong {
+    color: #000;
+    font-weight: 600;
+}
+
+.info-tooltip br {
+    content: "";
+    display: block;
+    margin: 0.4rem 0;
+}
+
+/* Adjust column header to accommodate info button */
+.strictness-rankings-container .column-top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Make sidebar h3 a flex container for info buttons */
+.strictness-rankings-container .timeseries-controls-section h3,
+.strictness-rankings-container .controls-section h3 {
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .strictness-rankings-container .country-flag {
+        font-size: 1em;
+        margin-right: 0.3rem;
+    }
+    
+    .strictness-rankings-container .info-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 0.75rem;
+    }
+    
+    .strictness-rankings-container .sidebar-info-btn {
+        width: 16px;
+        height: 16px;
+        font-size: 0.65rem;
+    }
+    
+    .info-tooltip {
+        max-width: 280px;
+        font-size: 0.75rem;
+        padding: 0.6rem;
+    }
+}
+
+
+

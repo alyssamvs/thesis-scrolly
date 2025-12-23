@@ -7,6 +7,45 @@
 // DATA STRUCTURES
 // ============================================
 
+// Seizure data variables
+let rawSeizureData = [];
+let processedSeizureData = {};
+
+// Prevalence data variables
+let rawPrevalenceData = [];
+let processedPrevalenceData = {};
+
+// Prisoners data variables
+let rawPrisonersData = [];
+let processedPrisonersData = {};
+
+// Country name mapping
+const countryNameMapping = {
+    'United States of America': 'USA',
+    'Bolivia (Plurinational State of)': 'Bolivia',
+    'Netherlands (Kingdom of the)': 'Netherlands'
+};
+
+// Country flag emojis
+const countryFlags = {
+    'France': '🇫🇷',
+    'Greece': '🇬🇷',
+    'Netherlands': '🇳🇱',
+    'Portugal': '🇵🇹',
+    'Spain': '🇪🇸',
+    'Sweden': '🇸🇪',
+    'Peru': '🇵🇪',
+    'Colombia': '🇨🇴',
+    'USA': '🇺🇸',
+    'Bolivia': '🇧🇴',
+    'Brazil': '🇧🇷',
+    'Belgium': '🇧🇪'
+};
+
+// For all time-series metrics
+let timeSeriesTimeRange = 3;
+let timeSeriesCalculationMode = 'average';
+
 // Law in Books - Raw data
 const rawData = {
     'France': {use: 'Yes', possession: 'Yes', maxPoss: 1, personalExempt: 'No', maxSupply: 5, mandatory: 'No'},
@@ -23,59 +62,352 @@ const rawData = {
     'Belgium': {use: 'No', possession: 'Yes', maxPoss: 5, personalExempt: 'No', maxSupply: 20, mandatory: 'No'}
 };
 
-// Drug Prevalence (placeholder data - 2010-2020)
-const drugPrevalenceData = {
-    'USA': { rank: 1, timeseries: [85, 87, 89, 90, 92, 93, 91, 89, 88, 86, 85] },
-    'Spain': { rank: 2, timeseries: [75, 78, 80, 82, 80, 78, 76, 74, 72, 70, 68] },
-    'Netherlands': { rank: 3, timeseries: [65, 67, 70, 72, 71, 70, 68, 66, 65, 64, 63] },
-    'Belgium': { rank: 4, timeseries: [60, 62, 64, 66, 65, 64, 62, 61, 60, 59, 58] },
-    'France': { rank: 5, timeseries: [55, 57, 59, 60, 59, 58, 57, 56, 55, 54, 53] },
-    'Greece': { rank: 6, timeseries: [50, 52, 54, 55, 54, 53, 52, 51, 50, 49, 48] },
-    'Portugal': { rank: 7, timeseries: [45, 47, 49, 50, 49, 48, 47, 46, 45, 44, 43] },
-    'Sweden': { rank: 8, timeseries: [40, 42, 44, 45, 44, 43, 42, 41, 40, 39, 38] },
-    'Colombia': { rank: 9, timeseries: [38, 40, 42, 43, 42, 41, 40, 39, 38, 37, 36] },
-    'Brazil': { rank: 10, timeseries: [35, 37, 39, 40, 39, 38, 37, 36, 35, 34, 33] },
-    'Peru': { rank: 11, timeseries: [30, 32, 34, 35, 34, 33, 32, 31, 30, 29, 28] },
-    'Bolivia': { rank: 12, timeseries: [25, 27, 29, 30, 29, 28, 27, 26, 25, 24, 23] }
-};
 
-// Incarceration Rates (placeholder data)
-const incarcerationData = {
-    'USA': { rate: 95, rank: 1 },
-    'Brazil': { rate: 78, rank: 2 },
-    'Peru': { rate: 72, rank: 3 },
-    'Colombia': { rate: 68, rank: 4 },
-    'Bolivia': { rate: 65, rank: 5 },
-    'Greece': { rate: 52, rank: 6 },
-    'Spain': { rate: 48, rank: 7 },
-    'Belgium': { rate: 45, rank: 8 },
-    'France': { rate: 42, rank: 9 },
-    'Sweden': { rate: 38, rank: 10 },
-    'Netherlands': { rate: 28, rank: 11 },
-    'Portugal': { rate: 22, rank: 12 }
-};
+// ============================================
+// SEIZURE DATA LOADING & PROCESSING
+// ============================================
 
-// Seizure Rates (placeholder data - 2010-2020)
-const seizureData = {
-    'Colombia': { rank: 1, timeseries: [95, 92, 98, 100, 97, 95, 93, 90, 88, 85, 82] },
-    'USA': { rank: 2, timeseries: [70, 72, 75, 78, 80, 82, 81, 79, 77, 76, 75] },
-    'Belgium': { rank: 3, timeseries: [45, 50, 55, 60, 65, 68, 70, 72, 71, 69, 68] },
-    'Peru': { rank: 4, timeseries: [60, 58, 62, 65, 63, 61, 59, 57, 55, 53, 52] },
-    'Brazil': { rank: 5, timeseries: [50, 52, 54, 56, 58, 57, 55, 53, 52, 50, 49] },
-    'Netherlands': { rank: 6, timeseries: [38, 40, 42, 45, 47, 48, 46, 44, 42, 41, 40] },
-    'Bolivia': { rank: 7, timeseries: [35, 37, 39, 41, 40, 38, 36, 35, 34, 33, 32] },
-    'Spain': { rank: 8, timeseries: [32, 34, 36, 35, 33, 32, 31, 30, 29, 28, 27] },
-    'France': { rank: 9, timeseries: [28, 30, 31, 30, 29, 28, 27, 26, 25, 24, 23] },
-    'Greece': { rank: 10, timeseries: [22, 24, 26, 25, 24, 23, 22, 21, 20, 19, 18] },
-    'Sweden': { rank: 11, timeseries: [15, 17, 19, 18, 17, 16, 15, 14, 13, 12, 11] },
-    'Portugal': { rank: 12, timeseries: [10, 12, 14, 13, 12, 11, 10, 9, 8, 7, 6] }
-};
+async function loadSeizureData() {
+    try {
+        console.log('Loading seizure data from CSV...');
+        
+        rawSeizureData = await d3.csv('./data/seizures_by_year.csv', d => {
+            let countryName = d.Country;
+            if (countryNameMapping[countryName]) {
+                countryName = countryNameMapping[countryName];
+            }
+            
+            return {
+                country: countryName,
+                year: +d.Year,
+                seizures: +d.Seizures_kg
+            };
+        });
+        
+        console.log(`✓ Loaded ${rawSeizureData.length} seizure records`);
+        console.log(`  Countries: ${[...new Set(rawSeizureData.map(d => d.country))].length}`);
+        console.log(`  Years: ${Math.min(...rawSeizureData.map(d => d.year))}-${Math.max(...rawSeizureData.map(d => d.year))}`);
+        
+        processSeizureData();
+        
+        return true;
+        
+    } catch (error) {
+        console.error('Error loading seizure data:', error);
+        console.error('Make sure data/seizures_by_year.csv exists in your repository');
+        return false;
+    }
+}
 
-// Metrics Configuration - EASY TO EXTEND!
+function processSeizureData() {
+    if (rawSeizureData.length === 0) {
+        console.warn('No raw seizure data to process');
+        return;
+    }
+    
+    const countries = [...new Set(rawSeizureData.map(d => d.country))];
+    const MIN_YEAR = 2010;
+    const MAX_YEAR = 2023;
+    
+    processedSeizureData = {};
+    
+    countries.forEach(country => {
+        const countryData = rawSeizureData
+            .filter(d => d.country === country)
+            .sort((a, b) => a.year - b.year);
+        
+        const rawTimeseries = [];
+        
+        for (let year = MIN_YEAR; year <= MAX_YEAR; year++) {
+            const record = countryData.find(d => d.year === year);
+            rawTimeseries.push(record ? record.seizures : null);
+        }
+        
+        const validValues = rawTimeseries.filter(v => v !== null);
+        
+        if (validValues.length === 0) {
+            console.warn(`${country} has no valid seizure data`);
+            return;
+        }
+        
+        const maxValue = Math.max(...validValues);
+        const normalizedTimeseries = rawTimeseries.map(v => 
+            v === null ? null : (v / maxValue) * 100
+        );
+        
+        let calculatedValue;
+        if (timeSeriesCalculationMode === 'recent') {
+            calculatedValue = validValues[validValues.length - 1];
+        } else if (timeSeriesCalculationMode === 'total') {
+            const lastNYears = validValues.slice(-timeSeriesTimeRange);
+            calculatedValue = lastNYears.reduce((sum, v) => sum + v, 0);
+        } else {
+            const lastNYears = validValues.slice(-timeSeriesTimeRange);
+            calculatedValue = lastNYears.reduce((sum, v) => sum + v, 0) / lastNYears.length;
+        }
+        
+        processedSeizureData[country] = {
+            timeseries: normalizedTimeseries,
+            rawTimeseries: rawTimeseries,
+            calculatedValue: calculatedValue,
+            totalSeizures: validValues.reduce((sum, v) => sum + v, 0),
+            averagePerYear: validValues.reduce((sum, v) => sum + v, 0) / validValues.length,
+            mostRecentYear: validValues[validValues.length - 1],
+            yearsWithData: validValues.length,
+            maxValue: maxValue
+        };
+    });
+    
+    const ranked = Object.entries(processedSeizureData)
+        .sort((a, b) => b[1].calculatedValue - a[1].calculatedValue);
+    
+    ranked.forEach(([country, data], index) => {
+        data.rank = index + 1;
+    });
+    
+    console.log(`✓ Processed seizure data for ${countries.length} countries`);
+    console.log(`  Mode: ${timeSeriesCalculationMode}, Range: last ${timeSeriesTimeRange} years`);
+}
+
+// ============================================
+// PREVALENCE DATA LOADING & PROCESSING
+// ============================================
+
+async function loadPrevalenceData() {
+    try {
+        console.log('Loading prevalence data from CSV...');
+        
+        rawPrevalenceData = await d3.csv('./data/prevalence_by_year.csv', d => {
+            let countryName = d.Country;
+            if (countryNameMapping[countryName]) {
+                countryName = countryNameMapping[countryName];
+            }
+            
+            return {
+                country: countryName,
+                year: +d.Year,
+                prevalence: +d.Prevalence_Percentage
+            };
+        });
+        
+        console.log(`✓ Loaded ${rawPrevalenceData.length} prevalence records`);
+        
+        processPrevalenceData();
+        
+        return true;
+        
+    } catch (error) {
+        console.error('Error loading prevalence data:', error);
+        return false;
+    }
+}
+
+function processPrevalenceData() {
+    if (rawPrevalenceData.length === 0) {
+        console.warn('No raw prevalence data to process');
+        return;
+    }
+    
+    const countries = [...new Set(rawPrevalenceData.map(d => d.country))];
+    const MIN_YEAR = 2003;
+    const MAX_YEAR = 2023;
+    
+    processedPrevalenceData = {};
+    
+    countries.forEach(country => {
+        const countryData = rawPrevalenceData
+            .filter(d => d.country === country)
+            .sort((a, b) => a.year - b.year);
+        
+        const rawTimeseries = [];
+        for (let year = MIN_YEAR; year <= MAX_YEAR; year++) {
+            const record = countryData.find(d => d.year === year);
+            rawTimeseries.push(record ? record.prevalence : null);
+        }
+        
+        const validValues = rawTimeseries.filter(v => v !== null);
+        
+        if (validValues.length === 0) {
+            console.warn(`${country} has no valid prevalence data`);
+            return;
+        }
+        
+        const maxValue = Math.max(...validValues);
+        const normalizedTimeseries = rawTimeseries.map(v => 
+            v === null ? null : (v / maxValue) * 100
+        );
+        
+        let calculatedValue;
+        if (timeSeriesCalculationMode === 'recent') {
+            calculatedValue = validValues[validValues.length - 1];
+        } else if (timeSeriesCalculationMode === 'total') {
+            const lastNYears = validValues.slice(-timeSeriesTimeRange);
+            calculatedValue = lastNYears.reduce((sum, v) => sum + v, 0);
+        } else {
+            const lastNYears = validValues.slice(-timeSeriesTimeRange);
+            calculatedValue = lastNYears.reduce((sum, v) => sum + v, 0) / lastNYears.length;
+        }
+        
+        processedPrevalenceData[country] = {
+            timeseries: normalizedTimeseries,
+            rawTimeseries: rawTimeseries,
+            calculatedValue: calculatedValue,
+            yearsWithData: validValues.length,
+            maxValue: maxValue
+        };
+    });
+    
+    const ranked = Object.entries(processedPrevalenceData)
+        .sort((a, b) => b[1].calculatedValue - a[1].calculatedValue);
+    
+    ranked.forEach(([country, data], index) => {
+        data.rank = index + 1;
+    });
+    
+    console.log(`✓ Processed prevalence data for ${countries.length} countries`);
+}
+
+// ============================================
+// PRISONERS DATA LOADING & PROCESSING
+// ============================================
+
+async function loadPrisonersData() {
+    try {
+        console.log('Loading prisoners data from CSV...');
+        
+        rawPrisonersData = await d3.csv('./data/prisoners_by_year.csv', d => {
+            let countryName = d.Country;
+            if (countryNameMapping[countryName]) {
+                countryName = countryNameMapping[countryName];
+            }
+            
+            return {
+                country: countryName,
+                year: +d.Year,
+                percentage: +d.Drug_Prisoner_Percentage
+            };
+        });
+        
+        console.log(`✓ Loaded ${rawPrisonersData.length} prisoners records`);
+        
+        processPrisonersData();
+        
+        return true;
+        
+    } catch (error) {
+        console.error('Error loading prisoners data:', error);
+        return false;
+    }
+}
+
+function processPrisonersData() {
+    if (rawPrisonersData.length === 0) {
+        console.warn('No raw prisoners data to process');
+        return;
+    }
+    
+    const countries = [...new Set(rawPrisonersData.map(d => d.country))];
+    const MIN_YEAR = 2010;
+    const MAX_YEAR = 2024;
+    
+    processedPrisonersData = {};
+    
+    countries.forEach(country => {
+        const countryData = rawPrisonersData
+            .filter(d => d.country === country)
+            .sort((a, b) => a.year - b.year);
+        
+        const rawTimeseries = [];
+        for (let year = MIN_YEAR; year <= MAX_YEAR; year++) {
+            const record = countryData.find(d => d.year === year);
+            rawTimeseries.push(record ? record.percentage : null);
+        }
+        
+        const validValues = rawTimeseries.filter(v => v !== null);
+        
+        if (validValues.length === 0) {
+            console.warn(`${country} has no valid prisoners data`);
+            return;
+        }
+        
+        const maxValue = Math.max(...validValues);
+        const normalizedTimeseries = rawTimeseries.map(v => 
+            v === null ? null : (v / maxValue) * 100
+        );
+        
+        let calculatedValue;
+        if (timeSeriesCalculationMode === 'recent') {
+            calculatedValue = validValues[validValues.length - 1];
+        } else if (timeSeriesCalculationMode === 'total') {
+            const lastNYears = validValues.slice(-timeSeriesTimeRange);
+            calculatedValue = lastNYears.reduce((sum, v) => sum + v, 0);
+        } else {
+            const lastNYears = validValues.slice(-timeSeriesTimeRange);
+            calculatedValue = lastNYears.reduce((sum, v) => sum + v, 0) / lastNYears.length;
+        }
+        
+        processedPrisonersData[country] = {
+            timeseries: normalizedTimeseries,
+            rawTimeseries: rawTimeseries,
+            calculatedValue: calculatedValue,
+            yearsWithData: validValues.length,
+            maxValue: maxValue
+        };
+    });
+    
+    const ranked = Object.entries(processedPrisonersData)
+        .sort((a, b) => b[1].calculatedValue - a[1].calculatedValue);
+    
+    ranked.forEach(([country, data], index) => {
+        data.rank = index + 1;
+    });
+    
+    console.log(`✓ Processed prisoners data for ${countries.length} countries`);
+}
+
+// ============================================
+// TIME-SERIES SETTINGS
+// ============================================
+
+function updateTimeSeriesSettings(range, mode) {
+    timeSeriesTimeRange = range;
+    timeSeriesCalculationMode = mode;
+    
+    processSeizureData();
+    processPrevalenceData();
+    processPrisonersData();
+    
+    updateTimeSeriesDisplay();
+    
+    renderAllColumns();
+    
+    console.log(`✓ Updated all time-series: ${mode} over last ${range} years`);
+}
+
+function updateTimeSeriesDisplay() {
+    const displayEl = document.getElementById('timeseries-range-display');
+    
+    if (displayEl) {
+        if (timeSeriesTimeRange === 14) {
+            displayEl.textContent = 'All years (14)';
+        } else {
+            displayEl.textContent = `Last ${timeSeriesTimeRange} year${timeSeriesTimeRange > 1 ? 's' : ''}`;
+        }
+    }
+}
+
+// ============================================
+// METRICS CONFIGURATION
+// ============================================
+
 const metricsConfig = {
     'law': {
         title: 'Law in Books',
         type: 'score',
+        infoText: `<strong>Data Source:</strong> National legislation and legal codes<br>
+                   <strong>Methodology:</strong> Composite index weighing criminalization scope (use, possession, exemptions) and penalty severity (max sentences, mandatory minimums)<br>
+                   <strong>Coverage:</strong> 100% complete for all 12 countries<br>
+                   <strong>Time Period:</strong> Current laws as of 2024`,
         getData: () => processedLawData,
         getRank: (country) => {
             if (!processedLawData[country]) return 99;
@@ -92,40 +424,88 @@ const metricsConfig = {
     'prevalence': {
         title: 'Drug Prevalence',
         type: 'sparkline',
-        getData: () => drugPrevalenceData,
+        infoText: `<strong>Data Source:</strong> UNODC World Drug Report, national health surveys<br>
+                   <strong>Methodology:</strong> Annual prevalence (%) of cocaine use among population aged 15-64<br>
+                   <strong>Coverage:</strong> Varies by country (52-100% complete, 2003-2023)<br>
+                   <strong>Normalization:</strong> Each country scaled to its own maximum (shows trend)`,
+        getData: () => processedPrevalenceData,
         getRank: (country) => {
-            if (!drugPrevalenceData[country]) return 99;
-            return drugPrevalenceData[country].rank;
+            if (!processedPrevalenceData[country]) return 99;
+            return processedPrevalenceData[country].rank;
         },
         getValue: (country) => {
-            if (!drugPrevalenceData[country]) return [0,0,0,0,0,0,0,0,0,0,0];
-            return drugPrevalenceData[country].timeseries;
+            if (!processedPrevalenceData[country]) {
+                return Array(21).fill(null);
+            }
+            return processedPrevalenceData[country].timeseries;
+        },
+        getTooltipText: (country) => {
+            if (!processedPrevalenceData[country]) return '';
+            const data = processedPrevalenceData[country];
+            const modeText = {
+                'average': 'Average',
+                'total': 'Total',
+                'recent': 'Most Recent'
+            };
+            return `${modeText[timeSeriesCalculationMode]}: ${data.calculatedValue.toFixed(2)}%`;
         }
     },
     'incarceration': {
-        title: 'Incarceration Rates',
-        type: 'bar',
-        getData: () => incarcerationData,
+        title: 'Drug Prisoners %',
+        type: 'sparkline',
+        infoText: `<strong>Data Source:</strong> National prison statistics, UNODC, EMCDDA<br>
+                   <strong>Methodology:</strong> Percentage of total prison population incarcerated for drug-related offenses<br>
+                   <strong>Coverage:</strong> Varies by country (40-100% complete, 2010-2024)<br>
+                   <strong>Normalization:</strong> Each country scaled to its own maximum (shows trend)`,
+        getData: () => processedPrisonersData,
         getRank: (country) => {
-            if (!incarcerationData[country]) return 99;
-            return incarcerationData[country].rank;
+            if (!processedPrisonersData[country]) return 99;
+            return processedPrisonersData[country].rank;
         },
         getValue: (country) => {
-            if (!incarcerationData[country]) return 0;
-            return incarcerationData[country].rate;
+            if (!processedPrisonersData[country]) {
+                return Array(15).fill(null);
+            }
+            return processedPrisonersData[country].timeseries;
+        },
+        getTooltipText: (country) => {
+            if (!processedPrisonersData[country]) return '';
+            const data = processedPrisonersData[country];
+            const modeText = {
+                'average': 'Average',
+                'total': 'Total',
+                'recent': 'Most Recent'
+            };
+            return `${modeText[timeSeriesCalculationMode]}: ${data.calculatedValue.toFixed(2)}%`;
         }
     },
     'seizure': {
         title: 'Seizure Rate',
         type: 'sparkline',
-        getData: () => seizureData,
+        infoText: `<strong>Data Source:</strong> UNODC, national police statistics (DIRANDRO, EMCDDA, etc.)<br>
+                   <strong>Methodology:</strong> Annual cocaine seizures in kilograms, validated across multiple sources<br>
+                   <strong>Coverage:</strong> Varies by country (71-100% complete, 2010-2023)<br>
+                   <strong>Normalization:</strong> Each country scaled to its own maximum (shows trend)`,
+        getData: () => processedSeizureData,
         getRank: (country) => {
-            if (!seizureData[country]) return 99;
-            return seizureData[country].rank;
+            if (!processedSeizureData[country]) return 99;
+            return processedSeizureData[country].rank;
         },
         getValue: (country) => {
-            if (!seizureData[country]) return [0,0,0,0,0,0,0,0,0,0,0];
-            return seizureData[country].timeseries;
+            if (!processedSeizureData[country]) {
+                return Array(14).fill(null);
+            }
+            return processedSeizureData[country].timeseries;
+        },
+        getTooltipText: (country) => {
+            if (!processedSeizureData[country]) return '';
+            const data = processedSeizureData[country];
+            const modeText = {
+                'average': 'Average',
+                'total': 'Total',
+                'recent': 'Most Recent'
+            };
+            return `${modeText[timeSeriesCalculationMode]}: ${data.calculatedValue.toLocaleString('en-US', {maximumFractionDigits: 0})} kg`;
         }
     }
 };
@@ -137,11 +517,7 @@ const metricsConfig = {
 let processedLawData = {};
 let hoveredCountry = null;
 
-// Column configuration: which metric is in which position
-let columnMetrics = ['law', 'prevalence', 'incarceration']; // Default
-
-// Sorting mode
-let sortMode = 'independent'; // 'independent' or metric key (e.g., 'law', 'prevalence')
+let columnMetrics = ['law', 'prevalence', 'incarceration'];
 
 // ============================================
 // CALCULATION FUNCTIONS
@@ -162,7 +538,6 @@ function calculateLawInBooksIndex() {
     const crimSlider = document.getElementById('rankings-weight-criminalization');
     const penaltySlider = document.getElementById('rankings-weight-penalty');
     
-    // Use default weights (50/50) if sliders don't exist
     let crimWeight = 0.5;
     let penaltyWeight = 0.5;
     
@@ -211,43 +586,10 @@ function calculateLawInBooksIndex() {
 }
 
 // ============================================
-// SORTING FUNCTIONS
-// ============================================
-
-function getSortedCountries() {
-    const countries = Object.keys(rawData);
-    
-    if (sortMode === 'independent') {
-        // Return countries in their natural ranking for each metric
-        return countries;
-    } else {
-        // Sort all countries by the selected metric
-        const metric = metricsConfig[sortMode];
-        return countries.sort((a, b) => {
-            const rankA = metric.getRank(a);
-            const rankB = metric.getRank(b);
-            return rankA - rankB;
-        });
-    }
-}
-
-function toggleSortAll(metricKey) {
-    if (sortMode === metricKey) {
-        // Turn off unified sort
-        sortMode = 'independent';
-    } else {
-        // Turn on unified sort for this metric
-        sortMode = metricKey;
-    }
-    renderAllColumns();
-}
-
-// ============================================
 // COLUMN MANAGEMENT
 // ============================================
 
 function changeColumnMetric(columnIndex, newMetric) {
-    // Check if metric is already used in another column
     if (columnMetrics.includes(newMetric) && columnMetrics[columnIndex] !== newMetric) {
         alert('This metric is already displayed in another column. Please choose a different one.');
         return;
@@ -255,23 +597,14 @@ function changeColumnMetric(columnIndex, newMetric) {
     
     columnMetrics[columnIndex] = newMetric;
     
-    // If the changed column had sort-all active, turn it off
-    if (sortMode === columnMetrics[columnIndex]) {
-        sortMode = 'independent';
-    }
-    
     renderAllColumns();
 }
 
 function swapColumns(fromIndex, toIndex) {
     if (toIndex < 0 || toIndex >= columnMetrics.length) return;
     
-    // Swap metrics
     [columnMetrics[fromIndex], columnMetrics[toIndex]] = 
     [columnMetrics[toIndex], columnMetrics[fromIndex]];
-    
-    // Turn off sort-all when swapping
-    sortMode = 'independent';
     
     renderAllColumns();
 }
@@ -284,7 +617,7 @@ function renderAllColumns() {
     const grid = document.getElementById('rankings-grid');
     grid.innerHTML = '';
     
-    const sortedCountries = getSortedCountries();
+    const countries = Object.keys(rawData);
     
     columnMetrics.forEach((metricKey, columnIndex) => {
         const columnDiv = document.createElement('div');
@@ -292,13 +625,13 @@ function renderAllColumns() {
         columnDiv.id = `rankings-column-${columnIndex}`;
         
         if (columnIndex === 0) {
-            columnDiv.classList.add('active'); // For mobile
+            columnDiv.classList.add('active');
         }
         
         columnDiv.innerHTML = createColumnHTML(metricKey, columnIndex);
         grid.appendChild(columnDiv);
         
-        renderColumnContent(metricKey, columnIndex, sortedCountries);
+        renderColumnContent(metricKey, columnIndex, countries);
     });
     
     updateMobileSelector();
@@ -309,9 +642,7 @@ function createColumnHTML(metricKey, columnIndex) {
     const metric = metricsConfig[metricKey];
     const isFirstColumn = columnIndex === 0;
     const isLastColumn = columnIndex === columnMetrics.length - 1;
-    const isSortActive = sortMode === metricKey;
     
-    // Build metric selector options
     const metricOptions = Object.keys(metricsConfig).map(key => {
         const isUsedInOtherColumn = columnMetrics.includes(key) && columnMetrics[columnIndex] !== key;
         const selected = key === metricKey ? 'selected' : '';
@@ -334,36 +665,23 @@ function createColumnHTML(metricKey, columnIndex) {
                         onchange="changeColumnMetric(${columnIndex}, this.value)">
                     ${metricOptions}
                 </select>
-            </div>
-            <div class="column-bottom-controls">
-                <div class="sort-all-control ${isSortActive ? 'active' : ''}" 
-                     onclick="toggleSortAll('${metricKey}')">
-                    <div class="sort-checkbox ${isSortActive ? 'checked' : ''}"></div>
-                    <span>Sort All</span>
-                </div>
+                <button class="info-btn" data-info="${metricKey}">ⓘ</button>
             </div>
         </div>
         <div id="rankings-content-${columnIndex}"></div>
     `;
 }
 
-function renderColumnContent(metricKey, columnIndex, sortedCountries) {
+function renderColumnContent(metricKey, columnIndex, countries) {
     const container = document.getElementById(`rankings-content-${columnIndex}`);
     const metric = metricsConfig[metricKey];
     
-    // Get countries sorted by this metric's ranking
-    let countriesToShow;
-    if (sortMode === 'independent') {
-        // Sort by this metric's own ranking
-        countriesToShow = [...sortedCountries].sort((a, b) => {
-            return metric.getRank(a) - metric.getRank(b);
-        });
-    } else {
-        // Use the global sort order
-        countriesToShow = sortedCountries;
-    }
+    // Sort countries by this metric's ranking
+    const countriesToShow = [...countries].sort((a, b) => {
+        return metric.getRank(a) - metric.getRank(b);
+    });
     
-    countriesToShow.forEach((country, displayIndex) => {
+    countriesToShow.forEach((country) => {
         const actualRank = metric.getRank(country);
         const value = metric.getValue(country);
         
@@ -381,16 +699,29 @@ function renderColumnContent(metricKey, columnIndex, sortedCountries) {
                 </div>
             `;
         } else if (metric.type === 'sparkline') {
-            visualizationHTML = `
-                <div class="sparkline-container">
-                    ${createSparkline(value)}
-                </div>
-            `;
+            if (!value || value.every(v => v === null)) {
+                visualizationHTML = `
+                    <div class="sparkline-container">
+                        ${createSparkline(Array(14).fill(null), '#000')}
+                    </div>
+                `;
+            } else {
+                const sparkline = createSparkline(value, '#000');
+                
+                visualizationHTML = `
+                    <div class="sparkline-container">
+                        ${sparkline}
+                    </div>
+                `;
+            }
         }
         
         div.innerHTML = `
-            <div class="rank-number">${displayIndex + 1}.</div>
-            <div class="country-name">${country}</div>
+            <div class="rank-number">${actualRank}.</div>
+            <div class="country-name">
+                <span class="country-flag">${countryFlags[country] || ''}</span>
+                ${country}
+            </div>
             <div class="metric-visualization">
                 ${visualizationHTML}
             </div>
@@ -401,29 +732,83 @@ function renderColumnContent(metricKey, columnIndex, sortedCountries) {
     });
 }
 
-function createSparkline(timeseries) {
+function createSparkline(timeseries, color = '#000') {
     const width = 80;
     const height = 25;
     const padding = 2;
     
-    const max = Math.max(...timeseries);
-    const min = Math.min(...timeseries);
+    const validValues = timeseries.filter(v => v !== null && v !== undefined);
+    
+    if (validValues.length === 0) {
+        return `<svg class="sparkline" viewBox="0 0 ${width} ${height}"></svg>`;
+    }
+    
+    const max = Math.max(...validValues);
+    const min = Math.min(...validValues);
     const range = max - min || 1;
     
-    const points = timeseries.map((value, index) => {
+    const dataPoints = timeseries.map((value, index) => {
         const x = padding + (index / (timeseries.length - 1)) * (width - 2 * padding);
-        const y = height - padding - ((value - min) / range) * (height - 2 * padding);
-        return `${x},${y}`;
-    }).join(' ');
+        
+        if (value === null || value === undefined) {
+            return { x, y: null, isNull: true };
+        } else {
+            const y = height - padding - ((value - min) / range) * (height - 2 * padding);
+            return { x, y, isNull: false };
+        }
+    });
+    
+    const pathElements = [];
+    
+    for (let i = 0; i < dataPoints.length - 1; i++) {
+        const current = dataPoints[i];
+        const next = dataPoints[i + 1];
+        
+        if (!current.isNull && !next.isNull) {
+            pathElements.push(`
+                <line 
+                    x1="${current.x}" 
+                    y1="${current.y}" 
+                    x2="${next.x}" 
+                    y2="${next.y}" 
+                    stroke="${color}" 
+                    stroke-width="1.5" 
+                    stroke-linecap="round"
+                />
+            `);
+        } else if (!current.isNull && next.isNull) {
+            let nextValidIndex = i + 1;
+            while (nextValidIndex < dataPoints.length && dataPoints[nextValidIndex].isNull) {
+                nextValidIndex++;
+            }
+            
+            if (nextValidIndex < dataPoints.length) {
+                const nextValid = dataPoints[nextValidIndex];
+                pathElements.push(`
+                    <line 
+                        x1="${current.x}" 
+                        y1="${current.y}" 
+                        x2="${nextValid.x}" 
+                        y2="${nextValid.y}" 
+                        stroke="#999" 
+                        stroke-width="1" 
+                        stroke-dasharray="2,2" 
+                        stroke-linecap="round"
+                    />
+                `);
+            }
+        }
+    }
+    
+    const dots = dataPoints
+        .filter(p => !p.isNull)
+        .map(p => `<circle cx="${p.x}" cy="${p.y}" r="1.5" fill="${color}" />`)
+        .join('\n');
     
     return `
         <svg class="sparkline" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none">
-            <polyline 
-                points="${points}" 
-                fill="none" 
-                stroke="#000" 
-                stroke-width="1.5"
-            />
+            ${pathElements.join('\n')}
+            ${dots}
         </svg>
     `;
 }
@@ -484,92 +869,104 @@ function clearHighlight() {
 // TOOLTIP FUNCTIONS
 // ============================================
 
+/**
+ * Calculate data completeness percentage for a country across all metrics
+ */
+function calculateDataCompleteness(country) {
+    let totalDataPoints = 0;
+    let availableDataPoints = 0;
+    
+    // Law in Books: always 100% (we have data for all countries)
+    if (processedLawData[country]) {
+        totalDataPoints += 1;
+        availableDataPoints += 1;
+    }
+    
+    // Prevalence: 21 years (2003-2023)
+    if (processedPrevalenceData[country]) {
+        const yearsWithData = processedPrevalenceData[country].yearsWithData;
+        totalDataPoints += 21;
+        availableDataPoints += yearsWithData;
+    } else {
+        totalDataPoints += 21;
+    }
+    
+    // Incarceration: 15 years (2010-2024)
+    if (processedPrisonersData[country]) {
+        const yearsWithData = processedPrisonersData[country].yearsWithData;
+        totalDataPoints += 15;
+        availableDataPoints += yearsWithData;
+    } else {
+        totalDataPoints += 15;
+    }
+    
+    // Seizures: 14 years (2010-2023)
+    if (processedSeizureData[country]) {
+        const yearsWithData = processedSeizureData[country].yearsWithData;
+        totalDataPoints += 14;
+        availableDataPoints += yearsWithData;
+    } else {
+        totalDataPoints += 14;
+    }
+    
+    const overallPercentage = totalDataPoints > 0 ? 
+        Math.round((availableDataPoints / totalDataPoints) * 100) : 0;
+    
+    return {
+        overall: overallPercentage,
+        law: processedLawData[country] ? 100 : 0,
+        prevalence: processedPrevalenceData[country] ? 
+            Math.round((processedPrevalenceData[country].yearsWithData / 21) * 100) : 0,
+        incarceration: processedPrisonersData[country] ? 
+            Math.round((processedPrisonersData[country].yearsWithData / 15) * 100) : 0,
+        seizures: processedSeizureData[country] ? 
+            Math.round((processedSeizureData[country].yearsWithData / 14) * 100) : 0
+    };
+}
+
 function showTooltip(event, country) {
     const tooltip = document.getElementById('rankings-tooltip');
+    if (!tooltip) return;
     
-    // Gather all metric data for this country
-    let tooltipHTML = `<div class="tooltip-header">${country}</div>`;
+    const completeness = calculateDataCompleteness(country);
     
-    // Law in Books
-    if (processedLawData[country]) {
-        const lawData = processedLawData[country];
-        tooltipHTML += `
-            <div class="tooltip-section">
-                <div class="tooltip-section-title">Law in Books</div>
-                <div class="tooltip-metric">
-                    <span>Overall Score:</span>
-                    <span><strong>${lawData.legalPunitiveness}/100</strong></span>
-                </div>
-                <div class="tooltip-metric">
-                    <span>Criminalization:</span>
-                    <span>${lawData.criminalizationScope}/100</span>
-                </div>
-                <div class="tooltip-metric">
-                    <span>Penalty Severity:</span>
-                    <span>${lawData.penaltySeverity}/100</span>
-                </div>
-            </div>
-        `;
-    }
+    // Compact header with overall completeness
+    let tooltipHTML = `
+        <div class="tooltip-header">
+            <strong>${country}</strong>
+            <span class="completeness-badge">${completeness.overall}% complete</span>
+        </div>
+    `;
     
-    // Drug Prevalence
-    if (drugPrevalenceData[country]) {
-        const prevData = drugPrevalenceData[country];
-        tooltipHTML += `
-            <div class="tooltip-section">
-                <div class="tooltip-section-title">Drug Prevalence (2010-2020)</div>
-                <div class="tooltip-metric">
-                    <span>Rank:</span>
-                    <span>#${prevData.rank} of 12</span>
-                </div>
-                <div class="tooltip-metric">
-                    <span>Trend:</span>
-                    <span>${getTrendDescription(prevData.timeseries)}</span>
-                </div>
-            </div>
-        `;
-    }
-    
-    // Incarceration
-    if (incarcerationData[country]) {
-        const incarData = incarcerationData[country];
-        tooltipHTML += `
-            <div class="tooltip-section">
-                <div class="tooltip-section-title">Incarceration Rate</div>
-                <div class="tooltip-metric">
-                    <span>Relative Rate:</span>
-                    <span>
-                        <div class="tooltip-bar">
-                            <div class="tooltip-bar-fill" style="width: ${incarData.rate}%"></div>
-                        </div>
-                        ${incarData.rate}/100
-                    </span>
-                </div>
-                <div class="tooltip-metric">
-                    <span>Rank:</span>
-                    <span>#${incarData.rank} of 12</span>
-                </div>
-            </div>
-        `;
-    }
-    
-    // Seizure Rate
-    if (seizureData[country]) {
-        const seizData = seizureData[country];
-        tooltipHTML += `
-            <div class="tooltip-section">
-                <div class="tooltip-section-title">Seizure Rate (2010-2020)</div>
-                <div class="tooltip-metric">
-                    <span>Rank:</span>
-                    <span>#${seizData.rank} of 12</span>
-                </div>
-                <div class="tooltip-metric">
-                    <span>Trend:</span>
-                    <span>${getTrendDescription(seizData.timeseries)}</span>
-                </div>
-            </div>
-        `;
-    }
+    // Compact metrics display
+    Object.keys(metricsConfig).forEach(metricKey => {
+        const metric = metricsConfig[metricKey];
+        const data = metric.getData();
+        
+        if (data[country]) {
+            const rank = metric.getRank(country);
+            const tooltipText = metric.getTooltipText ? metric.getTooltipText(country) : '';
+            
+            // Get completeness for this metric
+            let metricCompleteness = 0;
+            if (metricKey === 'law') metricCompleteness = completeness.law;
+            else if (metricKey === 'prevalence') metricCompleteness = completeness.prevalence;
+            else if (metricKey === 'incarceration') metricCompleteness = completeness.incarceration;
+            else if (metricKey === 'seizure') metricCompleteness = completeness.seizures;
+            
+            tooltipHTML += `
+                <div class="tooltip-row">
+                    <span class="tooltip-metric-name">${metric.title}</span>
+                    <span class="tooltip-rank">Rank #${rank}</span>
+                    <span class="tooltip-completeness">${metricCompleteness}%</span>
+                </div>`;
+            
+            if (tooltipText) {
+                tooltipHTML += `
+                    <div class="tooltip-detail">${tooltipText}</div>`;
+            }
+        }
+    });
     
     tooltip.innerHTML = tooltipHTML;
     tooltip.classList.add('visible');
@@ -600,16 +997,6 @@ function hideTooltip() {
     if (tooltip) {
         tooltip.classList.remove('visible');
     }
-}
-
-function getTrendDescription(timeseries) {
-    const first = timeseries[0];
-    const last = timeseries[timeseries.length - 1];
-    const diff = last - first;
-    
-    if (diff > 10) return '↑ Increasing';
-    if (diff < -10) return '↓ Decreasing';
-    return '→ Stable';
 }
 
 // ============================================
@@ -703,7 +1090,6 @@ function updateWeightDisplays() {
     const crimDisplay = document.getElementById('rankings-weight-criminalization-display');
     const penaltyDisplay = document.getElementById('rankings-weight-penalty-display');
     
-    // Check if elements exist
     if (!crimSlider || !penaltySlider || !crimDisplay || !penaltyDisplay) {
         console.warn('Weight display elements not found');
         return;
@@ -801,14 +1187,112 @@ function initRankingsEventListeners() {
             renderAllColumns();
         }
     });
+    
+    const timeseriesSlider = document.getElementById('timeseries-range-slider');
+    if (timeseriesSlider) {
+        timeseriesSlider.addEventListener('input', (e) => {
+            const range = parseInt(e.target.value);
+            updateTimeSeriesSettings(range, timeSeriesCalculationMode);
+        });
+    }
+    
+    // Info button listeners
+    initInfoButtonListeners();
+}
+
+// ============================================
+// INFO BUTTON FUNCTIONS
+// ============================================
+
+function initInfoButtonListeners() {
+    // Event delegation for dynamically created info buttons
+    document.addEventListener('mouseenter', (e) => {
+        if (e.target.classList.contains('info-btn')) {
+            showInfoTooltip(e.target);
+        }
+    }, true);
+    
+    document.addEventListener('mouseleave', (e) => {
+        if (e.target.classList.contains('info-btn')) {
+            hideInfoTooltip();
+        }
+    }, true);
+    
+    // Static info buttons in sidebar
+    const sidebarInfoButtons = document.querySelectorAll('.sidebar-info-btn');
+    sidebarInfoButtons.forEach(btn => {
+        btn.addEventListener('mouseenter', (e) => {
+            showInfoTooltip(e.target);
+        });
+        btn.addEventListener('mouseleave', hideInfoTooltip);
+    });
+}
+
+function showInfoTooltip(button) {
+    const infoKey = button.dataset.info;
+    let infoText = '';
+    
+    // Get info text from different sources
+    if (metricsConfig[infoKey]) {
+        infoText = metricsConfig[infoKey].infoText;
+    } else if (infoKey === 'timeseries') {
+        infoText = `<strong>Time Range Slider:</strong> Select how many years of data to include in ranking calculations (1-14 years)<br>
+                    <strong>Effect:</strong> Changes which countries rank highest based on recent vs. historical performance<br>
+                    <strong>Note:</strong> Sparklines always show all available years for visual context`;
+    } else if (infoKey === 'weights') {
+        infoText = `<strong>Purpose:</strong> Adjust the relative importance of different legal dimensions<br>
+                    <strong>Criminalization Scope:</strong> What acts are criminalized (use, possession, exemptions)<br>
+                    <strong>Penalty Severity:</strong> How harsh the punishments are (sentence lengths, mandatory minimums)<br>
+                    <strong>Default:</strong> 50/50 weighting between both components`;
+    }
+    
+    if (!infoText) return;
+    
+    let tooltip = document.getElementById('info-tooltip');
+    if (!tooltip) {
+        tooltip = document.createElement('div');
+        tooltip.id = 'info-tooltip';
+        tooltip.className = 'info-tooltip';
+        document.body.appendChild(tooltip);
+    }
+    
+    tooltip.innerHTML = infoText;
+    tooltip.classList.add('visible');
+    
+    // Position tooltip
+    const rect = button.getBoundingClientRect();
+    const tooltipRect = tooltip.getBoundingClientRect();
+    
+    let left = rect.left + rect.width / 2 - tooltipRect.width / 2;
+    let top = rect.bottom + 8;
+    
+    // Keep tooltip on screen
+    if (left < 10) left = 10;
+    if (left + tooltipRect.width > window.innerWidth - 10) {
+        left = window.innerWidth - tooltipRect.width - 10;
+    }
+    
+    // If too close to bottom, show above
+    if (top + tooltipRect.height > window.innerHeight - 10) {
+        top = rect.top - tooltipRect.height - 8;
+    }
+    
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+}
+
+function hideInfoTooltip() {
+    const tooltip = document.getElementById('info-tooltip');
+    if (tooltip) {
+        tooltip.classList.remove('visible');
+    }
 }
 
 // ============================================
 // INITIALIZATION
 // ============================================
 
-function initRankings() {
-    // Check if the rankings container exists
+async function initRankings() {
     const container = document.querySelector('.strictness-rankings-container');
     if (!container) {
         console.warn('Rankings container not found. Skipping initialization.');
@@ -817,22 +1301,22 @@ function initRankings() {
     
     console.log('Initializing rankings visualization...');
     
-    // ALWAYS calculate law data first (uses default weights if sliders missing)
+    await loadSeizureData();
+    await loadPrevalenceData();
+    await loadPrisonersData();
+    
     calculateLawInBooksIndex();
     
-    // Then try to update displays (will warn if elements missing but won't break)
     updateWeightDisplays();
+    updateTimeSeriesDisplay();
     
-    // Render columns
     renderAllColumns();
     
-    // Attach event listeners
     initRankingsEventListeners();
     
     console.log('Rankings visualization initialized successfully.');
 }
 
-// Auto-initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initRankings);
 } else {

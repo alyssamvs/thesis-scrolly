@@ -105,7 +105,9 @@
     "signed_in": "New York, USA, 30 March 1961",
     "in_force": "13 December 1964",
     "status": "Active (Amended)",
-    "replaced_by": ""
+    "replaced_by": "",
+    "expandable": true,
+    "signatory_count": 186
   },
   "Treaty-OAS-1971": {
     "name": "Inter-American Convention on the Illicit Traffic in Narcotic Drugs and Psychotropic Substances (1971)",
@@ -129,7 +131,9 @@
     "signed_in": "Vienna, Austria, 21 February 1971",
     "in_force": "16 August 1976",
     "status": "Active",
-    "replaced_by": ""
+    "replaced_by": "",
+    "expandable": true,
+    "signatory_count": 183
   },
   "Treaty-UN-1972": {
     "name": "Protocol amending the Single Convention on Narcotic Drugs, 1961",
@@ -165,7 +169,9 @@
     "signed_in": "Vienna, Austria, 20 December 1988",
     "in_force": "11 November 1990",
     "status": "Active",
-    "replaced_by": ""
+    "replaced_by": "",
+    "expandable": true,
+    "signatory_count": 191
   },
   "Treaty-EU-2004": {
     "name": "Council Framework Decision 2004/757/JHA",

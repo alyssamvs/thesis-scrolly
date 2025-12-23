@@ -1,0 +1,74 @@
+country_code,country_name,treaty_id,signature_date,ratification_date,accession_date,status,reservation_text,withdrawal_date,compliance_notes
+BO,Bolivia,Treaty-UN-1961,30/03/1961,20/10/1976,,withdrew,,29/06/2011,Withdrew 2011 and re-acceded 2013-02-10 with coca leaf reservation
+BO,Bolivia,Treaty-UN-1961-readmission,,,11/01/2013,ratified_with_reservation,Traditional coca leaf chewing permitted,,Re-acceded after withdrawal with reservation for traditional coca use
+BO,Bolivia,Treaty-Vienna-1971,,,20/03/1985,ratified,,,
+BO,Bolivia,Treaty-UN-1988,20/12/1988,20/08/1990,,ratified_with_reservation,Traditional coca uses permitted,,
+PE,Peru,Treaty-UN-1961,30/03/1961,03/06/1964,,ratified,,30/03/1961,Initial coca reservation withdrawn upon ratification
+PE,Peru,Treaty-Vienna-1971,,,28/01/1980,ratified_with_reservation,Ayahuasca and San Pedro exemptions for traditional use,,
+PE,Peru,Treaty-UN-1988,20/12/1988,16/01/1992,,ratified,,,
+US,United States,Treaty-UN-1961,30/03/1961,24/06/1967,,ratified,,,Cannabis legalized at state level 2012+ without reservation
+US,United States,Treaty-Vienna-1971,21/02/1971,16/04/1980,,ratified_with_reservation,Peyote exemption for traditional religious use,,Cannabis state legalization may conflict
+US,United States,Treaty-UN-1988,20/12/1988,20/02/1990,,ratified,,,
+CA,Canada,Treaty-UN-1961,30/03/1961,09/11/1961,,ratified,,,"Legalized recreational cannabis 2018, open violation"
+CA,Canada,Treaty-Vienna-1971,,,10/09/1988,ratified_with_reservation,Magical-religious plants exemption,,Cannabis legalization violates treaty
+CA,Canada,Treaty-UN-1988,20/12/1988,05/07/1990,,ratified,,,Cannabis legalization violates treaty
+UY,Uruguay,Treaty-UN-1961,30/03/1961,26/05/1965,,ratified,,,"Legalized recreational cannabis 2013, open violation"
+UY,Uruguay,Treaty-Vienna-1971,,,16/03/1976,ratified,,,Cannabis legalization violates treaty
+UY,Uruguay,Treaty-UN-1988,20/12/1988,10/03/1995,,ratified,,,Cannabis legalization violates treaty
+DE,Germany,Treaty-UN-1961,30/03/1961,05/02/1973,,ratified,,,"Legalized recreational cannabis 2024, open violation"
+DE,Germany,Treaty-Vienna-1971,23/12/1971,02/12/1977,,ratified_with_reservation,Reservations on amount of record-keeping,,Cannabis legalization violates treaty
+DE,Germany,Treaty-UN-1988,20/12/1988,19/02/1993,,ratified,,,Cannabis legalization violates treaty
+LR,Liberia,Treaty-UN-1961,30/03/1961,16/09/1974,,ratified,,,
+LR,Liberia,Treaty-Vienna-1971,21/02/1971,,,signed_only,,,Never ratified despite signing
+LR,Liberia,Treaty-UN-1988,20/12/1988,16/09/2005,,ratified,,,
+HT,Haiti,Treaty-UN-1961,30/03/1961,16/09/1964,,ratified,,,
+HT,Haiti,Treaty-Vienna-1971,,,,never_signed,,,Never signed or ratified
+HT,Haiti,Treaty-UN-1988,20/12/1988,19/09/1995,,ratified,,,
+GQ,Equatorial Guinea,Treaty-UN-1961,,,,never_signed,,,Never signed or ratified
+GQ,Equatorial Guinea,Treaty-Vienna-1971,,,,never_signed,,,Never signed or ratified
+GQ,Equatorial Guinea,Treaty-UN-1988,20/12/1988,07/04/2004,,ratified,,,Only ratified 1988 Convention
+IN,India,Treaty-UN-1961,30/03/1961,11/03/1964,,ratified_with_reservation,Cannabis and opium traditional uses,,
+IN,India,Treaty-Vienna-1971,,,23/04/1975,ratified_with_reservation,Traditional psychotropic substances,,
+IN,India,Treaty-UN-1988,20/12/1988,27/03/1990,,ratified,,,
+PK,Pakistan,Treaty-UN-1961,30/03/1961,25/04/1965,,ratified_with_reservation,Traditional cannabis and opium uses,,
+PK,Pakistan,Treaty-Vienna-1971,,,09/06/1977,ratified,,,
+PK,Pakistan,Treaty-UN-1988,20/12/1988,25/10/1991,,ratified,,,
+BD,Bangladesh,Treaty-UN-1961,30/03/1961,04/12/1972,,ratified_with_reservation,Traditional cannabis uses,,Succession from Pakistan
+BD,Bangladesh,Treaty-Vienna-1971,,,11/10/1990,ratified,,,
+BD,Bangladesh,Treaty-UN-1988,20/12/1988,28/02/1995,,ratified,,,
+TD,Chad,Treaty-UN-1961,30/03/1961,07/11/1969,,ratified,,,Only country not party to 1972 Protocol
+TD,Chad,Treaty-Vienna-1971,,,09/06/1995,ratified,,,
+TD,Chad,Treaty-UN-1988,20/12/1988,14/06/1995,,ratified,,,
+TH,Thailand,Treaty-UN-1961,30/03/1961,03/11/1975,,ratified,,,"Medical cannabis legalized 2018, recreational decriminalized 2022"
+TH,Thailand,Treaty-Vienna-1971,,,21/11/1975,ratified,,,
+TH,Thailand,Treaty-UN-1988,20/12/1988,09/05/2002,,ratified,,,
+ZA,South Africa,Treaty-UN-1961,30/03/1961,20/11/1996,,ratified,,,Constitutional Court ruled personal cannabis use legal 2018
+ZA,South Africa,Treaty-Vienna-1971,,,27/01/1972,ratified_with_reservation,Traditional psychotropic substances,,
+ZA,South Africa,Treaty-UN-1988,20/12/1988,14/12/1998,,ratified,,,
+FR,France,Treaty-UN-1961,,,19/02/1969,ratified_with_reservation,Preservation of prior provisions of 1936 Geneva Convention,,
+FR,France,Treaty-Vienna-1971,17/12/1971,28/01/1975,,ratified_with_reservation,Dispute resolution reservation,,
+FR,France,Treaty-UN-1988,13/02/1989,31/12/1990,,ratified,,,
+GR,Greece,Treaty-UN-1961,,,06/06/1972,ratified,,,
+GR,Greece,Treaty-Vienna-1971,21/02/1971,10/02/1977,,ratified,,,
+GR,Greece,Treaty-UN-1988,23/02/1989,28/01/1992,,ratified,,,
+NL,Netherlands,Treaty-UN-1961,31/07/1961,16/07/1965,,ratified,,,"Decriminalized cannabis (gray area), not legalized"
+NL,Netherlands,Treaty-Vienna-1971,,,08/09/1993,ratified,,,
+NL,Netherlands,Treaty-UN-1988,18/01/1989,08/09/1993,,ratified_with_reservation,Reservation on applicable jurisdiction,,
+PT,Portugal,Treaty-UN-1961,30/03/1961,30/12/1971,,ratified,,,Decriminalized all drugs 2001
+PT,Portugal,Treaty-Vienna-1971,,,20/04/1979,ratified,,,
+PT,Portugal,Treaty-UN-1988,13/12/1989,03/12/1991,,ratified,,,
+ES,Spain,Treaty-UN-1961,27/07/1961,01/03/1966,,ratified,,,
+ES,Spain,Treaty-Vienna-1971,,,20/07/1973,ratified,,,
+ES,Spain,Treaty-UN-1988,20/12/1988,13/08/1990,,ratified,,,
+SE,Sweden,Treaty-UN-1961,03/04/1961,18/12/1964,,ratified,,,
+SE,Sweden,Treaty-Vienna-1971,21/02/1971,05/12/1972,,ratified,,,
+SE,Sweden,Treaty-UN-1988,20/12/1988,22/07/1991,,ratified,,,
+BE,Belgium,Treaty-UN-1961,28/07/1961,17/10/1969,,ratified,,,
+BE,Belgium,Treaty-Vienna-1971,,,25/10/1995,ratified,,,
+BE,Belgium,Treaty-UN-1988,22/05/1989,25/10/1995,,ratified,,,
+CO,Colombia,Treaty-UN-1961,,,03/03/1975,ratified,,,
+CO,Colombia,Treaty-Vienna-1971,,,12/05/1981,ratified,,,
+CO,Colombia,Treaty-UN-1988,20/12/1988,10/06/1994,,ratified_with_reservation,Observation on judiciary cooperation ,,
+BR,Brazil,Treaty-UN-1961,30/03/1961,18/06/1964,,ratified_with_reservation,Observation on coastal exclusive economic zone authorisation,,
+BR,Brazil,Treaty-Vienna-1971,21/02/1971,14/02/1973,,ratified_with_reservation,Traditional psychotropic substances,,
+BR,Brazil,Treaty-UN-1988,20/12/1988,17/07/1991,,ratified,,,

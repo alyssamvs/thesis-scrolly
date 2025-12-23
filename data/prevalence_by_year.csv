@@ -1,0 +1,75 @@
+Country,Year,Prevalence_Percentage
+Belgium,2004,5.0
+Belgium,2008,5.1
+Belgium,2013,4.6
+Belgium,2018,7.0
+Bolivia (Plurinational State of),2007,4.5
+Bolivia (Plurinational State of),2013,1.27
+Bolivia (Plurinational State of),2014,1.42
+Bolivia (Plurinational State of),2018,2.19
+Bolivia (Plurinational State of),2023,1.1
+Brazil,2005,2.6
+Brazil,2012,2.81
+Colombia,2003,1.9
+Colombia,2008,2.27
+Colombia,2013,3.27
+Colombia,2019,2.68
+France,2005,8.6
+France,2010,8.4
+France,2014,11.1
+France,2016,11.1
+France,2017,11.0
+France,2021,10.6
+France,2023,10.8
+Greece,2004,1.7
+Greece,2015,2.8
+Netherlands (Kingdom of the),2005,5.4
+Netherlands (Kingdom of the),2009,7.0
+Netherlands (Kingdom of the),2014,8.0
+Netherlands (Kingdom of the),2015,8.7
+Netherlands (Kingdom of the),2016,8.4
+Netherlands (Kingdom of the),2017,9.2
+Netherlands (Kingdom of the),2018,9.6
+Netherlands (Kingdom of the),2019,9.3
+Netherlands (Kingdom of the),2020,10.1
+Netherlands (Kingdom of the),2021,10.4
+Netherlands (Kingdom of the),2022,10.2
+Netherlands (Kingdom of the),2023,9.9
+Peru,2006,0.7
+Peru,2010,1.0
+Peru,2017,1.624
+Portugal,2007,3.6
+Portugal,2012,2.7
+Portugal,2017,5.1
+Portugal,2022,2.8
+Spain,2009,10.6
+Spain,2011,9.6
+Spain,2013,9.2
+Spain,2015,9.5
+Spain,2017,11.0
+Spain,2020,10.5
+Spain,2022,10.6
+Sweden,2010,2.8
+Sweden,2011,2.61
+Sweden,2012,3.0
+Sweden,2013,3.16
+Sweden,2014,2.88
+Sweden,2015,3.2
+Sweden,2016,3.4
+Sweden,2018,3.9
+Sweden,2020,3.8
+Sweden,2021,4.0
+Sweden,2022,3.2
+United States of America,2010,14.0
+United States of America,2011,14.0
+United States of America,2012,14.8
+United States of America,2013,15.4
+United States of America,2014,16.2
+United States of America,2015,16.5
+United States of America,2016,17.0
+United States of America,2017,18.4
+United States of America,2018,19.4
+United States of America,2020,21.9
+United States of America,2021,22.88
+United States of America,2022,26.62193563
+United States of America,2023,26.37991803
