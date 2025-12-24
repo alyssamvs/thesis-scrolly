@@ -853,43 +853,23 @@ function handleCaptionChange(index) {
             // General view
             resetZoom(duration);
             break;
-            
+
         case 1:
             // Zoom in on Treaty-UN-1961
             zoomToNode('Treaty-UN-1961', zoomScale, duration);
             break;
             
         case 2:
-            // Zoom in on PE-Treaty-1964
-            zoomToNode('PE-Treaty-1964', zoomScale, duration);
+            // Zoom in on Vienna 1988
+            zoomToNode('Treaty-UN-1988', zoomScale, duration);
             break;
             
         case 3:
             // Zoom out a bit (scale 1.5)
             zoomToScale(1.5, duration);
             break;
-            
+                       
         case 4:
-            // Zoom on PE-DL22095-1978
-            zoomToNode('PE-DL22095-1978', zoomScale, duration);
-            break;
-            
-        case 5:
-            // Zoom on Treaty-UN-1971
-            zoomToNode('Treaty-Vienna-1971', zoomScale, duration);
-            break;
-            
-        case 6:
-            // Zoom in on US-Treaty-1980
-            zoomToNode('US-Treaty-1980', zoomScale, duration);
-            break;
-            
-        case 7:
-            // Zoom in on decade of 2000 (2000-2009)
-            zoomToYearRange(2000, 2009, zoomScale, duration);
-            break;
-            
-        case 8:
             // General / zoom out
             resetZoom(duration);
             break;
