@@ -20,11 +20,11 @@ window.addEventListener('scroll', () => {
 
 // Navigation Functions
 function startStoryMode() {
-    document.getElementById('supply-chain').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('intro').scrollIntoView({ behavior: 'smooth' });
 }
 
 function goToDashboard() {
-    document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('war-as-policy').scrollIntoView({ behavior: 'smooth' });
 }
 
 function goToSection(section) {
