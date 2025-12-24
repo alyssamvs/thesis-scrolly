@@ -1207,12 +1207,18 @@ function initRankingsEventListeners() {
 function initInfoButtonListeners() {
     // Event delegation for dynamically created info buttons
     document.addEventListener('mouseenter', (e) => {
+        // Safety check: ensure target exists and has classList
+        if (!e.target || !e.target.classList) return;
+        
         if (e.target.classList.contains('info-btn')) {
             showInfoTooltip(e.target);
         }
     }, true);
     
     document.addEventListener('mouseleave', (e) => {
+        // Safety check: ensure target exists and has classList
+        if (!e.target || !e.target.classList) return;
+        
         if (e.target.classList.contains('info-btn')) {
             hideInfoTooltip();
         }

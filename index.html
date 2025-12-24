@@ -21,6 +21,7 @@
   <script src="./javascript/geographic-network.js"></script>
   <script src="./javascript/treaty-network.js" defer></script>
   <script src="./javascript/rankings.js" defer></script>
+  <script src="javascript/rankings-scroll.js"></script>
   <script src="./javascript/main.js" defer></script>
 
 </head>   
@@ -367,289 +368,250 @@
     <div class="section-content">
         <!-- <h2 class="section-header">5. The Strictness Index</h2> -->
 
-        <!-- Isolation wrapper to prevent CSS conflicts -->
-        <div style="all: initial; display: block;">
-            <div class="strictness-rankings-container">
-                
-                <!-- Layout wrapper for sidebar design -->
-                <div class="rankings-layout-wrapper">
+        <!-- Sticky graphic container -->
+        <div class="sticky-bg-rankings" id="rankings-graphic-container">
+            
+            <!-- Isolation wrapper to prevent CSS conflicts -->
+            <div style="all: initial; display: block;">
+                <div class="strictness-rankings-container">
                     
-                    <!-- Sidebar containing all controls -->
-                    <aside class="rankings-sidebar">
+                    <!-- Layout wrapper for sidebar design -->
+                    <div class="rankings-layout-wrapper">
                         
-                        <!-- TIME-SERIES CONTROLS -->
-                        <div class="timeseries-controls-section">
-                            <h3>
-                                Time-Series Data Controls
-                                <button class="sidebar-info-btn" data-info="timeseries">ⓘ</button>
-                            </h3>
-                            <p class="controls-description">
-                                These settings apply to all time-series metrics (Seizures, Prevalence, Drug Prisoners %)
-                            </p>
+                        <!-- Sidebar containing all controls -->
+                        <aside class="rankings-sidebar">
                             
-                            <!-- SLIDER -->
-                            <div class="timeseries-slider-control">
-                                <label for="timeseries-range-slider">
-                                    Calculate from: 
-                                    <strong id="timeseries-range-display">Last 3 years</strong>
-                                </label>
-                                <input 
-                                    type="range" 
-                                    id="timeseries-range-slider" 
-                                    min="1" 
-                                    max="14" 
-                                    value="3" 
-                                    step="1"
-                                    class="timeseries-slider"
-                                >
-                                <div class="slider-labels">
-                                    <span>Last 1 year</span>
-                                    <span>All years (14)</span>
+                            <!-- TIME-SERIES CONTROLS -->
+                            <div class="timeseries-controls-section">
+                                <h3>
+                                    Time-Series Data Controls
+                                    <button class="sidebar-info-btn" data-info="timeseries">ⓘ</button>
+                                </h3>
+                                <p class="controls-description">
+                                    These settings apply to all time-series metrics (Seizures, Prevalence, Drug Prisoners %)
+                                </p>
+                                
+                                <!-- SLIDER -->
+                                <div class="timeseries-slider-control">
+                                    <label for="timeseries-range-slider">
+                                        Calculate from: 
+                                        <strong id="timeseries-range-display">Last 3 years</strong>
+                                    </label>
+                                    <input 
+                                        type="range" 
+                                        id="timeseries-range-slider" 
+                                        min="1" 
+                                        max="14" 
+                                        value="3" 
+                                        step="1"
+                                        class="timeseries-slider"
+                                    >
+                                    <div class="slider-labels">
+                                        <span>Last 1 year</span>
+                                        <span>All years (14)</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            
+                            <!-- COMPONENT WEIGHTS CONTROLS -->
+                            <div class="controls-section">
+                                <h3>
+                                    Adjust Component Weights (Law in Books Only)
+                                    <button class="sidebar-info-btn" data-info="weights">ⓘ</button>
+                                </h3>
                         
-                        <!-- COMPONENT WEIGHTS CONTROLS -->
-                        <div class="controls-section">
-                            <h3>
-                                Adjust Component Weights (Law in Books Only)
-                                <button class="sidebar-info-btn" data-info="weights">ⓘ</button>
-                            </h3>
-                    
-                            <div class="controls-grid">
-                                <div class="component-controls">
-                                    <div class="component-header" onclick="toggleComponent('criminalization')">
-                                        <span>Criminalization Scope</span>
-                                        <div class="component-weight">
-                                            <input type="range" 
-                                                   id="rankings-weight-criminalization" 
-                                                   class="slider" 
-                                                   min="0" 
-                                                   max="100" 
-                                                   value="50">
-                                            <span id="rankings-weight-criminalization-display">50%</span>
-                                            <span class="expand-indicator">▼</span>
+                                <div class="controls-grid">
+                                    <div class="component-controls">
+                                        <div class="component-header" onclick="toggleComponent('criminalization')">
+                                            <span>Criminalization Scope</span>
+                                            <div class="component-weight">
+                                                <input type="range" 
+                                                       id="rankings-weight-criminalization" 
+                                                       class="slider" 
+                                                       min="0" 
+                                                       max="100" 
+                                                       value="50">
+                                                <span id="rankings-weight-criminalization-display">50%</span>
+                                                <span class="expand-indicator">▼</span>
+                                            </div>
+                                        </div>
+                                        <div id="rankings-variables-criminalization" class="variable-controls">
+                                            <div class="variable-item">
+                                                <span>Use Criminalized</span>
+                                                <div class="variable-weight">
+                                                    <input type="range" 
+                                                           class="variable-slider" 
+                                                           data-component="criminalization"
+                                                           min="0" 
+                                                           max="100" 
+                                                           value="33.3">
+                                                    <span>16.7%</span>
+                                                </div>
+                                            </div>
+                                            <div class="variable-item">
+                                                <span>Possession Criminalized</span>
+                                                <div class="variable-weight">
+                                                    <input type="range" 
+                                                           class="variable-slider" 
+                                                           data-component="criminalization"
+                                                           min="0" 
+                                                           max="100" 
+                                                           value="33.3">
+                                                    <span>16.7%</span>
+                                                </div>
+                                            </div>
+                                            <div class="variable-item">
+                                                <span>No Personal Use Exemption</span>
+                                                <div class="variable-weight">
+                                                    <input type="range" 
+                                                           class="variable-slider" 
+                                                           data-component="criminalization"
+                                                           min="0" 
+                                                           max="100" 
+                                                           value="33.3">
+                                                    <span>16.7%</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div id="rankings-variables-criminalization" class="variable-controls">
-                                        <div class="variable-item">
-                                            <span>Use Criminalized</span>
-                                            <div class="variable-weight">
+
+                                    <div class="component-controls">
+                                        <div class="component-header" onclick="toggleComponent('penalty')">
+                                            <span>Penalty Severity</span>
+                                            <div class="component-weight">
                                                 <input type="range" 
-                                                       class="variable-slider" 
-                                                       data-component="criminalization"
+                                                       id="rankings-weight-penalty" 
+                                                       class="slider" 
                                                        min="0" 
                                                        max="100" 
-                                                       value="33.3">
-                                                <span>16.7%</span>
+                                                       value="50">
+                                                <span id="rankings-weight-penalty-display">50%</span>
+                                                <span class="expand-indicator">▼</span>
                                             </div>
                                         </div>
-                                        <div class="variable-item">
-                                            <span>Possession Criminalized</span>
-                                            <div class="variable-weight">
-                                                <input type="range" 
-                                                       class="variable-slider" 
-                                                       data-component="criminalization"
-                                                       min="0" 
-                                                       max="100" 
-                                                       value="33.3">
-                                                <span>16.7%</span>
+                                        <div id="rankings-variables-penalty" class="variable-controls">
+                                            <div class="variable-item">
+                                                <span>Max Possession Penalty</span>
+                                                <div class="variable-weight">
+                                                    <input type="range" 
+                                                           class="variable-slider" 
+                                                           data-component="penalty"
+                                                           min="0" 
+                                                           max="100" 
+                                                           value="33.3">
+                                                    <span>16.7%</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="variable-item">
-                                            <span>No Personal Use Exemption</span>
-                                            <div class="variable-weight">
-                                                <input type="range" 
-                                                       class="variable-slider" 
-                                                       data-component="criminalization"
-                                                       min="0" 
-                                                       max="100" 
-                                                       value="33.3">
-                                                <span>16.7%</span>
+                                            <div class="variable-item">
+                                                <span>Max Supply Penalty</span>
+                                                <div class="variable-weight">
+                                                    <input type="range" 
+                                                           class="variable-slider" 
+                                                           data-component="penalty"
+                                                           min="0" 
+                                                           max="100" 
+                                                           value="33.3">
+                                                    <span>16.7%</span>
+                                                </div>
+                                            </div>
+                                            <div class="variable-item">
+                                                <span>Mandatory Minimums</span>
+                                                <div class="variable-weight">
+                                                    <input type="range" 
+                                                           class="variable-slider" 
+                                                           data-component="penalty"
+                                                           min="0" 
+                                                           max="100" 
+                                                           value="33.3">
+                                                    <span>16.7%</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="component-controls">
-                                    <div class="component-header" onclick="toggleComponent('penalty')">
-                                        <span>Penalty Severity</span>
-                                        <div class="component-weight">
-                                            <input type="range" 
-                                                   id="rankings-weight-penalty" 
-                                                   class="slider" 
-                                                   min="0" 
-                                                   max="100" 
-                                                   value="50">
-                                            <span id="rankings-weight-penalty-display">50%</span>
-                                            <span class="expand-indicator">▼</span>
-                                        </div>
-                                    </div>
-                                    <div id="rankings-variables-penalty" class="variable-controls">
-                                        <div class="variable-item">
-                                            <span>Max Possession Penalty</span>
-                                            <div class="variable-weight">
-                                                <input type="range" 
-                                                       class="variable-slider" 
-                                                       data-component="penalty"
-                                                       min="0" 
-                                                       max="100" 
-                                                       value="33.3">
-                                                <span>16.7%</span>
-                                            </div>
-                                        </div>
-                                        <div class="variable-item">
-                                            <span>Max Supply Penalty</span>
-                                            <div class="variable-weight">
-                                                <input type="range" 
-                                                       class="variable-slider" 
-                                                       data-component="penalty"
-                                                       min="0" 
-                                                       max="100" 
-                                                       value="33.3">
-                                                <span>16.7%</span>
-                                            </div>
-                                        </div>
-                                        <div class="variable-item">
-                                            <span>Mandatory Minimums</span>
-                                            <div class="variable-weight">
-                                                <input type="range" 
-                                                       class="variable-slider" 
-                                                       data-component="penalty"
-                                                       min="0" 
-                                                       max="100" 
-                                                       value="33.3">
-                                                <span>16.7%</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <button class="reset-button" onclick="resetWeights()">Reset to Default Weights</button>
+                            </div>
+                            
+                        </aside>
+                        <!-- END: Sidebar -->
+                        
+                        <!-- Main rankings area -->
+                        <div class="rankings-main-area">
+                            
+                            <!-- Mobile Column Selector -->
+                            <div class="mobile-column-selector" id="rankings-mobile-selector">
+                                <!-- Will be populated dynamically -->
+                            </div>
+
+                            <!-- Unified Rankings Container -->
+                            <div class="rankings-container">
+                                <canvas id="rankings-canvas"></canvas>
+                                <div class="rankings-grid" id="rankings-grid">
+                                    <!-- Columns will be populated dynamically -->
                                 </div>
                             </div>
-
-                            <button class="reset-button" onclick="resetWeights()">Reset to Default Weights</button>
+                            
                         </div>
-                        
-                    </aside>
-                    <!-- END: Sidebar -->
-                    
-                    <!-- Main rankings area -->
-                    <div class="rankings-main-area">
-                        
-                        <!-- Mobile Column Selector -->
-                        <div class="mobile-column-selector" id="rankings-mobile-selector">
-                            <!-- Will be populated dynamically -->
-                        </div>
-
-                        <!-- Unified Rankings Container -->
-                        <div class="rankings-container">
-                            <canvas id="rankings-canvas"></canvas>
-                            <div class="rankings-grid" id="rankings-grid">
-                                <!-- Columns will be populated dynamically -->
-                            </div>
-                        </div>
+                        <!-- END: Main area -->
                         
                     </div>
-                    <!-- END: Main area -->
+                    <!-- END: Layout wrapper -->
+
+                    <!-- Tooltip -->
+                    <div class="tooltip" id="rankings-tooltip"></div>
                     
                 </div>
-                <!-- END: Layout wrapper -->
+            </div> <!-- End isolation wrapper -->
+            
+        </div>
+        <!-- END: Sticky graphic container -->
 
-                <!-- Tooltip -->
-                <div class="tooltip" id="rankings-tooltip"></div>
-                
+        <!-- Overlay captions -->
+        <div class="captions rankings-captions">
+            <div class="caption" data-index="0">
+                <p>For the past sixty years, drug control policy has focused more aggressively on combating supply (as opposed to demand). But has it worked? This visualisation provides a mechanism to begin exploring that possibility: a Strictness Index compares drug policy across 12 countries according to their criminalisation scope and penalty severity, ranking them with the 'strictest' positioned at the top. Hover over any country to see detailed breakdowns.</p>
             </div>
-        </div> <!-- End isolation wrapper -->
+            
+            <div class="caption" data-index="1">
+                <p>The rankings from this dimemsion (the 'Law in Books' dimension) are presented in parallel to enforcement data collected over time by UN country members. Time-series metrics (seizures, prevalence, prisoners) for those same countries are also ranked, with the possibility to toggle the years included in the ranking.</p>
+            </div>
+
+            <div class="caption" data-index="2">
+                <p>You can adjust how rankings are calculated using the controls on the left. Change the time range to see how recent data compares to long-term trends. Expand each dimension to adjust individual variable weights, or modify the overall balance. Click column headers to reorder and compare different metrics side-by-side.</p>
+            </div>
+
+            <div class="caption" data-index="3">
+                <p>Data completeness varies significantly across countries and metrics. Some countries report seizure data inconsistently, while imprisonment statistics may use different definitions of "drug-related." Sparklines show only available data points, with dotted lines indicating missing years.</p>
+            </div>
+        </div>
         
     </div>
 </section>
             
-<!-- SECTION 6 - DASHBOARD -->
-    <!-- Dashboard Section -->
-    <section class="dashboard" id="dashboard">
-        <div class="section-content">
-            <h2 class="section-header">6. Interact with the Data</h2>
-            
-        </div>
-    </section>
+<!-- SECTION 6 - OUTRO -->
+
+<section class="closing-section">
+    <div class="closing-content">
+        <p>The countries chosen, for the most part, don't display correlations between stricter laws, stricter enforcement, and increased prevalence. However, it is also not possible to establish a correlation between stricter laws and decreased prevalence, despite decades of efforts to this end. This absence of correlation raises questions regarding the actual effectiveness of these policies: if they are not working, what is? Would country's situations be better without them, or worse? Though these are not questions that can be answered in this current project (if at all), it is important to remember that continuing on this path has a cost: in resources, in the environment, and in human lives. So wouldn't it be better to know more?</p>
+        <br><br>
+
+        <p>Data for this project was obtained from the dataUNODC portal, and complemented from official government sources where applicable. Treaty information corresponds to the United Nations Treaty Collection.</p>
+    </div>
+</section>
+
+    <!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <p class="footer-credit">Thesis Project · Alyssa Meier · Aalto University School of Arts, Design and Architecture · 2025</p>
+    </div>
+</footer>
 
     <!-- Tooltip for interactions -->
     <div class="tooltip" id="tooltip"></div>
 
 
-<!-- STATUS LEGEND -->
-<div class="status-legend" id="status-legend" style="display: none;">
-    <h4>Treaty Status</h4>
-    
-    <div class="status-item">
-        <div class="status-dot status-ratified"></div>
-        <span>Ratified</span>
-    </div>
-    
-    <div class="status-item">
-        <div class="status-dot status-ratified-reservation"></div>
-        <span>With Reservation</span>
-    </div>
-    
-    <div class="status-item">
-        <div class="status-dot status-signed-only"></div>
-        <span>Signed Only</span>
-    </div>
-    
-    <div class="status-item">
-        <div class="status-dot status-never-signed"></div>
-        <span>Never Signed</span>
-    </div>
-    
-    <div class="status-item">
-        <div class="status-dot status-withdrew"></div>
-        <span>Withdrew</span>
-    </div>
-    
-    <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
-    
-    <h4 style="margin-top: 10px;">Link Styles</h4>
-    
-    <div class="status-item">
-        <div class="status-line status-ratified"></div>
-        <span>Clean ratification</span>
-    </div>
-    
-    <div class="status-item">
-        <div class="status-line dashed status-ratified-reservation"></div>
-        <span>With reservation</span>
-    </div>
-    
-    <div class="status-item">
-        <div class="status-line dotted status-signed-only"></div>
-        <span>Signed only</span>
-    </div>
-</div>
 
-<!-- TEMPORAL SCALE -->
-<!-- Shows what distance means in years -->
-
-<div class="temporal-scale" id="temporal-scale" style="display: none;">
-    <h4>Distance = Years to Join</h4>
-    
-    <div class="scale-line">
-        <div class="scale-bar" style="width: 40px;"></div>
-        <span>5 years</span>
-    </div>
-    
-    <div class="scale-line">
-        <div class="scale-bar" style="width: 80px;"></div>
-        <span>10 years</span>
-    </div>
-    
-    <div class="scale-line">
-        <div class="scale-bar" style="width: 160px;"></div>
-        <span>20 years</span>
-    </div>
-    
-    <p style="margin-top: 10px; font-size: 9px; opacity: 0.7; line-height: 1.3;">
-        Distance from treaty center indicates how many years after adoption each country joined.
-    </p>
-</div>
 
 <!-- JavaScript to show/hide legend when treaties are expanded -->
 <script>
