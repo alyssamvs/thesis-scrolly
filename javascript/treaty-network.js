@@ -127,7 +127,7 @@ function createVisualization(nodes, links) {
     const container = d3.select(containerSelector);
     
     // Clear any existing content
-    container.selectAll('svg').remove();
+    container.selectAll('#treaty-svg').remove();
     
     const svg = container.append('svg')
         .attr('id', 'treaty-svg')
@@ -139,7 +139,7 @@ function createVisualization(nodes, links) {
         .attr('class', 'tooltip')
         .style('position', 'fixed')
         .style('top', '80px')
-        .style('left', '40px')
+        .style('right', '40px')
         .style('padding', '12px 15px')
         .style('background', 'rgba(0, 0, 0, 0.95)')
         .style('color', '#fff')
@@ -185,7 +185,7 @@ function createVisualization(nodes, links) {
             .attr('d', 'M 2 2 L 8 5 L 2 8')  // Chevron/angle shape: >
             .attr('fill', 'none')
             .attr('stroke', color)
-            .attr('stroke-width', 1.5)
+            .attr('stroke-width', 2.5)
             .attr('stroke-linecap', 'round')
             .attr('stroke-linejoin', 'round')
             .attr('opacity', 0.8);
@@ -294,13 +294,13 @@ function createVisualization(nodes, links) {
         .attr('stroke', (d, i) => `url(#gradient-${i})`)
         // No marker-end by default - arrows only show on interaction
         .style('fill', 'none')
-        .style('stroke-width', 1.5)
+        .style('stroke-width', 3)
         .style('opacity', 0.6)
         .on('mouseenter', function(event, d) {
             const linkIndex = links.indexOf(d);
             d3.select(this)
                 .classed('active', true)
-                .style('stroke-width', 2.5)
+                .style('stroke-width', 4)
                 .style('opacity', 1)
                 .attr('marker-end', `url(#arrow-${d.entity.replace(/\s+/g, '-')})`);  // Show arrow on hover
             
@@ -311,7 +311,7 @@ function createVisualization(nodes, links) {
         .on('mouseleave', function() {
             d3.select(this)
                 .classed('active', false)
-                .style('stroke-width', 1.5)
+                .style('stroke-width', 3)
                 .style('opacity', 0.6)
                 .attr('marker-end', null);  // Hide arrow when not hovering
             

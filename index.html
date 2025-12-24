@@ -163,11 +163,89 @@
         <div class="sticky-bg" id="graphic-container">
             <!-- D3.js treaty network visualization will be rendered here -->
 
+            <div id="treaty-legend" class="treaty-legend">
+                <div class="legend-section">
+                    <div class="legend-title">Node Size</div>
+                    <div class="legend-item">
+                        <svg width="30" height="20">
+                            <circle cx="10" cy="10" r="9" fill="#808080" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>Major Treaties</span>
+                    </div>
+                    <div class="legend-item">
+                        <svg width="30" height="20">
+                            <circle cx="10" cy="10" r="6" fill="#808080" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>Other Documents</span>
+                    </div>
+                </div>
+                
+                <div class="legend-section">
+                    <div class="legend-title">Node Color (Entity)</div>
+                    <div class="legend-item">
+                        <svg width="30" height="20">
+                            <circle cx="10" cy="10" r="6" fill="#CC2936" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>United Nations</span>
+                    </div>
+                    <div class="legend-item">
+                        <svg width="30" height="20">
+                            <circle cx="10" cy="10" r="6" fill="#08415C" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>League of Nations</span>
+                    </div>
+                    <div class="legend-item">
+                        <svg width="30" height="20">
+                            <circle cx="10" cy="10" r="6" fill="#E07A5F" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>Peru</span>
+                    </div>
+                    <div class="legend-item">
+                        <svg width="30" height="20">
+                            <circle cx="10" cy="10" r="6" fill="#7D8597" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>United States</span>
+                    </div>
+                    <div class="legend-item">
+                        <svg width="30" height="20">
+                            <circle cx="10" cy="10" r="6" fill="#A7BBEC" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>European Union</span>
+                    </div>
+                    <div class="legend-item">
+                        <svg width="30" height="20">
+                            <circle cx="10" cy="10" r="6" fill="#1B998B" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>CAN</span>
+                    </div>
+                    <div class="legend-item">
+                        <svg width="30" height="20">
+                            <circle cx="10" cy="10" r="6" fill="#FFBE0B" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>OAS</span>
+                    </div>
+                </div>
+                
+                <div class="legend-section">
+                    <div class="legend-title">Links</div>
+                    <div class="legend-item">
+                        <svg width="30" height="20">
+                            <line x1="5" y1="10" x2="25" y2="10" stroke="#808080" stroke-width="2"/>
+                            <path d="M 20 7 L 25 10 L 20 13" fill="none" stroke="#808080" stroke-width="1.5"/>
+                        </svg>
+                        <span>Hover to see relationship</span>
+                    </div>
+                </div>
+            </div>
+
+
             <button id="explore-btn" class="explore-button">
                 Click to Zoom/Pan
             </button>
         </div>
         
+        
+
         <!-- Overlay captions -->
         <div class="captions">
             <div class="caption" data-index="0">
@@ -202,10 +280,7 @@
             <div class="section-content">
                 
                 <div class="left-text">
-                    <br><br>
-                    <br><br>
-                    <!-- <h2 class="section-header">2. The Supply Chain</h2> -->
-                    <br><br>
+
                     <br><br>
                     <h3>Since 1988, and unofficially at least since the early 70s, all aspects of the drug market supply chain have been criminalised and subjected to enforcement, the mechanisms for which were quickly militarised militarised: from planes getting shot down in the 1970s, to Caribbean boats being the target of drones in 2025. With the so-called 'War on Drugs' being a war fought primarily on the <em>supply</em> of drugs, most of the regulatory, military and financial efforts were focused on this supply chain.
                         <br><br>
