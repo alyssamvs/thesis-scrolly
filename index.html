@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="./css/rankings.css" />
 
   <!-- JS -->
-  <script src="https://d3js.org/d3.v7.min.js" defer></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+  <script src="./javascript/geographic-network.js"></script>
   <script src="./javascript/treaty-network.js" defer></script>
   <script src="./javascript/rankings.js" defer></script>
   <script src="./javascript/main.js" defer></script>
@@ -247,27 +249,123 @@
 
 
    
-    
-
 <!-- SECTION 4 - WAR AS POLICY -->
-    <section class="story-section war-as-policy" id="war-as-policy">
-        <div class="section-content">
-            <!-- <h2 class="section-header">4. War as a Policy</h2> -->
-            <br><br>
-            <h3>As mentioned, drug regulation in general is a relatively new phenomenom. The first document to declare at an international level the necessity to intervene in the commerce of certain substances dates back to 1909. Following the Second World War, a wave of prohibition instigated mainly by the United States of America lead to widespread pressure for countries to abide by these provisions. 
-                <br><br>
-            It took until 1961, however, for these treaties to have any teeth. <br><br>
-            They haven't been updated much since then. 
-            <br><br>
-            </h3>
-           
+<section class="story-section" id="war-as-policy">
+    <div class="section-content">
+        
+        <!-- Sticky graphic container -->
+        <div class="sticky-bg" id="map-container">
+          
+         <!-- Controls -->
+    <div class="map-controls">
+        <div class="layer-toggles">
+            <div class="toggle-title">Layers</div>
+            <label class="toggle-item">
+                <input type="checkbox" id="routing-toggle" checked>
+                <span>Routes</span>
+            </label>
+            <label class="toggle-item">
+                <input type="checkbox" id="choropleth-toggle">
+                <span>Seizures per Year</span>
+            </label>
         </div>
-    </section>
+        <div class="metric-selector">
+            <button class="metric-btn active" data-metric="seizure_count">Number of Seizures</button>
+            <button class="metric-btn" data-metric="total_quantity_kg">Total Quantity (kg)</button>
+        </div>
+        
+        <div class="year-filter">
+            <div class="year-display-row">
+                <span><strong>Year Range:</strong></span>
+                <span class="year-display" id="geo-year-range-display">2011 - 2016</span>
+                <button class="reset-year-btn" id="geo-reset-year">All Years</button>
+            </div>
+            <div class="year-slider-container">
+                <span class="year-label">2011</span>
+                <div class="slider-track">
+                    <div class="slider-range" id="geo-slider-range"></div>
+                    <input type="range" min="2011" max="2016" value="2011" class="year-slider" id="geo-year-start">
+                    <input type="range" min="2011" max="2016" value="2016" class="year-slider" id="geo-year-end">
+                </div>
+                <span class="year-label">2016</span>
+            </div>
+        </div>
+<!-- Legend -->
+<div class="map-legend">
+    <!-- <div class="legend-title">Visual Encoding</div>
+     -->
+    <div class="legend-section">
+        <div class="legend-section-title">Routing Network:</div>
+        <div class="legend-item">
+            <span class="legend-label">Node Size:</span>
+            <span class="legend-desc">Total connections</span>
+        </div>
+        
+        <div class="legend-item">
+            <span class="legend-label">Route Thickness:</span>
+            <span class="legend-desc">Selected metric volume</span>
+        </div>
+        
+        <div class="legend-item">
+            <span class="legend-label">Route Color:</span>
+            <div class="color-gradient route-gradient"></div>
+            <span class="legend-desc">Low → High volume</span>
+        </div>
+    </div>
+    
+    <div class="legend-section">
+        <div class="legend-section-title">Choropleth Layer:</div>
+        <div class="legend-item">
+            <span class="legend-label">Country Fill:</span>
+            <div class="color-gradient choropleth-gradient"></div>
+            <span class="legend-desc">Low → High seizures (kg, log scale)</span>
+        </div>
+    </div>
+</div>
+<!-- Choropleth Timeline Scrubber -->
+<div class="choropleth-timeline" id="choropleth-timeline">
+    <div class="timeline-title">Year</div>
+    <div class="timeline-year-display" id="choropleth-year-display">2024</div>
+    <input type="range" min="2010" max="2024" value="2024" class="timeline-scrubber" id="choropleth-year-scrubber">
+    <div class="timeline-labels">
+        <span>2010</span>
+        <span>2024</span>
+    </div>
+</div>
+
+    </div>
+        </div>
+        
+        <!-- Overlay captions -->
+        <div class="captions">
+            <div class="caption" data-index="0">
+                <p>With the so-called 'War on Drugs' focused primarily on supply-side enforcement, tracking cocaine seizures reveals the global scope of interdiction efforts. This network shows trafficking routes based on seizure data, with countries sized by their role as trafficking hubs.</p>
+            </div>
+            
+            <div class="caption" data-index="1">
+                <p>Routes are drawn between departure and destination countries, with thickness representing the volume of activity. You can switch between viewing the number of seizures (frequency of interdictions) or total quantity seized (volume in kilograms).</p>
+            </div>
+
+            <div class="caption" data-index="2">
+                <p>The color gradient shows route intensity—lighter routes indicate lower volumes while darker red routes represent major trafficking corridors. Node size reflects each country's total connections in the network.</p>
+            </div>
+
+            <div class="caption" data-index="3">
+                <p>The year filter allows you to examine how routes evolved over time. This network spans 2011-2016, showing which trafficking corridors were active during different periods of enforcement. An additional layer, of average amounts seized per year, can be toggled on and scrubbed from 2010 to 2024.</p>
+            </div>
+            
+            <div class="caption" data-index="4">
+                <p>Use the controls above to explore different metrics and time periods. Hover over routes and nodes for detailed statistics about seizure counts, quantities, and active years.</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
 
 <!-- SECTION 5 - THE STRICTNESS INDEX-->
 <section class="story-section strictness-index" id="strictness-index">
     <div class="section-content">
-        <h2 class="section-header">5. The Strictness Index</h2>
+        <!-- <h2 class="section-header">5. The Strictness Index</h2> -->
 
         <!-- Isolation wrapper to prevent CSS conflicts -->
         <div style="all: initial; display: block;">

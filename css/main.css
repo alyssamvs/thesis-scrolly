@@ -718,3 +718,403 @@ body {
         gap: 1rem;
     }
 }
+
+/*--------------------
+--------------------
+    SEIZURE MAP
+--------------------
+--------------------*/
+
+
+#war-as-policy {
+    position: relative;
+}
+
+#war-as-policy .section-content {
+    position: relative;
+    width: 100%;
+    height: 650vh;  
+    margin: 0;
+    padding: 0;
+    }
+
+#war-as-policy .sticky-bg {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f8ff;  
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+}
+
+#war-as-policy .captions {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 850px;
+    z-index: 10;
+    pointer-events: none;
+    height: 600vh;
+}
+
+#war-as-policy .caption {
+    padding-top: 6rem;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+#war-as-policy .caption p {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
+}
+
+#war-as-policy .caption:first-child {
+    margin-top: 90vh;
+}
+
+/* Geographic network route styles */
+#war-as-policy .route {
+    fill: none;
+    stroke-opacity: 0.5;
+    stroke-linecap: round;
+}
+
+#war-as-policy .route:hover {
+    stroke-opacity: 0.9;
+}
+
+#war-as-policy .country {
+    fill: #e0e0e0;
+    stroke: #fff;
+    stroke-width: 0.5px;
+}
+
+#war-as-policy .node-circle {
+    cursor: pointer;
+}
+
+/* Map Controls */
+#war-as-policy .map-controls {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 15px;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 280px;
+    pointer-events: none;  /* Disabled during story mode */
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    font-size: 12px;
+}
+
+#war-as-policy .map-controls.interactive {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+#war-as-policy .metric-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#war-as-policy .metric-btn,
+#war-as-policy .reset-year-btn {
+    padding: 6px 12px;
+    border: 1px solid #767676;
+    background: white;
+    color: #767676;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 11px;
+    font-family: "Readex Pro", "Helvetica", Arial, sans-serif;
+}
+
+#war-as-policy .metric-btn.active {
+    background: #767676;
+    color: white;
+}
+
+#war-as-policy .metric-btn:hover,
+#war-as-policy .reset-year-btn:hover {
+    background: #767676;
+    color: white;
+}
+
+#war-as-policy .year-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#war-as-policy .year-display-row {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 11px;
+}
+
+#war-as-policy .year-display {
+    font-weight: bold;
+    color: #767676;
+}
+
+#war-as-policy .year-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+#war-as-policy .year-label {
+    font-size: 10px;
+    color: #666;
+    min-width: 30px;
+}
+
+#war-as-policy .slider-track {
+    position: relative;
+    height: 4px;
+    background: #ddd;
+    border-radius: 2px;
+    flex: 1;
+}
+
+#war-as-policy .slider-range {
+    position: absolute;
+    height: 4px;
+    background: #767676;
+    border-radius: 2px;
+}
+
+#war-as-policy .year-slider {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    outline: none;
+    pointer-events: auto;
+}
+
+#war-as-policy .year-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #767676;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#war-as-policy .year-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: #767676;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Map Legend */
+#war-as-policy .map-legend {
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#war-as-policy .legend-title {
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+}
+
+#war-as-policy .legend-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 10px;
+}
+
+#war-as-policy .legend-label {
+    font-weight: 600;
+    color: #333;
+}
+
+#war-as-policy .legend-desc {
+    color: #666;
+    font-size: 9px;
+}
+
+#war-as-policy .color-gradient {
+    height: 8px;
+    width: 100%;
+    background: linear-gradient(to right, 
+        rgb(252, 187, 161) 0%,     /* Light red (0.3 intensity) */
+        rgb(239, 101, 72) 50%,      /* Medium red */
+        rgb(153, 0, 0) 100%);       /* Dark red (0.9 intensity) */
+    border: 1px solid #ddd;
+    margin: 2px 0;
+}
+
+/* Layer Toggles */
+#war-as-policy .layer-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+#war-as-policy .toggle-title {
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+#war-as-policy .toggle-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#war-as-policy .toggle-item input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+#war-as-policy .toggle-item span {
+    color: #333;
+}
+
+/* Choropleth Timeline Scrubber */
+#war-as-policy .choropleth-timeline {
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#war-as-policy .timeline-title {
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#war-as-policy .timeline-year-display {
+    font-size: 16px;
+    font-weight: bold;
+    color: #767676;
+    text-align: center;
+}
+
+#war-as-policy .timeline-scrubber {
+    width: 100%;
+    height: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, #ddd, #767676);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+#war-as-policy .timeline-scrubber::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #767676;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#war-as-policy .timeline-scrubber::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #767676;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#war-as-policy .timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: #666;
+}
+
+/* Legend sections */
+#war-as-policy .legend-section {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #e0e0e0;
+}
+
+#war-as-policy .legend-section:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+#war-as-policy .legend-section-title {
+    font-weight: 600;
+    font-size: 10px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+#war-as-policy .route-gradient {
+    background: linear-gradient(to right, 
+        rgb(252, 187, 161) 0%,
+        rgb(239, 101, 72) 50%,
+        rgb(153, 0, 0) 100%);
+}
+
+#war-as-policy .choropleth-gradient {
+    background: linear-gradient(to right, 
+        #f0f0f0 0%,
+        #999999 50%,
+        #333333 100%);
+}
