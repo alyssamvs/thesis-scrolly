@@ -29,25 +29,10 @@
 
 
 <script>
+    // JS for CYOA
     function selectCharacter(character) {
-        // Map character names to their CYOA pages
-        const characterPages = {
-            'farmer': './farmer-cyoa.html',
-            'courier': './courier-cyoa.html',      // Not built yet
-            'dealer': './dealer-cyoa.html',        // Not built yet
-            'transporter': './transporter-cyoa.html', // Not built yet
-            'producer': './producer-cyoa.html',    // Not built yet
-            'wholesaler': './wholesaler-cyoa.html' // Not built yet
-        };
-
-        const page = characterPages[character];
         
-        if (page) {
-                        window.location.href = page;
-        } else {
-            console.error('Character page not found:', character);
-            alert('This character story is not yet available. Please try another character or check back soon!');
-        }
+        window.location.href = `./cyoa.html?character=${character}`;
     }
 </script>
 
@@ -56,7 +41,7 @@
 <body>
 <!-------------------------
 ---------------------------
-    Header Navigation (this should disappear in the hero)
+    Header Navigation 
 ---------------------------
 ---------------------------->
     <header class="header">
@@ -78,7 +63,7 @@
 
 <!------------------------
     ----------------------
-    HERO TITLE (full-page) 
+    HERO TITLE 
 --------------------------
 ---------------------------->
 
@@ -161,7 +146,7 @@
 
         <!-- Sticky graphic container -->
         <div class="sticky-bg" id="graphic-container">
-            <!-- D3.js treaty network visualization will be rendered here -->
+            <!-- D3.js treaty network-->
 
             <div id="treaty-legend" class="treaty-legend">
                 <div class="legend-section">
@@ -367,8 +352,7 @@
         </div>
 <!-- Legend -->
 <div class="map-legend">
-    <!-- <div class="legend-title">Visual Encoding</div>
-     -->
+
     <div class="legend-section">
         <div class="legend-section-title">Routing Network:</div>
         <div class="legend-item">
@@ -445,14 +429,14 @@
         <!-- Sticky graphic container -->
         <div class="sticky-bg-rankings" id="rankings-graphic-container">
             
-            <!-- Isolation wrapper to prevent CSS conflicts -->
+            
             <div style="all: initial; display: block;">
                 <div class="strictness-rankings-container">
                     
-                    <!-- Layout wrapper for sidebar design -->
+                   
                     <div class="rankings-layout-wrapper">
                         
-                        <!-- Sidebar containing all controls -->
+                        <!-- Sidebar -->
                         <aside class="rankings-sidebar">
                             
                             <!-- TIME-SERIES CONTROLS -->
@@ -613,33 +597,33 @@
                         <!-- Main rankings area -->
                         <div class="rankings-main-area">
                             
-                            <!-- Mobile Column Selector -->
+                            <!-- Column Selector -->
                             <div class="mobile-column-selector" id="rankings-mobile-selector">
-                                <!-- Will be populated dynamically -->
+                                
                             </div>
 
                             <!-- Unified Rankings Container -->
                             <div class="rankings-container">
                                 <canvas id="rankings-canvas"></canvas>
                                 <div class="rankings-grid" id="rankings-grid">
-                                    <!-- Columns will be populated dynamically -->
+                                    
                                 </div>
                             </div>
                             
                         </div>
-                        <!-- END: Main area -->
+                        
                         
                     </div>
-                    <!-- END: Layout wrapper -->
+                    
 
                     <!-- Tooltip -->
                     <div class="tooltip" id="rankings-tooltip"></div>
                     
                 </div>
-            </div> <!-- End isolation wrapper -->
+            </div> 
             
         </div>
-        <!-- END: Sticky graphic container -->
+        
 
         <!-- Overlay captions -->
         <div class="captions rankings-captions">
@@ -687,18 +671,15 @@
 
 
 
-<!-- JavaScript to show/hide legend when treaties are expanded -->
+<!-- js for treaties -->
 <script>
-// Show legend when any treaty is expanded
+// Show legend 
 function updateLegendVisibility() {
     const anyExpanded = treatyViz.expandedTreaties.size > 0;
     document.getElementById('status-legend').style.display = anyExpanded ? 'block' : 'none';
     document.getElementById('temporal-scale').style.display = anyExpanded ? 'block' : 'none';
 }
 
-// Call this after expanding/collapsing treaties
-// Add to end of expandTreaty() and collapseTreaty() functions:
-// updateLegendVisibility();
 </script>
 
 

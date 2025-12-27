@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Journey - CYOA</title>
+    <link rel="stylesheet" href="./css/cyoa-styles.css">
+</head>
+<body>
+    <!-- Loading screen -->
+    <div id="loading" class="cyoa-loading">
+        Loading Game...
+    </div>
+
+    <!-- Game container -->
+    <div id="game-container" style="display: none;"></div>
+
+    <!-- Load scripts -->
+    <script src="./javascript/cyoa-engine.js"></script>
+    <script src="./javascript/cyoa-ui.js"></script>
+    
+    <script>
+        // Get character from URL parameter
+        // e.g., cyoa.html?character=farmer
+        function getCharacterFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const character = urlParams.get('character');
+            
+            // Default to farmer if no character specified
+            return character || 'farmer';
+        }
+
+        // Get character display name
+        function getCharacterTitle(character) {
+            const titles = {
+                'farmer': 'Coca Farmer',
+                'courier': 'Courier',
+                'dealer': 'Dealer',
+                'producer': 'Producer',
+                'transporter': 'Transporter',
+                'wholesaler': 'Wholesaler'
+            };
+            return titles[character] || character.charAt(0).toUpperCase() + character.slice(1);
+        }
+
+        // Initialize the game when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            const loadingEl = document.getElementById('loading');
+            const containerEl = document.getElementById('game-container');
+
+            try {
+                // Get which character to load
+                const character = getCharacterFromURL();
+                
+                // Update page title
+                document.title = `${getCharacterTitle(character)}'s Journey - CYOA`;
+                
+                // Update loading message
+                loadingEl.textContent = `Loading ${getCharacterTitle(character)}'s Story...`;
+
+                // Create game engine
+                const engine = new CYOAEngine();
+
+                // Load character-specific data files
+                const dataLoaded = await engine.loadData(
+                    `./CYOA/${character}_story_nodes.csv`,
+                    `./CYOA/${character}_story_choices.csv`,
+                    `./CYOA/${character}_story_endings.json`
+                );
+
+                if (!dataLoaded) {
+                    throw new Error(`Failed to load ${character} game data`);
+                }
+
+                // Hide loading, show game
+                loadingEl.style.display = 'none';
+                containerEl.style.display = 'block';
+
+                // Create UI manager
+                const ui = new CYOAUIManager(engine, 'game-container');
+
+                // Start the game (auto-detects start node)
+                ui.startGame();
+
+                console.log(`${getCharacterTitle(character)} game initialized successfully`);
+
+            } catch (error) {
+                console.error('Error initializing game:', error);
+                loadingEl.innerHTML = `
+                    <div style="text-align: center;">
+                        <p style="color: red; font-size: 1.2rem; margin-bottom: 1rem;">
+                            Error loading game
+                        </p>
+                        <p style="color: #666; margin-bottom: 2rem;">
+                            ${error.message}
+                        </p>
+                        <a href="./index.html" style="color: #000; text-decoration: underline;">
+                            Return to character selection
+                        </a>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

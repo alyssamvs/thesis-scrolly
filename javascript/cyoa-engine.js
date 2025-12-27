@@ -1,8 +1,4 @@
-/**
- * CYOA Game Engine for Cocaine Supply Chain Interactive
- * Loads CSV/JSON data and manages game state
- * MODIFIED: Removed scoring system, direct choice-to-outcome routing
- */
+
 
 class CYOAEngine {
     constructor() {
@@ -11,10 +7,11 @@ class CYOAEngine {
         this.endings = [];
         this.currentNode = null;
         this.history = [];
+        this.startNodeId = null; 
     }
 
     /**
-     * Load CSV data and parse it
+     * Load CSV 
      */
     async loadCSV(url) {
         const response = await fetch(url);
@@ -23,7 +20,7 @@ class CYOAEngine {
     }
 
     /**
-     * Parse CSV text into array of objects
+     * Parse CSV 
      */
     parseCSV(text) {
         const lines = text.trim().split('\n');
@@ -44,7 +41,7 @@ class CYOAEngine {
     }
 
     /**
-     * Parse a single CSV line, handling quoted fields
+     * Parse a single CSV line
      */
     parseCSVLine(line) {
         const values = [];
@@ -106,11 +103,34 @@ class CYOAEngine {
     }
 
     /**
-     * Start the game at a specific node
+     * Detect starting node from loaded data
      */
-    startGame(startNodeId = 'farmer_start') {
+    getStartNode() {
+        for (let [nodeId, node] of this.nodes) {
+            if (nodeId.endsWith('_start')) {
+                return nodeId;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Start the game 
+     */
+    startGame(startNodeId = null) {
+        // auto detect
+        if (!startNodeId) {
+            startNodeId = this.getStartNode();
+            if (!startNodeId) {
+                console.error('No starting node found. Make sure your data has a node ending with "_start"');
+                return null;
+            }
+            console.log('Auto-detected start node:', startNodeId);
+        }
+
         this.currentNode = this.nodes.get(startNodeId);
         this.history = [startNodeId];
+        this.startNodeId = startNodeId; 
         
         if (!this.currentNode) {
             console.error('Start node not found:', startNodeId);
@@ -181,10 +201,10 @@ class CYOAEngine {
     }
 
     /**
-     * Restart the game
+     * Restart 
      */
     restart() {
-        return this.startGame();
+        return this.startGame(this.startNodeId);
     }
 
     /**

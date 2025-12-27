@@ -1,0 +1,184 @@
+{
+  "endings": [
+    {
+      "character": "Courier",
+      "id": "courier_rupture_arrest",
+      "title": "Medical Emergency: The Fatal Gamble",
+      "narrative": "You told the flight crew. They call ahead for emergency landing in the Canary Islands. Paramedics rush you to hospital. Emergency surgery removes 50 packets from your stomach - three had begun to rupture. Another 30 minutes and you'd be dead. You survive. Spanish police arrest you in the hospital bed. You're charged with international drug trafficking: 500g of cocaine. Spain's Penal Code Article 368: 3-6 years minimum. Six months later, you haven't seen your children. The recruiter told them you abandoned them. Your daughter's medicine ran out. You survived the rupture, but at what cost?",
+      "legal_info": {
+        "title": "Medical Intervention and Mandatory Reporting",
+        "text": "Spain drug trafficking penalties (Penal Code Article 368): possession >100g for trafficking = 3-9 years. International trafficking is aggravating factor. Medical intervention during packet rupture is mandatory - hospitals must report suspected drug couriers to police under Spanish law. Packet rupture mortality rate: 30-40% even with immediate intervention. Cocaine overdose causes seizures, cardiac arrest, stroke. Couriers receive same penalties as traffickers - no legal distinction for 'mules' under Spanish law. Foreign nationals serve sentence in Spain, then deported."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Spain",
+            "policy": "Penal Code Article 368: Drug trafficking >100g = 3-9 years. No distinction for couriers vs. traffickers. Medical reporting mandatory. International trafficking is aggravating factor. Average sentence for 500g: 4-5 years. Deportation after sentence. Limited treatment options in prison.",
+            "penalty": "3-9 years for 500g international trafficking. No mule defense. Mandatory reporting by hospitals."
+          },
+          {
+            "name": "Peru",
+            "policy": "Export trafficking penalties: 6-15 years under Penal Code Article 296. Limited medical intervention policies for couriers. Many packet rupture deaths go unreported. No specific protections for couriers who seek medical help.",
+            "penalty": "6-15 years for export trafficking. Medical intervention policies unclear. High unreported death rate."
+          },
+          {
+            "name": "Portugal",
+            "policy": "Decriminalization for possession, but trafficking remains criminal. 4-12 years for international trafficking. Some recognition of coercion as mitigating factor, but rarely applied. Treatment-focused approach for users, not traffickers.",
+            "penalty": "4-12 years for trafficking. Limited recognition of economic coercion. Treatment available post-sentence."
+          }
+        ]
+      },
+      "data_visualization_note": "Show packet rupture mortality rates. Map emergency medical interventions vs. arrests. Compare mandatory reporting laws across countries. Timeline showing survival rates with/without intervention."
+    },
+    {
+      "character": "Courier",
+      "id": "courier_successful_trapped",
+      "title": "The First Trip: Trapped in the Cycle",
+      "narrative": "You made it through. The packets exited naturally over 48 hours in a Madrid hotel. You met the contact, handed over the drugs, received your $5,000. You fly home, pay rent, buy medicine, buy food. Two weeks later, the recruiter returns. 'Same deal? Double the money this time.' You say you're done. She smiles coldly. 'You know what happens to people who say no after saying yes once? Plus, you have $5,000 of unexplained income now. Police might be interested.' You realize: you're not a courier who did one job. You're a courier who will do many jobs. The first trip was the trap. There's no exit now.",
+      "legal_info": {
+        "title": "The Courier Trap: No Exit After First Trip",
+        "text": "Trafficking organizations specifically recruit first-timers because: (1) no criminal record means lower scrutiny, (2) desperate economic situation ensures compliance, (3) easily controlled through debt and threats after first successful trip. Exit is extremely difficult - many couriers make 10+ trips before arrest. Spanish authorities estimate 30-40% of arrested couriers are repeat offenders who were forced to continue. Organizations use multiple coercion methods: threats to family, manufactured debt, blackmail with unexplained income, physical violence. Peru has anti-trafficking laws but prosecution of coercion is rare."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Spain",
+            "policy": "Repeat couriers face longer sentences and trafficking network charges. Average arrests per courier before caught: 5-8 trips. Detection eventually inevitable - technology improving. No legal recognition of coercion for repeat offenders. Penalties increase with each subsequent arrest.",
+            "penalty": "Second arrest: 6-12 years. Third+: 9-15 years plus organized crime charges. No exit programs."
+          },
+          {
+            "name": "Netherlands",
+            "policy": "Some treatment diversion for first-time low-level couriers, but repeat offenders face mandatory prison. Couriers can receive 4-6 years, reduced to 2-3 with treatment. But repeat offenses eliminate diversion options. Focus on addiction treatment more than coercion recognition.",
+            "penalty": "First time: 4-6 years, treatment possible. Repeat: 6-10 years, no treatment diversion."
+          },
+          {
+            "name": "UK",
+            "policy": "Mandatory minimum 7 years for international trafficking regardless of circumstances. No distinction for couriers. No recognition of coercion. Sentencing guidelines state economic hardship is not mitigating factor. Extremely harsh approach to couriers.",
+            "penalty": "Mandatory minimum 7 years for any international trafficking. No exceptions for couriers or coercion."
+          }
+        ]
+      },
+      "data_visualization_note": "Show average number of trips before arrest. Map repeat courier statistics. Chart showing coercion methods used to trap couriers. Timeline of courier lifecycle from first trip to arrest."
+    },
+    {
+      "character": "Courier",
+      "id": "courier_caught_customs",
+      "title": "Caught at Customs: The Inevitable Arrest",
+      "narrative": "The customs officer at Madrid-Barajas pulled you aside for 'random screening.' It wasn't random. X-ray detected the false-bottom luggage. They find 500g of cocaine. You're arrested immediately. Spanish National Police transport you to detention. The prosecutor charges you with international drug trafficking. Your court-appointed lawyer explains: Spain has no 'mule defense.' Whether you were desperate, threatened, or coerced doesn't legally matter. You face 3-6 years minimum. Your children are now with your mother who can barely feed herself. The traffickers disappeared. You're alone in a Spanish prison, 10,000km from home. You were caught within 20 minutes of landing.",
+      "legal_info": {
+        "title": "No Mule Defense in Spanish Law",
+        "text": "Spain's detection rate for luggage concealment: 70-80% using X-ray technology. Conviction rate for caught couriers: >95%. Sentence under Penal Code Article 368: 3-9 years depending on quantity and circumstances. Legal aid is available but overwhelmed. 'Mule defense' (economic coercion, threats, desperation) is not recognized as mitigating factor under Spanish law. Couriers are prosecuted identically to traffickers. Average time served: 4-5 years. Deportation mandatory after sentence. Prison conditions for foreign nationals: overcrowding, language barriers, isolation from family."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Spain",
+            "policy": "No legal distinction between couriers and traffickers. Article 368: 3-9 years for >100g. International trafficking adds time. Economic coercion not recognized as defense. Detection technology highly advanced. Conviction rate >95%. Deportation after sentence. Foreign prisoners: ~30% of drug offense inmates.",
+            "penalty": "3-9 years minimum for 500g. No mule distinction. Mandatory deportation. No recognition of coercion."
+          },
+          {
+            "name": "Ecuador",
+            "policy": "Major transit country with extremely harsh penalties. 10-13 years for trafficking. Prison conditions are among worst in Latin America. No distinction for couriers. Women make up 80% of drug offense prisoners, many are couriers. Reform efforts underway but slow.",
+            "penalty": "10-13 years for trafficking. Harsh prison conditions. 80% of female prisoners are drug offenders."
+          },
+          {
+            "name": "Netherlands",
+            "policy": "Couriers face 4-6 years. Some recognition of coercion as mitigating factor but rarely applied successfully. Treatment options available during sentence. Better prison conditions than Spain. But penalties still significant and no systematic mule defense.",
+            "penalty": "4-6 years for couriers. Limited recognition of coercion. Treatment available but penalties remain harsh."
+          }
+        ]
+      },
+      "data_visualization_note": "Show detection rates by method (luggage vs. swallowing). Map conviction rates across European countries. Chart showing average sentences for couriers. Compare foreign national prison populations."
+    },
+    {
+      "character": "Courier",
+      "id": "courier_backout_retaliation",
+      "title": "Backing Out: The Price of Second Thoughts",
+      "narrative": "You couldn't go through with it. At the airport, you told the recruiter you changed your mind. She didn't argue. She just left. Two days later, men came to your apartment. They explained you wasted their money: plane ticket ($800), recruitment time, lost opportunity. You now owe $3,000. They give you one week. Your options: become a courier anyway (no choice now), work as local drug seller in Lima (worse penalties if caught), or they'll 'collect' from your family. You tried to refuse, but refusal isn't an option. The drug trade doesn't accept 'no' once you've said 'maybe.' You're deeper in now than if you'd just gone through with it.",
+      "legal_info": {
+        "title": "Debt Bondage and Forced Participation",
+        "text": "Trafficking organizations use debt bondage to control couriers. Initial refusal often leads to forced participation under threat. Peru Law 28950 (Anti-Trafficking) recognizes debt bondage as trafficking, but enforcement is weak. Police corruption makes reporting dangerous. Many women who refuse courier jobs are forced into local drug sales networks instead - which carry higher penalties in Peru (8-15 years for local sales vs. 6-15 years for export trafficking). Violence against family members is common threat. State protection is largely non-existent for potential victims who haven't yet been trafficked."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Law 28950 recognizes debt bondage as trafficking but prosecution is rare. Police corruption documented in drug cases. Witness protection (Law 27378) severely underfunded - reserved for high-level cases. Women forced into local sales face harsher penalties (8-15 years) than export trafficking. Protection gaps are severe.",
+            "penalty": "Local drug sales: 8-15 years. Debt bondage: trafficking in law, not in practice. Limited protection."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Similar patterns of debt bondage and forced participation. Trafficking organizations use violence extensively. Anti-trafficking laws exist but enforcement weak outside major cities. Women in rural areas especially vulnerable. Corruption endemic in police and judicial system.",
+            "penalty": "Debt bondage recognized as trafficking but rarely prosecuted. Violence common. Limited state protection."
+          },
+          {
+            "name": "Spain",
+            "policy": "Trafficking victims have legal protections but must testify against traffickers (dangerous). Residence permits available for trafficking victims who cooperate. But proving coercion is difficult. Most couriers are prosecuted as criminals, not recognized as trafficking victims.",
+            "penalty": "Trafficking victim status requires testimony. Legal residence if granted. But most couriers prosecuted, not protected."
+          }
+        ]
+      },
+      "data_visualization_note": "Show debt bondage mechanisms. Map violence and threats statistics. Compare trafficking victim recognition rates. Chart showing forced participation after initial refusal."
+    },
+    {
+      "character": "Courier",
+      "id": "courier_police_limited_help",
+      "title": "Reporting to Police: Limited Protection",
+      "narrative": "You went to the police. You told them everything: the recruitment attempt, the woman's description, the offer. The officer took notes. He said they'd 'investigate.' He also said: 'We can't protect you. We don't have resources for witness protection for recruitment attempts. If they threaten you again, come back.' You leave the station. That evening, the recruiter's associate is waiting outside your building. He doesn't threaten you directly. He just says: 'The officer you talked to? His cousin works for us. We know what you said. We'll let it go this time. But now you owe us for the trouble.' You realize: reporting to police means reporting to the traffickers. There's no protection. You're alone.",
+      "legal_info": {
+        "title": "Witness Protection Gaps in Peru",
+        "text": "Peru Law 27378 establishes witness protection program but is severely underfunded. Protection typically reserved for high-level cases (major cartel prosecutions, terrorism cases). Potential trafficking victims reporting recruitment attempts receive minimal to no protection. Police corruption in drug cases is documented extensively - estimated 15-20% of officers in Lima have ties to trafficking organizations. Women who report often face retaliation with no state response. Reporting rate for recruitment attempts estimated <5% because protection is effectively non-existent. Alternative protection mechanisms (NGOs, community organizations) have limited capacity and no legal authority."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Law 27378 witness protection exists in law, not in practice for low-level cases. Police corruption endemic. Protection requires ongoing threat assessment and judicial order - process takes months. By then, retaliation has occurred. Funding: ~$2 million/year for entire country. Estimated need: 10x current funding.",
+            "penalty": "Reporting provides no practical protection. Police corruption makes reporting dangerous. Limited resources."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Better funded witness protection than Peru (~$15 million/year) but still insufficient. Estimated 2,000+ people in protection program. Many witnesses still killed despite protection. Program prioritizes high-level cases. Low-level recruitment reports receive minimal response. Corruption remains significant issue.",
+            "penalty": "Better funded than Peru but gaps remain. Many protected witnesses still killed. Low-level cases deprioritized."
+          },
+          {
+            "name": "Spain",
+            "policy": "Stronger witness protection system with more funding (~$50 million/year). Requires evidence of imminent threat. Foreign nationals reporting from abroad receive limited protection. Must be physically in Spain to qualify. Protection for trafficking victim testimony available but requires cooperation in prosecution.",
+            "penalty": "Well-funded protection but requires proof of threat. Foreign nationals face additional barriers. Must testify."
+          }
+        ]
+      },
+      "data_visualization_note": "Compare witness protection funding across countries. Show reporting rates vs. protection availability. Map corruption levels in police forces. Chart showing retaliation rates after reporting."
+    },
+    {
+      "character": "Courier",
+      "id": "courier_economic_desperation",
+      "title": "Accepting Consequences: The Debt Trap",
+      "narrative": "You didn't report them. You just lived with the consequences. The debt they claim you owe - for 'wasted time' and 'expenses' - grows every week through 'interest.' You can't pay. Your daughter's medicine runs out. You're evicted. You move in with your mother in an even poorer neighborhood. The recruiter occasionally appears, reminding you the offer is still open. 'Just one trip,' she says. You keep refusing. But every day is harder. You sell your phone, your clothes, anything valuable. You work cleaning houses for $5/day. It's not enough. The debt sits there, growing, a constant threat. You haven't become a courier, but you haven't escaped either. You're trapped between refusal and desperation, waiting for the day when you have no choice left.",
+      "legal_info": {
+        "title": "Economic Coercion and Structural Poverty",
+        "text": "Informal debt used as coercion is trafficking under UN Palermo Protocol and Peru Law 28950, but rarely prosecuted. Peru's poverty rate: 27% (INEI 2022), concentrated in urban periphery. Women in Lima's poor neighborhoods earn $100-200/month average. Courier payment of $5,000 represents 2+ years income. Economic coercion drives recruitment - women aren't kidnapped, they're bankrupted. Alternative employment is scarce, unstable, insufficient. Minimum wage: $275/month. Informal economy: 70% of workers. Social safety net: virtually non-existent. The 'choice' to become a courier is often no choice at all. Poverty is the primary recruitment mechanism."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Minimum wage: $275/month. Informal economy: 70% of workforce. Poverty rate: 27%. Limited social support programs. Alternative employment insufficient. Women's economic vulnerability drives courier recruitment. No specific policies addressing economic coercion in trafficking. Anti-poverty programs reach <20% of need.",
+            "penalty": "Economic desperation is primary recruitment driver. Limited social safety net. Poverty creates vulnerability."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Similar economic drivers. Rural women especially vulnerable. Minimum wage: $300/month. Informal economy: 60%. Post-conflict zones have highest poverty and recruitment rates. Some rural development programs but insufficient. Economic inequality is primary trafficking driver.",
+            "penalty": "Similar to Peru. Rural poverty drives recruitment. Post-conflict areas most vulnerable. Limited alternatives."
+          },
+          {
+            "name": "Spain",
+            "policy": "Spanish courts do not recognize economic coercion as legal defense for couriers. Economic desperation is explicitly excluded as mitigating factor in sentencing guidelines. Legal principle: poverty does not justify crime. This creates disconnect between recruitment reality (economic coercion) and legal response (criminal prosecution without consideration of circumstances).",
+            "penalty": "Economic coercion not recognized in law. Poverty explicitly excluded as mitigating factor. No legal distinction."
+          }
+        ]
+      },
+      "data_visualization_note": "Show poverty rates in Lima neighborhoods. Map courier recruitment zones vs. poverty levels. Chart minimum wage vs. courier payment. Compare economic alternatives for women in poverty. Timeline showing debt accumulation and economic pressure."
+    }
+  ]
+}

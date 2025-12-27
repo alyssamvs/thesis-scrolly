@@ -14,9 +14,9 @@ let treatyViz = {
     links: [],
     nodeElements: null,
     linkElements: null,
-    linkLabelElements: null,  // Track link relationship labels
+    linkLabelElements: null,  
     labelElements: null,
-    zoomHighlightedNode: null  // Track node highlighted by zoom (story mode only)
+    zoomHighlightedNode: null  
 };
 
 // Configuration 
@@ -126,7 +126,7 @@ function createVisualization(nodes, links) {
     const containerSelector = '#graphic-container'; 
     const container = d3.select(containerSelector);
     
-    // Clear any existing content
+
     container.selectAll('#treaty-svg').remove();
     
     const svg = container.append('svg')
@@ -168,21 +168,21 @@ function createVisualization(nodes, links) {
     
     svg.selectAll('*').remove();
     
-    // Create defs for gradients and arrowheads
+    // gradients and arrowheads
     const defs = svg.append('defs');
     
-    // Create arrowhead markers for each entity color (line-based chevron style)
+    // chevron arrowheads
     Object.entries(config.colors).forEach(([entity, color]) => {
         defs.append('marker')
             .attr('id', `arrow-${entity.replace(/\s+/g, '-')}`)
             .attr('viewBox', '0 0 10 10')
-            .attr('refX', 9)  // Position at end of line
+            .attr('refX', 9)  
             .attr('refY', 5)
-            .attr('markerWidth', 6)  // Small size
+            .attr('markerWidth', 6)  
             .attr('markerHeight', 6)
             .attr('orient', 'auto')
             .append('path')
-            .attr('d', 'M 2 2 L 8 5 L 2 8')  // Chevron/angle shape: >
+            .attr('d', 'M 2 2 L 8 5 L 2 8')  
             .attr('fill', 'none')
             .attr('stroke', color)
             .attr('stroke-width', 2.5)
@@ -191,32 +191,32 @@ function createVisualization(nodes, links) {
             .attr('opacity', 0.8);
     });
     
-    // zoom behavior to SVG
+    // d3 zoom 
     const zoom = d3.zoom()
     .scaleExtent([0.5, 8])
     .on('zoom', (event) => {
         g.attr('transform', event.transform);
     });
 
-    // Store zoom behavior but DON'T apply it yet
+    // store zoom
     treatyViz.zoom = zoom;
     treatyViz.svg = svg;
-    treatyViz.zoomEnabled = false;  // Track zoom state
+    treatyViz.zoomEnabled = false;  
 
-    // Disable zoom initially (story mode)
-    svg.on('.zoom', null);  // Remove zoom listeners
+    // story mode zoom
+    svg.on('.zoom', null);  
     
     const g = svg.append('g')
         .attr('transform', `translate(${config.margin.left},${config.margin.top})`);
     
     treatyViz.g = g;
     
-    // X scale for timeline (horizontal)
+    // timeline
     const xScale = d3.scaleLinear()
         .domain(config.yearRange)
         .range([0, innerWidth]);
     
-    // decade markers (vertical lines)
+    // decade markers 
     const decades = d3.range(1910, 2020, 10);
     decades.forEach(decade => {
         const x = xScale(decade);
@@ -241,7 +241,7 @@ function createVisualization(nodes, links) {
             .text(decade);
     });
     
-    // Timeline axis at bottom
+    // timeline axis
     const xAxis = d3.axisBottom(xScale)
         .tickValues(decades)
         .tickFormat(d => d);
@@ -259,14 +259,14 @@ function createVisualization(nodes, links) {
         .style('fill', '#999')
         .style('font-weight', 500);
     
-    // Convert link source/target to node references
+    // source/target links
     const nodeMap = new Map(nodes.map(n => [n.id, n]));
     links.forEach(link => {
         link.source = nodeMap.get(link.source);
         link.target = nodeMap.get(link.target);
     });
     
-    // Create force simulation
+    // force simulation
     const simulation = d3.forceSimulation(nodes)
         .force('charge', d3.forceManyBody().strength(config.forceStrength.charge))
         .force('link', d3.forceLink(links).id(d => d.id).strength(config.forceStrength.link))
@@ -275,7 +275,7 @@ function createVisualization(nodes, links) {
         .force('y', d3.forceY(innerHeight / 2).strength(0.05))
         .force('bounds', forceBounds);
     
-    // Custom force to keep nodes within bounds
+    
     function forceBounds() {
         nodes.forEach(node => {
             node.x = Math.max(node.radius, Math.min(innerWidth - node.radius, node.x));
@@ -283,7 +283,7 @@ function createVisualization(nodes, links) {
         });
     }
     
-    // Draw links with gradient fade effect
+    // gradient links
     const linkGroup = g.append('g').attr('class', 'links');
     
     const linkElements = linkGroup.selectAll('.link')
@@ -292,7 +292,6 @@ function createVisualization(nodes, links) {
         .append('line')
         .attr('class', 'link')
         .attr('stroke', (d, i) => `url(#gradient-${i})`)
-        // No marker-end by default - arrows only show on interaction
         .style('fill', 'none')
         .style('stroke-width', 3)
         .style('opacity', 0.6)
@@ -302,9 +301,9 @@ function createVisualization(nodes, links) {
                 .classed('active', true)
                 .style('stroke-width', 4)
                 .style('opacity', 1)
-                .attr('marker-end', `url(#arrow-${d.entity.replace(/\s+/g, '-')})`);  // Show arrow on hover
+                .attr('marker-end', `url(#arrow-${d.entity.replace(/\s+/g, '-')})`);  
             
-            // Show relationship label for this link
+            // relationship labels
             linkLabelElements.filter((l, i) => i === linkIndex)
                 .style('opacity', 1);
         })
@@ -313,26 +312,26 @@ function createVisualization(nodes, links) {
                 .classed('active', false)
                 .style('stroke-width', 3)
                 .style('opacity', 0.6)
-                .attr('marker-end', null);  // Hide arrow when not hovering
+                .attr('marker-end', null);  
             
-            // Hide relationship label
+         
             linkLabelElements.style('opacity', 0);
         });
     
     treatyViz.linkElements = linkElements;
     
-    // Add relationship labels for links (initially hidden)
+    // relationship labels (shown)
     const linkLabelElements = linkGroup.selectAll('.link-label')
         .data(links)
         .enter()
         .append('text')
         .attr('class', 'link-label')
         .attr('text-anchor', 'middle')
-        .attr('dy', -5)  // Position above the link
+        .attr('dy', -5)  
         .style('font-size', '8px')
         .style('font-weight', 500)
         .style('fill', '#808080')
-        .style('opacity', 0)  // Hidden by default
+        .style('opacity', 0) 
         .style('pointer-events', 'none')
         .style('stroke', 'white')
         .style('stroke-width', '2px')
@@ -341,9 +340,9 @@ function createVisualization(nodes, links) {
     
     treatyViz.linkLabelElements = linkLabelElements;
     
-    // Draw nodes
+    // nodes
 
-    // Draw node CIRCLES first
+    // circles
 const nodeGroup = g.append('g').attr('class', 'nodes');
 
 const nodeElements = nodeGroup.selectAll('.node')
@@ -366,7 +365,7 @@ const nodeElements = nodeGroup.selectAll('.node')
 
 treatyViz.nodeElements = nodeElements;
 
-// Node circles
+
 nodeElements.append('circle')
     .attr('r', d => d.radius)
     .attr('fill', d => config.colors[d.entity] || '#95A5A6')
@@ -379,11 +378,11 @@ nodeElements.selectAll('circle')
         d3.select(this).style('stroke', '#000').style('stroke-width', 3);
     })
     .on('mouseleave', function(event, d) {
-        // All nodes return to white stroke on mouse leave
+        
         d3.select(this).style('stroke', 'white').style('stroke-width', 2);
     });
 
-// Draw LABELS separately (on top of all circles)
+// labels on circles
 const labelGroup = g.append('g').attr('class', 'labels');
 
 const labelElements = labelGroup.selectAll('.node-label-group')
@@ -398,7 +397,7 @@ labelElements.append('text')
     .attr('y', d => -d.radius + 15)
     .attr('text-anchor', 'start')
     // .attr('transform', d => `rotate(-20, ${d.radius + 3}, ${-d.radius - 3})`)
-    .style('opacity', 0)  // All labels start hidden
+    .style('opacity', 0) 
     .style('font-size', d => d.highlighted ? '11px' : '9px')
     .style('font-weight', d => d.highlighted ? 600 : 400)
     .style('fill', '#000')
@@ -409,35 +408,31 @@ labelElements.append('text')
     .text(d => d.shortName);
 
 treatyViz.labelElements = labelElements;
-    
-    // Update positions on simulation tick
+   
 
-    // Update positions on simulation tick
+    // update positions 
 simulation.on('tick', () => {
-    // Update link positions and gradients
     linkElements.each(function(d, i) {
         const link = d3.select(this);
         
-        // Calculate shortened endpoint to prevent arrowhead overlap with target node
+
         const dx = d.target.x - d.source.x;
         const dy = d.target.y - d.source.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        // Shorten line by target node radius + small gap for arrowhead
         const gap = d.target.radius + 3;
         const ratio = (distance - gap) / distance;
         
         const targetX = d.source.x + dx * ratio;
         const targetY = d.source.y + dy * ratio;
         
-        // Update line position
+        //line position
         link
             .attr('x1', d.source.x)
             .attr('y1', d.source.y)
             .attr('x2', targetX)
             .attr('y2', targetY);
         
-        // Create/update gradient for this link
+        // gradient for link
         const gradientId = `gradient-${i}`;
         let gradient = defs.select(`#${gradientId}`);
         
@@ -458,7 +453,6 @@ simulation.on('tick', () => {
                 .attr('class', 'end');
         }
         
-        // Update gradient direction (use original target position for gradient)
         gradient
             .attr('x1', `${d.source.x}px`)
             .attr('y1', `${d.source.y}px`)
@@ -569,13 +563,13 @@ simulation.on('tick', () => {
         if (treatyViz.zoomHighlightedNode) {
             highlightNodeOnZoom(treatyViz.zoomHighlightedNode.id);
         } else {
-            // Normal restore to default state
+            
             linkElements
                 .classed('active', false)
                 .style('opacity', 0.6)
                 .attr('marker-end', null);  // Remove all arrows
             
-            // Hide all link relationship labels
+
             // linkLabelElements
             //     .style('opacity', 0);
             
@@ -590,21 +584,18 @@ simulation.on('tick', () => {
     
     // ZOOM HIGHLIGHTING FUNCTIONS (Story mode only)
     
-    // Highlight a node and its connections when zooming (story mode)
     function highlightNodeOnZoom(nodeId) {
         const node = treatyViz.nodes.find(n => n.id === nodeId);
         if (!node) return;
         
         treatyViz.zoomHighlightedNode = node;
         
-        // Find all connected nodes
         const connectedIds = new Set([node.id]);
         treatyViz.links.forEach(l => {
             if (l.source.id === node.id) connectedIds.add(l.target.id);
             if (l.target.id === node.id) connectedIds.add(l.source.id);
         });
         
-        // Fade links not connected to this node, show arrows on connected links
         linkElements
             .style('opacity', d => 
                 (d.source.id === node.id || d.target.id === node.id) ? 1 : 0.15
@@ -613,9 +604,7 @@ simulation.on('tick', () => {
                 (d.source.id === node.id || d.target.id === node.id) 
                     ? `url(#arrow-${d.entity.replace(/\s+/g, '-')})` 
                     : null
-            );  // Show arrows only on connected links
-        
-        // Show relationship labels for connected links
+            );  
         // treatyViz.linkLabelElements
         //     .style('opacity', d => 
         //         (d.source.id === node.id || d.target.id === node.id) ? 1 : 0
@@ -845,8 +834,8 @@ function enableExploreMode() {
 function handleCaptionChange(index) {
     console.log('Caption changed to:', index);
     
-    const duration = 1000; // Smooth transition duration
-    const zoomScale = 2.5; // Consistent zoom scale for node focus
+    const duration = 1000; 
+    const zoomScale = 2.5; 
     
     switch(index) {
         case 0:
@@ -865,7 +854,7 @@ function handleCaptionChange(index) {
             break;
             
         case 3:
-            // Zoom out a bit (scale 1.5)
+            // Zoom out a bit 
             zoomToScale(1.5, duration);
             break;
                        
@@ -917,7 +906,7 @@ function zoomToScale(scale = 1, duration = 1000) {
         );
 }
 
-// Expose for debugging
+
 window.treatyViz = treatyViz;
 window.zoomToNode = zoomToNode;
 window.zoomToYearRange = zoomToYearRange;

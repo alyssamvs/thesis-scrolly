@@ -1,8 +1,4 @@
-/**
- * CYOA UI Manager - Simplified Layout
- * Background image with overlaid content, collapsible sidebar
- * MODIFIED: Removed reflection questions display only
- */
+
 
 class CYOAUIManager {
     constructor(engine, containerId) {
@@ -18,9 +14,7 @@ class CYOAUIManager {
         this.setupUI();
     }
 
-    /**
-     * Set up the UI structure
-     */
+
     setupUI() {
         this.container.innerHTML = `
             <div class="cyoa-game">
@@ -65,7 +59,7 @@ class CYOAUIManager {
             </div>
         `;
 
-        // Get references to UI elements
+        // UI elements
         this.elements = {
             main: this.container.querySelector('.cyoa-main'),
             location: this.container.querySelector('.cyoa-location'),
@@ -85,13 +79,13 @@ class CYOAUIManager {
             returnBtn: this.container.querySelector('.cyoa-return-btn')
         };
 
-        // Set up event listeners
+        // event listeners
         this.elements.restartBtn.addEventListener('click', () => this.restartGame());
         this.elements.sidebarToggle.addEventListener('click', () => this.toggleSidebar());
     }
 
     /**
-     * Toggle sidebar collapse/expand
+     * sidebar
      */
     toggleSidebar() {
         this.sidebarCollapsed = !this.sidebarCollapsed;
@@ -108,7 +102,7 @@ class CYOAUIManager {
     }
 
     /**
-     * Render current game state
+     * current game state
      */
     render(state) {
         if (!state) {
@@ -116,18 +110,17 @@ class CYOAUIManager {
             return;
         }
 
-        // Check if this is an ending
+        // ending
         if (state.ending) {
             this.renderEnding(state.ending);
             return;
         }
 
-        // Hide ending overlay if showing
+        // Hide ending
         this.elements.endingOverlay.style.display = 'none';
 
         // Update background image if available
         if (state.node.image_hint) {
-            // You can replace this with actual image URLs later
             this.elements.main.style.backgroundImage = `url('./assets/${state.node.image_hint}.jpg')`;
         }
 
@@ -149,37 +142,33 @@ class CYOAUIManager {
         this.renderPolicySidebar(state.node);
     }
 
-    /**
-     * Render available choices with dynamic layout
-     */
+ 
     renderChoices(choices) {
         if (!choices || choices.length === 0) {
             this.elements.choices.innerHTML = '<p>No choices available</p>';
             return;
         }
 
-        // Clear previous choices
         this.elements.choices.innerHTML = '';
 
-        // Set layout class based on number of choices
+  
         if (choices.length === 2) {
             this.elements.choices.className = 'cyoa-choices two-options';
         } else {
             this.elements.choices.className = 'cyoa-choices multiple-options';
         }
 
-        // Create choice cards
         choices.forEach((choice, index) => {
             const choiceCard = document.createElement('div');
             choiceCard.className = 'cyoa-choice-card';
             
-            // Build the choice HTML
+        
             let choiceHTML = `
                 <div class="cyoa-choice-header">
                     <div class="cyoa-choice-text">${choice.choice_text}</div>
             `;
 
-            // Add info button if there's extra info
+            // info button
             if (choice.choice_explanation || choice.tooltip_info) {
                 choiceHTML += `
                     <button class="cyoa-info-btn" data-index="${index}" type="button">i</button>
@@ -188,7 +177,7 @@ class CYOAUIManager {
 
             choiceHTML += `</div>`;
 
-            // Add expandable info section (hidden by default)
+            
             if (choice.choice_explanation || choice.tooltip_info) {
                 choiceHTML += `
                     <div class="cyoa-choice-info" data-index="${index}">
@@ -211,25 +200,23 @@ class CYOAUIManager {
 
             choiceCard.innerHTML = choiceHTML;
 
-            // Set up info button listener
+     
             const infoBtn = choiceCard.querySelector('.cyoa-info-btn');
             if (infoBtn) {
                 infoBtn.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Prevent card click
+                    e.stopPropagation(); 
                     this.toggleChoiceInfo(index);
                 });
             }
 
-            // Set up choice selection listener
+         
             choiceCard.addEventListener('click', () => this.handleChoice(choice));
 
             this.elements.choices.appendChild(choiceCard);
         });
     }
 
-    /**
-     * Toggle info section for a choice
-     */
+
     toggleChoiceInfo(index) {
         const infoSection = this.elements.choices.querySelector(`.cyoa-choice-info[data-index="${index}"]`);
         if (infoSection) {
@@ -237,9 +224,7 @@ class CYOAUIManager {
         }
     }
 
-    /**
-     * Render policy sidebar
-     */
+
     renderPolicySidebar(node) {
         // Policy note
         if (node.policy_note) {
@@ -272,9 +257,7 @@ class CYOAUIManager {
         }
     }
 
-    /**
-     * Handle choice selection
-     */
+
     handleChoice(choice) {
         const state = this.engine.makeChoice(choice.choice_id);
         
@@ -283,17 +266,15 @@ class CYOAUIManager {
             return;
         }
 
-        // Small delay for better UX
+
         setTimeout(() => {
             this.render(state);
         }, 300);
     }
 
-    /**
-     * Render ending screen
-     */
+
     renderEnding(ending) {
-        // Fill in ending content
+      
         this.elements.endingTitle.textContent = ending.title || 'The End';
         this.elements.endingNarrative.textContent = ending.narrative || '';
 
@@ -332,15 +313,11 @@ class CYOAUIManager {
             this.elements.endingPolicy.innerHTML = '';
         }
 
-        // NOTE: Reflection questions removed - no longer displaying
 
-        // Show ending overlay
         this.elements.endingOverlay.style.display = 'flex';
     }
 
-    /**
-     * Start the game
-     */
+
     startGame() {
         const state = this.engine.startGame();
         if (state) {
@@ -348,9 +325,7 @@ class CYOAUIManager {
         }
     }
 
-    /**
-     * Restart the game
-     */
+
     restartGame() {
         const state = this.engine.restart();
         if (state) {
@@ -359,7 +334,7 @@ class CYOAUIManager {
     }
 }
 
-// Export for use in other files
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = CYOAUIManager;
 }
