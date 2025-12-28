@@ -634,26 +634,26 @@
       "character": "Transporter",
       "id": "transporter_successful_trapped",
       "title": "Successful Delivery: Now You're Theirs",
-      "narrative": "You deliver successfully. Checkpoint waved you through. Men unload the container, give you a phone number. Two weeks later: 'Another job, $2,500.' You try to refuse. 'You already did one. We have cameras, GPS logs, your signature. You work for us now.' You're compromised. Over the next year: 15 deliveries. When finally caught, evidence shows systematic trafficking: 8-15 years minimum. The first job was a test. Now you're serving a life sentence on the installment plan.",
+      "narrative": "You deliver successfully. The checkpoint waved you through, men unload the container, and give you a phone number: two weeks later, you're offered another 'job'. You don't want to do it, but now they have the first one over you, and you fear that refusing could cost you more than your job. Over the next year you make a series of deliveries, so that when you are finally caught, evidence shows systematic trafficking. You're considered part of organised crime.",
       "legal_info": {
         "title": "Systematic Trafficking Pattern",
-        "text": "Peru Penal Code Article 296-A: Transportation trafficking = 8-20 years. Multiple deliveries = organized crime enhancement. First delivery establishes pattern. Drivers coerced to continue through compromising evidence. Average trips before arrest: 12-15. Cumulative sentences: 10-18 years."
+        "text": "Peru Penal Code Article 296-A: Transportation trafficking = 8-20 years. Multiple deliveries  can further increase the penalty by triggering organised crime laws."
       },
       "policy_comparison": {
         "countries": [
           {
             "name": "Peru",
-            "policy": "8-20 years, organized crime adds time, coercion defense weak after multiple trips",
+            "policy": "8-20 years, organised crime adds time",
             "penalty": "10-18 years for systematic pattern"
           },
           {
             "name": "Colombia",
-            "policy": "10-20 years for transportation, forced participation common",
-            "penalty": "Similar, patterns recognized but rarely mitigate"
+            "policy": "10-20 years for transportation, forced participation is common",
+            "penalty": "Similar."
           },
           {
             "name": "Mexico",
-            "policy": "15-25 years, high violence against non-compliant drivers",
+            "policy": "15-25 years, severe violence has been recorded against non-compliant drivers",
             "penalty": "Harsher sentences, more violence"
           }
         ]
@@ -664,10 +664,10 @@
       "character": "Transporter",
       "id": "transporter_caught_cooperate",
       "title": "Checkpoint Confession: Reduced but Ruined",
-      "narrative": "Checkpoint police open container: 200kg cocaine. You confess everything - the foreman, the bribe, the address. You testify. Sentence: 4 years instead of 12. But you're a known informant. In prison, cartel inmates attack you. After 3 years, released. Organization remembers. Family receives threats. You relocate, change name, live in fear. Cooperation reduced prison time but created lifetime consequences.",
+      "narrative": "The checkpoint police find the drugs, and you confess everything. You testify against your company, and are given a sentence of 4 instead of 12. But you find out that, despite your help, members of your former company were not charged, and after you leave prison, you remain in fear of them.",
       "legal_info": {
         "title": "Cooperation and Inadequate Protection",
-        "text": "Cooperation reduces sentence 50-70% in Peru. Testimony public. Cartel retaliation systematic. Witness protection (Law 27378) underfunded. Post-release protection typically ends. Estimated 40% face retaliation within 5 years."
+        "text": "Cooperation reduces sentence 50-70% in Peru, but witness protection (Law 27378) programmes are underfunded."
       },
       "policy_comparison": {
         "countries": [
@@ -694,10 +694,10 @@
       "character": "Transporter",
       "id": "transporter_fugitive_hunted",
       "title": "Abandonment and Flight: Permanent Fugitive",
-      "narrative": "You abandon truck before checkpoint. Police find 200kg cocaine, your registration, fingerprints. You're a fugitive. Organization also hunting you - you lost their $2 million. Three months later they find you. Options: pay $50,000, work off debt, or die. You end up doing armed collections. Six months later, caught in gunfight. Charges: trafficking, weapons, organized crime. Sentence: 15-25 years. Running created five worse problems.",
+      "narrative": "You abandon truck before checkpoint, and run away. Police find the drugs, and they tie them to you. You're a fugitive now: both from the police, and your former employers.",
       "legal_info": {
         "title": "Flight Escalation",
-        "text": "Fleeing adds charges (1-3 years). 200kg = major trafficking (15-25 years Article 296-C). Organization pursues to recover loss. Fugitive status prevents legal employment. Many end up working for cartels. Weapons charges add 5-10 years. Organized crime enhancement adds time."
+        "text": "Fleeing adds charges (1-3 years)."
       },
       "policy_comparison": {
         "countries": [
@@ -708,12 +708,12 @@
           },
           {
             "name": "Mexico",
-            "policy": "More violent, fugitives often killed not just forced to work",
-            "penalty": "Similar sentences if caught, higher death rate"
+            "policy": "Similar policies, more documented cases of violence against former cartel collaborators",
+            "penalty": "Similar sentences if caught"
           },
           {
             "name": "Bolivia",
-            "policy": "Less organized cartel presence, fugitives sometimes escape",
+            "policy": "Organised crime not as present",
             "penalty": "Severe charges if caught"
           }
         ]
@@ -724,21 +724,21 @@
       "character": "Transporter",
       "id": "transporter_police_corruption",
       "title": "Port Police Report: Corruption and Danger",
-      "narrative": "You report to port police. Two days later the foreman confronts you. 'You went to port police? Bad choice.' He knows every detail. Port police told the organization. You're marked as 'unreliable.' Over next month: tires slashed, windshield smashed, threats. Port police 'can't find evidence.' You quit your job - too dangerous. Lost income. The people you reported still working. You did the 'right thing' and lost everything.",
+      "narrative": "You decide to report to the port police, and by the end of the day, you're out of a job. A failing has been invented, and you have been terminated without cause. You think about suing the company, but then the anonymous calls start. You quietly search for another job",
       "legal_info": {
         "title": "Port Police Corruption",
-        "text": "Port corruption in Peru: estimated 30-40% of port police take bribes. Reporting to corrupt police warns traffickers. Witness identity 'protection' often doesn't exist. Retaliation common. No legal recourse when police leak identity. Many who report end up quitting."
+        "text": "Port corruption in Peru is rampant, and often policemen work closely with companies connected to trafficking. There is no protection for honest workers."
       },
       "policy_comparison": {
         "countries": [
           {
             "name": "Peru",
-            "policy": "High port corruption, whistleblower protection minimal",
-            "penalty": "Retaliation common, career loss"
+            "policy": "Levels of corruption make any existing policies ineffective",
+            "penalty": "Career loss the most common consequence"
           },
           {
             "name": "Colombia",
-            "policy": "Similar corruption, reporting dangerous",
+            "policy": "Similar corruption",
             "penalty": "Similar outcomes"
           },
           {
@@ -754,16 +754,16 @@
       "character": "Transporter",
       "id": "transporter_federal_investigation",
       "title": "Federal Report: Protected but Unemployed",
-      "narrative": "You call DIRANDRO. Investigation takes 4 months. You can't work at port (too dangerous). Witness stipend: $300/month (your salary was $700). Investigation concludes: 15 arrests. But you can never work at port again - career over. Relocation assistance: $2,000. You move to Arequipa, start over. New city, warehouse work, less pay. You did the right thing but your life was permanently disrupted. Moral victory doesn't pay bills.",
+      "narrative": "You call DIRANDRO, the federal police. Their investigation takes months. You've already lost your job with no severance or benefits, and are barely making ends meet. When the investigation finally concludes many arrests are made, but you also need to start over: new job, new city, and months of uncertainty.",
       "legal_info": {
         "title": "Career and Financial Disruption",
-        "text": "DIRANDRO less corrupt but investigations take 3-6 months. Witness stipend minimal ($300/month). Can't return to workplace. Relocation assistance ($2,000-5,000) insufficient. Most witnesses experience permanent income reduction. Many regret cooperating despite moral satisfaction."
+        "text": "DIRANDRO, a national-level force, is marginally less corrupt but investigations take a long time, and in the meantime witnesses are minally supported."
       },
       "policy_comparison": {
         "countries": [
           {
             "name": "Peru",
-            "policy": "Federal police cleaner, protection inadequate, career destruction",
+            "policy": "Specialised police not as corrupt, but far from ideal",
             "penalty": "Financial hardship, displacement"
           },
           {
@@ -783,28 +783,28 @@
     {
       "character": "Transporter",
       "id": "transporter_theft_retaliation",
-      "title": "Merchandise Theft: Cartel Justice",
-      "narrative": "You take the container. 200kg cocaine worth $2 million. You approach a dealer to sell 1kg. He reports to his supplier. Word spreads. Five days later: cartel enforcers find you. They want merchandise back. You've sold 5kg - can't return it all. They beat you severely, take what's left, then kill you anyway. Your body found with sign: 'This is what happens to thieves.' The $2 million fantasy became a death sentence. You became the lesson.",
+      "title": "Merchandise Theft",
+      "narrative": "You take the container for yourself, and attempt to sell the merchandise on your own, but it's harder than it looks. Word gets around, and you begin to fear for your life. In a last ditch effort to protect yourself, you turn yourself in.",
       "legal_info": {
         "title": "Cartel Theft Punishment",
-        "text": "Stealing from cartels: >90% killed. Organizations punish theft severely to maintain control. Punishment public - usually death. Time from theft to retaliation: 3-10 days. Even partial return doesn't save you. Police rarely investigate cartel killings thoroughly. Family sometimes targeted."
+        "text": "Organisations punish theft severely to maintain control, and police rarely investigates drug-related killings."
       },
       "policy_comparison": {
         "countries": [
           {
             "name": "Peru",
-            "policy": "Cartel killings common, police investigation minimal, >90% unsolved",
-            "penalty": "Death typical outcome"
+            "policy": "Contract killing very commonly deployed in these scenarios. Being in police custody may offer some protection, but not much.",
+            "penalty": "Death, extortion, or violence."
           },
           {
             "name": "Mexico",
-            "policy": "Extremely violent, theft often torture then death, family killed",
-            "penalty": "Most brutal outcomes"
+            "policy": "Extreme violence documented",
+            "penalty": "Similar outcomes"
           },
           {
             "name": "Colombia",
-            "policy": "Similar, severe punishment, theft rare",
-            "penalty": "Death systematic"
+            "policy": "Similar, severe punishment applied",
+            "penalty": "Similar outcomes"
           }
         ]
       },
