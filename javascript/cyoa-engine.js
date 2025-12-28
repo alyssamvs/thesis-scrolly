@@ -1,5 +1,3 @@
-
-
 class CYOAEngine {
     constructor() {
         this.nodes = new Map();
@@ -7,21 +5,15 @@ class CYOAEngine {
         this.endings = [];
         this.currentNode = null;
         this.history = [];
-        this.startNodeId = null; 
+        this.startNodeId = null;
     }
 
-    /**
-     * Load CSV 
-     */
     async loadCSV(url) {
         const response = await fetch(url);
         const text = await response.text();
         return this.parseCSV(text);
     }
 
-    /**
-     * Parse CSV 
-     */
     parseCSV(text) {
         const lines = text.trim().split('\n');
         const headers = lines[0].split(',').map(h => h.trim());
@@ -40,9 +32,6 @@ class CYOAEngine {
         return data;
     }
 
-    /**
-     * Parse a single CSV line
-     */
     parseCSVLine(line) {
         const values = [];
         let current = '';
@@ -64,19 +53,31 @@ class CYOAEngine {
         return values;
     }
 
-    /**
-     * Load all game data
-     */
-    async loadData(nodesURL, choicesURL, endingsURL) {
+    async loadData(nodesURL, choicesURL, endingsURL, character = null) {
         try {
-            // Load nodes
-            const nodesData = await this.loadCSV(nodesURL);
+            const characterName = character 
+                ? character.charAt(0).toUpperCase() + character.slice(1)
+                : null;
+
+            const allNodesData = await this.loadCSV(nodesURL);
+            
+            const nodesData = characterName 
+                ? allNodesData.filter(n => n.character === characterName)
+                : allNodesData;
+                
             nodesData.forEach(node => {
                 this.nodes.set(node.node_id, node);
             });
 
-            // Load choices
-            const choicesData = await this.loadCSV(choicesURL);
+            const allChoicesData = await this.loadCSV(choicesURL);
+            
+            const choicesData = characterName
+                ? allChoicesData.filter(c => {
+                    const node = nodesData.find(n => n.node_id === c.node_id);
+                    return node !== undefined;
+                  })
+                : allChoicesData;
+                
             choicesData.forEach(choice => {
                 if (!this.choices.has(choice.node_id)) {
                     this.choices.set(choice.node_id, []);
@@ -84,15 +85,18 @@ class CYOAEngine {
                 this.choices.get(choice.node_id).push(choice);
             });
 
-            // Load endings
             const endingsResponse = await fetch(endingsURL);
             const endingsData = await endingsResponse.json();
-            this.endings = endingsData.endings;
+            
+            this.endings = characterName
+                ? endingsData.endings.filter(e => e.character === characterName)
+                : endingsData.endings;
 
             console.log('Data loaded:', {
                 nodes: this.nodes.size,
                 choices: this.choices.size,
-                endings: this.endings.length
+                endings: this.endings.length,
+                character: characterName || 'all'
             });
 
             return true;
@@ -102,9 +106,6 @@ class CYOAEngine {
         }
     }
 
-    /**
-     * Detect starting node from loaded data
-     */
     getStartNode() {
         for (let [nodeId, node] of this.nodes) {
             if (nodeId.endsWith('_start')) {
@@ -114,11 +115,7 @@ class CYOAEngine {
         return null;
     }
 
-    /**
-     * Start the game 
-     */
     startGame(startNodeId = null) {
-        // auto detect
         if (!startNodeId) {
             startNodeId = this.getStartNode();
             if (!startNodeId) {
@@ -130,7 +127,7 @@ class CYOAEngine {
 
         this.currentNode = this.nodes.get(startNodeId);
         this.history = [startNodeId];
-        this.startNodeId = startNodeId; 
+        this.startNodeId = startNodeId;
         
         if (!this.currentNode) {
             console.error('Start node not found:', startNodeId);
@@ -140,9 +137,6 @@ class CYOAEngine {
         return this.getCurrentState();
     }
 
-    /**
-     * Make a choice and progress to next node or ending
-     */
     makeChoice(choiceId) {
         const availableChoices = this.choices.get(this.currentNode.node_id) || [];
         const selectedChoice = availableChoices.find(c => c.choice_id === choiceId);
@@ -152,15 +146,12 @@ class CYOAEngine {
             return null;
         }
 
-        // Get next destination (either a story node or an ending)
         const nextNodeId = selectedChoice.next_node;
         this.history.push(nextNodeId);
 
-        // Check if next_node is an ending ID
         const ending = this.endings.find(e => e.id === nextNodeId);
         
         if (ending) {
-            // This choice leads directly to an ending
             return {
                 ending: ending,
                 isEnding: true,
@@ -168,7 +159,6 @@ class CYOAEngine {
             };
         }
 
-        // Otherwise it's a story node - continue game
         this.currentNode = this.nodes.get(nextNodeId);
         
         if (!this.currentNode) {
@@ -179,9 +169,6 @@ class CYOAEngine {
         return this.getCurrentState();
     }
 
-    /**
-     * Get current game state
-     */
     getCurrentState() {
         const availableChoices = this.choices.get(this.currentNode.node_id) || [];
         
@@ -193,23 +180,14 @@ class CYOAEngine {
         };
     }
 
-    /**
-     * Get a specific ending by ID
-     */
     getEnding(endingId) {
         return this.endings.find(e => e.id === endingId);
     }
 
-    /**
-     * Restart 
-     */
     restart() {
         return this.startGame(this.startNodeId);
     }
 
-    /**
-     * Get game statistics
-     */
     getStats() {
         return {
             nodesVisited: this.history.length,
@@ -218,7 +196,6 @@ class CYOAEngine {
     }
 }
 
-// Export for use in other files
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = CYOAEngine;
 }

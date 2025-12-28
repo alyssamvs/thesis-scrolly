@@ -61,11 +61,12 @@
                 // Create game engine
                 const engine = new CYOAEngine();
 
-                // Load character-specific data files
+                // Load from combined files
                 const dataLoaded = await engine.loadData(
-                    `./CYOA/${character}_story_nodes.csv`,
-                    `./CYOA/${character}_story_choices.csv`,
-                    `./CYOA/${character}_story_endings.json`
+                    './CYOA/all_story_nodes.csv',      
+                    './CYOA/all_story_choices.csv',    
+                    './CYOA/all_story_endings.json',   
+                    character 
                 );
 
                 if (!dataLoaded) {

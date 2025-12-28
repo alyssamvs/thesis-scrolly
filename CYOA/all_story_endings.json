@@ -1,0 +1,1204 @@
+{
+  "endings": [
+    {
+      "character": "Farmer",
+      "id": "farmer_resist_eradication",
+      "title": "Armed Resistance: The Terrorism Trap",
+      "narrative": "You resisted. Others joined you\u2014farmers who'd had enough. The confrontation turned violent. You threw rocks; they fired tear gas. Then live ammunition. Three farmers died, two police officers injured. You fled into the jungle, but they found you within a week. Now you face terrorism charges under Peru's counterinsurgency laws\u2014not drug trafficking charges, terrorism charges, with 20-to-life minimum. The coca was just farming; resistance made you an 'insurgent.' Your family has been displaced, your home destroyed in the operation. Between 2010-2020, 47 people died in eradication confrontations in Peru. You're now one more statistic in the drug war's body count.",
+      "legal_info": {
+        "title": "Eradication Resistance and Counterterrorism Law",
+        "text": "Peru Penal Code Article 319: Resistance with violence against public authority = 2-4 years. BUT: resistance during drug-related operations often prosecuted under counterterrorism legislation (Decree Law 25475, modified by Law 30077). Terrorism charges require: (1) use of violence, (2) intent to create social alarm, (3) organized action. Penalty: 20 years to life. In practice, eradication resistance is often categorized as terrorism rather than simple resistance. Colombia similarly applies internal enemy frameworks to coca growers who resist. Between 2010-2020: 47 deaths in eradication confrontations in Peru (CORAH reports). 2019-2022: 13 deaths in Colombia. Bolivia eliminated forced eradication in 2008; violent confrontations ceased."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Forced manual eradication by CORAH (Proyecto Especial de Control y Reducci\u00f3n de Cultivos Ilegales en el Alto Huallaga). Military and police escort. Confrontations criminalized as terrorism. 2022: 25,486 hectares eradicated. 2010-2020: 47 deaths.",
+            "penalty": "Resistance during eradication = terrorism charges (20 years to life). Drug trafficking = 8-15 years minimum."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Forced eradication continues despite 2016 peace accord commitment to voluntary substitution. Manual eradication teams with military escort. Resistance is prosecuted. 2019-2022: 13 deaths in confrontations. Substitution program undermined by budget cuts.",
+            "penalty": "Resistance = aggravated assault on public officials (8-15 years). Cultivation = 4-12 years. Historical conflation of peasants with guerrillas."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Forced eradication ELIMINATED in 2008 under Evo Morales. Community-controlled monitoring through coca growers' unions. Violence stopped. Model: 22,000 hectares legal coca, community self-regulation. No confrontations, no deaths since 2008.",
+            "penalty": "No resistance charges because no forced eradication. Excess cultivation addressed through community pressure, not military action."
+          }
+        ]
+      },
+      "data_visualization_note": "Show eradication deaths timeline: Peru (47), Colombia (13+), Bolivia (0 since 2008). Map eradication zones and resistance incidents. Demonstrate correlation between forced eradication policy and violence. Include policy timeline showing Bolivia's 2008 shift."
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_hide_crop_arrested",
+      "title": "Caught Hiding: The Concealment Gambit",
+      "narrative": "You hid the coca in the ravine, covered it with vegetation, hoped the eradication team wouldn't search that far. They did. Satellite imagery, informant tips, systematic grid searches\u2014they found it. Attempting to conceal illegal crops is treated as aggravating evidence of intentional criminality. You're arrested for drug trafficking (not just cultivation\u2014they assume production intent). Eight to fifteen years minimum. Your family loses your labor, your income, and faces social stigma. The hidden coca was discovered anyway, but now you've also lost years of your life to prison. Your wife must manage the farm alone; your children will grow up visiting you behind bars. The concealment strategy, employed by many farmers, rarely works and always makes legal consequences worse.",
+      "legal_info": {
+        "title": "Concealment as Aggravating Factor",
+        "text": "Peru Penal Code Article 296: Drug trafficking (including coca cultivation for cocaine) = 8-15 years minimum, 25-35 maximum. Concealment of illegal crops is treated as evidence of intentional criminal activity rather than economic necessity. Satellite surveillance (UNODC-supported) makes detection highly probable. Informant networks in coca-growing communities are extensive. Concealment attempts often result in harsher sentences because they demonstrate awareness of illegality and premeditation. Defense of 'economic necessity' is weakened by evidence of concealment efforts."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Satellite monitoring + eradication teams + extensive informant networks. Concealment discovered in majority of cases. Treated as aggravating factor in prosecution.",
+            "penalty": "Drug trafficking: 8-15 years minimum. Concealment may increase sentence within statutory range."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Aerial surveillance + ground verification. Concealment is common but detection rates are high. Paramilitaries and criminal organizations also monitor/control coca cultivation areas.",
+            "penalty": "Cultivation: 4-12 years. Concealment treated as evidence of trafficking rather than simple cultivation."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Community monitoring system eliminates need for concealment. Legal cultivation limit (22,000 hectares) allows transparent growing. Excess is managed through community pressure. No satellite surveillance of individual farmers.",
+            "penalty": "Cultivation above legal limit addressed through community mechanisms, not criminal prosecution."
+          }
+        ]
+      },
+      "data_visualization_note": "Show detection rates of concealed coca over time. Map satellite surveillance coverage in Andean region. Compare detection technology investment vs. alternative development investment."
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_eradication_accepted_poverty",
+      "title": "Eradication Accepted: The Displacement Cycle",
+      "narrative": "You accepted eradication. No violence, no resistance\u2014they destroyed your crops and left. Now what? You still have the same debts, the same family to feed, the same economic desperation that drove you to coca. The government offered no compensation, no alternative livelihood support. Three months later, you're back to planting coca, but this time in a more remote location, deeper in the forest. This is the displacement pattern: eradication doesn't stop cultivation, it relocates it. Your new plot required clearing virgin rainforest. The environmental damage is worse, the location more isolated, the connection to trafficking networks more direct. Accepting eradication without resisting made you compliant in the moment, but solved nothing. The cycle continues\u2014cultivation, eradication, displacement, cultivation.",
+      "legal_info": {
+        "title": "Eradication Without Alternatives: The Displacement Effect",
+        "text": "Peru's eradication strategy: destroy coca crops without addressing economic drivers. No compensation provided for destroyed crops (policy choice\u2014compensation would 'incentivize' coca). Alternative development programs reach only 15-20% of coca farmers. Geographical displacement pattern: eradication in accessible areas \u2192 cultivation moves to remote zones \u2192 deforestation increases \u2192 trafficking networks adapt. Studies show cultivation is rarely eliminated, only relocated. Remote areas: more deforestation, more forest degradation, more direct involvement with traffickers (less farmer autonomy). Peru 2022: 95,000 hectares under cultivation despite decades of eradication."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Forced eradication without compensation or guaranteed alternatives. 2022: 25,486 hectares eradicated, but total cultivation area remains around 95,000 hectares. Displacement effect documented but policy continues unchanged.",
+            "penalty": "Eradication is administrative (destruction of crops). Subsequent cultivation is criminal (8-15 years if detected)."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Similar displacement pattern. 2016 peace accord promised voluntary substitution with economic support, but implementation has been weak. Forced eradication continues in many areas. Cultivation relocates to more remote regions.",
+            "penalty": "Displacement into national parks or protected areas increases legal penalties. Eradication without alternatives drives recultivation."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Legal cultivation allowed (22,000 hectares), eliminating displacement pressure for farmers within legal limits. Community self-regulation prevents need for forced eradication. Geographical stability\u2014farmers stay in traditional areas.",
+            "penalty": "No displacement effect because legal cultivation is permitted within limits. Excess addressed through community mechanisms."
+          }
+        ]
+      },
+      "data_visualization_note": "Show cultivation displacement maps: eradication zones \u2192 new cultivation areas \u2192 deforestation. Timeline showing eradication efforts vs. total cultivation area (demonstrating ineffectiveness). Environmental cost of displacement (forest loss)."
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_enaco_permits_bureaucracy",
+      "title": "Legal Coca, Bureaucratic Nightmare",
+      "narrative": "You spent six months obtaining ENACO permits. Documentation, bureaucratic appointments, fees, trips to the regional office. You finally have legal authorization to grow coca for traditional use. But ENACO pays 40% below black market prices and only purchases at irregular intervals. The paperwork requirements continue: harvest reports, transportation permits, storage documentation. You're legal, but barely surviving. Your neighbor without permits earns twice what you do with half the paperwork. The legal coca pathway exists in theory, but in practice it's designed for failure\u2014low prices, high bureaucracy, limited market access. You've avoided criminal prosecution, but you've also locked yourself into poverty. How long can you sustain this when illegal cultivation is so much more lucrative and your family is still struggling?",
+      "legal_info": {
+        "title": "ENACO Legal Coca System in Peru",
+        "text": "ENACO (Empresa Nacional de la Coca): state monopoly established 1949 for legal coca trade. Traditional coca use (chewing, tea) is constitutionally protected (Article 2, Peru Constitution). Legal cultivation restricted to designated areas. Permits required: documentation intensive, processing time 3-6 months, various fees. ENACO purchase prices: typically 40-60% below black market. Purchase frequency: irregular, dependent on demand. Farmers complain of bureaucratic burden and low profitability. Result: many permit-holders eventually sell to black market despite legal status. Comparison\u2014Bolivia: allows 22,000 hectares legal coca, community-controlled, higher prices, less bureaucracy. Bolivia's model shows legal coca is viable when properly structured."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "ENACO monopoly on legal coca. Restrictive, bureaucratic, low prices. Legal market captured approximately 15,000-20,000 hectares (vs 95,000 illegal). System discourages legal participation through structural obstacles.",
+            "penalty": "Legal coca sale to illegal market = drug trafficking (8-15 years). Farmers with permits who sell outside ENACO face same penalties as illegal growers."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "22,000 hectares legal coca allowed by Law 1008 (revised by Law 906). Community-controlled through coca growers' unions. Market prices closer to black market rates. Less bureaucratic burden. Legal coca integrated into economy and culture.",
+            "penalty": "Cultivation beyond 22,000 hectares managed through community pressure and administrative measures. Criminal penalties exist but rarely applied to small-scale farmers."
+          },
+          {
+            "name": "Colombia",
+            "policy": "No legal coca market. All coca cultivation criminalized regardless of traditional use. Indigenous communities have limited exceptions, but enforcement inconsistent. No ENACO equivalent.",
+            "penalty": "All coca cultivation = 4-12 years imprisonment. No legal pathway for small farmers."
+          }
+        ]
+      },
+      "data_visualization_note": "Compare ENACO prices vs. black market prices over time (price differential). Show bureaucratic steps required for legal coca vs. illegal sale (complexity comparison). Map legal vs. illegal cultivation areas (geographical segregation)."
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_informant_witness_protection",
+      "title": "The Informant: Witness Protection Isolation",
+      "narrative": "You reported the cocaine lab to the authorities. They raided it, arrested five people, destroyed the equipment. Your identity was supposed to be protected\u2014it wasn't. Within two weeks, everyone knew. Your family received threats. The police offered witness protection: relocation to a different region, new identity, minimal financial support. You accepted. Now you're living in a small town on the coast, far from the mountains you know, far from your community, far from your language (everyone here speaks Spanish, you think in Quechua). Your children are in a new school where they're outsiders. You have no land, no livelihood, no social network. The financial support from witness protection will end in six months. You did 'the right thing' according to the state, but you've lost everything\u2014your home, your community, your identity, your economic base. You're safe from retaliation but socially dead. Was cooperation worth this isolation?",
+      "legal_info": {
+        "title": "Witness Protection in Drug Cases",
+        "text": "Peru Law 27378 (2000): Witness and Collaborator Protection Program. Provisions: identity protection, relocation, temporary financial support, security measures. In practice: underfunded, inconsistent implementation, limited duration of support (typically 6-24 months). Rural informants face particular challenges: relocation from rural to urban areas, language barriers (Quechua/Aymara to Spanish-dominant areas), loss of agricultural livelihood, social isolation. Retaliation risks: drug trafficking organizations have extensive intelligence networks, informant identification is common despite protection measures. Effectiveness debatable: many potential witnesses refuse cooperation due to inadequate protection. Approximately 15% of protected witnesses return to original communities within 5 years (facing retaliation risk)."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Witness protection exists but underfunded and limited. Relocation support minimal. Program prioritizes high-level cases; small farmer cooperation receives less protection. Rural-to-urban relocation common, creating livelihood crisis.",
+            "penalty": "Cooperation theoretically reduces sentences for co-defendants, but farmer-informants rarely benefit (they're usually not charged themselves). Protection is primary incentive."
+          },
+          {
+            "name": "Colombia",
+            "policy": "More developed witness protection program due to decades of cartel violence and guerrilla warfare. Still insufficient for rural informants. Paramilitaries and cartels have historically targeted witnesses effectively. Many protection program participants still killed.",
+            "penalty": "Cooperation can reduce sentences for co-defendants. Protection program is better funded than Peru's but still faces capacity issues."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Community-controlled coca monitoring reduces need for external informants. Community members regulate excess cultivation through social pressure rather than state cooperation. Less state involvement = less informant requirement.",
+            "penalty": "Informant protection less relevant in community-based regulatory model. Social regulation replaces state enforcement."
+          }
+        ]
+      },
+      "data_visualization_note": "Show witness protection program capacity vs. need (participation rates, dropout rates). Map relocation patterns (rural origin to urban destination). Interview quotes from protected witnesses (anonymized) about social costs of cooperation."
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_cooperative_survival",
+      "title": "The Cooperative: Collective Struggle, Uncertain Survival",
+      "narrative": "You joined the coffee cooperative with fifteen other families. Together you negotiated better prices, shared equipment, and accessed fair trade certification. It's been three years. Some months are better than others\u2014when the cooperative gets good contracts, everyone benefits. But it's fragile. Five families have already left for coca or migration. The cooperative requires constant work: meetings, financial transparency, collective decision-making, market research. You're still poor, but you have dignity, community, and hope that collective organization might eventually work. The cooperative's success depends on factors beyond your control: international coffee prices, fair trade market access, government support (minimal), and NGO funding (inconsistent). You're surviving through solidarity, but barely. This is the precarious space of legal agriculture in coca regions\u2014possible but difficult, collective but uncertain.",
+      "legal_info": {
+        "title": "Cooperative Models in Coca-Growing Regions",
+        "text": "Agricultural cooperatives: collective organization model providing shared resources, bargaining power, market access. In Peru's coca regions: cooperatives face severe challenges including price volatility, limited capital, competition from coca income, member attrition. Success rates: approximately 30% survive long-term (5+ years). Success factors: external funding (NGO/government), fair trade certification, market connections, strong leadership, member commitment. Peru government cooperative support: minimal (Agrobanco provides some credit, but eligibility strict). Coffee cooperative average: 20-30 members, fair trade prices 10-20% above conventional. Still insufficient to match coca income. Cooperatives are defensive strategy against poverty and predatory intermediaries, not prosperity strategy."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Cooperative model exists but receives minimal state support. Fair trade certification helps but limited market access. Government prioritizes eradication over cooperative development funding (eradication: $200M/year, cooperative support: ~$5M/year).",
+            "penalty": "No penalty for cooperative membership. However, individual members caught with coca face same penalties regardless of cooperative participation."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Peace accord (2016) included cooperative development support for post-conflict rural areas. Implementation inconsistent. Some cooperatives receive support; others abandoned. Government invests in rural infrastructure: roads, markets, credit.",
+            "investment": "Peace accord allocates resources to rural development. Cooperative formation encouraged. Infrastructure investment facilitates market access."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Strong cooperative tradition, especially in coca-growing regions. Cocalero unions function as cooperatives: collective political power, market control, community regulation. State supports cooperative model as part of social economy vision.",
+            "investment": "Cooperative model integrated into governance. Community control of coca monitoring through cooperatives. Political and economic support."
+          }
+        ]
+      },
+      "data_visualization_note": "Show cooperative success rates vs. state investment across countries. Demonstrate that cooperatives with adequate support have higher success rates. Include timeline showing cooperative formation, struggle, potential success."
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_urban_migration",
+      "title": "The Migrant: Landless in Lima",
+      "narrative": "You sold your land for $8,000\u2014a fraction of its value\u2014and moved the family to Lima. Your agricultural skills are worthless in the city. You find work in construction: daily wages, no benefits, no job security. Your wife sells snacks on the street. You live in a one-room addition to a relative's house in Villa El Salvador, a sprawling slum. Your children adapted better than you\u2014they're in school, learning city ways, losing their Quechua, forgetting the mountains. You're 45 years old and started over with nothing. Sometimes you dream about your land, your coca-growing neighbor who stayed, the mountains. You escaped poverty for different poverty. Your family survives, but you've lost your identity, your livelihood, your connection to the land your grandfather cleared. Was this progress, or just rearranging your suffering?",
+      "legal_info": {
+        "title": "Rural-Urban Migration: Scale and Consequences",
+        "text": "Peru's rural-urban migration: accelerated by economic crisis in agriculture. Approximately 25% of rural farmers in coca-growing regions migrate to cities (primarily Lima, Ayacucho, Cusco, Pucallpa). Push factors: agricultural unprofitability, debt, lack of services, violence (where present), eradication. Urban outcomes: informal economy employment (construction, street vending, domestic work, services), low wages ($200-400/month), no labor protections, precarious housing. Migrant communities concentrated in peripheral slums (conos): Villa El Salvador, Villa Mar\u00eda del Triunfo, San Juan de Lurigancho. Social costs: loss of indigenous language and culture, family separation, identity crisis for older migrants. Economic outcome: persistent poverty, but different form\u2014urban informal poverty vs. rural agricultural poverty."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Rural-urban migration is massive and continuous. Lima population: 10+ million, majority from rural migration. Government response: minimal support for migrant integration. Urban informal economy absorbs rural displaced population without legal protections.",
+            "penalty": "Migration is legal and common. Informal urban work is technically illegal (unlicensed vendors, unregistered construction workers) but widely tolerated."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Similar migration pattern, compounded by armed conflict displacement. Major cities (Bogot\u00e1, Medell\u00edn, Cali) absorbed millions of rural migrants. Urban poverty rates high. Peace accord includes rural development to reduce migration pressure.",
+            "penalty": "Migration is legal. Informal urban work is widespread. Displaced persons have some legal protections (Law 1448) but implementation weak."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Rural-urban migration exists but less extreme. El Alto (adjacent to La Paz) has absorbed rural migrants. Difference: legal coca cultivation allows rural economic viability for some farmers, reducing migration pressure. Indigenous cultural maintenance stronger in urban Bolivia.",
+            "penalty": "Migration is legal and culturally managed through indigenous community networks extending into cities."
+          }
+        ]
+      },
+      "data_visualization_note": "Show rural-to-urban migration flows from coca regions to major cities. Lima slum expansion timeline (spatial growth). Economic comparison: rural agricultural poverty vs. urban informal poverty (same poverty, different location). Language loss data among migrant children (cultural cost)."
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_loan_default_landless",
+      "title": "Debt Default: The Land Seizure Trap",
+      "narrative": "You couldn't pay the loan. The merchant came with his paperwork\u2014you'd signed a document putting your land up as collateral without fully understanding the terms (it was in Spanish legal language, you read Quechua). He took your five hectares. Your grandfather cleared that land, your father farmed it, you grew up there. Now it belongs to a middleman who will plant coca on it\u2014the very crop you tried to avoid. You're landless. Your family moves to a smaller plot rented from a relative. You work as a day laborer on others' farms. Your children's inheritance is gone. The cruel irony: the land you lost trying to avoid coca is now growing coca, but the profits go to someone else. This is the coca economy's second mechanism\u2014not just cultivation, but land accumulation through debt. You became landless in the system designed to help you stay legal.",
+      "legal_info": {
+        "title": "Informal Lending and Land Seizure Mechanisms",
+        "text": "Rural credit crisis: formal banking rarely serves small farmers in coca regions (perceived risk, lack of collateral, distance). Informal lending fills gap: local merchants, traders, moneylenders. Interest rates: 10-20% per month (120-240% annually). Collateral: land. Legal framework: ambiguous. Informal debt contracts have questionable legal status, but enforcement occurs through social pressure and extra-legal mechanisms. Land seizure: common outcome of default. Land title transfer often occurs through intimidation or barely legal contracts. Result: land concentration\u2014middlemen and traders accumulate farmland, often use it for coca cultivation. Studies show significant correlation between debt default and coca expansion (new landowners plant coca). State response: minimal. Rural credit market is unregulated, predatory lending is widespread but unprosecuted."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Informal rural lending is widespread and unregulated. Legal protections for borrowers are minimal. Land seizure through debt is common. State agricultural credit (Agrobanco) reaches <10% of farmers. Predatory lending and land accumulation through debt is documented but not addressed.",
+            "penalty": "No legal protection for borrowers in informal credit. Land loss is civil matter, rarely litigated. Usury laws exist but not enforced."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Similar informal lending crisis. Armed actors (paramilitaries, guerrillas) historically involved in land appropriation through debt/violence. Post-conflict land restitution efforts (Law 1448) attempt to address historical dispossession. Rural credit access remains limited.",
+            "penalty": "Land seizure through debt is often linked to armed actors. Legal remedies exist but accessing them is difficult for rural poor."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Cooperative credit systems more developed. Rural banking has better reach. Legal coca income provides more stable economic base, reducing desperation borrowing. Cooperative structure makes predatory lending more difficult. Not perfect but better protection.",
+            "penalty": "Cooperative structure makes predatory lending more difficult. Not perfect but better protection."
+          }
+        ]
+      },
+      "data_visualization_note": "Show land ownership changes in coca-growing regions 2000-2023: concentration trend. Map showing former farmer-owned land now in hands of traders/middlemen. Demonstrate link between debt, land loss, and coca expansion (new owners plant coca on acquired land)."
+    },
+    {
+      "character": "Farmer",
+      "id": "farmer_altdev_waiting",
+      "title": "Enrolled and Waiting: The Alternative Development Gap",
+      "narrative": "You enrolled in the alternative development program eight months ago. You attended the orientation, submitted all documentation, met the DEVIDA technician twice. You're waiting. The first payment ($400) was supposed to arrive after three months\u2014it's been eight. When you call, they say 'processing.' Meanwhile, your loan is still due, your children still need to eat, and the coca middlemen still visit. You've planted the coffee seedlings they recommended, but those take three years to produce. Your neighbor who stayed with coca bought a motorcycle last month. How long can you wait? This is the 'alternative development gap'\u2014the space between promise and reality, where good intentions fail and farmers return to coca. You're trying to do the right thing, but the system makes the wrong thing far easier.",
+      "legal_info": {
+        "title": "Alternative Development Implementation Gaps",
+        "text": "Peru DEVIDA program structure: (1) Enrollment: documentation and verification (2-4 months); (2) First payment: theoretically 3 months post-enrollment, in practice 6-12 months; (3) Technical assistance: sporadic visits, often <3 per year; (4) Market linkages: limited and inconsistent; (5) Total support: $1,000-2,000 over 2 years. Critical gap: temporal mismatch between immediate economic needs and long-term agricultural development. Alternative crops (coffee, cacao) take 3-5 years to full production. Program provides support for 2 years. Families must survive the intervening period. Only 30% remain in legal crops after 5 years. Failures typically occur in first 2 years during 'waiting period.' Program design assumes debt-free starting point (rarely true). Payment delays exacerbate problem. Insufficient support during critical transition period drives families back to coca."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "DEVIDA alternative development program: $1,000-2,000 per family over 2 years. Implementation gaps: payment delays, insufficient technical assistance, weak market linkages. Dropout rate: ~70% in first 2 years. Funding: ~$50-70 million/year (compare to $200M for eradication).",
+            "investment": "Alternative development is underfunded relative to enforcement. Per-hectare investment: ~$1,500-2,000. Insufficient for sustainable transition."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Peace accord (2016) promised comprehensive rural development: $1.8 billion for alternative development. Implementation: slow and incomplete. PNIS (substitution program) enrolled 99,000 families. Payment delays, incomplete technical assistance. Many families returned to coca. Program design better than Peru (higher payments, longer duration) but implementation problems similar.",
+            "investment": "Peace accord commitments: $1.8B. Actual disbursement: much lower. Per-family support theoretically $12,000 over 5 years. Payment delays undermine program."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Integrated approach: legal coca (22,000 hectares) + crop diversification for excess producers. No temporal gap\u2014farmers can maintain legal coca while developing alternatives. Community-controlled transition. Higher success rates because economic pressure is reduced.",
+            "investment": "Integrated model reduces need for substitute-only programs. Legal coca provides baseline income stability during transition to alternatives."
+          }
+        ]
+      },
+      "data_visualization_note": "Show dropout curve: 70% leave program in years 1-2. Compare Peru/Colombia dropout curves vs. Bolivia's integrated model success."
+    },
+    {
+      "character": "Courier",
+      "id": "courier_confess_cooperate",
+      "title": "Confession and Cooperation: Reduced Sentence",
+      "narrative": "You confess everything. The stranger, the money, the offer. The police take your statement, and the prosecutor offers you a deal: testify against the person who made you the offer and get a reduced sentence. You agree. Sentence: 3 years instead of 8. You serve 2 years, then parole. But the organization knows you cooperated. When you're released, you receive anonymous threats. You have to relocate to another city, change your phone number, and live in fear. You avoided the worst of the prison time but bought yourself a lifetime of looking over your shoulder. The stranger who approached you was never caught.",
+      "legal_info": {
+        "title": "Cooperation Benefits and Risks",
+        "text": "Peru Penal Code Article 296: Drug trafficking = 8-15 years minimum. Cooperation can reduce sentence by 40-50% under procedural law. But cooperation is public record - defense lawyers attend hearings. Organizations track who testifies. Many cooperators face retaliation after release. The stranger (recruiter) is rarely caught - they approach dozens of people and disappear."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Cooperation reduces sentence significantly (3-5 years vs 8-15 years). But protection is minimal. Organizations retaliate against cooperators. Witness protection underfunded. Relocation self-funded. Testimony is public record.",
+            "penalty": "3-5 years with cooperation, minimal protection, retaliation common."
+          },
+          {
+            "name": "Spain",
+            "policy": "Similar cooperation benefits (40-50% reduction). Better funded witness protection but still insufficient. Organizations track cooperating witnesses. Some protection available but many witnesses still face threats.",
+            "penalty": "Reduced sentence with cooperation, better protection than Peru but still gaps."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Cooperation valued highly. Protection programs exist but overwhelmed. Many protected witnesses have been killed despite 'protection.' Organizations have extensive reach.",
+            "penalty": "Cooperation reduces sentence, protection programs exist but many failures."
+          }
+        ]
+      },
+      "data_visualization_note": "Chart cooperation vs. retaliation rates. Map witness protection funding vs. need. Show recruiter arrest rates (very low) vs. courier arrest rates (high)."
+    },
+    {
+      "character": "Courier",
+      "id": "courier_deny_harsher",
+      "title": "Denial and Conviction: Full Sentence",
+      "narrative": "You deny everything. 'I don't know how that got there. I was tricked.' Police search you, and find the cash. 'If you were tricked, why did they pay you?' You can't answer that. Your trial takes 18 months, and you're in pretrial detention the entire time. Prosecution shows you had multiple opportunities to refuse or report, and you didn't. You're found guilty. Sentence: 10 years for international drug trafficking. No cooperation, no reduction. The maximum wasn't applied (15 years) but you're serving a decade. In prison, you meet other couriers. Most confessed - they're serving 3-4 years. You're serving 10. Your denial cost you 6 extra years.",
+      "legal_info": {
+        "title": "Denial with Strong Evidence",
+        "text": "Peru courts view denial with evidence of acceptance (money, CCTV) as an aggravating factor showing consciousness of guilt. 'Unwitting courier' defense requires proof of coercion or deception - accepting payment undermines this. Average sentence without cooperation: 8-12 years. With cooperation: 3-5 years. Pretrial detention in Peru averages 12-24 months for drug cases. Denial can increase sentence by 20-40% compared to guilty plea."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Denial with evidence = 8-12 years. Pretrial detention 12-24 months. Harsh prison conditions. Courts view denial negatively when evidence is strong. Accepting payment destroys unwitting courier defense.",
+            "penalty": "8-12 years without cooperation. Denial increases sentence. Pretrial detention in harsh conditions."
+          },
+          {
+            "name": "Ecuador",
+            "policy": "Even harsher than Peru. 10-13 years minimum for international trafficking. Prison conditions among worst in Latin America. Pretrial detention similarly long.",
+            "penalty": "10-13 years minimum. Worse prison conditions than Peru. Similar pretrial detention."
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Similar sentences (8-12 years) but somewhat better prison conditions. Less pretrial detention than Peru. Denial still viewed negatively but less sentence increase.",
+            "penalty": "8-12 years. Better prison conditions. Less impact from denial but still significant."
+          }
+        ]
+      },
+      "data_visualization_note": "Compare sentences for guilty plea vs. denial. Show pretrial detention duration impact. Chart conviction rates by evidence strength. Map prison conditions across countries."
+    },
+    {
+      "character": "Courier",
+      "id": "courier_threats_extortion",
+      "title": "Dumping and Threats: The Debt Trap",
+      "narrative": "You dump the suitcase in a bathroom trash can and board your flight with the money. You arrive in Madrid relieved. Three days later, you get an anonymous call. 'You took our money. You lost our merchandise. You owe us $10,000. Pay in one week or we visit your family in Lima.' You panic. You don't have $10,000. You consider going to the police but you kept the cash, and you're afraid you'll get into more trouble. The calls continue. They know your address, your family's address. You try to pay in installments but the 'interest' keeps growing. Six months later you've paid $3,000 and still 'owe' $15,000. Eventually you go to the police for protection. They arrest you for possible drug conspiracy. You spend 2 years fighting charges, and all through this time, you're still getting anonymous calls.",
+      "legal_info": {
+        "title": "Debt Bondage and Extortion",
+        "text": "Keeping payment while disposing of drugs can be prosecuted as theft (if caught) or conspiracy to traffic (if connection proven). Threats to family are extortion under Penal Code but require reporting, and protection for extortion victims in Peru is limited. Many victims pay extortion money for years rather than risk family harm. Going to the police doesn't guarantee protection and may escalate danger."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Debt bondage recognized as human trafficking (Law 28950) but rarely prosecuted. Minimal protection for extortion victims. Organizations use international reach to threaten families across borders.",
+            "penalty": "Theft/conspiracy charges possible if caught. Limited protection from extortion. Family threats common."
+          },
+          {
+            "name": "Spain",
+            "policy": "If threats occur in Spain, police response is better but can't protect family in Peru. Extortion victims can report but cross-border protection is difficult. Some witness protection is available.",
+            "penalty": "Better police response in Spain but limited reach abroad."
+          },
+          {
+            "name": "Colombia",
+            "policy": "Similar debt bondage patterns. Organizations can be very effective at long-distance intimidation.",
+            "penalty": "Similar to Peru. Debt bondage common. Limited protections."
+          }
+        ]
+      },
+      "data_visualization_note": "Show debt bondage timeline - initial debt vs. accumulated 'interest.' Map extortion victim reporting rates vs. protection availability. Chart international reach of trafficking organizations."
+    },
+    {
+      "character": "Courier",
+      "id": "courier_report_suspicion",
+      "title": "Reporting to Authorities: Bureaucracy and Suspicion",
+      "narrative": "You report the suitcase to airport security before reaching checkpoint. They take the suitcase, take you to a room, and question you for 6 hours. 'Why did you accept it? Why did you take the money? Were you working with them? How do we know you're not trying to avoid detection?' They test the suitcase - it contains 2kg cocaine. You're detained as witness/suspect for 48 hours while they investigate. You miss your flight, lose money on tickets, and the stranger is never found. Eventually they release you without charges, but your name is in the system. Every time you fly internationally, you're pulled aside for extra screening. This was still, in your mind, the right thing to do.",
+      "legal_info": {
+        "title": "Reporting Suspicious Activity",
+        "text": "Though reporting is encouraged, fear of being treated as a suspect still hinders most of those who witness drug-related activities, particularly in airports. Extra screening ('watchlist') can last years, impact visa applications, and severely affect future travel. This means that there is a disincentive to report."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Disincentive to report suspicious activity exists, and those that do report can be detained even as as witness/suspect. No compensation is offered for missed flights or costs.",
+            "penalty": "Detention without charges possible. Watchlist status. Visa complications. No 'good Samaritan' protections."
+          },
+          {
+            "name": "Netherlands",
+            "policy": "Better protections for good-faith reporting. Less likely to be treated as suspect. Some recognition that reporters are helping. Still some inconvenience but less suspicion.",
+            "penalty": "Some protections for good-faith reporting."
+          },
+          {
+            "name": "US",
+            "policy": "Slightly better than Peru but still suspicious of involvement. TSA watchlist common for drug-adjacent incidents.",
+            "penalty": "Some suspicion, limited protections."
+          }
+        ]
+      },
+      "data_visualization_note": "Chart reporting rates vs. protection quality. Show watchlist duration and consequences. Compare 'good Samaritan' laws by country."
+    },
+    {
+      "character": "Courier",
+      "id": "courier_refuse_detained",
+      "title": "Refusal and Detention: Nervous but Clean",
+      "narrative": "You refuse the stranger's offer and walk away. But the interaction made you nervous. At security, you're visibly anxious. Drug dogs pass by you, and you flinch. The security officer notices. 'Step aside please.' You're taken to a room, questioned, searched thoroughly. 'Why are you nervous? Are you carrying something?' They find nothing. After 90 minutes, they release you, but you've missed your flight and now you have to buy a new ticket. While waiting in the airport, you see police escorting another young woman away with a suitcase - crying, handcuffed. That could have been you.",
+      "legal_info": {
+        "title": "Security Detention and False Positives",
+        "text": "Security can detain anyone for questioning based on 'suspicious behavior' - nervousness qualifies. Detention without arrest legal for 'reasonable time' (2-4 hours is common). No compensation for missed flights or costs are provided even if innocent."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Can detain on suspicion of nervousness. No compensation for innocent detainees, and 2-4 hour detentions are common.",
+            "penalty": "Detention without charges based on behavior."
+          },
+          {
+            "name": "US",
+            "policy": "Similar. TSA can detain based on behavior. No compensation for false positives. Extensive 'security theater.' Many innocent people detained and incur costs with no recourse.",
+            "penalty": "Similar to Peru."
+          },
+          {
+            "name": "EU",
+            "policy": "Slightly better protections but still significant detention powers for drug suspicion. Some countries have compensation mechanisms for extended detention but not common.",
+            "penalty": "Slightly better protections. Some compensation possible but rare."
+          }
+        ]
+      },
+      "data_visualization_note": "Show innocent detention rates at airports. Chart costs incurred by innocent people (missed flights, hotels, etc.). Compare compensation policies by country."
+    },
+    {
+      "character": "Dealer",
+      "id": "dealer_caught_running",
+      "title": "Flight and Resistance: Aggravated Charges",
+      "narrative": "You manage to run for three blocks before the police tackle you, hard. You're then charged with drug possession with intent to supply, resisting arrest, and obstruction of justice. Because you ran, the prosecutor adds 'flight risk', so no bail. After four months of pretrial detention for 4 months, you are sentenced to 4 years in prison, then automatic deportation. Running added 18 months to your sentence.",
+      "legal_info": {
+        "title": "Flight and Obstruction Charges",
+        "text": "Non-citizens face automatic deportation after sentence (Aliens Act), and pretrial detention is common for flight risk cases."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Sweden",
+            "policy": "2-4 years for 5g dealing. Obstruction adds 3-12 months. Resisting arrest adds 3-6 months. Automatic deportation for non-citizens. Pretrial detention for flight risk. Running viewed as consciousness of guilt.",
+            "penalty": "3-5 years total with flight/resistance. Automatic deportation. Pretrial detention 4+ months."
+          },
+          {
+            "name": "Norway",
+            "policy": "Similar approach. 2-3 years for small amounts. Flight adds time. Automatic deportation for non-citizens. Similar pretrial detention practices.",
+            "penalty": "2-4 years with obstruction charges. Automatic deportation. Pretrial detention common."
+          },
+          {
+            "name": "Denmark",
+            "policy": "Harsher than Sweden. 3-5 years for dealing. Very strict on flight - significant sentence increases. Automatic deportation. Pretrial detention extensive.",
+            "penalty": "3-6 years with flight charges. Automatic deportation. Harsh pretrial detention."
+          }
+        ]
+      },
+      "data_visualization_note": "Chart sentence increases from flight/resistance. Show injury rates from violent arrests. Map pretrial detention duration impact on outcomes."
+    },
+    {
+      "character": "Dealer",
+      "id": "dealer_caught_compliant",
+      "title": "Surrender and Standard Sentence",
+      "narrative": "You run but stop when they order you to, and then you surrender peacefully. They search you, and find 5g of cocaine. You're arrested and charged with possession with intent to supply. Because you didn't resist, the prosecutor doesn't add obstruction charges. You're released on bail (unusual for non-citizens but you surrendered). After your trial, you are sentenced to 2.5 years in prison, then deportation. You serve 20 months, then the immigration police take you straight from prison to deportation detention.",
+      "legal_info": {
+        "title": "Standard Sentence and Deportation",
+        "text": "Sweden: 5g cocaine dealing = 2-4 years standard. Guilty plea sometimes reduces sentence slightly (2-3 years instead of 3-4). Compliance during arrest viewed positively - no additional charges. Non-citizens still face automatic deportation regardless of compliance."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Sweden",
+            "policy": "2-4 years standard for 5g dealing. Automatic deportation regardless of circumstances or destination danger. Courts have no discretion. Eritrea deportations continue despite human rights concerns.",
+            "penalty": "2-4 years prison, automatic deportation to Eritrea (indefinite military service/persecution)."
+          },
+          {
+            "name": "Germany",
+            "policy": "2-3 years for small dealing. Deportation is considered case-by-case, and destination conditions taken into account. Courts have more discretion in these cases.",
+            "penalty": "2-3 years, deportation case-by-case, destination conditions matter."
+          },
+          {
+            "name": "Netherlands",
+            "policy": "2-3 years for dealing. Deportation is not automatic for EU residents. Treatment is sometimes available for those considered addicts. Courts have more discretion.",
+            "penalty": "2-3 years, deportation not automatic, treatment options available."
+          }
+        ]
+      },
+      "data_visualization_note": "Compare automatic vs. discretionary deportation policies. Show human rights records of deportation destinations. Chart sentence length vs. deportation consequences."
+    },
+    {
+      "character": "Dealer",
+      "id": "dealer_treatment_diversion",
+      "title": "Admitting Addiction: Treatment and Deportation",
+      "narrative": "You admit you have a drug problem, and you request treatment instead of prison. Court evaluates: you're a user-dealer (dealing to support habit). They offer: 18 months suspended sentence if you complete addiction treatment program. You enter residential treatment, and succeed, but because you're a non-citizen, deportation still takes place.",
+      "legal_info": {
+        "title": "Treatment vs. Deportation Contradiction",
+        "text": "Sweden has treatment-based sentences for addiction-driven dealing under some circumstances. Suspended sentence with mandatory treatment is possible for small amounts if addiction is proven, but it doesn't prevent automatic deportation for non-citizens."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Sweden",
+            "policy": "Treatment available but deportation still automatic. Creates contradiction between rehabilitation goal and expulsion policy. Treatment investment wasted by deportation to unsupportive environment.",
+            "penalty": "18 months suspended with treatment, then deportation. Treatment success undermined by expulsion."
+          },
+          {
+            "name": "Portugal",
+            "policy": "Treatment-focused approach. Deportation not automatic. The accused can stay if the treatment is successful.",
+            "penalty": "Treatment focus, deportation not automatic, can stay if treatment successful."
+          },
+          {
+            "name": "Norway",
+            "policy": "Similar to Sweden. Treatment is available but deportation still takes place.",
+            "penalty": "Treatment available, but deportation remains automatic."
+          }
+        ]
+      },
+      "data_visualization_note": "Chart treatment success rates vs. deportation. Show relapse rates post-deportation. Map addiction treatment availability in deportation destination countries."
+    },
+    {
+      "character": "Dealer",
+      "id": "dealer_denial_conviction",
+      "title": "Denial and Full Conviction",
+      "narrative": "You deny the drugs are yours, but you're not very convincing. Your lawyer argues planted evidence, but the judge doesn't buy it: you're sentenced to 3.5 years, then deportation. In prison, you meet dealers who admitted their guilt and got 2 years. Your denial cost you time.",
+      "legal_info": {
+        "title": "Denial with Strong Evidence",
+        "text": "'Drugs planted on me' defense rarely succeeds when drugs found directly on person. Swedish courts view denial in face of strong evidence as lack of remorse, an aggravating factor in sentencing."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Sweden",
+            "policy": "Denial increases sentence when evidence is strong, and wasting court resources is viewed negatively.",
+            "penalty": "3-4 years with denial vs. 2-2.5 with guilty plea. Automatic deportation regardless."
+          },
+          {
+            "name": "UK",
+            "policy": "Similar approach. Denial viewed negatively when evidence strong. Sentences increased for 'wasting court time.' Courts are harsh on denials with overwhelming evidence.",
+            "penalty": "Similar sentence increases for denial. Harsh on unconvincing defenses."
+          },
+          {
+            "name": "Spain",
+            "policy": "Less punitive about denial, with sentences similar regardless of plea. Right to defense not viewed as 'wasting time'.",
+            "penalty": "Sentences similar for guilty plea vs. denial."
+          }
+        ]
+      },
+      "data_visualization_note": "Compare sentences for guilty plea vs. denial. Show conviction rates by evidence strength. Chart judicial resource costs of trials vs. guilty pleas."
+    },
+    {
+      "character": "Dealer",
+      "id": "dealer_inform_deportation",
+      "title": "Cooperation and Betrayal: Deported Informant",
+      "narrative": "You give up your supplier - name, phone, meeting locations. The police arrest him. Prosecution uses your testimony to sentence him to 5 years in prison, and you get a sentence reduction: 18 months instead of 3 years. You serve 14 months, after which you are detained for deportation. Meanwhile, your supplier's network knows you cooperated, and even after you are deported, you fear they may come after you.",
+      "legal_info": {
+        "title": "Cooperation Without Protection",
+        "text": "Cooperation in Sweden can reduce sentence by 30-50% under Narcotics Punishment Acc, but deportation is still automatic for non-citizens. Court testimony is public record, leaving those who testify vulnerable."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Sweden",
+            "policy": "Cooperation reduces sentence 30-50% but deportation still automatic. Public testimony creates retaliation risk. Limited protection for deported witnesses.",
+            "penalty": "18 months vs. 3 years, but deported as marked informant with no protection."
+          },
+          {
+            "name": "US",
+            "policy": "Better witness protection infrastructure but still insufficient. Cooperation can sometimes prevent deportation in federal cases.",
+            "penalty": "Better protection, cooperation can sometimes prevent deportation."
+          },
+          {
+            "name": "Netherlands",
+            "policy": "Cooperation valued. Some protection available. Deportation is not always automatic.",
+            "penalty": "Better protection, deportation not automatic."
+          }
+        ]
+      },
+      "data_visualization_note": "Map witness protection coverage vs. need. Show retaliation rates against deported cooperators. Chart cooperation benefits vs. long-term risks."
+    },
+    {
+      "character": "Dealer",
+      "id": "dealer_residue_possession",
+      "title": "Trace Evidence: Possession Conviction",
+      "narrative": "You dumped the packets but cocaine residue remains in your pocket. A field test is positive, and the lab later confirms it. You're charged with possession (not dealing, as they didn't recover the packets), and sentenced to 1 year prison, then deportation. You avoided the dealing charge (2-4 years) but still face prison and expulsion.",
+      "legal_info": {
+        "title": "Residue as Evidence",
+        "text": "Trace amounts of cocaine can support possession charges if enough for lab testing (typically >0.1g). Sweden prosecutes even residual amounts. Possession vs. dealing distinction matters: possession = 0-1 year, dealing = 2-4 years. Phone evidence of dealing without recovered drugs usually insufficient for an 'intent to supply' conviction. Deportation is automatic for ANY drug conviction, and even simple possession triggers expulsion for non-citizens."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Sweden",
+            "policy": "Any amount including residue prosecutable.",
+            "penalty": "Up to 1 year for residue possession, automatic deportation for any amount."
+          },
+          {
+            "name": "Portugal",
+            "policy": "Decriminalisation for personal use amounts. Residue would not even be considered a criminal charge, only administrative. No deportation for administrative violations.",
+            "penalty": "Administrative fine, no deportation."
+          },
+          {
+            "name": "Germany",
+            "policy": "Small amounts sometimes dismissed as 'personal use.' Deportation not automatic for simple possession. More prosecutorial discretion on trace amounts.",
+            "penalty": "Small amounts sometimes dismissed, deportation not automatic for possession."
+          }
+        ]
+      },
+      "data_visualization_note": "Show minimum amounts for prosecution by country. Compare possession vs. dealing sentencing. Map deportation thresholds (any amount vs. trafficking amounts)."
+    },
+    {
+      "character": "Dealer",
+      "id": "dealer_insufficient_evidence",
+      "title": "Insufficient Evidence: Released but Marked",
+      "narrative": "You dumped the drugs successfully. They search you and find cash, but no drugs, and no residue. They detain you for 12 hours, questioning you repeatedly, but you request a lawyer. After 24 hours, they release you without charges. You're in the system now, though, and you think your phone is probably monitored, and your name could be on a watchlist. You can't go back to dealing.",
+      "legal_info": {
+        "title": "Watchlist and Surveillance",
+        "text": "Without recovered drugs, conviction for dealing is difficult, but all information collected during detention (photos, prints, contacts) is retained indefinitely. Phone monitoring requires a warrant but intelligence gathering doesn't."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Sweden",
+            "policy": "Can detain 24 hours without charge. Data retention indefinite.",
+            "penalty": "Detention without charges, indefinite data retention, harassment without conviction."
+          },
+          {
+            "name": "Netherlands",
+            "policy": "Similar detention powers but stronger privacy protections. Data retention more limited. Less informal harassment. Better oversight of police surveillance.",
+            "penalty": "Similar detention but better privacy protections, less harassment."
+          },
+          {
+            "name": "Germany",
+            "policy": "Data retention limited by law. Fewer stop-and-search powers. Less harassment of unconvicted suspects. Stronger privacy protections.",
+            "penalty": "Limited data retention, fewer stop-and-search powers, less harassment."
+          }
+        ]
+      },
+      "data_visualization_note": "Show unconvicted detention rates. Map data retention policies by country. Chart frequency of stop-and-search for watchlisted individuals vs. general population."
+    },
+    {
+      "character": "Transporter",
+      "id": "transporter_successful_trapped",
+      "title": "Successful Delivery: Now You're Theirs",
+      "narrative": "You deliver successfully. Checkpoint waved you through. Men unload the container, give you a phone number. Two weeks later: 'Another job, $2,500.' You try to refuse. 'You already did one. We have cameras, GPS logs, your signature. You work for us now.' You're compromised. Over the next year: 15 deliveries. When finally caught, evidence shows systematic trafficking: 8-15 years minimum. The first job was a test. Now you're serving a life sentence on the installment plan.",
+      "legal_info": {
+        "title": "Systematic Trafficking Pattern",
+        "text": "Peru Penal Code Article 296-A: Transportation trafficking = 8-20 years. Multiple deliveries = organized crime enhancement. First delivery establishes pattern. Drivers coerced to continue through compromising evidence. Average trips before arrest: 12-15. Cumulative sentences: 10-18 years."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "8-20 years, organized crime adds time, coercion defense weak after multiple trips",
+            "penalty": "10-18 years for systematic pattern"
+          },
+          {
+            "name": "Colombia",
+            "policy": "10-20 years for transportation, forced participation common",
+            "penalty": "Similar, patterns recognized but rarely mitigate"
+          },
+          {
+            "name": "Mexico",
+            "policy": "15-25 years, high violence against non-compliant drivers",
+            "penalty": "Harsher sentences, more violence"
+          }
+        ]
+      },
+      "data_visualization_note": "Chart first-time vs. repeat arrests. Show coercion mechanisms. Map average trips before arrest."
+    },
+    {
+      "character": "Transporter",
+      "id": "transporter_caught_cooperate",
+      "title": "Checkpoint Confession: Reduced but Ruined",
+      "narrative": "Checkpoint police open container: 200kg cocaine. You confess everything - the foreman, the bribe, the address. You testify. Sentence: 4 years instead of 12. But you're a known informant. In prison, cartel inmates attack you. After 3 years, released. Organization remembers. Family receives threats. You relocate, change name, live in fear. Cooperation reduced prison time but created lifetime consequences.",
+      "legal_info": {
+        "title": "Cooperation and Inadequate Protection",
+        "text": "Cooperation reduces sentence 50-70% in Peru. Testimony public. Cartel retaliation systematic. Witness protection (Law 27378) underfunded. Post-release protection typically ends. Estimated 40% face retaliation within 5 years."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Cooperation reduces sentence significantly, protection inadequate",
+            "penalty": "4 years vs 12, but retaliation common"
+          },
+          {
+            "name": "Colombia",
+            "policy": "Better funded protection but still insufficient",
+            "penalty": "Reduced sentence, many protected witnesses killed"
+          },
+          {
+            "name": "US",
+            "policy": "More robust protection, cooperation can prevent deportation",
+            "penalty": "Better protection but still failures"
+          }
+        ]
+      },
+      "data_visualization_note": "Map cooperation benefits vs. retaliation rates. Show witness protection funding vs. need."
+    },
+    {
+      "character": "Transporter",
+      "id": "transporter_fugitive_hunted",
+      "title": "Abandonment and Flight: Permanent Fugitive",
+      "narrative": "You abandon truck before checkpoint. Police find 200kg cocaine, your registration, fingerprints. You're a fugitive. Organization also hunting you - you lost their $2 million. Three months later they find you. Options: pay $50,000, work off debt, or die. You end up doing armed collections. Six months later, caught in gunfight. Charges: trafficking, weapons, organized crime. Sentence: 15-25 years. Running created five worse problems.",
+      "legal_info": {
+        "title": "Flight Escalation",
+        "text": "Fleeing adds charges (1-3 years). 200kg = major trafficking (15-25 years Article 296-C). Organization pursues to recover loss. Fugitive status prevents legal employment. Many end up working for cartels. Weapons charges add 5-10 years. Organized crime enhancement adds time."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Flight adds charges, leads to deeper criminality",
+            "penalty": "15-25 years common"
+          },
+          {
+            "name": "Mexico",
+            "policy": "More violent, fugitives often killed not just forced to work",
+            "penalty": "Similar sentences if caught, higher death rate"
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Less organized cartel presence, fugitives sometimes escape",
+            "penalty": "Severe charges if caught"
+          }
+        ]
+      },
+      "data_visualization_note": "Show escalation from trafficking to organized crime. Chart fugitive outcomes. Map employment options."
+    },
+    {
+      "character": "Transporter",
+      "id": "transporter_police_corruption",
+      "title": "Port Police Report: Corruption and Danger",
+      "narrative": "You report to port police. Two days later the foreman confronts you. 'You went to port police? Bad choice.' He knows every detail. Port police told the organization. You're marked as 'unreliable.' Over next month: tires slashed, windshield smashed, threats. Port police 'can't find evidence.' You quit your job - too dangerous. Lost income. The people you reported still working. You did the 'right thing' and lost everything.",
+      "legal_info": {
+        "title": "Port Police Corruption",
+        "text": "Port corruption in Peru: estimated 30-40% of port police take bribes. Reporting to corrupt police warns traffickers. Witness identity 'protection' often doesn't exist. Retaliation common. No legal recourse when police leak identity. Many who report end up quitting."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "High port corruption, whistleblower protection minimal",
+            "penalty": "Retaliation common, career loss"
+          },
+          {
+            "name": "Colombia",
+            "policy": "Similar corruption, reporting dangerous",
+            "penalty": "Similar outcomes"
+          },
+          {
+            "name": "Netherlands",
+            "policy": "Lower corruption, reporting safer",
+            "penalty": "Better whistleblower protections"
+          }
+        ]
+      },
+      "data_visualization_note": "Chart corruption levels. Show reporting outcomes. Map internal affairs effectiveness."
+    },
+    {
+      "character": "Transporter",
+      "id": "transporter_federal_investigation",
+      "title": "Federal Report: Protected but Unemployed",
+      "narrative": "You call DIRANDRO. Investigation takes 4 months. You can't work at port (too dangerous). Witness stipend: $300/month (your salary was $700). Investigation concludes: 15 arrests. But you can never work at port again - career over. Relocation assistance: $2,000. You move to Arequipa, start over. New city, warehouse work, less pay. You did the right thing but your life was permanently disrupted. Moral victory doesn't pay bills.",
+      "legal_info": {
+        "title": "Career and Financial Disruption",
+        "text": "DIRANDRO less corrupt but investigations take 3-6 months. Witness stipend minimal ($300/month). Can't return to workplace. Relocation assistance ($2,000-5,000) insufficient. Most witnesses experience permanent income reduction. Many regret cooperating despite moral satisfaction."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Federal police cleaner, protection inadequate, career destruction",
+            "penalty": "Financial hardship, displacement"
+          },
+          {
+            "name": "US",
+            "policy": "Better financial support, sometimes ongoing payments",
+            "penalty": "Better support but still life disruption"
+          },
+          {
+            "name": "Italy",
+            "policy": "Stronger protection, ongoing financial support",
+            "penalty": "Better outcomes but still costs"
+          }
+        ]
+      },
+      "data_visualization_note": "Compare witness stipends vs. living costs. Chart career outcomes. Show income changes pre/post cooperation."
+    },
+    {
+      "character": "Transporter",
+      "id": "transporter_theft_retaliation",
+      "title": "Merchandise Theft: Cartel Justice",
+      "narrative": "You take the container. 200kg cocaine worth $2 million. You approach a dealer to sell 1kg. He reports to his supplier. Word spreads. Five days later: cartel enforcers find you. They want merchandise back. You've sold 5kg - can't return it all. They beat you severely, take what's left, then kill you anyway. Your body found with sign: 'This is what happens to thieves.' The $2 million fantasy became a death sentence. You became the lesson.",
+      "legal_info": {
+        "title": "Cartel Theft Punishment",
+        "text": "Stealing from cartels: >90% killed. Organizations punish theft severely to maintain control. Punishment public - usually death. Time from theft to retaliation: 3-10 days. Even partial return doesn't save you. Police rarely investigate cartel killings thoroughly. Family sometimes targeted."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Peru",
+            "policy": "Cartel killings common, police investigation minimal, >90% unsolved",
+            "penalty": "Death typical outcome"
+          },
+          {
+            "name": "Mexico",
+            "policy": "Extremely violent, theft often torture then death, family killed",
+            "penalty": "Most brutal outcomes"
+          },
+          {
+            "name": "Colombia",
+            "policy": "Similar, severe punishment, theft rare",
+            "penalty": "Death systematic"
+          }
+        ]
+      },
+      "data_visualization_note": "Chart theft outcomes. Map cartel violence rates. Show investigation rates for cartel homicides."
+    },
+    {
+      "character": "Wholesaler",
+      "id": "wholesaler_successful_expanding",
+      "title": "Successful Retrieval: Expanding Operations",
+      "narrative": "Port worker delivers. You have 50kg to distribute. Over next month you sell it - profit: $200,000. Success breeds confidence. Next: 100kg. Then 200kg. Within a year you're moving major weight. But larger operations attract attention. Eighteen months later: coordinated police raids across 6 locations. They've been watching for months. Evidence: phone records, financial transactions, testimony from 3 dealers. Charges: large-scale trafficking, organized crime, money laundering. Sentence: 15-20 years. Success made you visible. Visibility made you a target.",
+      "legal_info": {
+        "title": "Escalation and Surveillance",
+        "text": "Spain Penal Code Article 368: Large-scale (50kg+) = 9-13.5 years. Organized crime (Article 570bis): +4-8 years. Money laundering (Article 301): +2-6 years. Total: 15-27 years. Police surveil successful operations to build case. Average time from first shipment to arrest: 18-36 months. Probability of arrest for wholesale traffickers: >85%."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Spain",
+            "policy": "15-27 years for large-scale organized trafficking, extensive surveillance",
+            "penalty": "15-27 years, high arrest rates"
+          },
+          {
+            "name": "Netherlands",
+            "policy": "8-15 years, organized crime enhances, similar surveillance",
+            "penalty": "8-15 years"
+          },
+          {
+            "name": "UK",
+            "policy": "14+ years for large trafficking, aggressive prosecution",
+            "penalty": "14+ years"
+          }
+        ]
+      },
+      "data_visualization_note": "Chart escalation patterns. Show time from first shipment to arrest. Map surveillance duration vs. operation size."
+    },
+    {
+      "character": "Wholesaler",
+      "id": "wholesaler_sting_arrested",
+      "title": "Undercover Sting: Long-term Investigation",
+      "narrative": "'Port worker' was Guardia Civil undercover. At warehouse, 15 officers surround you. They have: recorded conversations, bribe money (UV marked), photos, 50kg cocaine. Charges: trafficking (50kg), bribery, conspiracy, organized crime. Evidence overwhelming. Sting operations legal if supervised. Lawyer explains: no defense. Sentence: 15 years. The person helping you was building the case that destroyed you.",
+      "legal_info": {
+        "title": "Sting Operations",
+        "text": "Undercover operations legal in Spain (Organic Law 5/1999). Recording legal for serious crimes. Bribery of official (even undercover, Article 419): 2-4 years. Entrapment defense rarely succeeds. Combined charges: trafficking (9-13) + bribery (2-4) + organized crime (4-8). Sting conviction rate: >95%."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Spain",
+            "policy": "Undercover stings legal, high conviction rate, combined charges",
+            "penalty": "15+ years typical"
+          },
+          {
+            "name": "US",
+            "policy": "Similar stings, entrapment defense difficult",
+            "penalty": "Comparable sentences"
+          },
+          {
+            "name": "Germany",
+            "policy": "Undercover more restricted, requires stronger oversight",
+            "penalty": "Slightly shorter sentences"
+          }
+        ]
+      },
+      "data_visualization_note": "Show conviction rates for sting vs. regular operations. Chart sentence enhancements."
+    },
+    {
+      "character": "Wholesaler",
+      "id": "wholesaler_worker_theft",
+      "title": "Port Worker Theft: Cartel Consequences",
+      "narrative": "Port worker stole the 50kg worth $500,000. You report to Colombian supplier. 'You chose the worker. You're responsible.' You owe $500,000. Thirty days to pay. You don't have it. Twenty-eight days later: cartel enforcers from Colombia arrive. They're executioners, not negotiators. You can't pay. They beat you unconscious, then make an example. Body found three days later. Port worker selling cocaine in France. You're dead because you chose wrong person. Cartel needed someone to blame.",
+      "legal_info": {
+        "title": "Cartel Contract Enforcement",
+        "text": "Cartels enforce through violence - legal system doesn't apply. Mid-level distributors held responsible for losses. Enforcers brought from origin country for punishment. 'Examples' warn others. Police investigate but solve rate <20%. Family sometimes targeted if primary target flees."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Spain",
+            "policy": "Cartel killings ~10-15/year, solve rate <20%",
+            "penalty": "Death typical"
+          },
+          {
+            "name": "Netherlands",
+            "policy": "Similar violence, enforcers from origin countries",
+            "penalty": "Death common"
+          },
+          {
+            "name": "Colombia",
+            "policy": "Origin country highest violence, international reach",
+            "penalty": "Most violent"
+          }
+        ]
+      },
+      "data_visualization_note": "Map cartel homicides in Europe. Show solve rates. Chart enforcer origins vs. killing locations."
+    },
+    {
+      "character": "Wholesaler",
+      "id": "wholesaler_retrieved_continued",
+      "title": "Self-Retrieval Success: Living on Borrowed Time",
+      "narrative": "Fake credentials work. You retrieve 50kg, distribute it. Success. But credentials now compromised - can't use again. Over 2 years, 8 successful shipments using different methods. You're making money but each success is a gamble. Shipment 9: police waiting at warehouse. Surveillance started 6 months ago. They watched you, followed you, documented everything. Evidence from 9 shipments. Charges: systematic trafficking, organized crime, false documents. Sentence: 18 years. Each pickup built the case against you. You thought you were succeeding. You were creating your prison sentence.",
+      "legal_info": {
+        "title": "Pattern Evidence",
+        "text": "Repeated operations = systematic trafficking. False documents (Article 392): 2-6 years additional. Police surveil for months before arrest. Multiple shipments = organized crime automatic. Sentences compound: per-shipment + pattern + false documents + organized crime. Total: 15-25 years. Successful criminals face longer sentences - more evidence."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Spain",
+            "policy": "Multiple operations = organized crime (15-25 years), false documents add years",
+            "penalty": "15-25 years"
+          },
+          {
+            "name": "Italy",
+            "policy": "Organized crime laws severe, multiple operations lead to decades",
+            "penalty": "Similar, 15-20 years"
+          },
+          {
+            "name": "France",
+            "policy": "Sophisticated operations prosecuted aggressively",
+            "penalty": "15-20 years"
+          }
+        ]
+      },
+      "data_visualization_note": "Chart sentence increases by number of operations. Show surveillance duration. Map evidence accumulation."
+    },
+    {
+      "character": "Wholesaler",
+      "id": "wholesaler_credentials_caught",
+      "title": "Fake ID Detection: Immediate Arrest",
+      "narrative": "ID flagged. Security detains you. Police search car: wire cutters, duffel bag, container number on phone. Clear intent. Arrested for: attempted trafficking, false documents, trespassing. No drugs retrieved but enough for conspiracy. Phone has supplier messages. Trial: prosecutor argues clear conspiracy. Defense: no drugs retrieved. Judge: attempt is enough. Sentence: 8 years for conspiracy and false documents. Lighter than if you'd retrieved (12-15 years) but still nearly a decade in Spanish prison.",
+      "legal_info": {
+        "title": "Attempt and Conspiracy",
+        "text": "Conspiracy (Article 368) doesn't require completed crime - attempt sufficient. Evidence: fake credentials, container number, equipment, supplier messages. Spain prosecutes attempts seriously: conspiracy = 50-70% of completed crime sentence. False documents: +2-6 years. Combined: 6-10 years typical. Intent is the crime."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Spain",
+            "policy": "Attempt/conspiracy prosecuted seriously (6-10 years), intent suffices",
+            "penalty": "6-10 years"
+          },
+          {
+            "name": "UK",
+            "policy": "Similar, conspiracy laws broad, comparable sentences",
+            "penalty": "5-10 years for attempt"
+          },
+          {
+            "name": "Germany",
+            "policy": "Slightly more lenient on attempts, requires more proof",
+            "penalty": "4-8 years typical"
+          }
+        ]
+      },
+      "data_visualization_note": "Compare attempt vs. completed crime sentences. Chart conspiracy conviction rates."
+    },
+    {
+      "character": "Wholesaler",
+      "id": "wholesaler_migrant_caught",
+      "title": "Hired Worker Arrested: Expanded Charges",
+      "narrative": "You hire undocumented Senegalese migrant. Give him fake ID, send him to port. Police stop him. He panics, runs, caught. 50kg in truck. He confesses: you hired him, paid $500, gave fake ID, told him location. Police arrest you 3 hours later. Charges: trafficking, human trafficking (exploiting vulnerable migrant), conspiracy, providing false documents. Original: 9-13 years. Additional: trafficking persons (4-8), conspiracy (2-4), false documents (2-6). Total exposure: 17-31 years. Judge harsh: 'You exploited a desperate person.' Sentence: 22 years. The $500 cost you two decades.",
+      "legal_info": {
+        "title": "Vulnerable Person Exploitation",
+        "text": "Exploiting vulnerable people = human trafficking (Article 177bis). Migrants especially undocumented = 'vulnerable' by definition. Trafficking charge: +4-8 years. Providing false documents to another (Article 395): 2-6 years. Courts treat exploitation as aggravating - sentences on higher end. Media attention = political pressure. Migrant testimony credible. Combined exposure: decades."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Spain",
+            "policy": "Exploitation of migrants = trafficking (17-31 years possible), harsh sentences",
+            "penalty": "17-31 years"
+          },
+          {
+            "name": "Italy",
+            "policy": "Human trafficking laws strict, exploitation heavily punished",
+            "penalty": "Similar sentences"
+          },
+          {
+            "name": "France",
+            "policy": "Vulnerable exploitation increases sentences dramatically",
+            "penalty": "Comparable"
+          }
+        ]
+      },
+      "data_visualization_note": "Chart sentences with vs. without vulnerable person exploitation. Show human trafficking charges in drug cases."
+    },
+    {
+      "character": "Producer",
+      "id": "producer_left_hunted",
+      "title": "Permitted Departure: Life Under Threat",
+      "narrative": "Boss lets you leave. 'Go. But you never saw this place. If police ask, you know nothing. If I hear you talked, I'll find you.' You return to family, get farming job. But every few months, someone from organization 'checks in' - shows up at farm, reminds you to stay quiet. Two years later, police interview everyone. They ask about labs. You lie - know nothing. Officer knows you're lying. Afterward, organization hears you were questioned. More frequent check-ins, more threats. You're out but never free. Your children grow up watching armed men visit. This is the price of being 'allowed' to leave.",
+      "legal_info": {
+        "title": "Permanent Control",
+        "text": "Former lab workers become permanent witnesses/liabilities. Cartels maintain control through intimidation. Witness intimidation (Article 454) is crime but victims can't report without self-incrimination. If police discover former involvement, can be prosecuted years later - no statute of limitations for drug production. Living in fear better than death but still severe punishment."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Colombia",
+            "policy": "Former workers remain under cartel control indefinitely, intimidation constant",
+            "penalty": "Permanent fear, can't report without self-incrimination"
+          },
+          {
+            "name": "Peru",
+            "policy": "Similar, former workers monitored, intimidation common",
+            "penalty": "Similar patterns"
+          },
+          {
+            "name": "Mexico",
+            "policy": "Most violent, former workers often killed even with permission",
+            "penalty": "Death common even with permission"
+          }
+        ]
+      },
+      "data_visualization_note": "Chart intimidation patterns. Show duration of cartel monitoring post-departure."
+    },
+    {
+      "character": "Producer",
+      "id": "producer_forced_continue",
+      "title": "Forced Continuation: Slow Death by Chemicals",
+      "narrative": "Boss refuses. 'You leave when I say. Maybe next year.' Trapped. You continue with toxic chemicals. Health deteriorates - chronic cough, skin lesions, neurological problems. After 18 months you collapse from chemical poisoning. Cartel doctor treats acute symptoms but you have permanent lung damage. Can barely breathe. Boss finally lets you leave - too sick to work. You return home unable to do physical labor. Earning capacity destroyed. Need ongoing medical care you can't afford. Chronic respiratory disease and likely cancer (60% chance within 10 years). You survive the lab but it's killing you slowly. Cartel extracted your labor then discarded you.",
+      "legal_info": {
+        "title": "Chemical Exposure Health Damage",
+        "text": "Chemical exposure causes: respiratory disease (gasoline/solvent fumes), acid burns (sulfuric acid), heavy metal poisoning, neurological damage (organic solvents). No safety standards in illegal labs. No legal recourse for workplace injuries. Long-term: chronic lung disease, cancer (lung, liver), neurological disorders. If caught in raids, prosecuted despite coerced labor - courts often don't recognize coercion defense for production."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Colombia",
+            "policy": "No protections, health damage common, coercion defense rarely accepted",
+            "penalty": "Permanent health damage, no recourse"
+          },
+          {
+            "name": "Peru",
+            "policy": "Similar, lab workers viewed as criminals not victims",
+            "penalty": "Health consequences ignored"
+          },
+          {
+            "name": "Bolivia",
+            "policy": "Some legal distinction between coerced workers and organizers, limited protection",
+            "penalty": "Somewhat better"
+          }
+        ]
+      },
+      "data_visualization_note": "Chart health outcomes (respiratory, cancer, neurological). Show coercion defense success rates."
+    },
+    {
+      "character": "Producer",
+      "id": "producer_execution_example",
+      "title": "Immediate Execution: The Example",
+      "narrative": "Boss pulls gun. 'You know I can't let you leave. You know too much. Others are thinking about quitting too.' Shoots you. Body left in jungle. Other workers brought to see it. 'This is what happens to quitters.' Family told you 'disappeared' - never get body. Cartel can't let workers quit - would destroy labor pool. Your death prevents five others from asking. Police find remains 8 months later. Investigation but witnesses too scared. Your murder unsolved. Children grow up fatherless. You became a lesson: wanting to live costs you your life.",
+      "legal_info": {
+        "title": "Worker Executions",
+        "text": "Execution of workers documented in Colombian cartels. Purpose: discipline and prevent information leaks. Bodies displayed to workers. Families rarely report (fear). Police investigation limited - witnesses scared. Unsolved murder rate in coca regions: >60%. Cartels operate with impunity in remote areas. State presence minimal. Workers essentially slaves - can't leave. This is trafficking (forced labor under threat) but prosecution rare - victims dead or terrified."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Colombia",
+            "policy": "High murder rate in remote areas, >60% unsolved, minimal state presence",
+            "penalty": "Death for attempting to quit"
+          },
+          {
+            "name": "Peru",
+            "policy": "Similar, remote labs operate with impunity, worker killings common",
+            "penalty": "Similar patterns"
+          },
+          {
+            "name": "Mexico",
+            "policy": "Most violent, worker killings frequent and brutal, complete impunity",
+            "penalty": "Most brutal"
+          }
+        ]
+      },
+      "data_visualization_note": "Map unsolved murders in coca regions. Show worker killings vs. prosecution rates."
+    },
+    {
+      "character": "Producer",
+      "id": "producer_witness_protection",
+      "title": "Successful Reporting: Protected but Displaced",
+      "narrative": "Raid succeeds. Witness protection relocates you to Bogot\u00e1, new identity, $500/month for 6 months. Your testimony convicts 3 cartel members - 18-25 years each. You're safe but displaced. Children left school, wife left family. You have no transferable skills. Support ends after 6 months. Struggle to find city work. Family lives in small apartment in dangerous neighborhood. You survived and helped justice but life destroyed anyway. Criminals got 25 years. You got lifetime of displacement and poverty. Both punishments, different forms. Justice served but you paid for it.",
+      "legal_info": {
+        "title": "Witness Protection Inadequacy",
+        "text": "Colombia witness protection exists but underfunded. Support: $500-800/month for 6-12 months then ends. Relocation: major cities where witnesses become urban poor. Job prospects: no transferable skills, can't disclose work history. Family displacement: children leave schools, spouses leave networks. Long-term: most experience permanent income reduction (50-70% less). Some regret cooperating - personal costs too high."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Colombia",
+            "policy": "Protection exists but inadequate, $500-800/month for 6-12 months, permanent displacement",
+            "penalty": "Protected but impoverished"
+          },
+          {
+            "name": "US",
+            "policy": "Better funding, longer-term support, but still significant life disruption",
+            "penalty": "Better support"
+          },
+          {
+            "name": "Italy",
+            "policy": "Strongest protection under anti-mafia laws, ongoing support",
+            "penalty": "Best outcomes"
+          }
+        ]
+      },
+      "data_visualization_note": "Compare witness support vs. living costs. Chart long-term outcomes (income, stability)."
+    },
+    {
+      "character": "Producer",
+      "id": "producer_traitor_killed",
+      "title": "Discovered Informant: Traitor's Death",
+      "narrative": "Someone saw you call. Or absence during raid too convenient. Cartel figures it out. They find you before prosecutor relocates you. Enforcers take you to jungle. Torture first - want names of anyone else you told. You tell nothing because you told no one. They don't believe you. Torture continues. Eventually kill you. Body found with sign: 'Sapo' (snitch). Not just murder - communication to region: informants die badly. Family receives threats for months. Your wife and children flee to another department. Your attempt to escape destroyed your family and cost your life. The people you reported? Replaced within 2 weeks. Lab operates again within month. Your death changed nothing except orphaning your children.",
+      "legal_info": {
+        "title": "Informant Killings",
+        "text": "'Sapo' killings (informant executions) common in coca regions. Purpose: deter future informants through brutal example. Torture before death standard. Bodies displayed with signs. Family consequences: displaced or killed. Witness protection often can't act fast enough - gap between report and protection creates vulnerability. Estimated 40% of informants killed before protection. Investigations rarely result in convictions. Cartels prioritize killing informants - maintaining silence existential for organization."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Colombia",
+            "policy": "~200 informant killings/year estimated, >80% unsolved, protection too slow",
+            "penalty": "Death before protection"
+          },
+          {
+            "name": "Mexico",
+            "policy": "Even more violent, informant killings public and brutal, complete impunity",
+            "penalty": "Most violent"
+          },
+          {
+            "name": "Peru",
+            "policy": "Similar to Colombia, informant deaths common, protection inadequate",
+            "penalty": "Similar patterns"
+          }
+        ]
+      },
+      "data_visualization_note": "Map informant killing rates vs. protection response times. Show time gap between reporting and protection."
+    },
+    {
+      "character": "Producer",
+      "id": "producer_fugitive_disappeared",
+      "title": "Successful Disappearance: Permanent Fugitive",
+      "narrative": "You flee to Venezuela. New identity, avoid hometown, cut family contact (cartel might torture them for information). Find construction work in Caracas. Low pay, cash, fake name. Every siren makes heart race. Every stranger could be enforcer. Haven't seen children in 2 years - too dangerous. Wife knows you're alive but not where. This is freedom: fake name, foreign country, isolated from everyone you love, always afraid. Better than dead. Worse than imprisoned. Years pass. Cartel probably forgets - small fish. But you'll never know. You'll spend life wondering if today is the day. You escaped the lab but still trapped - in fear, isolation, permanent exile.",
+      "legal_info": {
+        "title": "Successful Disappearance Costs",
+        "text": "Successfully disappearing requires: cutting family contact, fake identity (crime), illegal border crossing often, illegal work (can't use real identity), permanent displacement. Venezuela/Ecuador easier to disappear into (large refugee populations). Long-term psychological costs: isolation, paranoia, inability to build stable life. No legal recourse if victimized. Many regret after years of isolation. Children grow up without parent. Success in escaping = success in becoming invisible at cost of losing all connections."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Colombia \u2192 Venezuela",
+            "policy": "Common route, 1+ million Colombian migrants, easy to disappear",
+            "penalty": "Isolation, permanent exile"
+          },
+          {
+            "name": "Peru \u2192 Ecuador",
+            "policy": "Similar pattern, large migrant populations enable anonymity",
+            "penalty": "Similar outcomes"
+          },
+          {
+            "name": "Mexico \u2192 US",
+            "policy": "Harder due to enforcement but some successful disappearances",
+            "penalty": "More difficult"
+          }
+        ]
+      },
+      "data_visualization_note": "Chart fugitive outcomes (isolation, mental health). Map displacement routes. Show fugitive stability vs. quality of life."
+    },
+    {
+      "character": "Producer",
+      "id": "producer_caught_punishment",
+      "title": "Captured Fleeing: Forced Return and Punishment",
+      "narrative": "One week. Enforcers find you at bus station. Bring you back. Boss furious. 'You tried to run. Now everyone will know what happens.' Severe beating - broken bones, permanent injuries. Then: 'You're working double shifts, 7 days a week, no pay except food. You try again, we kill your family first, then you.' You're now slave, not employee. Work in pain from injuries (untreated). Eight months until police raid lab. You're arrested with everyone. Try to claim forced labor - police don't believe. Charges: cocaine production. Sentence: 16 years. Cartel punished you for trying to leave. State punished you for being caught. Both systems destroyed you.",
+      "legal_info": {
+        "title": "Coercion Defense Failure",
+        "text": "Attempted desertion punished severely to prevent others trying. Punishment: beatings, forced labor, sometimes maiming. Coercion defense difficult - courts skeptical. Evidence needed: visible injuries help but not determinative. Prosecution assumes voluntary unless strong proof. Forced labor in production = trafficking under international law but domestic courts often don't apply. If caught in raid, workers prosecuted same as willing participants. Sentences for production: 15-25 years Colombia. No distinction between coerced and voluntary in most cases."
+      },
+      "policy_comparison": {
+        "countries": [
+          {
+            "name": "Colombia",
+            "policy": "Production charges 15-25 years, coercion defense rarely successful, forced laborers prosecuted as criminals",
+            "penalty": "15-25 years regardless of coercion"
+          },
+          {
+            "name": "Peru",
+            "policy": "10-20 years production, minimal recognition of coercion",
+            "penalty": "Similar sentences"
+          },
+          {
+            "name": "Ecuador",
+            "policy": "10-15 years production, no coercion defense in practice",
+            "penalty": "No distinction"
+          }
+        ]
+      },
+      "data_visualization_note": "Chart forced labor vs. voluntary worker prosecution rates (same). Show coercion defense success rates (very low)."
+    }
+  ]
+}
